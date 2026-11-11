@@ -1,6 +1,10 @@
 // Shared behaviour for every page: page transitions, scroll reveal, media placeholders,
 // access codes, the lightbox and the 3D viewer controls.
 import { PROJECTS, CODES } from './data.js';
+import { pixels } from './pixels.js';
+
+// Pixel motion ([data-pixels]) starts itself on every page.
+pixels();
 
 export const ROOT = new URL('../../', import.meta.url).href; // site root, wherever it is hosted
 export const $ = (s, r = document) => r.querySelector(s);

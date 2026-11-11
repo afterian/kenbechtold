@@ -29,6 +29,7 @@ assets/js/ui.js            Shared behaviour (reveal, media, codes, lightbox, vie
 assets/js/home.js          Home page only
 assets/js/case.js          Case-study pages only
 assets/js/models.js        3D: placeholder forms, viewer, still renderer (loads three.js)
+assets/js/pixels.js        Pixel motion effect (section 5c)
 work/template/index.html   Case-study template and block reference (not indexed)
 work/<id>/index.html       One folder per project. Put its media in work/<id>/media/
 assets/media/              Shared media. Holds the two placeholder clips for now
@@ -336,6 +337,23 @@ python scripts/serve.py
 ```
 
 Use this instead of `python -m http.server`. Seeking in a video needs a server that supports byte ranges; GitHub Pages does, the built-in Python server does not, so scrubbing would jump back to the start.
+
+---
+
+## 5c. Pixel motion
+
+A coded version of the placeholder clips: a small cellular automaton (Conway's Life with fading trails) drawn in the accent color. It is the site's one decorative texture.
+
+```html
+<div class="pixels" data-pixels></div>
+```
+
+- Give it a height (a class, or inline). It fills its box. `data-pixels="12"` sets the cell size in px; default is 8. Bigger cells read as chunkier and calmer.
+- It starts by itself on every page (`assets/js/pixels.js`, loaded by `ui.js`), follows `--acc`, runs at about 11 steps a second, only while on screen, and shows a single still frame for reduced-motion visitors.
+- Live cells are solid accent; cells that just died fade out over about a second. Keep it on `--bg` so the trails read.
+- **Where it lives now:** a short strip above the email in the home footer (`.foot__pixels`), fading out toward the top.
+- **Use it** small and at the edges: a footer strip, a divider band, an empty media frame. Fade one edge with a mask so it never ends on a hard line.
+- **Don't** put it behind text, run more than one per screen, or use it at full-page size. It is an accent, like the green itself.
 
 ---
 

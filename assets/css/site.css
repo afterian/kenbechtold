@@ -232,6 +232,13 @@ figcaption, .caption { margin-top: 10px; font: 500 var(--t-label)/1.4 var(--mono
 .vid--player:fullscreen { width: 100vw; height: 100vh; aspect-ratio: auto; border: 0; }
 .vid--player:fullscreen video { object-fit: contain; }
 
+/* 9c Pixel motion --------------------------------------------------------- */
+/* <div class="pixels" data-pixels></div> : accent-colored cellular automaton (assets/js/pixels.js).
+   Needs a height. Use it small and at the edges, never behind text. */
+.pixels { position: relative; overflow: hidden; }
+.pixels canvas { position: absolute; top: 0; left: 0; width: 100%; height: 100%; image-rendering: pixelated; image-rendering: crisp-edges; }
+.foot__pixels { height: clamp(64px, 9vw, 128px); margin-bottom: clamp(20px, 3vw, 40px); opacity: .85; -webkit-mask-image: linear-gradient(to top, #000, transparent); mask-image: linear-gradient(to top, #000, transparent); }
+
 /* video as the home hero background */
 .hero__v { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; display: none; }
 .hero--video .hero__v { display: block; animation: fade 1.2s both; }
