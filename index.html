@@ -1,71 +1,104 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#f4f2ed">
-  <title>Ken Bechtold</title>
-  <style>
-    :root {
-      color-scheme: light;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      font-synthesis: none;
-      text-rendering: optimizeLegibility;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      background: #f4f2ed;
-      color: #242321;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      min-width: 18rem;
-      min-height: 100vh;
-      min-height: 100svh;
-      margin: 0;
-      display: grid;
-      place-items: center;
-      padding: 2rem;
-    }
-
-    main {
-      text-align: center;
-    }
-
-    h1,
-    p {
-      margin: 0;
-      font-size: clamp(1rem, 2.5vw, 1.125rem);
-      font-weight: 600;
-      line-height: 1.6;
-      letter-spacing: -0.015em;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-      text-underline-offset: 0.2em;
-    }
-
-    a:hover,
-    a:focus-visible {
-      text-decoration: underline;
-    }
-
-    a:focus-visible {
-      outline: 2px solid currentColor;
-      outline-offset: 0.25rem;
-      border-radius: 1px;
-    }
-  </style>
+  <title>Ken Bechtold — AI · 3D · Motion</title>
+  <meta name="description" content="Ken Bechtold. AI, 3D and motion design. Selected work and case studies.">
+  <meta name="theme-color" content="#08080a">
+  <meta property="og:title" content="Ken Bechtold — AI · 3D · Motion">
+  <meta property="og:description" content="AI, 3D and motion design. Selected work and case studies.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2308080a'/%3E%3Ccircle cx='16' cy='16' r='6' fill='%2333ff99'/%3E%3C/svg%3E">
+  <script>document.documentElement.classList.remove('no-js');</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/site.css">
+  <script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
 </head>
-<body>
+<body id="top">
+  <header class="bar">
+    <a class="bar__id" href="./"><b>Ken Bechtold</b><span>AI · 3D · Motion</span></a>
+    <nav class="bar__links" aria-label="Contact">
+      <a href="mailto:ken@afterthehomework.com"><span class="l">ken@afterthehomework.com</span><span class="s">Email</span></a>
+      <a href="#">CV ↓</a>
+      <a href="#">LinkedIn</a>
+      <a href="#">Instagram</a>
+      <a href="#">Vimeo</a>
+    </nav>
+    <div class="code" data-code>
+      <button type="button" class="code__toggle" data-code-toggle>Have a code?</button>
+      <form autocomplete="off"><input maxlength="5" placeholder="•••••" aria-label="Access code" spellcheck="false" autocapitalize="characters"><button type="submit" aria-label="Enter code">→</button></form>
+      <span class="code__on">For <b data-code-name></b><button type="button" data-code-clear aria-label="Clear code">×</button></span>
+    </div>
+  </header>
+
   <main>
-    <h1>Ken Bechtold</h1>
-    <p><a href="mailto:ken@afterthehomework.com">ken@afterthehomework.com</a></p>
+    <a class="hero" data-hero href="work/deep-capture/">
+      <canvas class="hero__c" aria-hidden="true"></canvas>
+      <div class="hero__split" aria-hidden="true"><span>Shaded</span><span>Wire</span></div>
+      <div class="hero__hud" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+      <div class="hero__body">
+        <div>
+          <p class="tag"><i class="dot"></i><span data-h="label">Featured</span><span class="dim" data-h="count"></span></p>
+          <h1 data-h="title"></h1>
+          <p class="hero__line" data-h="line"></p>
+        </div>
+        <div class="hero__meta">
+          <dl>
+            <div><dt>Role</dt><dd data-h="role"></dd></div>
+            <div><dt>Year</dt><dd data-h="year"></dd></div>
+            <div><dt>Scope</dt><dd data-h="tags"></dd></div>
+          </dl>
+          <span class="btn">Case study <b>↗</b></span>
+        </div>
+      </div>
+      <span class="hero__cur" aria-hidden="true"><i>Open</i></span>
+    </a>
+
+    <section class="sec" id="work">
+      <header class="sec__h"><h2 data-work-h>Selected work</h2><span data-code-note></span><span data-work-n></span></header>
+      <div class="work" data-work></div>
+    </section>
+
+    <section class="sec" id="fragments">
+      <header class="sec__h">
+        <h2>Fragments</h2>
+        <div class="chips" data-chips role="group" aria-label="Filter fragments">
+          <button type="button" aria-pressed="true" data-t="">All</button>
+          <button type="button" aria-pressed="false" data-t="3D">3D</button>
+          <button type="button" aria-pressed="false" data-t="AI">AI</button>
+          <button type="button" aria-pressed="false" data-t="Motion">Motion</button>
+          <button type="button" aria-pressed="false" data-t="Tools">Tools</button>
+        </div>
+      </header>
+      <div class="frag" data-frag></div>
+    </section>
+
+    <noscript>
+      <section class="sec">
+        <header class="sec__h"><h2>Work</h2></header>
+        <ul>
+          <li><a href="work/deep-capture/">Deep Capture</a></li>
+          <li><a href="work/sixfold-war/">The Sixfold War</a></li>
+          <li><a href="work/arena-51/">Arena 51</a></li>
+          <li><a href="work/mesh-research/">AI Meshing</a></li>
+          <li><a href="work/virtual-space/">Virtual Space</a></li>
+        </ul>
+      </section>
+    </noscript>
   </main>
+
+  <footer class="foot">
+    <a class="foot__mail" href="mailto:ken@afterthehomework.com">ken@afterthehomework.com<span>↗</span></a>
+    <div class="foot__row">
+      <span>© 2026 Ken Bechtold</span>
+      <nav aria-label="Links"><a href="#">CV ↓</a><a href="#">LinkedIn</a><a href="#">Instagram</a><a href="#">Vimeo</a></nav>
+      <a href="#top">Top ↑</a>
+    </div>
+  </footer>
+
+  <script type="module" src="assets/js/home.js"></script>
 </body>
 </html>

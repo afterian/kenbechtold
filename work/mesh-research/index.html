@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI Meshing — Ken Bechtold</title>
+  <meta name="description" content="Splats and photometric stereo for glossy surfaces.">
+  <meta name="theme-color" content="#08080a">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2308080a'/%3E%3Ccircle cx='16' cy='16' r='6' fill='%2333ff99'/%3E%3C/svg%3E">
+  <script>document.documentElement.classList.remove('no-js');</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/css/site.css">
+  <script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
+</head>
+<!-- data-project must match this project's id in assets/js/data.js -->
+<body id="top" data-project="mesh-research">
+  <header class="bar">
+    <a class="bar__id" href="../../"><b>Ken Bechtold</b><span>AI · 3D · Motion</span></a>
+    <nav class="bar__links" aria-label="Contact">
+      <a href="mailto:ken@afterthehomework.com"><span class="l">ken@afterthehomework.com</span><span class="s">Email</span></a>
+      <a href="#">CV ↓</a>
+      <a href="#">LinkedIn</a>
+      <a href="#">Instagram</a>
+      <a href="#">Vimeo</a>
+    </nav>
+    <div class="code" data-code>
+      <button type="button" class="code__toggle" data-code-toggle>Have a code?</button>
+      <form autocomplete="off"><input maxlength="5" placeholder="•••••" aria-label="Access code" spellcheck="false" autocapitalize="characters"><button type="submit" aria-label="Enter code">→</button></form>
+      <span class="code__on">For <b data-code-name></b><button type="button" data-code-clear aria-label="Clear code">×</button></span>
+    </div>
+  </header>
+
+  <main class="cs">
+    <!-- HEAD: title, one-line summary, three facts -->
+    <header class="cs__head">
+      <div class="cs__top mono"><a href="../../">← All work</a><span>Case study <span data-count></span></span></div>
+      <h1>AI Meshing</h1>
+      <div class="cs__sub">
+        <p>Splats and photometric stereo for glossy surfaces.</p>
+        <dl class="mono">
+          <dt>Role</dt><dd>Research</dd>
+          <dt>Year</dt><dd>2025</dd>
+          <dt>Scope</dt><dd>AI / Research</dd>
+        </dl>
+      </div>
+    </header>
+
+    <!-- VIEWER: interactive model with shaded / wireframe compare -->
+    <section class="cs__viewer">
+      <div data-viewer data-form="knot" data-seed="3" data-look="0"></div>
+    </section>
+    <div class="cs__hint mono"><span>Drag the model to rotate</span><span>Drag the line to compare</span></div>
+
+    <!-- BLOCK: label + statement + short copy -->
+    <section class="cs__block" data-reveal>
+      <span class="mono">01 — Brief</span>
+      <div>
+        <h2>Lorem ipsum dolor sit amet, consectetur adipiscing.</h2>
+        <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.</p>
+      </div>
+    </section>
+
+    <!-- SHEET: four-up breakdown. Swap each .media for <div class="media"><img src="media/x.jpg" alt="..."></div> -->
+    <section class="cs__sheet mono" data-reveal>
+      <figure><div class="media" data-still data-form="knot" data-seed="3" data-look="0" data-w="640" data-h="800"></div><figcaption>Shaded</figcaption></figure>
+      <figure><div class="media" data-still data-form="knot" data-seed="3" data-look="0" data-mode="wire" data-yaw="0.8" data-w="640" data-h="800"></div><figcaption>Wireframe</figcaption></figure>
+      <figure><div class="media" data-still data-form="knot" data-seed="3" data-look="0" data-mode="normals" data-yaw="1.6" data-w="640" data-h="800"></div><figcaption>Normals</figcaption></figure>
+      <figure><div class="media" data-still data-form="knot" data-seed="3" data-look="0" data-mode="points" data-yaw="2.4" data-w="640" data-h="800"></div><figcaption>Point cloud</figcaption></figure>
+    </section>
+
+    <!-- BLOCK with STEPS -->
+    <section class="cs__block" data-reveal>
+      <span class="mono">02 — Process</span>
+      <div>
+        <h2>Duis aute irure dolor in reprehenderit.</h2>
+        <ol class="cs__steps">
+          <li><b>Capture</b>Lorem ipsum dolor sit amet consectetur.</li>
+          <li><b>Process</b>Sed do eiusmod tempor incididunt ut labore.</li>
+          <li><b>Deliver</b>Ut enim ad minim veniam quis nostrud.</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- WIDE: one full-width image, video or placeholder -->
+    <figure class="cs__wide" data-reveal>
+      <div class="media media--frame" data-still data-form="knot" data-seed="3" data-look="0" data-mode="overlay" data-yaw="-0.7" data-w="1800" data-h="1000"></div>
+      <figcaption>Caption for the wide image</figcaption>
+    </figure>
+
+    <!-- QUOTE: one big statement; <em> takes the accent -->
+    <section class="cs__quote" data-reveal>
+      <p>Lorem ipsum dolor <em>sit amet</em> consectetur.</p>
+      <cite>Source or context</cite>
+    </section>
+
+    <!-- PAIR: two-up media -->
+    <section class="cs__pair" data-reveal>
+      <figure><div class="media media--frame r-4x3" data-still data-form="knot" data-seed="3" data-look="1" data-yaw="0.5" data-w="960" data-h="720"></div><figcaption>Left caption</figcaption></figure>
+      <figure><div class="media media--frame r-4x3" data-still data-form="knot" data-seed="3" data-look="2" data-mode="clay" data-yaw="2" data-w="960" data-h="720"></div><figcaption>Right caption</figcaption></figure>
+    </section>
+
+    <!-- NUMS: up to three results -->
+    <section class="cs__nums" data-reveal>
+      <div><b>400+</b><span class="mono">Lorem ipsum</span></div>
+      <div><b>$2M</b><span class="mono">Dolor sit amet</span></div>
+      <div><b>0.902</b><span class="mono">Consectetur</span></div>
+    </section>
+
+    <!-- NEXT: filled in automatically from assets/js/data.js -->
+    <a class="cs__next" data-next href="../../">
+      <div><small class="mono">Next project</small><strong data-next-title>All work</strong></div>
+      <div data-next-media></div>
+    </a>
+
+    <footer class="foot">
+      <div class="foot__row">
+        <span>© 2026 Ken Bechtold</span>
+        <nav aria-label="Links"><a href="mailto:ken@afterthehomework.com">Email</a><a href="#">CV ↓</a><a href="#">LinkedIn</a></nav>
+        <a href="#top">Top ↑</a>
+      </div>
+    </footer>
+  </main>
+
+  <script type="module" src="../../assets/js/case.js"></script>
+</body>
+</html>
