@@ -49,6 +49,10 @@ export function reveal(root = document) {
    has `img`, otherwise a procedural placeholder (<div class="media" data-still ...>). */
 export function media(p, { w = 960, h = 600, hover = true, cls = '' } = {}) {
   const c = `media${cls ? ' ' + cls : ''}`;
+  if (p.video) {
+    const poster = p.poster || p.img;
+    return `<div class="${c}"><video src="${ROOT}${p.video}"${poster ? ` poster="${ROOT}${poster}"` : ''} muted loop playsinline preload="none" data-hover aria-label="${p.title}"></video></div>`;
+  }
   if (p.img) {
     return `<div class="${c}"><img class="media__a" src="${ROOT}${p.img}" alt="${p.title}" loading="lazy">${
       p.hover && hover ? `<img class="media__b" src="${ROOT}${p.hover}" alt="" loading="lazy">` : ''}</div>`;
@@ -85,6 +89,156 @@ export function stills(root = document) {
   $$('[data-still]:not([data-done])', root).forEach((el) => {
     el.dataset.done = '1';
     if (el.dataset.eager != null) loadStill(el); else sio.observe(el);
+  });
+}
+
+/* ---------- video (.mp4) ----------
+   videos() upgrades every <video> inside a .media frame. The mode comes from plain HTML:
+     controls     player: custom controls with sound, seek and fullscreen
+     data-hover   preview: plays while its link, button or frame is hovered or focused
+     neither      loop: silent, plays only while it is on screen
+   Loops and previews are always muted. Reduced-motion visitors get the poster and a Play button. */
+const reduced = matchMedia('(prefers-reduced-motion: reduce)');
+const finePointer = matchMedia('(hover: hover) and (pointer: fine)');
+export const reducedMotion = () => reduced.matches;
+const clock = (s) => { s = Math.max(0, Math.floor(s || 0)); return `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0')}`; };
+const play = (v) => { const p = v.play(); if (p) p.catch(() => {}); };
+const players = new Set();
+
+// One observer for all videos: loops play while visible, players pause when they leave the screen.
+let vio;
+const sync = (v) => { if (v._seen && !v._off) play(v); else v.pause(); };
+function watch(v, ratio) {
+  vio = vio || new IntersectionObserver((es) => es.forEach((e) => {
+    const t = e.target;
+    if (t._player) { if (!e.isIntersecting) t.pause(); return; }
+    t._seen = e.isIntersecting && e.intersectionRatio >= t._ratio;
+    sync(t);
+  }), { threshold: [0, 0.25, 0.6] });
+  v._ratio = ratio;
+  vio.observe(v);
+}
+function quiet(v) {
+  v.muted = true; v.loop = true; v.playsInline = true; v.autoplay = false;
+  v.setAttribute('muted', ''); v.setAttribute('playsinline', ''); v.removeAttribute('autoplay');
+  if (v.poster && v.readyState === 0) v.preload = 'none';
+}
+
+// Silent loop that only runs while on screen. Also used for the home hero.
+export function loopInView(v, wrap) {
+  if (v._ratio != null) { sync(v); return; } // already set up: just re-check (the source may have changed)
+  quiet(v);
+  v._off = reduced.matches;
+  if (wrap && !wrap.closest('a, button')) {
+    wrap.classList.add('vid', 'vid--loop');
+    const b = document.createElement('button');
+    b.type = 'button'; b.className = 'vid__toggle';
+    const label = () => { b.textContent = v.paused ? 'Play' : 'Pause'; b.setAttribute('aria-label', v.paused ? 'Play video' : 'Pause video'); };
+    b.addEventListener('click', () => { v._off = !v.paused; v._seen = true; sync(v); });
+    v.addEventListener('play', label); v.addEventListener('pause', label);
+    label();
+    wrap.append(b);
+  }
+  watch(v, 0.25);
+}
+
+function previewOnHover(v, wrap) {
+  quiet(v);
+  wrap.classList.add('vid', 'vid--hover');
+  if (!finePointer.matches) { v._off = reduced.matches; watch(v, 0.6); return; } // touch: play when mostly on screen
+  const host = wrap.closest('a, button') || wrap;
+  const on = () => { if (!reduced.matches) play(v); }, off = () => v.pause();
+  host.addEventListener('pointerenter', on); host.addEventListener('pointerleave', off);
+  host.addEventListener('focus', on); host.addEventListener('blur', off);
+}
+
+function player(v, wrap) {
+  v.controls = false; v.removeAttribute('controls');
+  v.playsInline = true; v.setAttribute('playsinline', '');
+  if (v.poster && v.readyState === 0) v.preload = 'none';
+  v._player = true;
+  players.add(v);
+  wrap.classList.add('vid', 'vid--player');
+  wrap.insertAdjacentHTML('beforeend', `
+    <button type="button" class="vid__big" aria-label="Play video"><i>Play</i></button>
+    <div class="vid__bar">
+      <button type="button" class="vid__play">Play</button>
+      <div class="vid__seek" role="slider" tabindex="0" aria-label="Seek" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><i></i></div>
+      <span class="vid__time">0:00</span>
+      <button type="button" class="vid__mute" aria-pressed="true">Sound</button>
+      <button type="button" class="vid__full">Full</button>
+    </div>`);
+  const big = $('.vid__big', wrap), btn = $('.vid__play', wrap), seek = $('.vid__seek', wrap), time = $('.vid__time', wrap), mute = $('.vid__mute', wrap), full = $('.vid__full', wrap);
+  let idle;
+  const wake = () => {
+    wrap.classList.remove('is-idle');
+    clearTimeout(idle);
+    if (!v.paused) idle = setTimeout(() => wrap.classList.add('is-idle'), 2200);
+  };
+  const toggle = () => { if (v.paused) play(v); else v.pause(); };
+  const paint = () => {
+    const d = v.duration, p = d ? v.currentTime / d : 0;
+    seek.style.setProperty('--p', p.toFixed(4));
+    seek.setAttribute('aria-valuenow', Math.round(p * 100));
+    time.textContent = d ? `${clock(v.currentTime)} / ${clock(d)}` : clock(v.currentTime);
+  };
+  const scrub = (e) => {
+    if (!isFinite(v.duration)) return;
+    const r = seek.getBoundingClientRect();
+    v.currentTime = Math.max(0, Math.min(1, (e.clientX - r.left) / r.width)) * v.duration;
+    paint();
+  };
+  const fullscreen = () => {
+    if (document.fullscreenElement) document.exitFullscreen();
+    else if (wrap.requestFullscreen) wrap.requestFullscreen().catch(() => {});
+    else if (v.webkitEnterFullscreen) v.webkitEnterFullscreen(); // iPhone
+  };
+
+  big.addEventListener('click', toggle);
+  btn.addEventListener('click', toggle);
+  v.addEventListener('click', toggle);
+  mute.addEventListener('click', () => { v.muted = !v.muted; });
+  full.addEventListener('click', fullscreen);
+  v.addEventListener('play', () => {
+    players.forEach((o) => { if (o !== v) o.pause(); }); // one voice at a time
+    wrap.classList.add('is-playing', 'is-started'); btn.textContent = 'Pause'; wake();
+  });
+  v.addEventListener('pause', () => { wrap.classList.remove('is-playing'); btn.textContent = 'Play'; wake(); });
+  v.addEventListener('volumechange', () => mute.setAttribute('aria-pressed', !v.muted));
+  ['timeupdate', 'durationchange', 'loadedmetadata', 'seeked'].forEach((n) => v.addEventListener(n, paint));
+  let held = false;
+  seek.addEventListener('pointerdown', (e) => {
+    held = true;
+    try { seek.setPointerCapture(e.pointerId); } catch { /* not a live pointer */ }
+    scrub(e);
+  });
+  seek.addEventListener('pointermove', (e) => { if (held) scrub(e); });
+  seek.addEventListener('pointerup', () => { held = false; });
+  seek.addEventListener('pointercancel', () => { held = false; });
+  wrap.addEventListener('pointermove', wake);
+  wrap.addEventListener('pointerleave', () => { if (!v.paused) wrap.classList.add('is-idle'); });
+  wrap.addEventListener('focusin', wake);
+  wrap.addEventListener('keydown', (e) => {
+    const onButton = e.target.closest('button');
+    if ((e.key === ' ' || e.key === 'k') && !onButton) { e.preventDefault(); toggle(); }
+    else if (e.key === 'ArrowRight' && isFinite(v.duration)) v.currentTime = Math.min(v.duration, v.currentTime + 5);
+    else if (e.key === 'ArrowLeft') v.currentTime = Math.max(0, v.currentTime - 5);
+    else if (e.key === 'm') v.muted = !v.muted;
+    else if (e.key === 'f') fullscreen();
+    else return;
+    wake();
+  });
+  mute.setAttribute('aria-pressed', !v.muted);
+  watch(v, 0);
+}
+
+export function videos(root = document) {
+  $$('.media > video:not([data-vdone])', root).forEach((v) => {
+    v.dataset.vdone = '1';
+    const wrap = v.parentElement;
+    if (v.hasAttribute('controls')) player(v, wrap);
+    else if (v.dataset.hover != null) previewOnHover(v, wrap);
+    else loopInView(v, wrap);
   });
 }
 
@@ -165,16 +319,33 @@ export function lightbox() {
     <div class="lb__bot"><button type="button" data-d="-1">← Prev</button><button type="button" class="lb__w" aria-pressed="false">Wireframe</button><button type="button" data-d="1">Next →</button></div>`;
   document.body.append(el);
   const A = $('.lb__a', el), B = $('.lb__b', el), W = $('.lb__w', el);
+  const stage = $('.lb__stage', el);
   let items = [], i = 0, opener = null;
+  const stopVideo = () => {
+    const old = $('.lb__v', stage);
+    if (!old) return;
+    const v = $('video', old);
+    v.pause(); players.delete(v); vio && vio.unobserve(v);
+    v.removeAttribute('src'); v.load(); // stop the download
+    old.remove();
+  };
   const show = async () => {
     const p = items[i], me = i;
     $('.lb__n', el).textContent = `${pad(i + 1)} / ${pad(items.length)}`;
     $('.lb__t', el).textContent = `${p.title} · ${p.tag} · ${p.year}`;
+    stopVideo();
     A.alt = p.title;
     A.style.opacity = 0;
     B.removeAttribute('src');
-    el.classList.toggle('lb--photo', !!p.img);
-    W.hidden = !!p.img && !p.hover;
+    el.classList.toggle('lb--photo', !!p.img && !p.video);
+    W.hidden = !!p.video || (!!p.img && !p.hover);
+    if (p.video) {
+      // clips open in the full player, with sound available
+      const poster = p.poster || p.img;
+      stage.insertAdjacentHTML('beforeend', `<div class="media lb__v"><video src="${ROOT}${p.video}"${poster ? ` poster="${ROOT}${poster}"` : ''} controls playsinline preload="metadata" aria-label="${p.title}"></video></div>`);
+      videos(stage);
+      return;
+    }
     if (p.img) {
       A.onload = () => { A.style.opacity = ''; };
       A.src = ROOT + p.img;
@@ -189,13 +360,16 @@ export function lightbox() {
   };
   const go = (d) => { i = (i + d + items.length) % items.length; show(); };
   const close = () => {
-    el.classList.remove('open');
+    stopVideo();
+    el.classList.remove('open', 'wire');
+    W.setAttribute('aria-pressed', 'false');
     document.documentElement.style.overflow = '';
     if (opener) opener.focus();
   };
   el.addEventListener('click', (e) => {
     const b = e.target.closest('button');
     if (!b) { if (e.target.classList.contains('lb__stage')) close(); return; }
+    if (b.closest('.vid')) return; // the player's own buttons
     if (b.dataset.d) go(+b.dataset.d);
     else if (b === W) b.setAttribute('aria-pressed', el.classList.toggle('wire'));
     else close();
@@ -203,6 +377,7 @@ export function lightbox() {
   addEventListener('keydown', (e) => {
     if (!el.classList.contains('open')) return;
     if (e.key === 'Escape') close();
+    if (document.activeElement && document.activeElement.closest('.vid')) return; // arrows seek inside the player
     if (e.key === 'ArrowRight') go(1);
     if (e.key === 'ArrowLeft') go(-1);
   });

@@ -3,7 +3,7 @@
    Documented in /StyleGuide.md. Living reference: /work/template/
 
     1 Tokens        5 Hero            9 Media          13 Case study
-    2 Base          6 Sections       10 Viewer         14 Footer
+    2 Base          6 Sections       10 Viewer         14 Footer         (9b Video)
     3 Type          7 Cards          11 Lightbox       15 Motion
     4 Top bar       8 Fragments      12 Curtain        16 Breakpoints
    ========================================================================== */
@@ -148,6 +148,7 @@ img, canvas, video { display: block; max-width: 100%; }
 .card__flag:empty { display: none; }
 .card__wire { right: 14px; color: var(--acc); opacity: 0; transform: translateY(-4px); transition: opacity .3s, transform .3s; }
 .card:hover .card__wire { opacity: 1; transform: none; }
+.card__wire:empty { display: none; }
 .card__meta { display: grid; grid-template-columns: 2.4rem 1fr auto; gap: 4px 12px; align-items: baseline; padding-top: 14px; }
 .card h3 { font-size: var(--t-h3); font-weight: 700; font-stretch: 115%; line-height: 1.05; letter-spacing: -.012em; text-transform: uppercase; }
 .card .n, .card .y, .card .k { font: 500 var(--t-label)/1.4 var(--mono); letter-spacing: .07em; text-transform: uppercase; color: var(--mut); }
@@ -192,6 +193,50 @@ img, canvas, video { display: block; max-width: 100%; }
 .r-21x9 { aspect-ratio: 21 / 9; }
 figcaption, .caption { margin-top: 10px; font: 500 var(--t-label)/1.4 var(--mono); letter-spacing: .07em; text-transform: uppercase; color: var(--mut); }
 
+/* 9b Video ---------------------------------------------------------------- */
+/* A <video> in a .media frame. JS adds .vid plus the mode:
+   .vid--loop (silent, plays on screen)  .vid--hover (plays on hover)  .vid--player (controls). */
+.vid video { background: #000; }
+.vid__toggle, .vid__bar button, .vid__time { font: 500 var(--t-micro)/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; }
+
+/* loop: a small pause control, shown on hover and focus */
+.vid__toggle { position: absolute; right: 12px; bottom: 12px; z-index: 2; padding: 8px 11px; border: 1px solid var(--line); border-radius: var(--pill); background: var(--ui); color: var(--fg); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); opacity: 0; transition: opacity .25s, background .2s, color .2s; }
+.vid--loop:hover .vid__toggle, .vid__toggle:focus-visible { opacity: 1; }
+.vid__toggle:hover { background: var(--fg); color: #000; }
+@media (hover: none) { .vid__toggle { opacity: 1; } }
+
+/* player */
+.vid--player { background: #000; }
+.vid--player video { cursor: pointer; }
+.vid--player:hover img, .vid--player:hover video { transform: none; }
+.vid__big { position: absolute; top: 50%; left: 50%; z-index: 2; width: 92px; height: 92px; margin: -46px 0 0 -46px; border-radius: 50%; background: var(--acc); color: var(--on-acc); display: grid; place-items: center; transition: transform .35s var(--ease), opacity .3s; }
+.vid__big i { font: 500 var(--t-micro)/1 var(--mono); font-style: normal; letter-spacing: .1em; text-transform: uppercase; }
+.vid__big:hover { transform: scale(1.08); }
+.is-started .vid__big { opacity: 0; transform: scale(.6); pointer-events: none; }
+.vid__bar { position: absolute; left: 0; right: 0; bottom: 0; z-index: 2; display: flex; align-items: center; gap: 14px; padding: 56px 16px 12px; background: linear-gradient(to top, rgba(8, 8, 10, .92) 0%, rgba(8, 8, 10, .7) 45%, rgba(8, 8, 10, 0) 100%); opacity: 0; transform: translateY(6px); transition: opacity .3s, transform .3s; pointer-events: none; }
+.is-started .vid__bar { opacity: 1; transform: none; pointer-events: auto; }
+.is-started.is-idle .vid__bar { opacity: 0; transform: translateY(6px); pointer-events: none; }
+.is-started.is-idle { cursor: none; }
+.vid__bar button { flex: none; padding: 8px 2px; color: var(--fg); transition: color .2s; }
+.vid__bar button:hover { color: var(--acc); }
+.vid__play { min-width: 5ch; text-align: left; }
+.vid__mute[aria-pressed="false"] { color: var(--mut); text-decoration: line-through; }
+.vid__time { flex: none; color: var(--mut); font-variant-numeric: tabular-nums; }
+/* seek: a 1px track with a tall hit area; --p is progress from 0 to 1 */
+.vid__seek { position: relative; flex: 1; height: 28px; cursor: pointer; touch-action: none; }
+.vid__seek::before, .vid__seek i { content: ''; position: absolute; top: 50%; left: 0; height: 2px; margin-top: -1px; }
+.vid__seek::before { right: 0; background: rgba(255, 255, 255, .22); }
+.vid__seek i { width: calc(var(--p, 0) * 100%); background: var(--acc); }
+.vid__seek i::after { content: ''; position: absolute; right: -5px; top: 50%; width: 10px; height: 10px; margin-top: -5px; border-radius: 50%; background: var(--acc); transform: scale(0); transition: transform .2s var(--ease); }
+.vid__seek:hover i::after, .vid__seek:focus-visible i::after { transform: none; }
+.vid--player:fullscreen { width: 100vw; height: 100vh; aspect-ratio: auto; border: 0; }
+.vid--player:fullscreen video { object-fit: contain; }
+
+/* video as the home hero background */
+.hero__v { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; display: none; }
+.hero--video .hero__v { display: block; animation: fade 1.2s both; }
+.hero--video .hero__c, .hero--video .hero__split { display: none; }
+
 /* 10 Viewer --------------------------------------------------------------- */
 .vw { position: relative; overflow: hidden; --split: .5; }
 .vw__c { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
@@ -227,6 +272,12 @@ figcaption, .caption { margin-top: 10px; font: 500 var(--t-label)/1.4 var(--mono
 .lb__stage { position: relative; margin: 0 var(--pad); }
 .lb__stage img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: contain; transition: opacity .35s; pointer-events: none; }
 .lb__b { opacity: 0; }
+.lb__v { position: absolute; top: 0; right: 0; bottom: 0; left: 0; }
+.lb__v video { object-fit: contain; }
+.lb .vid__bar button { padding: 8px 2px; border: 0; border-radius: 0; }
+.lb .vid__bar button:hover { background: none; color: var(--acc); }
+.lb .vid__big { padding: 0; border: 0; border-radius: 50%; }
+.lb .vid__big:hover { background: var(--acc); color: var(--on-acc); }
 .lb.wire .lb__b[src] { opacity: 1; }
 .lb.wire:not(.lb--photo) .lb__a { opacity: 0; }
 .lb button { padding: 9px 12px; border: 1px solid var(--line); border-radius: var(--pill); white-space: nowrap; transition: background .2s, color .2s; }
@@ -355,4 +406,6 @@ figcaption, .caption { margin-top: 10px; font: 500 var(--t-label)/1.4 var(--mono
   .vw__modes button { padding: 8px 9px; }
   .lb__t { display: none; }
   .lb__n { margin-right: auto; }
+  .vid__bar { gap: 10px; padding: 24px 10px 8px; }
+  .vid__big { width: 72px; height: 72px; margin: -36px 0 0 -36px; }
 }

@@ -1,10 +1,41 @@
 // Home page: featured hero, selected work, fragments.
 import { PIECES } from './data.js';
-import { $, $$, pad, media, stills, reveal, bindCode, paintCode, access, ordered, curtain, lightbox, createViewer, projectURL } from './ui.js';
+import { $, $$, pad, media, stills, videos, loopInView, reveal, bindCode, paintCode, access, ordered, curtain, lightbox, createViewer, projectURL, ROOT } from './ui.js';
 
-const hero = $('[data-hero]');
+const hero = $('[data-hero]'), heroVideo = $('.hero__v', hero);
 const lb = lightbox();
-let viewer = null, featured = null;
+let viewer = null, viewerAsked = false, featured = null;
+
+// The hero is a live 3D model, or a looping video when the featured project has `video`.
+function paintHero(f) {
+  const video = !!f.video;
+  hero.classList.toggle('hero--video', video);
+  if (video) {
+    if (heroVideo.dataset.id !== f.id) {
+      heroVideo.dataset.id = f.id;
+      const poster = f.poster || f.img;
+      if (poster) heroVideo.poster = ROOT + poster; else heroVideo.removeAttribute('poster');
+      heroVideo.src = ROOT + f.video;
+      loopInView(heroVideo);
+    }
+    return;
+  }
+  if (heroVideo.dataset.id) { heroVideo.pause(); heroVideo.removeAttribute('src'); heroVideo.load(); delete heroVideo.dataset.id; }
+  if (viewer) viewer.setForm(f.form, f.seed, f.look);
+  else if (!viewerAsked) {
+    viewerAsked = true;
+    createViewer($('canvas', hero), {
+      form: f.form, seed: f.seed, look: f.look,
+      drag: false, parallax: 1, spin: 0.12, split: 0.62, margin: 1.22, shift: 0.42,
+    }).then((v) => {
+      viewer = v;
+      if (v && !featured.video && (v.form !== featured.form || v.seed !== featured.seed)) v.setForm(featured.form, featured.seed, featured.look);
+    });
+  }
+}
+
+// What the card's hover label says, depending on what the hover shows.
+const hoverLabel = (p) => (p.video ? 'Preview' : p.img && !p.hover ? '' : 'Wireframe');
 
 function render(a) {
   const list = ordered(a), f = list[0];
@@ -19,7 +50,7 @@ function render(a) {
   h('role').textContent = f.role;
   h('year').textContent = f.year;
   h('tags').textContent = f.tags.join(' / ');
-  if (viewer) viewer.setForm(f.form, f.seed, f.look);
+  paintHero(f);
 
   $('[data-work-h]').textContent = a ? `Selected for ${a.name}` : 'Selected work';
   $('[data-work-n]').textContent = `(${pad(list.length - 1)})`;
@@ -27,11 +58,12 @@ function render(a) {
     <a class="card" href="${projectURL(p.id)}" data-reveal style="--d:${i % 2}">
       ${media(p, { w: 1200, h: 750, cls: 'media--frame' })}
       <span class="card__flag">${p.picked ? 'Picked for you' : ''}</span>
-      <span class="card__wire">Wireframe</span>
+      <span class="card__wire">${hoverLabel(p)}</span>
       <div class="card__meta"><span class="n">${p.n}</span><h3>${p.title}</h3><span class="y">${p.year}</span><span class="k">${p.kind}</span></div>
     </a>`).join('');
 
   stills();
+  videos();
   reveal();
   paintCode(a);
 }
@@ -40,7 +72,7 @@ function render(a) {
 $('[data-frag]').innerHTML = PIECES.map((p, i) => `
   <button type="button" class="tile" data-i="${i}" data-tag="${p.tag}" data-reveal style="--d:${i % 6}">
     ${media(p, { w: 640, h: 640 })}
-    <span class="tile__tag">${p.tag}</span>
+    <span class="tile__tag">${p.video ? '▸ ' : ''}${p.tag}</span>
     <span class="tile__cap"><span>${pad(i + 1)}</span><span>${p.title}</span></span>
   </button>`).join('');
 
@@ -68,15 +100,7 @@ bindCode(document, {
 });
 render(access.get());
 
-/* hero: live model; the wipe line follows the pointer and drifts on its own when idle */
-createViewer($('canvas', hero), {
-  form: featured.form, seed: featured.seed, look: featured.look,
-  drag: false, parallax: 1, spin: 0.12, split: 0.62, margin: 1.22, shift: 0.42,
-}).then((v) => {
-  viewer = v;
-  if (v && (v.form !== featured.form || v.seed !== featured.seed)) v.setForm(featured.form, featured.seed, featured.look);
-});
-
+/* hero: the wipe line follows the pointer and drifts on its own when idle */
 const cur = $('.hero__cur');
 let auto = true, target = 0.62, split = 0.62, cx = 0, cy = 0, tx = 0, ty = 0;
 hero.addEventListener('pointermove', (e) => {

@@ -31,6 +31,16 @@ export const PIECES = NAMES.map((title, i) => ({
   look: i % 3,
 }));
 
+// Video: add  video: '<path>.mp4'  and  poster: '<path>.jpg'  to any project or fragment.
+// It previews silently on hover; fragments open in the full player with sound.
+// A project with `video` that is first in PROJECTS plays it as the hero background.
+// These three use the placeholder clips; replace them with real ones.
+const LOOP = { video: 'assets/media/placeholder-loop.mp4', poster: 'assets/media/placeholder-loop.jpg' };
+const FILM = { video: 'assets/media/placeholder-film.mp4', poster: 'assets/media/placeholder-film.jpg' };
+Object.assign(PIECES[1], LOOP);   // Loop 014
+Object.assign(PIECES[5], LOOP);   // Turntable
+Object.assign(PIECES[10], FILM);  // Title card (has sound)
+
 // Access codes: a visitor types one in the top bar and the site reorders around their picks.
 // The first id in `order` becomes the hero. These are plain text in a public file:
 // good for tailoring, not for hiding confidential work.

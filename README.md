@@ -14,6 +14,8 @@ Portfolio for GitHub Pages. Static HTML, CSS and JavaScript; no build step.
 - `assets/css/site.css` is the whole design system. `StyleGuide.md` documents it and how to build a case study.
 - `assets/js/` holds the scripts (`models.js` is the 3D viewer and placeholder models).
 - `scripts/new-case.py` creates a new case-study page from the template.
+- `scripts/web-video.py` encodes a video to a web-safe `.mp4` plus a poster image (needs ffmpeg).
+- `scripts/serve.py` is the local preview server.
 - `.nojekyll` tells GitHub Pages to serve the files as they are.
 - `C:\Users\ken\Projects\KenBechtold-Archive` is the sibling folder for original images, videos, 3D files, and other source assets. It is outside this Git repository.
 
@@ -22,10 +24,10 @@ Portfolio for GitHub Pages. Static HTML, CSS and JavaScript; no build step.
 The pages use JavaScript modules, so open them through a local server, not by double-clicking the file:
 
 ```powershell
-python -m http.server 4174
+python scripts\serve.py
 ```
 
-Then visit http://localhost:4174/.
+Then visit http://localhost:4174/. Use this server, not `python -m http.server`: video seeking needs byte-range support, which the built-in server lacks.
 
 ## Drive backup
 

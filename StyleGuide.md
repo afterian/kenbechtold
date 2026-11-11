@@ -31,7 +31,10 @@ assets/js/case.js          Case-study pages only
 assets/js/models.js        3D: placeholder forms, viewer, still renderer (loads three.js)
 work/template/index.html   Case-study template and block reference (not indexed)
 work/<id>/index.html       One folder per project. Put its media in work/<id>/media/
+assets/media/              Shared media. Holds the two placeholder clips for now
 scripts/new-case.py        Makes work/<id>/index.html from the template
+scripts/web-video.py       Encodes a video to a web-safe .mp4 plus a .jpg poster
+scripts/serve.py           Local preview server (supports video seeking)
 ```
 
 All paths in HTML are relative, so the site works at a domain root or in a subfolder.
@@ -225,7 +228,9 @@ Stack these inside `<main class="cs">` in any order. Add `data-reveal` to a bloc
 </a>
 ```
 
-A good default order: Head → Viewer → Block (brief) → Sheet → Block (process, with steps) → Wide → Nums → Next.
+A good default order: Head → Viewer or film → Block (brief) → Sheet → Block (process, with steps) → Wide (image or loop) → Nums → Next.
+
+A project with no 3D model can skip the viewer: put a `cs__wide` with a video player or a hero image straight after the head.
 
 ---
 
@@ -237,8 +242,8 @@ A good default order: Head → Viewer → Block (brief) → Sheet → Block (pro
 <!-- image -->
 <div class="media media--frame r-16x10"><img src="media/still.jpg" alt="What it shows" loading="lazy"></div>
 
-<!-- video: silent loop -->
-<div class="media media--frame r-16x9"><video src="media/loop.mp4" poster="media/loop.jpg" autoplay muted loop playsinline></video></div>
+<!-- video: silent loop (see 5b for players and previews) -->
+<div class="media media--frame r-16x9"><video src="media/loop.mp4" poster="media/loop.jpg" muted loop playsinline preload="none"></video></div>
 
 <!-- hover swap: second image fades in on hover (use the wireframe render) -->
 <a href="…"><div class="media media--frame r-16x10">
@@ -256,6 +261,81 @@ A good default order: Head → Viewer → Block (brief) → Sheet → Block (pro
 - Always write `alt` text for images that carry meaning; use `alt=""` for the hover image.
 
 Placeholder attributes: `data-form` and `data-seed` pick the shape, `data-look` the material (0 chrome, 1 white ceramic, 2 gunmetal), `data-mode` the render (`shaded`, `wire`, `overlay`, `normals`, `clay`, `points`), `data-yaw` the rotation in radians, `data-w` / `data-h` the render size, `data-hover="wire"` adds the hover swap.
+
+---
+
+## 5b. Video
+
+Video is `.mp4` in a `.media` frame, like an image. There are three behaviours, and plain HTML attributes choose between them. `case.js` and `home.js` do the rest.
+
+| Mode | Write | What happens |
+|---|---|---|
+| **Loop** | `muted loop playsinline preload="none"` | Silent. Starts when a quarter of it is on screen, pauses when it leaves. A small Pause button appears on hover. |
+| **Player** | `controls playsinline preload="none"` | Poster with a green Play button. Custom controls: play, seek, time, sound, fullscreen. Starts with sound on. |
+| **Preview** | add `data-hover` to a loop | Plays while its link, button or frame is hovered or focused. On touch screens it plays when mostly on screen. |
+
+```html
+<!-- LOOP: turntables, UI captures, anything ambient -->
+<figure class="cs__wide" data-reveal>
+  <div class="media media--frame r-16x9">
+    <video src="media/turntable.mp4" poster="media/turntable.jpg" muted loop playsinline preload="none"></video>
+  </div>
+  <figcaption>Turntable</figcaption>
+</figure>
+
+<!-- PLAYER: a film people choose to watch, with sound -->
+<figure class="cs__wide" data-reveal>
+  <div class="media media--frame r-16x9">
+    <video src="media/film.mp4" poster="media/film.jpg" controls playsinline preload="none"></video>
+  </div>
+  <figcaption>Launch film</figcaption>
+</figure>
+```
+
+Video works anywhere `.media` does: `cs__wide`, `cs__pair`, inside a `cs__sheet` figure. Both examples are live in `work/template/`.
+
+Rules:
+- **Always give a poster.** With `preload="none"` nothing downloads until the clip is needed, so the poster is what people see first. It also stands in if video cannot play.
+- **Match the frame.** Use the ratio class that matches the clip (`r-16x9` for 16:9). Video fills the frame and crops if the ratios differ.
+- **Loops are silent, always.** Browsers refuse to autoplay sound. If it needs sound, it is a player.
+- **Keep loops short.** 5–15 seconds, under about 8 MB. Films: aim under 25 MB. A page with several loops only plays the ones on screen.
+- **One player speaks at a time.** Starting one pauses the others. Players pause when scrolled off screen.
+- Reduced-motion visitors get the poster and a Play button instead of autoplay.
+- Player keys when focused: Space or K play/pause, ←/→ 5 seconds, M sound, F fullscreen.
+
+### Encoding
+
+```bash
+python scripts/web-video.py "D:/renders/turntable.mov" work/my-project/media --name turntable
+python scripts/web-video.py "D:/renders/film.mov" work/my-project/media --name film --sound
+```
+
+This writes `turntable.mp4` and `turntable.jpg` (the poster) into the project's `media/` folder. It needs ffmpeg. Output is H.264, 8-bit 4:2:0, at most 1080p and 30 fps, with the index at the front so playback starts before the download finishes. Audio is stripped unless you pass `--sound`.
+
+- Smaller file: raise `--crf` (default 23; 26–28 is fine for flat graphics) or lower `--height 720`.
+- Different poster frame: `--poster-at 2.5` (seconds).
+- If you export from After Effects, Resolve or Unreal yourself: H.264 in `.mp4`, not ProRes, HEVC or 10-bit. Those will not play in every browser.
+- GitHub refuses files over 100 MB and Pages sites should stay under 1 GB in total. Long films belong on Vimeo with a link.
+
+### Video on the home page
+
+In `assets/js/data.js`, add to any project or fragment:
+
+```js
+video: 'work/my-project/media/cover.mp4', poster: 'work/my-project/media/cover.jpg',
+```
+
+- **Project card:** shows the poster and previews the clip on hover.
+- **Fragment:** previews on hover; clicking opens it in the full player with sound.
+- **Featured project** (first in `PROJECTS`): the clip plays as the hero background in place of the 3D model.
+
+### Previewing locally
+
+```bash
+python scripts/serve.py
+```
+
+Use this instead of `python -m http.server`. Seeking in a video needs a server that supports byte ranges; GitHub Pages does, the built-in Python server does not, so scrubbing would jump back to the start.
 
 ---
 
@@ -304,10 +384,10 @@ Placeholder attributes: `data-form` and `data-seed` pick the shape, `data-look` 
 
 - `PROJECTS`: order is the order on the page; the first is the hero. Fields: `id`, `title`, `kind`, `line`, `tags`, `year`, `role`, plus media.
 - `PIECES`: the fragments grid. Fields: `title`, `tag` (`3D`, `AI`, `Motion`, `Tools`), `year`, plus media.
-- Media on either: `form` / `seed` / `look` for a placeholder, or `img: 'work/<id>/media/cover.jpg'` (and optional `hover: '…-wire.jpg'`) for real images. Paths start at the site root.
+- Media on either: `form` / `seed` / `look` for a placeholder, `img: 'work/<id>/media/cover.jpg'` (and optional `hover: '…-wire.jpg'`) for real images, or `video` + `poster` for a clip (section 5b). Paths start at the site root.
 - `CODES`: access codes. `order` lists project ids to put first; the first becomes the hero. Codes are plain text in a public file, so they tailor the site but do not protect anything.
 
-The hero itself is always the live 3D model for now.
+The hero is the live 3D model, or the featured project's video when it has one.
 
 ---
 
