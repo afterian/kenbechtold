@@ -11,7 +11,7 @@ export const PROJECTS = [
   { id: 'deep-capture', title: 'Deep Capture', kind: 'Capture system', line: 'Product capture to geometry, materials and AI-ready data.', tags: ['3D', 'AI', 'Pipeline'], year: '2021—26', role: 'Systems architect', form: 'shape', seed: 21, look: 0 },
   { id: 'sixfold-war', title: 'The Sixfold War', kind: 'Game + agentic tools', line: 'Six factions, one hex world, and the studio built to make them.', tags: ['AI', 'Game', 'Tools'], year: '2024—27', role: 'Design + build', img: 'work/sixfold-war/media/cover.webp' },
   { id: 'arena-51', title: 'Arena 51', kind: 'Immersive tool', line: 'Side-by-side footwear comparison in real time.', tags: ['3D', 'Realtime'], year: '2022', role: 'Design + build', form: 'ring', seed: 5, look: 2 },
-  { id: 'mesh-research', title: 'AI Meshing', kind: 'Research', line: 'Splats and photometric stereo for glossy surfaces.', tags: ['AI', 'Research'], year: '2025', role: 'Research', form: 'knot', seed: 3, look: 0 },
+  { id: 'mesh-research', title: 'Advanced Mesh Reconstruction', kind: 'Interactive research report', line: 'Moving beyond photogrammetry with Gaussians and photometric stereo.', tags: ['3D', 'AI', 'Research'], year: '2026', role: 'Research', img: 'work/mesh-research/assets/img/thumbs/bear_supernormal.png', form: 'knot', seed: 3, look: 0 },
   { id: 'virtual-space', title: 'Virtual Space', kind: 'Environment', line: 'Lorem ipsum dolor sit amet consectetur.', tags: ['3D', 'Motion'], year: '2020', role: 'Design + build', form: 'terrain', seed: 9, look: 2 },
 ];
 

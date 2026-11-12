@@ -1,0 +1,111 @@
+/* ==========================================================================
+   NOCTURNE: design tokens
+   One source of truth for colour, type, space and motion.
+   See design/DESIGN_SYSTEM.md for the reasoning behind every value.
+   ========================================================================== */
+
+:root {
+  /* ---- Ink (the night field) ------------------------------------------- */
+  --ink-0: #060709;          /* deepest: canvas behind 3D */
+  --ink-1: #0b0d10;          /* page */
+  --ink-2: #12151a;          /* raised plate / card */
+  --ink-3: #1b1f26;          /* hover, inset wells */
+  --rule:  rgba(236, 231, 220, 0.12);
+  --rule-strong: rgba(236, 231, 220, 0.28);
+
+  /* ---- Bone (type on ink) ---------------------------------------------- */
+  --bone:   #ece7dc;         /* primary text */
+  --bone-2: #b8b3a8;         /* secondary */
+  --bone-3: #7c7972;         /* tertiary / captions */
+  --bone-4: #4a4945;         /* disabled / ghost numerals */
+
+  /* ---- The normal-map spectrum: colour = surface orientation ------------
+     A surface normal (x,y,z) is stored as RGB. We use those three hues as the
+     only chromatic accents in the system, so colour always *means* geometry. */
+  --nx: #ff5c8a;             /* +X → red channel, rendered as rose */
+  --ny: #8ef59b;             /* +Y → green channel, rendered as lime */
+  --nz: #7590ff;             /* +Z → blue channel, rendered as periwinkle */
+  --ncyan: #5fe1f2;          /* mid-spectrum, between +Y and +Z */
+  --spectrum: linear-gradient(90deg, var(--nx), #c48cff 30%, var(--nz) 52%, var(--ncyan) 72%, var(--ny));
+
+  /* ---- Sodium: time. Used ONLY for clocks, timestamps, the night ---------- */
+  --sodium: #ffb547;
+  --sodium-dim: rgba(255, 181, 71, 0.16);
+
+  /* ---- Verdicts ---------------------------------------------------------- */
+  --good: var(--ny);
+  --bad:  #ff6b5a;
+  --open: var(--sodium);
+
+  /* ---- Research lanes (each lane owns one spectrum hue) ------------------ */
+  --lane-light:   var(--nx);     /* photometric stereo / normals */
+  --lane-surface: var(--nz);     /* normal integration → surface */
+  --lane-views:   var(--ncyan);  /* Gaussian splatting / neural SDF */
+  --lane-cameras: var(--ny);     /* pose recovery */
+  --lane-infra:   var(--bone-3); /* coordination, tests */
+  --lane-gen:     #c48cff;       /* generative 3D + image models (the spectrum's violet, between +X and +Z) */
+
+  /* ---- Type ---------------------------------------------------------------- */
+  --f-display: "Instrument Serif", "Iowan Old Style", Georgia, serif;
+  --f-text:    "Geist", "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-mono:    "Geist Mono", "JetBrains Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
+
+  /* ---- The plate unit -------------------------------------------------------
+     Every size is written in "design pixels" of a 1600 × 900 plate:
+       calc(var(--k) * 24)  ==  24px when the plate is 1600px wide.
+     On desktop --k follows the plate's width (container query units), so a
+     plate scales like a slide and prints 1:1 onto a 16:9 PDF page.
+     On phones --k becomes a fixed pixel and plates reflow. */
+  --k: 0.0625cqw;
+
+  --s-1: calc(var(--k) * 4);
+  --s-2: calc(var(--k) * 8);
+  --s-3: calc(var(--k) * 12);
+  --s-4: calc(var(--k) * 16);
+  --s-5: calc(var(--k) * 24);
+  --s-6: calc(var(--k) * 32);
+  --s-7: calc(var(--k) * 48);
+  --s-8: calc(var(--k) * 64);
+  --s-9: calc(var(--k) * 96);
+
+  --gutter: calc(var(--k) * 80);     /* plate side margin */
+
+  /* type scale (design px at 1600w) */
+  --t-micro: calc(var(--k) * 11);
+  --t-cap:   calc(var(--k) * 13);
+  --t-small: calc(var(--k) * 15);
+  --t-body:  calc(var(--k) * 18);
+  --t-lead:  calc(var(--k) * 24);
+  --t-h3:    calc(var(--k) * 32);
+  --t-h2:    calc(var(--k) * 56);
+  --t-h1:    calc(var(--k) * 96);
+  --t-mega:  calc(var(--k) * 168);
+  --t-num:   calc(var(--k) * 120);
+
+  /* ---- Motion -------------------------------------------------------------- */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-io:  cubic-bezier(0.65, 0, 0.35, 1);
+  --t-fast: 240ms;
+  --t-med:  700ms;
+  --t-slow: 1400ms;
+}
+
+/* Phones and narrow windows: plates reflow; sizes become fixed px. */
+@media (max-width: 899px) {
+  :root {
+    --k: 0.9px;
+    --gutter: 16px;
+    --t-mega: 64px;
+    --t-h1: 48px;
+    --t-h2: 36px;
+    --t-num: 64px;
+    --t-body: 16px;
+    --t-small: 14px;
+    --t-cap: 12px;
+    --t-micro: 11px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root { --t-fast: 0ms; --t-med: 0ms; --t-slow: 0ms; }
+}

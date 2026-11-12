@@ -1,0 +1,28 @@
+/* ==========================================================================
+   NOCTURNE: PDF output
+   Each .plate is exactly one 1600 × 900 page. Because every size is written
+   in plate units (--k), the printed page is the same layout as the screen.
+   Build: deck/_build/export_pdf.cmd  (headless Edge/Chrome, background graphics on)
+   ========================================================================== */
+@page { size: 1600px 900px; margin: 0; }
+
+@media print {
+  :root { --k: 1px; --gutter: 80px;
+    --t-micro: 11px; --t-cap: 13px; --t-small: 15px; --t-body: 18px; --t-lead: 24px;
+    --t-h3: 32px; --t-h2: 56px; --t-h1: 96px; --t-mega: 168px; --t-num: 120px; }
+  html, body { background: var(--ink-0) !important; width: 1600px; }
+  * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+  .index, .progress, .screen-only { display: none !important; }
+  .plate-wrap { container-type: normal; width: 1600px; }
+  .plate { width: 1600px; height: 900px; aspect-ratio: auto; break-after: page; page-break-after: always; border: 0; }
+  /* all motion resolves to its final state */
+  [data-reveal], [data-reveal="mask"], [data-reveal="wipe"] { opacity: 1 !important; transform: none !important; clip-path: none !important; transition: none !important; }
+  .split-line > span { transform: none !important; transition: none !important; }
+  .draw path, .draw line, .draw polyline, .draw circle.drawn { stroke-dashoffset: 0 !important; transition: none !important; }
+  .bar .fill { transition: none !important; }
+  .flow { animation: none !important; }
+  /* interactive controls are replaced by their current state */
+  .seg, .range, .hint { display: none !important; }
+  .print-only { display: block !important; }
+}
+.print-only { display: none; }

@@ -1,144 +1,1001 @@
 <!doctype html>
-<html lang="en" class="no-js">
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AI Meshing — Ken Bechtold</title>
-  <meta name="description" content="Splats and photometric stereo for glossy surfaces.">
-  <meta name="theme-color" content="#08080a">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2308080a'/%3E%3Ccircle cx='16' cy='16' r='6' fill='%2333ff99'/%3E%3C/svg%3E">
-  <script>document.documentElement.classList.remove('no-js');</script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../../assets/css/site.css">
-  <script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Advanced Mesh Reconstruction</title>
+<meta name="description" content="Advanced mesh reconstruction from photos: moving beyond photogrammetry with Gaussians and photometric stereo for smooth, featureless surfaces.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@200..700&family=Geist+Mono:wght@300..600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/deck.css">
+<link rel="stylesheet" href="css/plates.css">
+<link rel="stylesheet" href="css/report.css">
+<link rel="stylesheet" href="css/interact.css">
+<link rel="stylesheet" href="css/print.css">
+<script type="importmap">{ "imports": { "three": "./vendor/three/three.module.js" } }</script>
+<script src="data/timeline.js"></script>
+<script src="data/meshes.js"></script>
+<script src="data/results.js"></script>
+<script src="data/olat.js"></script>
 </head>
-<!-- data-project must match this project's id in assets/js/data.js -->
-<body id="top" data-project="mesh-research">
-  <header class="bar">
-    <a class="bar__id" href="../../"><b>Ken Bechtold</b><span>AI · 3D · Motion</span></a>
-    <nav class="bar__links" aria-label="Contact">
-      <a href="mailto:ken@afterthehomework.com"><span class="l">ken@afterthehomework.com</span><span class="s">Email</span></a>
-      <a href="#">CV ↓</a>
-      <a href="#">LinkedIn</a>
-      <a href="#">Instagram</a>
-      <a href="#">Vimeo</a>
-    </nav>
-    <div class="code" data-code>
-      <button type="button" class="code__toggle" data-code-toggle>Have a code?</button>
-      <form autocomplete="off"><input maxlength="5" placeholder="•••••" aria-label="Access code" spellcheck="false" autocapitalize="characters"><button type="submit" aria-label="Enter code">→</button></form>
-      <span class="code__on">For <b data-code-name></b><button type="button" data-code-clear aria-label="Clear code">×</button></span>
+<body>
+<div class="progress" aria-hidden="true"></div>
+<nav class="index" aria-label="Plates"></nav>
+<!-- Plate numbers (data-pno) are filled in by js/main.js, so plates can be reordered freely. -->
+
+<main class="deck">
+
+<!-- ======================================================================= COVER -->
+<div class="plate-wrap"><section class="plate plate--deep" id="p-cover" data-title="Cover">
+  <div class="well" data-well="hero"><div class="loading">Condensing surface…</div></div>
+  <header class="plate__head"><span class="no">Research report · Photo-to-mesh reconstruction</span><span class="time">Snapshot <span data-bind="snapshot"></span></span></header>
+  <div class="plate__body">
+    <div class="cover-kicker eyebrow" data-reveal>Gaussian splatting · Photometric stereo · Learned camera recovery · Generative 3D</div>
+    <div class="cover-title">
+      <h1 class="display cover-h" data-split>Advanced Mesh<br>Reconstruction<br>from Photos</h1>
+      <p class="cover-sub" data-reveal><em>Moving beyond photogrammetry.</em></p>
+      <p class="lead d3" data-reveal style="max-width:26em">Using Gaussians and photometric stereo to reproduce meshes with smooth, featureless surfaces.</p>
     </div>
-  </header>
+    <div class="cover-meta" data-reveal>
+      <span class="clock">Status · research in progress</span>
+      <hr class="spectrum-rule">
+      <span class="small">The bear is a laser-scanned reference object. Its colour is its surface orientation, the quantity these methods recover.</span>
+      <span class="hint screen-only">Move the pointer to move the light ↗</span>
+    </div>
+  </div>
+  <footer class="plate__foot"><span class="src">Public benchmarks: DiLiGenT-MV · NeRF synthetic · Skoltech3D</span><span data-pno></span></footer>
+</section></div>
 
-  <main class="cs">
-    <!-- HEAD: title, one-line summary, three facts -->
-    <header class="cs__head">
-      <div class="cs__top mono"><a href="../../">← All work</a><span>Case study <span data-count></span></span></div>
-      <h1>AI Meshing</h1>
-      <div class="cs__sub">
-        <p>Splats and photometric stereo for glossy surfaces.</p>
-        <dl class="mono">
-          <dt>Role</dt><dd>Research</dd>
-          <dt>Year</dt><dd>2025</dd>
-          <dt>Scope</dt><dd>AI / Research</dd>
-        </dl>
+<!-- ======================================================================= EXEC SUMMARY · THE PROBLEM, AND TWO ANSWERS -->
+<div class="plate-wrap"><section class="plate" id="p-summary" data-title="Executive summary">
+  <header class="plate__head"><span class="no"><b data-pno></b> · Executive summary</span><span>The problem, and two answers</span></header>
+  <div class="plate__body sum-body">
+    <div class="c1-8 stack">
+      <div class="eyebrow" data-reveal>Executive summary · one object, three ways</div>
+      <h2 class="h2 sum-h" data-split>Smooth and shiny surfaces break photogrammetry.<br><em>Light and Gaussians recover them.</em></h2>
+    </div>
+    <div class="c9-12 bottom" data-reveal><p class="small">Left: what texture matching does to a featureless surface. Middle: our photometric-stereo reconstruction of the same object. Right: the glossy case, which Gaussians handle by modelling reflections.</p></div>
+    <div class="tri c1-12">
+      <article class="tri-panel" data-reveal>
+        <div class="tri-top"><span class="tri-chip bad">✕ Photogrammetry</span><span class="tri-kind">Illustration</span></div>
+        <div class="well tri-well" data-well="sum-noise"><div class="loading">Loading…</div></div>
+        <div class="tri-ctl attn screen-only"><span class="ctl-label"><i class="ia-dot"></i>Surface texture</span><span class="tri-range"><em>none</em><input type="range" class="range" min="0" max="100" value="0" data-noise-slider aria-label="Surface texture"><em>rich</em></span><span class="tri-read" data-texture-read>featureless · like our bear</span></div>
+        <h3 class="h3">No texture, no matches: bumps and holes</h3>
+        <p class="small">Texture matching triangulates points it can recognise in several photos. A smooth surface offers too few, so what's left is noisy, holed and littered with stray points.</p>
+        <p class="tri-stat"><b class="bad">0</b> matched image pairs on our real featureless bear (COLMAP: 23–51 features per view). No model at all.</p>
+      </article>
+      <article class="tri-panel d1" data-reveal>
+        <div class="tri-top"><span class="tri-chip lane-light">A · Photometric stereo</span><span class="tri-kind real">Real result</span></div>
+        <div class="well tri-well" data-well="sum-light"><div class="loading">Loading…</div></div>
+        <div class="tri-ctl screen-only"><span class="ctl-label"><i class="ia-dot"></i>Move the pointer to move the lamp</span></div>
+        <h3 class="h3">Read the shading, not the texture</h3>
+        <p class="small">Photograph the object under different lights and solve for which way every pixel faces. Smooth surfaces are fine: the shading carries the shape. Colour shows the recovered surface direction.</p>
+        <p class="tri-stat"><b class="spectrum-text">0.912</b> F-score vs laser scan: about 9 in 10 surface points within tolerance (SuperNormal).</p>
+      </article>
+      <article class="tri-panel d2" data-reveal>
+        <div class="tri-top"><span class="tri-chip lane-views">B · Gaussians</span><span class="tri-kind">Illustration</span></div>
+        <div class="well tri-well" data-well="sum-gloss"><div class="loading">Loading…</div></div>
+        <div class="tri-ctl attn screen-only"><span class="ctl-label"><i class="ia-dot"></i>Show</span><div class="seg" data-gloss-toggle><button type="button" data-mode="surface" aria-pressed="true">Glossy surface</button><button type="button" data-mode="splats" aria-pressed="false">As Gaussians</button></div></div>
+        <h3 class="h3">Glossy surfaces: model the reflections</h3>
+        <p class="small">On shiny material, highlights slide across the surface as the view changes, so matched "features" are reflections, not geometry. Gaussian splats carry view-dependent colour, so reflections become appearance instead of false shape.</p>
+        <p class="tri-stat"><b class="spectrum-text">0.902</b> F-score for 2DGS on the glossy public boot, against 0.416 for the best normal-integration run.</p>
+      </article>
+    </div>
+  </div>
+  <footer class="plate__foot"><span class="src">Illustrations are procedural, built on the real bear scan · COLMAP: reports/alignment_initial_bear.md · supernormal_bear_refined.md · runs/2DGS/pink_boot/…/result.md</span><span data-pno></span></footer>
+</section></div>
+
+<!-- ======================================================================= EXEC SUMMARY · FIVE FINDINGS -->
+<div class="plate-wrap"><section class="plate" id="p-findings" data-title="Five findings">
+  <header class="plate__head"><span class="no"><b data-pno></b> · Executive summary</span><span>Five findings</span></header>
+  <div class="plate__body" style="grid-template-rows:auto 1fr; row-gap:var(--s-5)">
+    <div class="c1-10 stack">
+      <div class="eyebrow" data-reveal>What the evidence says</div>
+      <h2 class="h2" data-split>Five findings,<br><em>each with the picture behind it.</em></h2>
+    </div>
+    <div class="findings findings-v">
+      <article class="finding" data-reveal>
+        <div class="f-thumb zoom"><img src="assets/img/thumbs/bear_supernormal.png" alt="SuperNormal bear reconstruction, coloured by surface direction" style="--z:1.35"></div>
+        <span class="fno">F·01 / PHOTOMETRIC STEREO</span>
+        <div class="f-num"><span class="num spectrum-text">0.91</span><span class="f-plain">≈ 9 in 10 surface points within tolerance</span></div>
+        <h3 class="h3">Reading light rebuilds a smooth, featureless object</h3>
+        <p class="small">SuperNormal matched the bear scan at F&nbsp;0.912. From six real photos per view: 0.863, cleaned 0.904.</p>
+        <span class="verdict good">Proven on public data</span>
+      </article>
+      <article class="finding d1" data-reveal>
+        <div class="f-thumb zoom"><img src="assets/img/thumbs/boot_2dgs_gated.png" alt="2DGS reconstruction of the glossy boot" style="--z:1.2"></div>
+        <span class="fno">F·02 / GAUSSIANS</span>
+        <div class="f-num"><span class="num spectrum-text">0.90</span><span class="f-plain">glossy boot, vs 0.42 for the photometric road</span></div>
+        <h3 class="h3">Gaussians rebuilt the glossy boot</h3>
+        <p class="small">2DGS with mask-gated extraction scored F&nbsp;0.902 against the scan of the public pink boot.</p>
+        <span class="verdict good">Strongest footwear result</span>
+      </article>
+      <article class="finding d2" data-reveal>
+        <div class="f-thumb f-pair"><figure><img src="assets/img/thumbs/boot_raw.png" alt="Boot before gating: phantom sheets"><figcaption>before · 0.089</figcaption></figure><figure><img src="assets/img/thumbs/boot_gated.png" alt="Boot after gating" style="--z:1.5"><figcaption>after · 0.902</figcaption></figure></div>
+        <span class="fno">F·03 / EXTRACTION</span>
+        <div class="f-num"><span class="num">10×</span><span class="f-plain">boot score 0.089 → 0.902, no retraining</span></div>
+        <h3 class="h3">How you extract the mesh matters as much as training</h3>
+        <p class="small">Same trained model, extraction gated by the training masks: phantom sheets gone on both Lego and boot.</p>
+        <span class="verdict good">Transfers across objects</span>
+      </article>
+      <article class="finding d3" data-reveal>
+        <div class="f-thumb"><img class="inv" src="assets/img/cam_vggt_pnp.png" alt="Predicted versus true camera positions" style="object-position: 10% 60%"></div>
+        <span class="fno">F·04 / CAMERAS</span>
+        <div class="f-num"><span class="num">3%</span><span class="f-plain">camera positions within 3% of the true orbit</span></div>
+        <h3 class="h3">AI recovers cameras where photogrammetry finds no matches</h3>
+        <p class="small">VGGT with the measured lens, on the bear where COLMAP verified zero pairs. Meshing on these cameras is next.</p>
+        <span class="verdict open">Meshing on them: next</span>
+      </article>
+      <article class="finding d4" data-reveal>
+        <span class="fno">F·05 / NEXT</span>
+        <div class="f-thumb"><svg viewBox="0 0 160 100" class="dia" aria-hidden="true">
+            <ellipse cx="80" cy="66" rx="58" ry="16" fill="none" stroke="var(--rule-strong)" stroke-dasharray="2 3"/>
+            <ellipse cx="80" cy="66" rx="20" ry="5.5" fill="var(--ink-3)" stroke="var(--bone-3)"/>
+            <path d="M72 64 C72 48 88 48 88 64" fill="var(--ink-3)" stroke="var(--bone-2)"/>
+            <g stroke="var(--lane-cameras)" fill="none" stroke-width="1">
+              <path d="M22 60 l10 -4 l0 8 z"/><path d="M138 60 l-10 -4 l0 8 z"/><path d="M50 84 l6 -8 l5 6 z"/><path d="M110 84 l-6 -8 l-5 6 z"/>
+              <path d="M44 26 l8 7 l-7 5 z"/><path d="M116 26 l-8 7 l7 5 z"/>
+            </g>
+            <g fill="var(--sodium)"><circle cx="30" cy="40" r="1.6"/><circle cx="130" cy="40" r="1.6"/><circle cx="80" cy="20" r="1.6"/><circle cx="60" cy="16" r="1.6"/><circle cx="100" cy="16" r="1.6"/></g>
+            <text x="80" y="97" text-anchor="middle" font-size="6.5" fill="var(--bone-3)">turntable · cameras · polarized flashes</text>
+          </svg></div>
+        <div class="f-num"><span class="num">Next</span><span class="f-plain">the same methods on our own hardware</span></div>
+        <h3 class="h3">Our own scanner is the next test</h3>
+        <p class="small">The methods that worked on public objects are now being applied to our own multi-camera, cross-polarized scanner. Results will follow in a later edition.</p>
+        <span class="verdict open">In progress</span>
+      </article>
+    </div>
+  </div>
+  <footer class="plate__foot"><span class="src">supernormal_bear_refined.md · bear_geo6_openrnb_bridge.md · runs/2DGS/pink_boot/…/result.md · calibrated_bear20_comparison.md</span><span data-pno></span></footer>
+</section></div>
+
+<!-- ======================================================================= CONTENTS -->
+<div class="plate-wrap"><section class="plate" id="p-contents" data-title="Contents">
+  <header class="plate__head"><span class="no"><b data-pno></b> · Contents</span><span>Seven chapters</span></header>
+  <div class="plate__body" style="align-content:center">
+    <div class="c1-4 stack stack-lg">
+      <div class="eyebrow" data-reveal>Contents</div>
+      <h2 class="h1" data-split>The<br><em>report.</em></h2>
+      <p class="small" data-reveal>Explainers first, then results by object, then case studies told as investigations, then a second, generative workflow, then how the research was run.</p>
+    </div>
+    <ol class="toc c6-12" id="toc"></ol>
+  </div>
+  <footer class="plate__foot"><span class="src">Plates are numbered automatically</span><span data-pno></span></footer>
+</section></div>
+
+<!-- ======================================================================= I · WHY -->
+<div class="plate-wrap"><section class="plate" id="p-why" data-title="I · Beyond photogrammetry" data-chapter="I" data-ctitle="Beyond photogrammetry" data-cdesc="Why matching texture fails on smooth products, and the three alternatives tested.">
+  <header class="plate__head"><span class="no"><b data-pno></b> · Chapter I · Beyond photogrammetry</span><span>The limit</span></header>
+  <div class="plate__body">
+    <div class="c1-5 stack stack-lg" style="align-self:center">
+      <div class="row" style="align-items:flex-end; gap:var(--s-5)"><span class="numeral" aria-hidden="true" style="font-size:calc(var(--k)*240)">I</span>
+      <h2 class="h2" data-split>Photogrammetry<br><em>needs texture.</em></h2></div>
+      <p class="body" data-reveal>Classic photogrammetry finds the <strong>same tiny patch of texture</strong> in several photos and triangulates it. Thousands of matches become a point cloud, then a mesh.</p>
+      <p class="body" data-reveal>Smooth, uniform surfaces (moulded rubber, painted panels, coated leather) give it almost nothing to hold on to. On our featureless test object the classic solver didn't produce a sparse model at all.</p>
+      <div class="caveat" data-reveal><b>Evidence</b><span>COLMAP 4.2.1 on the bear: 23–51 features per view, 0 verified image pairs. On the textured Lego: 584–3,039 features per view.</span></div>
+    </div>
+    <div class="c6-12 stack" style="align-self:center">
+      <svg class="dia draw" viewBox="0 0 760 560" role="img" aria-label="Feature matching on textured versus smooth objects">
+        <defs><clipPath id="wa"><rect x="0" y="0" width="160" height="160"/></clipPath></defs>
+        <g transform="translate(0 20)"><text x="0" y="0" font-size="11" letter-spacing="1.5" fill="var(--bone)">TEXTURED OBJECT</text><text x="760" y="0" text-anchor="end" font-size="11" fill="var(--ny)">584–3,039 features / view · 7 verified pairs</text></g>
+        <g id="why-tex" transform="translate(0 40)"></g>
+        <g transform="translate(0 300)"><text x="0" y="0" font-size="11" letter-spacing="1.5" fill="var(--bone)">SMOOTH OBJECT</text><text x="760" y="0" text-anchor="end" font-size="11" fill="var(--bad)">23–51 features / view · 0 verified pairs</text></g>
+        <g id="why-smooth" transform="translate(0 320)"></g>
+      </svg>
+    </div>
+  </div>
+  <footer class="plate__foot"><span class="src">reports/alignment_initial_bear.md (COLMAP baseline) · illustration is schematic; counts are measured</span><span data-pno></span></footer>
+</section></div>
+
+<!-- ======================================================================= I · REPRESENTATIONS -->
+<div class="plate-wrap"><section class="plate" id="p-problem" data-title="Shape, not colour">
+  <header class="plate__head"><span class="no"><b data-pno></b> · Chapter I · Beyond photogrammetry</span><span>What we're solving for</span></header>
+  <div class="plate__body">
+    <div class="c1-5 stack stack-lg" style="align-self:center">
+      <div class="eyebrow" data-reveal>From pixels to a printable surface</div>
+      <h2 class="h2" data-split>A photo knows colour.<br><em>A product needs shape.</em></h2>
+      <p class="body" data-reveal>A <strong>mesh</strong> is a skin of triangles: the format every 3D tool, renderer and printer speaks. Getting one from photographs means recovering what a camera never records directly: <strong>where each surface point sits</strong> and <strong>which way it faces</strong>.</p>
+      <p class="body" data-reveal>Shoes are adversarial: smooth panels, glossy materials, thin straps and hidden soles. So every method here is tested on public objects that come with a laser-scanned ground truth, and on our own scanner's captures.</p>
+    </div>
+    <div class="c7-12 stack" style="align-self:center">
+      <svg class="dia draw" viewBox="0 0 620 560" role="img" aria-label="Photo, normals and mesh: three representations of the same bear">
+        <image href="assets/img/olat/v01_001.jpg" x="20" y="40" width="180" height="180" style="filter:grayscale(1) contrast(1.1)"/>
+        <image href="assets/img/geo6_normal_v01.png" x="220" y="40" width="180" height="180"/>
+        <rect x="20" y="40" width="180" height="180" fill="none" stroke="var(--rule-strong)"/>
+        <rect x="220" y="40" width="180" height="180" fill="none" stroke="var(--rule-strong)"/>
+        <rect x="420" y="40" width="180" height="180" fill="none" stroke="var(--rule-strong)"/>
+        <g transform="translate(510 130)" stroke="var(--bone-2)" stroke-width=".8" fill="none">
+          <path d="M-60 40 L-20 -50 L30 -40 L60 30 Z M-20 -50 L0 10 L30 -40 M-60 40 L0 10 L60 30 M0 10 L-5 55 M-60 40 L-5 55 L60 30"/>
+          <circle cx="0" cy="10" r="2.5" fill="var(--bone)"/><circle cx="-20" cy="-50" r="2.5" fill="var(--bone)"/><circle cx="30" cy="-40" r="2.5" fill="var(--bone)"/><circle cx="60" cy="30" r="2.5" fill="var(--bone)"/><circle cx="-60" cy="40" r="2.5" fill="var(--bone)"/><circle cx="-5" cy="55" r="2.5" fill="var(--bone)"/>
+        </g>
+        <text x="20" y="26" font-size="11" letter-spacing="1.5">A · PHOTOGRAPH</text>
+        <text x="220" y="26" font-size="11" letter-spacing="1.5">B · NORMAL MAP</text>
+        <text x="420" y="26" font-size="11" letter-spacing="1.5">C · MESH</text>
+        <text x="20" y="246" font-size="11" fill="var(--bone-3)">brightness</text><text x="20" y="262" font-size="11" fill="var(--bone-3)">under one lamp</text>
+        <text x="220" y="246" font-size="11" fill="var(--bone-3)">orientation</text><text x="220" y="262" font-size="11" fill="var(--bone-3)">stored as RGB</text>
+        <text x="420" y="246" font-size="11" fill="var(--bone-3)">position</text><text x="420" y="262" font-size="11" fill="var(--bone-3)">+ connectivity</text>
+        <path class="ln-strong" d="M110 280 C110 330, 310 300, 310 350"/>
+        <path class="ln-strong" d="M310 280 L310 350"/>
+        <path class="ln-strong" d="M510 280 C510 330, 310 300, 310 350"/>
+        <circle cx="310" cy="356" r="5" fill="var(--sodium)"/>
+        <text x="310" y="392" text-anchor="middle" class="t-serif" font-size="30">Scored against a laser scan</text>
+        <text x="310" y="418" text-anchor="middle" font-size="12" fill="var(--bone-3)">the scan is held out: never used to train, align or tune</text>
+        <g transform="translate(40 456)">
+          <rect width="540" height="76" fill="none" stroke="var(--rule)"/>
+          <text x="20" y="30" font-size="11" letter-spacing="1.5" fill="var(--bone)">PUBLIC TEST OBJECTS</text>
+          <text x="20" y="54" font-size="12" fill="var(--bone)">Bear</text><text x="62" y="54" font-size="11">DiLiGenT-MV</text><text x="200" y="54" font-size="12" fill="var(--bone)">Lego</text><text x="244" y="54" font-size="11">NeRF synthetic</text><text x="380" y="54" font-size="12" fill="var(--bone)">Boot</text><text x="422" y="54" font-size="11">Skoltech3D</text>
+        </g>
+      </svg>
+    </div>
+  </div>
+  <footer class="plate__foot"><span class="src">Public datasets with scanned references</span><span data-pno></span></footer>
+</section></div>
+
+<!-- ======================================================================= I · THREE ROADS -->
+<div class="plate-wrap"><section class="plate" id="p-roads" data-title="Three roads to a surface">
+  <header class="plate__head"><span class="no"><b data-pno></b> · Chapter I · Beyond photogrammetry</span><span>System map</span></header>
+  <div class="plate__body" style="grid-template-rows:auto 1fr; row-gap:var(--s-5)">
+    <div class="c1-7 stack">
+      <div class="eyebrow" data-reveal>Three alternatives to matching texture</div>
+      <h2 class="h2" data-split>Three families of method,<br><em>one shared finish line.</em></h2>
+    </div>
+    <div class="c8-12 stack bottom" data-reveal><p class="small">Road A reads <strong class="lane-light">shape from shading</strong>: the camera stays still while lights change. Road B fits <strong class="lane-views">Gaussians to many views</strong> and optimizes appearance instead of matching points. Road C <strong class="lane-cameras">predicts the cameras</strong> with learned models when there's nothing to match.</p></div>
+    <svg class="dia roads draw" viewBox="0 0 1440 500" role="img" aria-label="Diagram of three reconstruction roads">
+      <defs>
+        <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="var(--bone-2)"/></marker>
+      </defs>
+      <g transform="translate(0 160)">
+        <rect x="0" y="0" width="150" height="150" class="box"/>
+        <rect x="14" y="14" width="96" height="70" fill="none" stroke="var(--bone-3)"/><rect x="26" y="26" width="96" height="70" fill="var(--ink-2)" stroke="var(--bone-2)"/><rect x="38" y="38" width="96" height="70" fill="var(--ink-3)" stroke="var(--bone)"/>
+        <text x="14" y="134" font-size="12" fill="var(--bone)" letter-spacing="1.5">PHOTOGRAPHS</text>
+      </g>
+      <path class="ln" d="M150 210 C 200 210, 200 70, 250 70" marker-end="url(#ah)" stroke="var(--lane-light)"/>
+      <g transform="translate(255 30)">
+        <text x="0" y="-8" font-size="11" fill="var(--lane-light)" letter-spacing="1.5">A · PHOTOMETRIC STEREO</text>
+        <rect width="250" height="80" class="box"/><text x="16" y="32" class="t-sans" font-size="17">Normal estimation</text><text x="16" y="56" font-size="11">GeoUniPS · LINO-UniPS · Uni MS-PS</text>
+      </g>
+      <path class="ln flow" d="M505 70 L585 70" stroke="var(--lane-light)"/>
+      <text x="545" y="60" text-anchor="middle" font-size="10" fill="var(--bone-3)">normals</text>
+      <g transform="translate(590 30)">
+        <rect width="270" height="80" class="box"/><text x="16" y="32" class="t-sans" font-size="17">Normal integration → SDF</text><text x="16" y="56" font-size="11">Open-RNb · SuperNormal</text>
+      </g>
+      <path class="ln" d="M860 70 C 960 70, 960 230, 1050 230" marker-end="url(#ah)" stroke="var(--lane-surface)"/>
+      <path class="ln" d="M150 250 C 200 250, 200 260, 250 260" marker-end="url(#ah)" stroke="var(--lane-views)"/>
+      <g transform="translate(255 220)">
+        <text x="0" y="-8" font-size="11" fill="var(--lane-views)" letter-spacing="1.5">B · GAUSSIANS &amp; NEURAL SDF</text>
+        <rect width="250" height="80" class="box"/><text x="16" y="32" class="t-sans" font-size="17">Fit a 3D field to photos</text><text x="16" y="56" font-size="11">2DGS · GOF · PGSR · NeuS2 · …</text>
+      </g>
+      <path class="ln flow" d="M505 260 L585 260" stroke="var(--lane-views)"/>
+      <text x="545" y="250" text-anchor="middle" font-size="10" fill="var(--bone-3)">density</text>
+      <g transform="translate(590 220)">
+        <rect width="270" height="80" class="box"/><text x="16" y="32" class="t-sans" font-size="17">Extract a surface</text><text x="16" y="56" font-size="11">TSDF · marching tetrahedra · Poisson</text>
+      </g>
+      <path class="ln" d="M860 260 L1045 260" marker-end="url(#ah)" stroke="var(--lane-views)"/>
+      <path class="ln" d="M150 290 C 200 290, 200 430, 250 430" marker-end="url(#ah)" stroke="var(--lane-cameras)"/>
+      <g transform="translate(255 390)">
+        <text x="0" y="-8" font-size="11" fill="var(--lane-cameras)" letter-spacing="1.5">C · LEARNED CAMERA RECOVERY</text>
+        <rect width="605" height="80" class="box"/><text x="16" y="32" class="t-sans" font-size="17">Recover camera poses &amp; lens</text><text x="16" y="56" font-size="11">Feed-forward AI: VGGT · Pi3X · MapAnything   |   baselines: COLMAP · RealityScan</text>
+      </g>
+      <path class="ln flow" d="M725 390 L725 300" stroke="var(--lane-cameras)"/>
+      <path class="ln flow" d="M800 390 L800 110" stroke="var(--lane-cameras)"/>
+      <text x="812" y="350" font-size="10" fill="var(--lane-cameras)">poses feed both roads</text>
+      <g transform="translate(1050 175)">
+        <rect width="150" height="150" class="box" stroke="var(--bone-2)"/>
+        <g transform="translate(75 66)" stroke="var(--bone-2)" stroke-width=".8" fill="none"><path d="M-40 26 L-14 -32 L20 -26 L40 20 Z M-14 -32 L0 6 L20 -26 M-40 26 L0 6 L40 20 M0 6 L-3 36 M-40 26 L-3 36 L40 20"/></g>
+        <text x="16" y="134" font-size="12" fill="var(--bone)" letter-spacing="1.5">MESH</text>
+      </g>
+      <path class="ln" d="M1200 250 L1265 250" marker-end="url(#ah)"/>
+      <g transform="translate(1270 175)">
+        <circle cx="75" cy="75" r="74" fill="none" stroke="var(--sodium)" stroke-dasharray="2 4"/>
+        <text x="75" y="70" text-anchor="middle" class="t-serif" font-size="26">Score</text>
+        <text x="75" y="92" text-anchor="middle" font-size="10" fill="var(--bone-3)">vs held-out scan</text>
+      </g>
+    </svg>
+  </div>
+  <footer class="plate__foot"><span class="src">docs/method_family_backlog.md · reports/evaluation_index.md</span><span data-pno></span></footer>
+</section></div>
+
+<!-- ======================================================================= II · PHOTOMETRIC STEREO -->
+<div class="plate-wrap"><section class="plate" id="p-light" data-title="II · How it works" data-chapter="II" data-ctitle="How it works" data-cdesc="Photometric stereo, normal maps, Gaussian splatting and learned camera recovery, explained.">
+  <header class="plate__head"><span class="no"><b data-pno></b> · Chapter II · How it works</span><span class="lane-light">Photometric stereo</span></header>
+  <div class="plate__body">
+    <div class="c1-7 stack stack-lg" style="align-self:center">
+      <div class="row" style="align-items:flex-end; gap:var(--s-5)"><span class="numeral" aria-hidden="true" style="font-size:calc(var(--k)*240)">II</span>
+      <h2 class="h2" data-split>Same camera,<br><em>different light.</em></h2></div>
+      <p class="body" data-reveal>One real camera view of the bear, photographed six times, each time lit by a single lamp. Nothing moves except the light. The glyph under each frame shows where that lamp sat.</p>
+      <div class="olat-strip" id="olat-strip"></div>
+      <p class="body" data-reveal>How brightly a patch glows depends on the angle between its surface and the lamp. Watch enough lamps and you can solve for that angle at <strong>every pixel</strong>, whether or not the surface has any texture. The answer is the <strong>surface normal</strong>. Modern AI models do this <em>without being told where the lamps were</em>.</p>
+    </div>
+    <div class="c8-12 stack" style="align-self:center">
+      <div class="sphere-well" data-reveal><canvas data-sphere="#sphere-toggle" aria-label="Interactive lit sphere"></canvas></div>
+      <div class="row" style="justify-content:space-between; align-items:center">
+        <div class="seg" id="sphere-toggle"><button type="button" data-mode="shade" aria-pressed="true">What the camera sees</button><button type="button" data-mode="normal" aria-pressed="false">What the model recovers</button></div>
       </div>
-    </header>
+      <div class="eq" data-reveal>brightness <i>=</i> albedo <i>×</i> max(0, <span class="n">n</span> · <span class="l">l</span>)</div>
+      <p class="cap screen-only">Move the pointer over the sphere to move the lamp.</p>
+    </div>
+  </div>
+  <footer class="plate__foot"><span class="src">Real OLAT photographs: DiLiGenT-MV bear, view 01, lights 001/019/037/055/073/091. Glyphs use the dataset's calibrated light directions.</span><span data-pno></span></footer>
+</section></div>
 
-    <!-- VIEWER: interactive model with shaded / wireframe compare -->
-    <section class="cs__viewer">
-      <div data-viewer data-form="knot" data-seed="3" data-look="0"></div>
-    </section>
-    <div class="cs__hint mono"><span>Drag the model to rotate</span><span>Drag the line to compare</span></div>
-
-    <!-- BLOCK: label + statement + short copy -->
-    <section class="cs__block" data-reveal>
-      <span class="mono">01 — Brief</span>
-      <div>
-        <h2>Lorem ipsum dolor sit amet, consectetur adipiscing.</h2>
-        <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.</p>
+<!-- ======================================================================= II · NORMAL MAP -->
+<div class="plate-wrap"><section class="plate" id="p-normals" data-title="Reading a normal map">
+  <header class="plate__head"><span class="no"><b data-pno></b> · Chapter II · How it works</span><span class="lane-light">Output of the light stage</span></header>
+  <div class="plate__body">
+    <div class="c1-5 stack stack-lg" style="align-self:center">
+      <div class="eyebrow" data-reveal>Colour is geometry</div>
+      <h2 class="h2" data-split>Every pixel<br><em>is an arrow.</em></h2>
+      <p class="body" data-reveal>A normal map stores a direction in each pixel: <span class="lane-light">red</span> leans right, <span class="lane-cameras">green</span> leans up, <span class="lane-surface">blue</span> faces the camera. This is GeoUniPS's actual prediction from six photos. <span class="screen-only">Move across it to decode it.</span></p>
+      <div class="decoder" data-decoder data-src="assets/img/geo6_normal_v01.png">
+        <canvas aria-label="GeoUniPS predicted normal map, view 01"></canvas>
+        <div class="readout">
+          <div class="swatch" data-swatch></div>
+          <svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="50" fill="none" stroke="var(--rule-strong)"/><line x1="10" y1="60" x2="110" y2="60" stroke="var(--rule)"/><line x1="60" y1="10" x2="60" y2="110" stroke="var(--rule)"/><line data-arrow x1="60" y1="60" x2="80" y2="40" stroke="var(--bone)" stroke-width="2.5" stroke-linecap="round"/><circle cx="60" cy="60" r="3" fill="var(--bone)"/></svg>
+          <div data-readout class="stack" style="gap:2px"></div>
+        </div>
       </div>
-    </section>
-
-    <!-- SHEET: four-up breakdown. Swap each .media for <div class="media"><img src="media/x.jpg" alt="..."></div> -->
-    <section class="cs__sheet mono" data-reveal>
-      <figure><div class="media" data-still data-form="knot" data-seed="3" data-look="0" data-w="640" data-h="800"></div><figcaption>Shaded</figcaption></figure>
-      <figure><div class="media" data-still data-form="knot" data-seed="3" data-look="0" data-mode="wire" data-yaw="0.8" data-w="640" data-h="800"></div><figcaption>Wireframe</figcaption></figure>
-      <figure><div class="media" data-still data-form="knot" data-seed="3" data-look="0" data-mode="normals" data-yaw="1.6" data-w="640" data-h="800"></div><figcaption>Normals</figcaption></figure>
-      <figure><div class="media" data-still data-form="knot" data-seed="3" data-look="0" data-mode="points" data-yaw="2.4" data-w="640" data-h="800"></div><figcaption>Point cloud</figcaption></figure>
-    </section>
-
-    <!-- BLOCK with STEPS -->
-    <section class="cs__block" data-reveal>
-      <span class="mono">02 — Process</span>
-      <div>
-        <h2>Duis aute irure dolor in reprehenderit.</h2>
-        <ol class="cs__steps">
-          <li><b>Capture</b>Lorem ipsum dolor sit amet consectetur.</li>
-          <li><b>Process</b>Sed do eiusmod tempor incididunt ut labore.</li>
-          <li><b>Deliver</b>Ut enim ad minim veniam quis nostrud.</li>
-        </ol>
+    </div>
+    <div class="c6-12 stack" style="align-self:center">
+      <figure class="fig overview" data-reveal="wipe">
+        <img src="assets/img/geo6_overview.png" alt="GeoUniPS predictions and angular-error maps for all 20 bear views">
+        <figcaption><span class="fno">FIG</span><span>All 20 views: prediction (left) and error map (right, 0–90°). Errors concentrate on ears, seams and silhouettes.</span></figcaption>
+      </figure>
+      <div class="row" style="gap:var(--s-7)">
+        <div class="stat"><span class="num lane-light" style="font-size:calc(var(--k)*72)" data-to="3.69">3.69</span><span class="label">Mean error, degrees</span></div>
+        <div class="stat"><span class="num" style="font-size:calc(var(--k)*72)" data-to="4.69">4.69</span><span class="label">Prepared-normal baseline</span></div>
+        <div class="stat"><span class="num" style="font-size:calc(var(--k)*72)" data-to="497">497</span><span class="label">GPU seconds, 20 views</span></div>
       </div>
-    </section>
+    </div>
+  </div>
+  <footer class="plate__foot"><span class="src">reports/bear_geo6_openrnb_bridge.md · runs/normal_trials/geounips/bear_geo6_20view_bridge/</span><span data-pno></span></footer>
+</section></div>
 
-    <!-- WIDE: one full-width image, video or placeholder -->
-    <figure class="cs__wide" data-reveal>
-      <div class="media media--frame" data-still data-form="knot" data-seed="3" data-look="0" data-mode="overlay" data-yaw="-0.7" data-w="1800" data-h="1000"></div>
-      <figcaption>Caption for the wide image</figcaption>
-    </figure>
+<!-- ======================================================================= II · GAUSSIANS -->
+<div class="plate-wrap"><section class="plate" id="p-views" data-title="Gaussian splatting">
+  <header class="plate__head"><span class="no"><b data-pno></b> · Chapter II · How it works</span><span class="lane-views">Gaussian splatting &amp; neural SDF</span></header>
+  <div class="plate__body" style="grid-template-rows:auto 1fr auto; row-gap:var(--s-4)">
+    <div class="c1-8 stack">
+      <div class="eyebrow" data-reveal>Optimize appearance, not matches</div>
+      <h2 class="h2" data-split>Many cameras, one light:<br><em>fog first, surface second.</em></h2>
+    </div>
+    <div class="c9-12 bottom" data-reveal><p class="small">These methods fit hundreds of thousands of soft, coloured blobs (“Gaussians”) until rendered views match the photos. Because they compare whole images rather than matching texture points, smooth regions still get constrained. The cloud isn't a surface yet: a second <strong>extraction</strong> step builds one, and that step decides much of the quality.</p></div>
+    <svg class="dia c1-12 draw" viewBox="0 0 1440 420" role="img" aria-label="How Gaussian splats become a mesh">
+      <defs><marker id="ah3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="var(--bone-2)"/></marker>
+        <radialGradient id="blob"><stop offset="0" stop-color="var(--ncyan)" stop-opacity=".8"/><stop offset="1" stop-color="var(--ncyan)" stop-opacity="0"/></radialGradient></defs>
+      <g transform="translate(0 30)"><text x="0" y="0" font-size="11" letter-spacing="1.5" fill="var(--bone)">01 · POSED PHOTOS</text><g id="sp-cams" transform="translate(150 190)"></g><text x="0" y="370" font-size="12" fill="var(--bone-3)">16–40 views with known cameras</text></g>
+      <path class="ln" d="M330 220 L390 220" marker-end="url(#ah3)"/>
+      <g transform="translate(400 30)"><text x="0" y="0" font-size="11" letter-spacing="1.5" fill="var(--bone)">02 · OPTIMIZE A SOFT CLOUD</text><g id="sp-blobs" transform="translate(150 190)"></g><text x="0" y="370" font-size="12" fill="var(--bone-3)">~140k Gaussians, trained by re-rendering</text></g>
+      <path class="ln" d="M730 220 L790 220" marker-end="url(#ah3)"/>
+      <g transform="translate(800 30)"><text x="0" y="0" font-size="11" letter-spacing="1.5" fill="var(--lane-views)">03 · EXTRACT A SURFACE</text><g id="sp-iso" transform="translate(150 190)"></g><text x="0" y="370" font-size="12" fill="var(--bone-3)">TSDF fusion · marching tetrahedra · Poisson</text></g>
+      <path class="ln" d="M1130 220 L1190 220" marker-end="url(#ah3)"/>
+      <g transform="translate(1200 30)"><text x="0" y="0" font-size="11" letter-spacing="1.5" fill="var(--bone)">04 · MESH</text><g id="sp-mesh" transform="translate(115 190)"></g><text x="0" y="370" font-size="12" fill="var(--bone-3)">scored against scan / unseen views</text></g>
+    </svg>
+    <div class="c1-12 row chips-row" style="flex-wrap:wrap">
+      <span class="chip lane-views">2DGS · flat surfels + TSDF</span><span class="chip lane-views">GOF · opacity field + tetrahedra</span><span class="chip lane-views">PGSR · planar Gaussians</span><span class="chip lane-views">NeuS2 · neural SDF</span><span class="chip lane-views">Gaussian Wrapping · occupancy</span><span class="chip lane-views">SuGaR · Poisson</span><span class="chip lane-views">TopoSurfel · mesh proxy</span>
+    </div>
+  </div>
+  <footer class="plate__foot"><span class="src">docs/method_family_backlog.md · reports/gof_neus2_sugar.md</span><span data-pno></span></footer>
+</section></div>
 
-    <!-- VIDEO LOOP: silent, plays only while on screen. No controls attribute. -->
-    <figure class="cs__wide" data-reveal>
-      <div class="media media--frame r-16x9">
-        <video src="../../assets/media/placeholder-loop.mp4" poster="../../assets/media/placeholder-loop.jpg" muted loop playsinline preload="none"></video>
+<!-- ======================================================================= II · CAMERAS HOW -->
+<div class="plate-wrap"><section class="plate" id="p-camhow" data-title="Learned camera recovery">
+  <header class="plate__head"><span class="no"><b data-pno></b> · Chapter II · How it works</span><span class="lane-cameras">Finding the cameras</span></header>
+  <div class="plate__body" style="grid-template-rows:auto 1fr auto; row-gap:var(--s-5)">
+    <div class="c1-7 stack">
+      <div class="eyebrow" data-reveal>Both roads need to know where each camera was</div>
+      <h2 class="h2" data-split>Predict the cameras,<br><em>then check them against the pixels.</em></h2>
+    </div>
+    <div class="c8-12 bottom" data-reveal><p class="small">Classic structure-from-motion chains many fragile steps, each depending on matched texture. Feed-forward models look at all photos at once and output cameras in seconds. We never trust them blind: every prediction is checked against independent feature evidence.</p></div>
+    <svg class="dia c1-12 draw" viewBox="0 0 1440 360" role="img" aria-label="Classic SfM pipeline versus feed-forward camera recovery">
+      <defs><marker id="ah4" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="var(--bone-2)"/></marker></defs>
+      <text x="0" y="22" font-size="11" letter-spacing="1.5" fill="var(--bone)">CLASSIC SFM · PHOTOGRAMMETRY</text>
+      <g transform="translate(0 40)">
+        <rect width="180" height="70" class="box"/><text x="16" y="30" class="t-sans" font-size="15">Photos</text><text x="16" y="52" font-size="10">16–144 images</text>
+        <path class="ln" d="M180 35 L232 35" marker-end="url(#ah4)"/>
+        <rect x="236" width="200" height="70" class="box"/><text x="252" y="30" class="t-sans" font-size="15">Detect features</text><text x="252" y="52" font-size="10">SIFT keypoints</text>
+        <path class="ln" d="M436 35 L488 35" marker-end="url(#ah4)"/>
+        <rect x="492" width="200" height="70" class="box" stroke="var(--bad)"/><text x="508" y="30" class="t-sans" font-size="15">Match across views</text><text x="508" y="52" font-size="10" fill="var(--bad)">breaks on smooth surfaces</text>
+        <path class="ln" d="M692 35 L744 35" marker-end="url(#ah4)" stroke-dasharray="3 4"/>
+        <rect x="748" width="200" height="70" class="box" opacity=".55"/><text x="764" y="30" class="t-sans" font-size="15" opacity=".55">Geometric verify</text><text x="764" y="52" font-size="10" opacity=".55">RANSAC</text>
+        <path class="ln" d="M948 35 L1000 35" marker-end="url(#ah4)" stroke-dasharray="3 4"/>
+        <rect x="1004" width="200" height="70" class="box" opacity=".55"/><text x="1020" y="30" class="t-sans" font-size="15" opacity=".55">Bundle adjust</text><text x="1020" y="52" font-size="10" opacity=".55">refine all cameras</text>
+        <path class="ln" d="M1204 35 L1256 35" marker-end="url(#ah4)" stroke-dasharray="3 4"/>
+        <rect x="1260" width="180" height="70" class="box" opacity=".55"/><text x="1276" y="30" class="t-sans" font-size="15" opacity=".55">Poses</text><text x="1276" y="52" font-size="10" opacity=".55">if it converges</text>
+      </g>
+      <text x="0" y="172" font-size="11" letter-spacing="1.5" fill="var(--lane-cameras)">FEED-FORWARD · LEARNED</text>
+      <g transform="translate(0 190)">
+        <rect width="180" height="70" class="box"/><text x="16" y="30" class="t-sans" font-size="15">Photos</text><text x="16" y="52" font-size="10">all at once</text>
+        <path class="ln" d="M180 35 L232 35" marker-end="url(#ah4)" stroke="var(--lane-cameras)"/>
+        <rect x="236" width="456" height="70" class="box" stroke="var(--lane-cameras)"/><text x="252" y="30" class="t-sans" font-size="15">Transformer: VGGT · Pi3X · MapAnything</text><text x="252" y="52" font-size="10">one forward pass, ~25–65 s, ~8–18 GB</text>
+        <path class="ln" d="M692 35 L744 35" marker-end="url(#ah4)" stroke="var(--lane-cameras)"/>
+        <rect x="748" width="200" height="70" class="box"/><text x="764" y="30" class="t-sans" font-size="15">Poses + lens + points</text><text x="764" y="52" font-size="10">per image</text>
+        <path class="ln" d="M948 35 L1000 35" marker-end="url(#ah4)" stroke="var(--sodium)"/>
+        <rect x="1004" width="436" height="70" class="box" stroke="var(--sodium)"/><text x="1020" y="30" class="t-sans" font-size="15">Independent check</text><text x="1020" y="52" font-size="10" fill="var(--sodium)">epipolar error on held-out matches · fixed-lens re-solve</text>
+      </g>
+      <text x="0" y="330" font-size="12" fill="var(--bone-3)">Optional: replace the predicted lens with the measured one and re-solve each camera (PnP). On the bear this cut centre error to 2.98%.</text>
+    </svg>
+  </div>
+  <footer class="plate__foot"><span class="src">reports/alignment_initial_bear.md · runs/alignment/calibrated_bear20_comparison.md</span><span data-pno></span></footer>
+</section></div>
+
+<!-- ======================================================================= III · SCORECARD -->
+<div class="plate-wrap"><section class="plate plate--deep" id="p-scorecard" data-title="III · Results" data-chapter="III" data-ctitle="Results" data-cdesc="Scorecard, then results by object: bear, Lego, buddha, and camera recovery.">
+  <header class="plate__head"><span class="no"><b data-pno></b> · Chapter III · Results</span><span>At a glance</span></header>
+  <div class="plate__body" style="grid-template-rows:auto 1fr; row-gap:var(--s-5)">
+    <div class="c1-8 row" style="align-items:flex-end; gap:var(--s-5)">
+      <span class="numeral" aria-hidden="true" style="font-size:calc(var(--k)*220)">III</span>
+      <h2 class="h2" data-split>Results<br><em>at a glance.</em></h2>
+    </div>
+    <div class="c9-12 bottom" data-reveal><p class="small">The best measured result per object and road. Each object answers a different question, so read across a row, not down a column. Metrics are defined in the appendix.</p></div>
+    <div class="c1-12 scorecard" id="scorecard"></div>
+  </div>
+  <footer class="plate__foot"><span class="src">data/results.js → scorecard (each cell traced to its report)</span><span data-pno></span></footer>
+</section></div>
+
+<!-- ======================================================================= III · LIGHT COUNT -->
+<div class="plate-wrap"><section class="plate" id="p-lightcount" data-title="Normals: more light, less error">
+  <header class="plate__head"><span class="no"><b data-pno></b> · Chapter III · Results</span><span class="lane-light">Normal estimation</span></header>
+  <div class="plate__body" style="grid-template-rows:auto 1fr auto; row-gap:var(--s-5)">
+    <div class="c1-7 stack">
+      <div class="eyebrow" data-reveal>Three models × three views × 5, 6, 16 photos</div>
+      <h2 class="h2" data-split>More light, less error.<br><em>Mostly.</em></h2>
+    </div>
+    <div class="c8-12 stack bottom" data-reveal>
+      <div id="lc-ctl"></div>
+      <p class="small">At 16 photos every model improved on every view tested. The step from five to six is noisy: GeoUniPS got <em>worse</em> on view 06. Three views of one object give a direction, not yet a capture spec for our scanner.</p>
+    </div>
+    <div class="c1-12 slopes" data-reveal>
+      <div data-slope="01"></div><div data-slope="06"></div><div data-slope="11"></div>
+    </div>
+    <div class="c1-12 row" style="justify-content:space-between">
+      <div class="legend"><span><i style="background:var(--nx)"></i>GeoUniPS</span><span><i style="background:var(--bone)"></i>LINO-UniPS</span><span><i style="background:repeating-linear-gradient(90deg,var(--bone-3) 0 3px,transparent 3px 6px)"></i>Uni MS-PS</span><span>x: photos per view · y: mean angular error</span></div>
+      <div class="caveat"><b>Scope</b><span>Real one-light-at-a-time photos with camera-facing lamps; not yet our scanner's grouped, rear and cross-polarized flashes.</span></div>
+    </div>
+  </div>
+  <footer class="plate__foot"><span class="src">reports/normal_light_count_multiview.md · reports/normal_light_count_view01.md</span><span data-pno></span></footer>
+</section></div>
+
+<!-- ======================================================================= III · BEAR RESULTS -->
+<div class="plate-wrap"><section class="plate" id="p-bear" data-title="Bear: surface vs scan">
+  <header class="plate__head"><span class="no"><b data-pno></b> · Chapter III · Results</span><span class="lane-surface">Bear · smooth, featureless, matte</span></header>
+  <div class="plate__body">
+    <div class="c1-7 well" data-well="bridge">
+      <div class="loading">Loading meshes…</div>
+      <span class="tag tl" id="bridge-label">GeoUniPS → Open-RNb · largest component</span>
+      <span class="tag br hint screen-only">Drag the handle · drag to orbit</span>
+    </div>
+    <div class="c8-12 stack stack-lg" style="align-self:center">
+      <div class="eyebrow" data-reveal>Same coordinates, no alignment</div>
+      <h2 class="h2" data-split>Left of the line: <em>ours.</em><br>Right: <em>the scan.</em></h2>
+      <div class="legend-key"><span><i class="sw sw-rec"></i>Reconstruction</span><span><i class="sw sw-scan"></i>Laser scan</span></div>
+      <div id="bridge-ctl" class="screen-only"></div>
+      <table class="kv" data-reveal>
+        <thead><tr><th>◉ Click a row · Bear, F @ 1.5</th><th style="text-align:right">F</th><th style="text-align:right">Chamfer</th></tr></thead>
+        <tbody>
+          <tr class="hi" data-show="bridge:bear_supernormal" data-tip="Load into the 3D view"><td>SuperNormal 5k · raw</td><td class="n">0.912</td><td class="n">1.44</td></tr>
+          <tr class="hi" data-show="bridge:bear_geo6_largest" data-tip="Load into the 3D view"><td>Six photos → Open-RNb · cleaned</td><td class="n">0.904</td><td class="n">3.27</td></tr>
+          <tr class="nolink" data-tip="No display mesh staged for this derivative"><td>Prepared → Open-RNb · cleaned</td><td class="n">0.881</td><td class="n">3.72</td></tr>
+          <tr data-show="bridge:bear_geo6_raw" data-tip="Load into the 3D view"><td>Six photos → Open-RNb · raw</td><td class="n">0.863</td><td class="n">8.11</td></tr>
+          <tr data-show="bridge:bear_rnb_quality" data-tip="Load into the 3D view"><td>Prepared → Open-RNb · raw</td><td class="n">0.849</td><td class="n">7.30</td></tr>
+        </tbody>
+      </table>
+      <p class="cap">F-score: share of both surfaces within tolerance (higher is better). Chamfer: average gap (lower is better). “Cleaned” keeps only the largest connected piece, selected by face count alone.</p>
+    </div>
+  </div>
+  <footer class="plate__foot"><span class="src">bear_geo6_openrnb_bridge.md · supernormal_bear_refined.md · display meshes decimated for the web; scores from the reports</span><span data-pno></span></footer>
+</section></div>
+
+<!-- ======================================================================= III · LEGO -->
+<div class="plate-wrap"><section class="plate" id="p-lego" data-title="Lego: seven engines">
+  <header class="plate__head"><span class="no"><b data-pno></b> · Chapter III · Results</span><span class="lane-views">Lego · textured control object</span></header>
+  <div class="plate__body">
+    <div class="c1-5 stack stack-lg" style="align-self:center">
+      <div class="eyebrow" data-reveal>Held-out silhouette agreement</div>
+      <h2 class="h2" data-split>Seven engines,<br><em>one control object.</em></h2>
+      <span class="link-hint screen-only"><i class="ia-dot"></i>Click a bar to load it in 3D</span>
+      <div class="bars" id="lego-bars"></div>
+      <div class="caveat"><b>Outline only</b><span>No Lego scan exists, so this compares outlines on 8 unseen views, not 3D accuracy. GOF and Wrapping are shown with winding-corrected copies (same geometry, fixed shading). TopoSurfel is the corrected 10k run. Extra polygons (NeuS2 384 grid) did not add detail.</span></div>
+    </div>
+    <div class="c6-12 stack">
+      <div class="well full" data-well="lego">
+        <div class="loading">Loading meshes…</div>
+        <span class="tag tl">Raw method output · display copy</span>
+        <span class="tag br hint screen-only">Drag to orbit</span>
       </div>
-      <figcaption>Silent loop</figcaption>
-    </figure>
+      <div id="lego-ctl" class="screen-only"></div>
+    </div>
+  </div>
+  <footer class="plate__foot"><span class="src">gof_neus2_sugar.md · gaussian_wrapping_lego_30k_mesh.md · pgsr_lego_repo_settings_15000.md · toposurfel_lego_repo_settings_10000.md · winding_corrections_20261008/audit.json</span><span data-pno></span></footer>
+</section></div>
 
-    <!-- VIDEO PLAYER: add the controls attribute for a clip people start themselves, with sound. -->
-    <figure class="cs__wide" data-reveal>
-      <div class="media media--frame r-16x9">
-        <video src="../../assets/media/placeholder-film.mp4" poster="../../assets/media/placeholder-film.jpg" controls playsinline preload="none"></video>
+<!-- ======================================================================= III · BUDDHA RESULTS -->
+<div class="plate-wrap"><section class="plate" id="p-buddha" data-title="Buddha: fine detail">
+  <header class="plate__head"><span class="no"><b data-pno></b> · Chapter III · Results</span><span class="lane-surface">Buddha · fine carved detail</span></header>
+  <div class="plate__body">
+    <div class="c1-7 well" data-well="buddha">
+      <div class="loading">Loading meshes…</div>
+      <span class="tag tl" id="buddha-label">NeuS2 15k · one-light RGB · F 0.928</span>
+    </div>
+    <div class="c8-12 stack stack-lg" style="align-self:center">
+      <div class="eyebrow" data-reveal>Same scan, same scorer, F @ 1% of scan diagonal</div>
+      <h2 class="h2" data-split>On fine detail,<br><em>both roads land close.</em></h2>
+      <div id="buddha-ctl" class="screen-only"></div>
+      <span class="link-hint screen-only"><i class="ia-dot"></i>Click a bar to load it in 3D</span>
+      <div class="bars" id="buddha-bars"></div>
+      <div class="legend-key"><span><i class="sw" style="background:var(--lane-views)"></i>Radiance field / Gaussians (RGB)</span><span><i class="sw" style="background:var(--lane-surface)"></i>Photometric stereo</span></div>
+      <p class="small" data-reveal>A harder shape than the bear: robes, folded hands, a carved face. A neural radiance-field surface (NeuS2) from <strong>one light</strong> and the photometric road from <strong>six real lamp photos</strong> both reach about 0.93 once fragments are removed. Gaussians in glossy-material mode trail at 0.74 here.</p>
+      <div class="caveat"><b>Caveat</b><span>Inputs differ by road (one-light RGB vs six lamp photos per view). Cameras supplied by the dataset; four views held out. Physical units unverified.</span></div>
+    </div>
+  </div>
+  <footer class="plate__foot"><span class="src">reports/neus2_buddha.md · buddha_geo6_openrnb_5k.md · gs2m_buddha_glossy10k.md · display meshes decimated; scores from the reports</span><span data-pno></span></footer>
+</section></div>
+
+<!-- ======================================================================= III · CAMERA RESULTS -->
+<div class="plate-wrap"><section class="plate" id="p-camres" data-title="Cameras: bear">
+  <header class="plate__head"><span class="no"><b data-pno></b> · Chapter III · Results</span><span class="lane-cameras">Camera recovery · bear</span></header>
+  <div class="plate__body">
+    <div class="c1-5 stack stack-lg" style="align-self:center">
+      <div class="eyebrow" data-reveal>20 views · lens supplied · scored after a camera-only fit</div>
+      <h2 class="h2" data-split>Where photogrammetry<br><em>found nothing.</em></h2>
+      <p class="body" data-reveal>COLMAP produced no model on the bear. With the measured lens supplied, VGGT plus a fixed-lens re-solve landed within <strong>3% of the true orbit and 2.4°</strong> of the true rotation. Rankings are scene-dependent: a method that fails here can lead elsewhere.</p>
+    </div>
+    <div class="c6-12 stack stack-lg" style="align-self:center">
+      <div class="row" style="gap:var(--s-3)">
+        <figure class="fig" style="flex:1" data-reveal><img class="inv" src="assets/img/cam_vggt_pnp.png" alt="VGGT fixed-K camera positions vs truth"><figcaption><span class="fno">VGGT + fixed K</span><span>2.98% · 2.36°</span></figcaption></figure>
+        <figure class="fig d1" style="flex:1" data-reveal><img class="inv" src="assets/img/cam_mapanything20.png" alt="MapAnything camera positions vs truth"><figcaption><span class="fno">MapAnything · native K</span><span>73.5% · 65.5° · rejected</span></figcaption></figure>
       </div>
-      <figcaption>Film with sound</figcaption>
-    </figure>
-
-    <!-- QUOTE: one big statement; <em> takes the accent -->
-    <section class="cs__quote" data-reveal>
-      <p>Lorem ipsum dolor <em>sit amet</em> consectetur.</p>
-      <cite>Source or context</cite>
-    </section>
-
-    <!-- PAIR: two-up media -->
-    <section class="cs__pair" data-reveal>
-      <figure><div class="media media--frame r-4x3" data-still data-form="knot" data-seed="3" data-look="1" data-yaw="0.5" data-w="960" data-h="720"></div><figcaption>Left caption</figcaption></figure>
-      <figure><div class="media media--frame r-4x3" data-still data-form="knot" data-seed="3" data-look="2" data-mode="clay" data-yaw="2" data-w="960" data-h="720"></div><figcaption>Right caption</figcaption></figure>
-    </section>
-
-    <!-- NUMS: up to three results -->
-    <section class="cs__nums" data-reveal>
-      <div><b>400+</b><span class="mono">Lorem ipsum</span></div>
-      <div><b>$2M</b><span class="mono">Dolor sit amet</span></div>
-      <div><b>0.902</b><span class="mono">Consectetur</span></div>
-    </section>
-
-    <!-- NEXT: filled in automatically from assets/js/data.js -->
-    <a class="cs__next" data-next href="../../">
-      <div><small class="mono">Next project</small><strong data-next-title>All work</strong></div>
-      <div data-next-media></div>
-    </a>
-
-    <footer class="foot">
-      <div class="foot__row">
-        <span>© 2026 Ken Bechtold</span>
-        <nav aria-label="Links"><a href="mailto:ken@afterthehomework.com">Email</a><a href="#">CV ↓</a><a href="#">LinkedIn</a></nav>
-        <a href="#top">Top ↑</a>
+      <div class="stack">
+        <span class="eyebrow no-rule">Camera-centre error, % of orbit radius (lower is better)</span>
+        <div class="bars" id="cam-bars"></div>
       </div>
-    </footer>
-  </main>
+    </div>
+  </div>
+  <footer class="plate__foot"><span class="src">reports/alignment_initial_bear.md · runs/alignment/calibrated_bear20_comparison.md</span><span data-pno></span></footer>
+</section></div>
 
-  <script type="module" src="../../assets/js/case.js"></script>
+<!-- ======================================================================= IV · CASE 01 -->
+<div class="plate-wrap"><section class="plate plate--deep" id="p-cs1" data-title="IV · Case studies" data-chapter="IV" data-ctitle="Case studies" data-cdesc="Three investigations: what we tried, what broke, what we learned.">
+  <header class="plate__head"><span class="no"><b data-pno></b> · Chapter IV · Case 01</span><span class="lane-surface">Photometric stereo, end to end</span></header>
+  <div class="plate__body" style="grid-template-rows:auto 1fr auto; row-gap:var(--s-5)">
+    <div class="c1-8 row" style="align-items:flex-end; gap:var(--s-5)">
+      <span class="numeral" aria-hidden="true" style="font-size:calc(var(--k)*220)">IV</span>
+      <div class="stack"><div class="eyebrow">Case 01 · The bear</div><h2 class="h2" data-split>Six photos in,<br><em>a scored surface out.</em></h2></div>
+    </div>
+    <dl class="casefile c9-12" data-reveal>
+      <div><dt>Question</dt><dd>Can real photographs under changing light replace a supplied, pre-computed normal set?</dd></div>
+      <div><dt>Outcome</dt><dd>Yes: F 0.863 vs 0.849 baseline, same settings.</dd></div>
+      <div><dt>Lesson</dt><dd>The normal estimator is the lever; floaters at the volume edge cost accuracy.</dd></div>
+    </dl>
+    <div class="c1-12 pipeline">
+      <span class="link-hint screen-only" style="margin-bottom:var(--s-3)"><i class="ia-dot"></i>Hover a stage for detail</span>
+      <div class="pipe-grid">
+        <div class="pstage" data-reveal data-tip="<b>Capture</b><br>Public DiLiGenT-MV bear: 20 fixed views × 6 single-lamp photos (lamps 001, 019, 037, 055, 073, 091). 16-bit PNG, 612×512.">
+          <div class="pimg grid6"><img src="assets/img/olat/v01_001.jpg" alt=""><img src="assets/img/olat/v01_019.jpg" alt=""><img src="assets/img/olat/v01_037.jpg" alt=""><img src="assets/img/olat/v01_055.jpg" alt=""><img src="assets/img/olat/v01_073.jpg" alt=""><img src="assets/img/olat/v01_091.jpg" alt=""></div>
+          <span class="eyebrow no-rule">01 · Capture</span><b>6 real photos × 20 views</b><span class="cap">public bear, one lamp at a time</span>
+        </div>
+        <div class="parrow" aria-hidden="true"></div>
+        <div class="pstage d1" data-reveal data-tip="<b>GeoUniPS</b><br>Universal photometric stereo. No lamp directions supplied. 20 views in 497 GPU-seconds; mean error 3.69° (range 2.52–6.62°).">
+          <div class="pimg"><img src="assets/img/geo6_normal_v01.png" alt="GeoUniPS normal map, view 01"></div>
+          <span class="eyebrow no-rule lane-light">02 · GeoUniPS</span><b>Normals at 3.69°</b><span class="cap">no lamp positions given</span>
+        </div>
+        <div class="parrow" aria-hidden="true"></div>
+        <div class="pstage d2" data-reveal data-tip="<b>Open-RNb</b><br>Neural signed-distance field fitted to the normals, masks and supplied cameras. 5,000 steps, albedo disabled, 986 s, ~3.2 GB.">
+          <div class="pimg"><svg viewBox="0 0 100 100" class="dia"><g fill="none" stroke="var(--nz)"><ellipse cx="50" cy="54" rx="40" ry="36" opacity=".25"/><ellipse cx="50" cy="54" rx="31" ry="28" opacity=".45"/><ellipse cx="50" cy="54" rx="22" ry="20" opacity=".7"/><ellipse cx="50" cy="54" rx="13" ry="12"/></g><circle cx="50" cy="54" r="2" fill="var(--bone)"/><text x="50" y="12" text-anchor="middle" font-size="7" fill="var(--bone-3)">f(x) = distance to surface</text></svg></div>
+          <span class="eyebrow no-rule lane-surface">03 · Open-RNb</span><b>Neural distance field</b><span class="cap">5,000 steps · 986 s</span>
+        </div>
+        <div class="parrow" aria-hidden="true"></div>
+        <div class="pstage d3" data-reveal data-tip="<b>Extract</b><br>Marching cubes on a 256³ grid. 437,842 faces, 120 components; the largest holds 91% of faces.">
+          <div class="pimg"><svg viewBox="0 0 100 100" class="dia"><g stroke="var(--bone-2)" stroke-width=".6" fill="none"><path d="M20 70 L38 28 L62 32 L80 66 Z M38 28 L50 55 L62 32 M20 70 L50 55 L80 66 M50 55 L48 84 M20 70 L48 84 L80 66"/></g></svg></div>
+          <span class="eyebrow no-rule">04 · Extract</span><b>437,842 triangles</b><span class="cap">marching cubes, 256³ grid</span>
+        </div>
+        <div class="parrow" aria-hidden="true"></div>
+        <div class="pstage d4" data-reveal data-tip="<b>Score</b><br>100k seeded samples per mesh, no alignment, threshold 1.5 dataset units. Precision 0.774 · recall 0.974.">
+          <div class="pimg score"><span class="num spectrum-text" data-to="0.863">0.863</span></div>
+          <span class="eyebrow no-rule" style="color:var(--sodium)">05 · Score vs scan</span><b>F-score @ 1.5 units</b><span class="cap">baseline 0.849 · cleaned 0.904</span>
+        </div>
+      </div>
+    </div>
+    <div class="c1-12 row" style="justify-content:space-between; align-items:flex-start">
+      <p class="small" data-reveal style="max-width:52em">Same Open-RNb settings as the baseline; only the normals changed. Completeness went up (recall 0.974). Detached fragments near the extraction boundary cost accuracy; removing them by face count alone takes F to 0.904.</p>
+      <div class="caveat" style="max-width:30em"><b>Caveat</b><span>Cameras were supplied by the dataset, not estimated. Physical units are unverified.</span></div>
+    </div>
+  </div>
+  <footer class="plate__foot"><span class="src">reports/bear_geo6_openrnb_bridge.md · runs/Open-RNb/bear/bear-geo6-bridge-20261008-0800/run_manifest.json</span><span data-pno></span></footer>
+</section></div>
+
+<!-- ======================================================================= IV · CASE 01b PROGRESSION -->
+<div class="plate-wrap"><section class="plate" id="p-progress" data-title="Case 01 · Iterations">
+  <header class="plate__head"><span class="no"><b data-pno></b> · Chapter IV · Case 01</span><span>Iterations on one object</span></header>
+  <div class="plate__body">
+    <div class="c1-4 stack stack-lg" style="align-self:center">
+      <div class="eyebrow" data-reveal>Four passes, one object</div>
+      <h2 class="h2" data-split>Watch the bear<br><em>come into focus.</em></h2>
+      <div id="prog-ctl" class="screen-only"></div>
+      <div class="prog-note" data-prog="bear_rnb_smoke"><p class="small"><b class="bone">Pass 1 · Smoke test.</b> 250 steps. Visibly incomplete, but it proves the full toolchain runs end to end on Windows.</p></div>
+      <div class="prog-note" data-prog="bear_rnb_quality" hidden><p class="small"><b class="bone">Pass 2 · 5,000 steps.</b> The body is complete; detached floaters remain at the edge of the volume. F&nbsp;0.849.</p></div>
+      <div class="prog-note" data-prog="bear_supernormal" hidden><p class="small"><b class="bone">Pass 3 · SuperNormal.</b> A different integrator on the same inputs. Tightest bear surface so far: F&nbsp;0.912, Chamfer&nbsp;1.44.</p></div>
+      <div class="prog-note" data-prog="bear_geo6_raw" hidden><p class="small"><b class="bone">Pass 4 · Six real photos.</b> Normals predicted from photographs, then integrated. F&nbsp;0.863; floaters still visible above the head.</p></div>
+      <div class="prog-note" data-prog="bear_gt" hidden><p class="small"><b class="bone">Reference.</b> The laser scan, used only for scoring.</p></div>
+    </div>
+    <div class="c5-12 well" data-well="progression">
+      <div class="loading">Loading meshes…</div>
+      <span class="tag tr">Same camera · same scale · dataset coordinates</span>
+      <span class="tag bl hint screen-only">Drag to orbit · move pointer to relight</span>
+    </div>
+  </div>
+  <footer class="plate__foot"><span class="src">runs/Open-RNb/bear/bear-smoke-20261008-010613 · bear-quality-20261008-012808 · bear-geo6-bridge-20261008-0800 · normal_trials/supernormal/bear_sdmunips_refine_5000</span><span data-pno></span></footer>
+</section></div>
+
+<!-- ======================================================================= IV · CASE 02 GATE -->
+<div class="plate-wrap"><section class="plate" id="p-gate" data-title="Case 02 · The phantom sheets">
+  <header class="plate__head"><span class="no"><b data-pno></b> · Chapter IV · Case 02</span><span class="lane-views">Gaussian extraction</span></header>
+  <div class="plate__body" style="grid-template-rows:auto 1fr; row-gap:var(--s-5)">
+    <div class="c1-6 stack">
+      <div class="eyebrow" data-reveal>Case 02 · The phantom sheets</div>
+      <h2 class="h2" data-split>Same trained model.<br><em>A better extraction.</em></h2>
+      <p class="body" data-reveal>2DGS learned a good model but exported broad phantom sheets of surface. The training photos already say where the object <em>isn't</em>, so depth outside each training mask was zeroed during extraction. <strong>No retraining.</strong> The fix was proven on the Lego, then carried to the boot unchanged.</p>
+      <div class="gate-stats" data-reveal>
+        <div class="stat"><span class="label">Lego · outline IoU</span><span class="num"><span class="dim">0.498</span> → <span class="spectrum-text">0.975</span></span><span class="desc">5.3 M stray depth pixels removed</span></div>
+        <div class="stat"><span class="label">Boot · F vs scan</span><span class="num"><span class="dim">0.089</span> → <span class="spectrum-text">0.902</span></span><span class="desc">11.5 M stray depth pixels removed</span></div>
+      </div>
+    </div>
+    <div class="c7-12 stack" style="grid-row: 1 / span 2">
+      <div class="well" data-well="gate" style="flex:1; min-height:calc(var(--k)*560)">
+        <div class="loading">Loading meshes…</div>
+        <span class="tag tl" id="gate-label">Lego · before</span>
+        <span class="tag br hint screen-only">Toggle before / after</span>
+      </div>
+      <div id="gate-ctl" class="screen-only"></div>
+    </div>
+    <dl class="casefile c1-6" data-reveal style="align-self:end">
+      <div><dt>Question</dt><dd>Why does a well-trained model export a bad mesh?</dd></div>
+      <div><dt>Outcome</dt><dd>Gating depth by training masks fixed both objects.</dd></div>
+      <div><dt>Lesson</dt><dd>Extraction is half the method. Test it separately.</dd></div>
+    </dl>
+  </div>
+  <footer class="plate__foot"><span class="src">runs/2DGS/lego/…/mask_gated_export/result.md · runs/2DGS/pink_boot/pink-rgb16-half-fullgeom-20261008-1302/result.md</span><span data-pno></span></footer>
+</section></div>
+
+<!-- ======================================================================= IV · CASE 03 BOOT -->
+<div class="plate-wrap"><section class="plate" id="p-cs4" data-title="Case 03 · One shoe, two roads">
+  <header class="plate__head"><span class="no"><b data-pno></b> · Chapter IV · Case 03</span><span>Footwear</span></header>
+  <div class="plate__body">
+    <div class="c1-5 stack stack-lg" style="align-self:center">
+      <div class="eyebrow" data-reveal>Case 03 · The pink boot</div>
+      <h2 class="h2" data-split>One shoe,<br><em>two roads.</em></h2>
+      <div class="road2">
+        <div class="spec" data-reveal><span class="label lane-surface">Photometric road · F 0.416</span><p class="small">Shape right, surface folded. The supplied normals disagree with the scan by <strong>~11.8°</strong> (2.5× the bear's), and the boot fills under 7% of each frame. The bottleneck is input normals, not the integrator.</p></div>
+        <div class="spec d1" data-reveal><span class="label lane-views">Gaussian road · F 0.565 → 0.902</span><p class="small">GOF covered the boot (recall 0.98) but added extra surface (precision 0.40); half its triangles were inconsistently wound, traced to a Windows tetrahedra substitute. 2DGS with mask-gated extraction reached <strong>0.902</strong>.</p></div>
+      </div>
+      <dl class="casefile" data-reveal>
+        <div><dt>Lesson</dt><dd>For glossy footwear with good masks, Gaussians lead today. The photometric road needs normals from our own lights.</dd></div>
+      </dl>
+    </div>
+    <div class="c6-12 stack" style="align-self:center">
+      <figure class="fig" data-reveal="wipe">
+        <img src="assets/img/boot_2dgs_front.png" alt="2DGS filtered boot mesh versus scan, front view">
+        <figcaption><span class="fno">FIG</span><span>Research diagnostic: 2DGS gated + filtered mesh beside the scan, matched camera and scale.</span></figcaption>
+      </figure>
+    </div>
+  </div>
+  <footer class="plate__foot"><span class="src">open_rnb_pink_boot.md · pink_boot_input_diagnosis.md · gof_pink_boot.md · runs/2DGS/pink_boot/…/result.md</span><span data-pno></span></footer>
+</section></div>
+
+<!-- ======================================================================= V · GENERATIVE · OPENER -->
+<div class="plate-wrap"><section class="plate plate--deep" id="p-gen" data-title="V · Generative reconstruction" data-chapter="V" data-ctitle="Generative reconstruction" data-cdesc="A second workflow: AI generates a complete, textured mesh from four photos.">
+  <header class="plate__head"><span class="no"><b data-pno></b> · Chapter V · Generative reconstruction</span><span class="lane-gen">A different workflow</span></header>
+  <div class="plate__body" style="grid-template-rows:auto auto auto; row-gap:var(--s-6); align-content:center">
+    <div class="c1-7 row" style="align-items:flex-end; gap:var(--s-5)">
+      <span class="numeral" aria-hidden="true" style="font-size:calc(var(--k)*220)">V</span>
+      <div class="stack"><div class="eyebrow" data-reveal>A second workflow · AI mesh generation</div><h2 class="h2" data-split>Four photos in,<br><em>a finished asset out.</em></h2></div>
+    </div>
+    <div class="c8-12 bottom" data-reveal><p class="small">Chapters I–IV <strong>measure</strong> a surface: every triangle is backed by light or by matched pixels. Here a generative model <strong>completes</strong> the object. From four photos and no cameras it returns a whole textured mesh, including the sides it never saw.</p></div>
+    <svg class="dia c1-12 draw" viewBox="0 0 1440 250" role="img" aria-label="Generative workflow: photos, masks, mesh generation, textured mesh">
+      <defs><marker id="ahg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="var(--bone-2)"/></marker></defs>
+      <g transform="translate(0 70)">
+        <rect width="150" height="110" class="box"/>
+        <rect x="16" y="16" width="52" height="36" fill="none" stroke="var(--bone-3)"/><rect x="80" y="16" width="52" height="36" fill="none" stroke="var(--bone-3)"/><rect x="16" y="58" width="52" height="36" fill="none" stroke="var(--bone-3)"/><rect x="80" y="58" width="52" height="36" fill="none" stroke="var(--bone-3)"/>
+      </g>
+      <text x="0" y="58" font-size="11" letter-spacing="1.5" fill="var(--bone)">01 · FOUR PHOTOS</text>
+      <text x="0" y="204" font-size="11" fill="var(--bone-3)">top, sides, back or sole</text>
+      <path class="ln" d="M150 110 L296 110" marker-end="url(#ahg)"/>
+      <g transform="translate(300 70)">
+        <rect width="300" height="80" class="box"/>
+        <text x="16" y="32" class="t-sans" font-size="17">Cut out the object</text>
+        <text x="16" y="56" font-size="11">BRIA RMBG-2.0 background masks</text>
+      </g>
+      <text x="300" y="58" font-size="11" letter-spacing="1.5" fill="var(--bone)">02 · MASK</text>
+      <path class="ln" d="M600 110 L706 110" marker-end="url(#ahg)" stroke="var(--lane-gen)"/>
+            <g transform="translate(710 40)">
+        <rect width="520" height="140" class="box" stroke="var(--lane-gen)"/>
+        <g font-size="11" fill="var(--bone-2)">
+          <rect x="16" y="20" width="80" height="34" fill="var(--ink-3)" stroke="var(--rule-strong)"/><text x="56" y="41" text-anchor="middle">DINOv3</text>
+          <rect x="106" y="20" width="80" height="34" fill="var(--ink-3)" stroke="var(--rule-strong)"/><text x="146" y="41" text-anchor="middle">structure</text>
+          <rect x="196" y="20" width="80" height="34" fill="var(--ink-3)" stroke="var(--rule-strong)"/><text x="236" y="41" text-anchor="middle">shape 512</text>
+          <rect x="286" y="20" width="80" height="34" fill="var(--ink-3)" stroke="var(--rule-strong)"/><text x="326" y="41" text-anchor="middle">shape 1024</text>
+          <rect x="376" y="20" width="80" height="34" fill="var(--ink-3)" stroke="var(--rule-strong)"/><text x="416" y="41" text-anchor="middle">texture</text>
+        </g>
+        <path d="M96 37 L106 37 M186 37 L196 37 M276 37 L286 37 M366 37 L376 37" stroke="var(--bone-3)"/>
+        <text x="16" y="86" class="t-sans" font-size="17">Generate shape, then texture</text>
+        <text x="16" y="110" font-size="11">UniForge3D: no cameras · Pixal3D: posed views, 1024 cascade</text>
+      </g>
+      <text x="710" y="28" font-size="11" letter-spacing="1.5" fill="var(--lane-gen)">03 · MESH GENERATION</text>
+      <path class="ln" d="M1230 110 L1276 110" marker-end="url(#ahg)"/>
+      <g transform="translate(1280 40)">
+        <rect width="160" height="140" class="box" stroke="var(--bone-2)"/>
+        <g transform="translate(80 58)" stroke="var(--lane-gen)" stroke-width=".9" fill="none"><path d="M-40 26 L-14 -32 L20 -26 L40 20 Z M-14 -32 L0 6 L20 -26 M-40 26 L0 6 L40 20 M0 6 L-3 36 M-40 26 L-3 36 L40 20"/></g>
+        <text x="16" y="124" font-size="11" fill="var(--bone)">≈1M faces · 2048² PBR</text>
+      </g>
+      <text x="1280" y="28" font-size="11" letter-spacing="1.5" fill="var(--bone)">04 · TEXTURED MESH</text>
+      <text x="1440" y="214" text-anchor="end" font-size="11" fill="var(--sodium)">unscored: no cameras, no shared frame with a scan</text>
+    </svg>
+    <table class="kv gen-vs c1-12" data-reveal>
+      <thead><tr><th style="width:16%"></th><th style="width:42%">Measured · Chapters I–IV</th><th class="lane-gen">Generated · Chapter V</th></tr></thead>
+      <tbody>
+        <tr><td>Input</td><td>16–40 posed photos, or lamp-by-lamp stacks</td><td class="g">4 photos with masks. UniForge3D needs no cameras; Pixal3D needs a pose per view</td></tr>
+        <tr><td>Unseen surfaces</td><td>Left open: a hole is honest</td><td class="g">Invented by the model: plausible, not measured</td></tr>
+        <tr><td>Output</td><td>Geometry, in the dataset's own units</td><td class="g">Geometry plus base-colour and roughness textures, in a normalized box</td></tr>
+        <tr><td>Scored by</td><td>F-score against a held-out laser scan</td><td class="g">Not yet: scoring needs an alignment step, labelled separately</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <footer class="plate__foot"><span class="src">reports/uniforge3d_ram_guard_diagnostic_20261016.md · reports/uniforge3d_case01_shape512_geometry_20261016.md</span><span data-pno></span></footer>
+</section></div>
+
+<!-- ======================================================================= V · CASE G·01 PUBLIC OBJECTS -->
+<div class="plate-wrap"><section class="plate" id="p-gen-public" data-title="Case G·01 · Generated from four photos">
+  <header class="plate__head"><span class="no"><b data-pno></b> · Chapter V · Case G·01</span><span class="lane-gen">UniForge3D · public objects</span></header>
+  <div class="plate__body">
+    <div class="c1-5 stack stack-lg" style="align-self:center">
+      <div class="eyebrow" data-reveal>Case G·01 · Bear, buddha and the official example</div>
+      <h2 class="h2" data-split>Four photos,<br><em>the back filled in.</em></h2>
+      <p class="body" data-reveal>The same public bear and buddha as Chapter III, but only <strong>four of the twenty views</strong> (01, 06, 11, 16), one lamp, no cameras. UniForge3D returned a complete textured mesh for each, base and back included. Step to the laser scan to compare them by eye.</p>
+      <table class="kv" data-reveal>
+        <thead><tr><th>◉ Click a row</th><th style="text-align:right">Faces</th><th style="text-align:right">Export</th><th style="text-align:right">Peak GPU</th></tr></thead>
+        <tbody>
+          <tr class="hi" data-show="gen:gen_bear_uniforge" data-tip="Load into the 3D view"><td>Bear · 4 views</td><td class="n">985,159</td><td class="n">remesh</td><td class="n">18.2 GB</td></tr>
+          <tr class="hi" data-show="gen:gen_buddha_uniforge" data-tip="Load into the 3D view"><td>Buddha · 4 views</td><td class="n">992,146</td><td class="n">no remesh</td><td class="n">12.4 GB</td></tr>
+          <tr data-show="gen:gen_case01_uniforge" data-tip="Load into the 3D view"><td>Official example figurine</td><td class="n">980,705</td><td class="n">no remesh</td><td class="n">24.1 GB</td></tr>
+        </tbody>
+      </table>
+      <div class="caveat" data-reveal><b>Unscored</b><span>The meshes sit in the model's normalized box with no cameras, so an F-score would first need a fitted alignment to the scan. That step is not run yet. Unseen surfaces are generated, not measured. None of the meshes is watertight.</span></div>
+    </div>
+    <div class="c6-12 stack" style="align-self:center">
+      <div class="well" data-well="gen" style="height:calc(var(--k)*470)">
+        <div class="loading">Loading meshes…</div>
+        <span class="tag tl" id="gen-label">UniForge3D · bear · generated</span>
+        <span class="tag br hint screen-only">Drag to orbit</span>
+      </div>
+      <div id="gen-ctl" class="screen-only"></div>
+      <figure class="fig gen-strip" data-reveal>
+        <img src="assets/img/gen/buddha_mesh.jpg" alt="UniForge3D buddha mesh with its generated base-colour texture at 0, 90, 180 and 270 degrees">
+        <figcaption><span class="fno">FIG</span><span>Generated base-colour texture, buddha, turned 0 / 90 / 180 / 270°. Everything between the four photos, plus top and base, is filled in by the model.</span></figcaption>
+      </figure>
+    </div>
+  </div>
+  <footer class="plate__foot"><span class="src">manifests/uniforge3d_bear_remesh_from_decoded_completed_20261016.json · uniforge3d_buddha_chunked_textured_no_remesh_completed_20261016.json · uniforge3d_public_textured_no_remesh_completed_20261016.json · display meshes decimated</span><span data-pno></span></footer>
+</section></div>
+
+<!-- ======================================================================= VI · METHOD NUMBERS -->
+<div class="plate-wrap"><section class="plate" id="p-method" data-title="VI · How the research was run" data-chapter="VI" data-ctitle="How the research was run" data-cdesc="An agent-run research pipeline: architecture, run log and chain of custody.">
+  <header class="plate__head"><span class="no"><b data-pno></b> · Chapter VI · How the research was run</span><span>Evidence base</span></header>
+  <div class="plate__body" style="align-content:center">
+    <div class="c1-8 row" style="align-items:flex-end; gap:var(--s-5)">
+      <span class="numeral" aria-hidden="true" style="font-size:calc(var(--k)*220)">VI</span>
+      <div class="stack"><div class="eyebrow" data-reveal>Method</div><h2 class="h2" data-split>A research pipeline<br><em>built to be audited.</em></h2></div>
+    </div>
+    <div class="c9-12 stack bottom" data-reveal>
+      <p class="body">The program is run by a coordinated team of AI agents. Each owns one line of inquiry, works in its own isolated environment and writes everything down. Counts below are taken from files on disk and update with each build.</p>
+    </div>
+    <div class="numbers">
+      <div class="stat"><span class="num" data-count="repos">20</span><span class="label">Pinned source trees</span></div>
+      <div class="stat"><span class="num" data-count="envs">16</span><span class="label">Isolated environments</span></div>
+      <div class="stat"><span class="num" data-count="jobs">134</span><span class="label">Logged GPU jobs</span></div>
+      <div class="stat"><span class="num" data-count="runs">119</span><span class="label">Run folders</span></div>
+      <div class="stat"><span class="num" data-count="meshes">145</span><span class="label">Meshes produced</span></div>
+      <div class="stat"><span class="num" data-count="manifests">81</span><span class="label">Run manifests</span></div>
+      <div class="stat"><span class="num" data-count="patches">23</span><span class="label">Recorded source patches</span></div>
+      <div class="stat"><span class="num" data-count="reports">35</span><span class="label">Written reports</span></div>
+    </div>
+  </div>
+  <footer class="plate__foot"><span class="src">coordination/gpu_runner.jsonl · runs/ · envs/ · sources/ · manifests/ · reports/</span><span data-pno></span></footer>
+</section></div>
+
+<!-- ======================================================================= VI · SWARM ARCHITECTURE -->
+<div class="plate-wrap"><section class="plate plate--deep" id="p-swarm" data-title="Agent architecture">
+  <header class="plate__head"><span class="no"><b data-pno></b> · Chapter VI · How the research was run</span><span>Architecture</span></header>
+  <div class="plate__body">
+    <div class="c1-3 stack stack-lg" style="align-self:center">
+      <div class="eyebrow">Operations</div>
+      <h2 class="h2" data-split>Many agents.<br><em>One lock.</em></h2>
+      <p class="small" data-reveal>Agents work in parallel on CPU tasks: compiling, converting data, scoring, auditing, writing. The single RTX 4090 is guarded by a mutex with a written ledger, so GPU jobs never collide and every one leaves a timestamped record.</p>
+      <div class="stack" data-reveal>
+        <span class="eyebrow no-rule">GPU ledger owners · jobs</span>
+        <ul class="owners" id="owners"></ul>
+      </div>
+    </div>
+    <svg class="dia arch draw" viewBox="0 0 1100 640" role="img" aria-label="Agent architecture flow chart">
+      <defs><marker id="ah2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="var(--bone-3)"/></marker></defs>
+      <g transform="translate(330 0)"><rect width="440" height="58" class="box" stroke="var(--sodium)"/><text x="20" y="24" font-size="10" fill="var(--sodium)" letter-spacing="1.5">HUMAN DIRECTION</text><text x="20" y="45" class="t-sans" font-size="15">Goals · approvals per action · guardrails (no system changes)</text></g>
+      <path class="ln" d="M550 58 L550 92" marker-end="url(#ah2)"/>
+      <g transform="translate(360 94)"><rect width="380" height="58" class="box"/><text x="20" y="24" font-size="10" letter-spacing="1.5">COORDINATION</text><text x="20" y="45" class="t-sans" font-size="15">Task split · handoffs · shared run rules</text></g>
+      <path class="ln" d="M550 152 L550 172 M110 172 L990 172 M110 172 L110 194 M330 172 L330 194 M550 172 L550 194 M770 172 L770 194 M990 172 L990 194"/>
+      <g transform="translate(20 196)"><rect width="180" height="86" class="box" stroke="var(--lane-light)"/><text x="14" y="24" font-size="10" fill="var(--lane-light)" letter-spacing="1.5">LIGHT</text><text x="14" y="48" class="t-sans" font-size="14">normal-estimation</text><text x="14" y="68" font-size="10">3 photometric models</text></g>
+      <g transform="translate(240 196)"><rect width="180" height="86" class="box" stroke="var(--lane-surface)"/><text x="14" y="24" font-size="10" fill="var(--lane-surface)" letter-spacing="1.5">SURFACE</text><text x="14" y="48" class="t-sans" font-size="14">main-meshing</text><text x="14" y="68" font-size="10">Open-RNb · SuperNormal</text></g>
+      <g transform="translate(460 196)"><rect width="180" height="86" class="box" stroke="var(--lane-views)"/><text x="14" y="24" font-size="10" fill="var(--lane-views)" letter-spacing="1.5">GAUSSIANS</text><text x="14" y="48" class="t-sans" font-size="14">gof · 2dgs · topo · …</text><text x="14" y="68" font-size="10">7 splat / SDF methods</text></g>
+      <g transform="translate(680 196)"><rect width="180" height="86" class="box" stroke="var(--lane-cameras)"/><text x="14" y="24" font-size="10" fill="var(--lane-cameras)" letter-spacing="1.5">CAMERAS</text><text x="14" y="48" class="t-sans" font-size="14">alignment-*</text><text x="14" y="68" font-size="10">public benchmarks</text></g>
+      <g transform="translate(900 196)"><rect width="180" height="86" class="box" stroke="var(--bone-2)" stroke-dasharray="4 3"/><text x="14" y="24" font-size="10" fill="var(--bone)" letter-spacing="1.5">AUDIT</text><text x="14" y="48" class="t-sans" font-size="14">independent checks</text><text x="14" y="68" font-size="10">CPU-only, re-derives claims</text></g>
+      <path class="ln flow" d="M110 282 L110 330" stroke="var(--lane-light)"/><path class="ln flow" d="M330 282 L330 330" stroke="var(--lane-surface)"/><path class="ln flow" d="M550 282 L550 330" stroke="var(--lane-views)"/><path class="ln flow" d="M770 282 L770 330" stroke="var(--lane-cameras)"/>
+      <g transform="translate(20 332)">
+        <rect width="860" height="64" fill="var(--ink-3)" stroke="var(--bone-2)"/>
+        <text x="20" y="26" font-size="10" fill="var(--bone)" letter-spacing="1.5">ONE GPU · SHARED MUTEX</text>
+        <text x="20" y="48" font-size="12" fill="var(--bone-2)">gpu_runner.py · Local\MeshingEvalGpu · one job at a time · JSONL ledger · VRAM preflight</text>
+        <circle cx="790" cy="32" r="6" fill="var(--sodium)"><animate attributeName="opacity" values="1;.2;1" dur="1.6s" repeatCount="indefinite"/></circle>
+      </g>
+      <path class="ln" d="M990 282 L990 600 L880 600" stroke-dasharray="4 3" marker-end="url(#ah2)"/>
+      <text x="1000" y="440" font-size="10" fill="var(--bone-3)" transform="rotate(90 1000 440)">audits feed back into reports</text>
+      <path class="ln" d="M450 396 L450 424" marker-end="url(#ah2)"/>
+      <g transform="translate(20 426)"><rect width="270" height="76" class="box"/><text x="16" y="26" font-size="10" letter-spacing="1.5">ISOLATED ENVIRONMENTS</text><text x="16" y="52" class="t-serif" font-size="26" data-bind="envs">16</text><text x="60" y="51" font-size="11">one per method, never shared</text></g>
+      <g transform="translate(315 426)"><rect width="270" height="76" class="box"/><text x="16" y="26" font-size="10" letter-spacing="1.5">PINNED SOURCES + PATCHES</text><text x="16" y="52" class="t-serif" font-size="26"><tspan data-bind="repos">20</tspan> / <tspan data-bind="patches">23</tspan></text><text x="110" y="51" font-size="11">commits · diffs on file</text></g>
+      <g transform="translate(610 426)"><rect width="270" height="76" class="box"/><text x="16" y="26" font-size="10" letter-spacing="1.5">RUN FOLDERS</text><text x="16" y="52" class="t-serif" font-size="26" data-bind="runs">119</text><text x="66" y="51" font-size="11">cmd · config · logs · mesh</text></g>
+      <path class="ln" d="M450 502 L450 530" marker-end="url(#ah2)"/>
+      <g transform="translate(20 532)"><rect width="420" height="76" class="box" stroke="var(--sodium)"/><text x="16" y="26" font-size="10" fill="var(--sodium)" letter-spacing="1.5">EVALUATION · SCAN HELD OUT</text><text x="16" y="52" class="t-sans" font-size="14">seeded samples · fixed thresholds · no hidden alignment</text></g>
+      <path class="ln" d="M440 570 L470 570" marker-end="url(#ah2)"/>
+      <g transform="translate(472 532)"><rect width="408" height="76" class="box"/><text x="16" y="26" font-size="10" letter-spacing="1.5">PUBLISH</text><text x="16" y="52" class="t-sans" font-size="14">reports · 3D viewer catalog · this deck</text></g>
+    </svg>
+  </div>
+  <footer class="plate__foot"><span class="src">coordination/gpu_runner.py · coordination/gpu_runner.jsonl · manifests/ · reports/viewer_integration_20261008.md</span><span data-pno></span></footer>
+</section></div>
+
+<!-- ======================================================================= VI · RUN LOG -->
+<div class="plate-wrap"><section class="plate" id="p-timeline" data-title="The run log">
+  <header class="plate__head"><span class="no"><b data-pno></b> · Chapter VI · How the research was run</span><span class="time">Snapshot · first round, 18:00 Oct 7 → 18:00 Oct 8 PDT</span></header>
+  <div class="plate__body" style="grid-template-rows:auto 1fr; row-gap:var(--s-4)">
+    <div class="c1-7 stack">
+      <div class="eyebrow" data-reveal>The run log · first round</div>
+      <h2 class="h2" data-split>Release the swarm.<br><em>The first 24 hours.</em></h2>
+    </div>
+    <div class="c8-12 stack bottom" data-reveal><p class="small">At 18:00 a team of AI agents was turned loose on one question: can we get a clean mesh from photos of smooth, featureless objects? In the next 24 hours <span data-tl="owners">–</span> workstreams ran <span data-tl="jobs">–</span> jobs on one shared GPU (<span data-tl="gpuh">–</span> GPU-hours) and wrote <span data-tl="reports">–</span> reports. The first bear mesh existed 17 minutes in. Top track: each block is one GPU job, coloured by line of inquiry. Lanes: run-folder activity. Diamonds: reports. Amber flags: key results. <span class="screen-only">Hover for details.</span></p></div>
+    <div class="tl-host" data-timeline></div>
+  </div>
+  <footer class="plate__foot"><span class="src">Generated by deck/_build/compile_timeline.py from coordination/gpu_runner.jsonl and runs/ file times · fixed 24-hour window; later work appears under Latest passes</span><span data-pno></span></footer>
+</section></div>
+
+<!-- ======================================================================= VI · CUSTODY -->
+<div class="plate-wrap"><section class="plate" id="p-custody" data-title="Chain of custody">
+  <header class="plate__head"><span class="no"><b data-pno></b> · Chapter VI · How the research was run</span><span>Chain of custody</span></header>
+  <div class="plate__body" style="grid-template-rows:auto 1fr auto; row-gap:var(--s-5)">
+    <div class="c1-8 stack">
+      <div class="eyebrow" data-reveal>Rigor rules</div>
+      <h2 class="h2" data-split>Every mesh<br><em>has a paper trail.</em></h2>
+    </div>
+    <div class="custody">
+      <div class="spec" data-reveal><span class="label">Source</span><p class="small">Official repo, pinned to an exact commit. Local edits saved as patch files.</p><code>Open-RNb @ 7f46e9e1…</code></div>
+      <div class="spec d1" data-reveal><span class="label">Input</span><p class="small">Every image, mask and camera hashed. The scan lives in a separate folder.</p><code>cameras.npz 957522…</code></div>
+      <div class="spec d2" data-reveal><span class="label">Command</span><p class="small">Exact launch arguments, config copy and environment freeze saved with the run.</p><code>command.json</code></div>
+      <div class="spec d3" data-reveal><span class="label">Run</span><p class="small">Through the GPU mutex: stdout, stderr, GPU memory samples, exit code, wall time.</p><code>985.85 s · exit 0</code></div>
+      <div class="spec d4" data-reveal><span class="label">Output</span><p class="small">Raw export kept untouched. Any cleanup is a separate, labelled derivative.</p><code>mesh_world.ply 46159b…</code></div>
+      <div class="spec d5" data-reveal><span class="label">Score</span><p class="small">Fixed seed, fixed threshold, no alignment. Only now does the scan enter.</p><code>F 0.86251 @ 1.5</code></div>
+    </div>
+    <div class="rules">
+      <div class="stack" data-reveal><h3 class="h3">The scan is held out</h3><p class="small">Ground truth is used only for scoring. It never trains, aligns, crops or tunes a run.</p></div>
+      <div class="stack d1" data-reveal><h3 class="h3">Raw is primary</h3><p class="small">“Largest component” and other clean-ups are reported beside the raw result, never instead of it.</p></div>
+      <div class="stack d2" data-reveal><h3 class="h3">Audits are routine</h3><p class="small">Independent checks re-derive claims: protocol audits reclassified the early TopoSurfel runs as diagnostics.</p></div>
+      <div class="stack d3" data-reveal><h3 class="h3">Seeds are explicit</h3><p class="small">When the mesh library was found to ignore the global seed, every score was re-run with explicit seeds.</p></div>
+    </div>
+  </div>
+  <footer class="plate__foot"><span class="src">runs/Open-RNb/bear/bear-geo6-bridge-20261008-0800/ · scripts/mesh_metrics_seeded.py · reports/toposurfel_protocol_audit_20261008.md</span><span data-pno></span></footer>
+</section></div>
+
+<!-- ======================================================================= VII · LATEST PASSES -->
+<div class="plate-wrap"><section class="plate" id="p-inflight" data-title="VII · What's next" data-chapter="VII" data-ctitle="What's next" data-cdesc="Latest passes, read live from the run ledger, and the roadmap to our own scanner.">
+  <header class="plate__head"><span class="no"><b data-pno></b> · Chapter VII · What's next</span><span class="time">Live from the run ledger</span></header>
+  <div class="plate__body" style="grid-template-rows:auto 1fr; row-gap:var(--s-5)">
+    <div class="c1-8 row" style="align-items:flex-end; gap:var(--s-5)">
+      <span class="numeral" aria-hidden="true" style="font-size:calc(var(--k)*220)">VII</span>
+      <div class="stack"><div class="eyebrow" data-reveal>Updated on every build</div><h2 class="h2" data-split>Latest<br><em>passes.</em></h2></div>
+    </div>
+    <div class="c9-12 bottom" data-reveal><p class="small">The newest work across all lines of inquiry, read straight from the GPU ledger and run folders at the snapshot time. New model passes appear here automatically.</p></div>
+    <div class="c1-7 stack"><span class="eyebrow no-rule">Newest run folders · ● = written in the last 30 min</span><table class="kv inflight" id="inflight-runs"></table></div>
+    <div class="c8-12 stack"><span class="eyebrow no-rule">Latest GPU jobs</span><table class="kv inflight" id="inflight-jobs"></table></div>
+  </div>
+  <footer class="plate__foot"><span class="src">data/timeline.js (generated from coordination/gpu_runner.jsonl and runs/)</span><span data-pno></span></footer>
+</section></div>
+
+<!-- ======================================================================= VII · ROADMAP -->
+<div class="plate-wrap"><section class="plate" id="p-next" data-title="Roadmap">
+  <header class="plate__head"><span class="no"><b data-pno></b> · Chapter VII · What's next</span><span>Roadmap</span></header>
+  <div class="plate__body" style="grid-template-rows:auto auto 1fr; row-gap:var(--s-7)">
+    <div class="c1-9 stack">
+      <div class="eyebrow" data-reveal>On track</div>
+      <h2 class="h1" data-split>From public objects<br><em>to our own scanner.</em></h2>
+    </div>
+    <div class="road" style="align-self:start">
+      <div class="step now" data-reveal><span class="when">Now · in progress</span><h3 class="h3">Align our captures</h3><p class="small">Learned camera recovery on our own scanner captures, checked against independent feature evidence. Corrected TopoSurfel and fixed-lens bear meshing alongside.</p></div>
+      <div class="step d1" data-reveal><span class="when">Next</span><h3 class="h3">Mesh our scanner</h3><p class="small">Gaussian road first (2DGS / GOF with mask-gated extraction) once cameras pass. Commercial RealityScan baseline on the same images, which also gives generated meshes something to be scored against.</p></div>
+      <div class="step d2" data-reveal><span class="when">Then</span><h3 class="h3">Our lights, our normals</h3><p class="small">Grouped, rear and cross-polarized captures with group IDs and dark frames, to bring the photometric road onto our own hardware.</p></div>
+      <div class="step d3" data-reveal><span class="when">Decision</span><h3 class="h3">Choose the pipeline</h3><p class="small">Possibly a mix: Gaussians for coverage and glossy materials, photometric stereo for fine surface detail, generative 3D for fast, complete assets once it is scored. Decided on our own captures.</p></div>
+    </div>
+    <div class="c1-12 closing" data-reveal><hr class="spectrum-rule"><p class="h2">Beyond photogrammetry is working on public objects. <em>The next milestone is our own captures.</em></p></div>
+  </div>
+  <footer class="plate__foot"><span class="src">realityscan_pink_boot_pending_protocol.md · pgsr_lego_repo_settings_15000.md</span><span data-pno></span></footer>
+</section></div>
+
+<!-- ======================================================================= APPENDIX · ATLAS -->
+<div class="plate-wrap"><section class="plate" id="p-atlas" data-title="A · Method atlas">
+  <header class="plate__head"><span class="no"><b data-pno></b> · Appendix A</span><span>Method atlas</span></header>
+  <div class="plate__body" style="grid-template-rows:auto 1fr">
+    <div class="c1-8 stack"><div class="eyebrow">Eighteen systems</div><h2 class="h2">Every method <em>in the study.</em></h2></div>
+    <div class="atlas" id="atlas"></div>
+  </div>
+  <footer class="plate__foot"><span class="src">manifests/sources.json · manifests/*_sources.json · reports/evaluation_index.md</span><span data-pno></span></footer>
+</section></div>
+
+<!-- ======================================================================= APPENDIX · GLOSSARY -->
+<div class="plate-wrap"><section class="plate" id="p-gloss" data-title="B · How we measure">
+  <header class="plate__head"><span class="no"><b data-pno></b> · Appendix B</span><span>How we measure</span></header>
+  <div class="plate__body" style="grid-template-rows:auto 1fr">
+    <div class="c1-8 stack"><div class="eyebrow">Five yardsticks</div><h2 class="h2">The numbers, <em>in plain words.</em></h2></div>
+    <div class="gloss gloss5">
+      <div class="spec" data-reveal>
+        <span class="label">Surface · higher is better</span><h3 class="h3">F-score</h3>
+        <svg viewBox="0 0 300 190" class="dia draw"><path d="M10 120 C 70 60, 140 150, 200 90 S 280 100, 290 80" stroke="var(--bone-2)" stroke-width="16" opacity=".15" fill="none"/><path d="M10 120 C 70 60, 140 150, 200 90 S 280 100, 290 80" stroke="#d8d2c4" fill="none" stroke-width="1.5"/><path d="M10 126 C 70 70, 140 140, 200 96 S 280 112, 290 70" stroke="var(--ncyan)" fill="none" stroke-width="1.5"/><text x="10" y="180" font-size="10">band = tolerance</text></svg>
+        <p class="small">Share of the reconstruction near the scan (<em>precision</em>) and share of the scan covered (<em>recall</em>), combined. 0.90 ≈ nine in ten points agree.</p>
+      </div>
+      <div class="spec d1" data-reveal>
+        <span class="label">Surface · lower is better</span><h3 class="h3">Chamfer</h3>
+        <svg viewBox="0 0 300 190" class="dia"><g fill="#d8d2c4"><circle cx="40" cy="110" r="3"/><circle cx="90" cy="80" r="3"/><circle cx="150" cy="100" r="3"/><circle cx="210" cy="70" r="3"/><circle cx="260" cy="95" r="3"/></g><g fill="var(--ncyan)"><circle cx="45" cy="130" r="3"/><circle cx="95" cy="100" r="3"/><circle cx="155" cy="60" r="3"/><circle cx="215" cy="95" r="3"/><circle cx="250" cy="150" r="3"/></g><g stroke="var(--sodium)" stroke-width="1"><line x1="40" y1="110" x2="45" y2="130"/><line x1="90" y1="80" x2="95" y2="100"/><line x1="150" y1="100" x2="155" y2="60"/><line x1="210" y1="70" x2="215" y2="95"/><line x1="260" y1="95" x2="250" y2="150"/></g><text x="10" y="180" font-size="10">nearest-point gap, both ways</text></svg>
+        <p class="small">Average distance from each surface to the other. Punishes stray floating pieces hard, which is why “cleaned” meshes improve so much.</p>
+      </div>
+      <div class="spec d2" data-reveal>
+        <span class="label">Outline · higher is better</span><h3 class="h3">Silhouette IoU</h3>
+        <svg viewBox="0 0 300 190" class="dia"><path d="M70 150 L95 50 L190 40 L215 150 Z" fill="#d8d2c4" opacity=".35"/><path d="M85 155 L105 45 L210 55 L225 150 Z" fill="var(--ncyan)" opacity=".35"/><text x="10" y="180" font-size="10">overlap ÷ union, unseen views</text></svg>
+        <p class="small">Render the mesh from a camera it never trained on and compare its outline with the real mask. Says nothing about depth or bumps.</p>
+      </div>
+      <div class="spec d3" data-reveal>
+        <span class="label">Normals · lower is better</span><h3 class="h3">Angular error</h3>
+        <svg viewBox="0 0 300 190" class="dia"><path d="M40 150 L260 150" stroke="var(--rule-strong)"/><line x1="150" y1="150" x2="150" y2="40" stroke="#d8d2c4" stroke-width="2"/><line x1="150" y1="150" x2="185" y2="45" stroke="var(--nx)" stroke-width="2"/><path d="M150 100 A 50 50 0 0 1 166 102" stroke="var(--sodium)" fill="none"/><text x="172" y="98" font-size="11" fill="var(--sodium)">θ</text><text x="10" y="180" font-size="10">predicted vs true normal</text></svg>
+        <p class="small">Per-pixel angle between predicted and scanned surface direction, averaged. Bear best: 2.4°. Boot inputs: about 11.8°.</p>
+      </div>
+      <div class="spec d4" data-reveal>
+        <span class="label">Cameras · lower is better</span><h3 class="h3">Epipolar error</h3>
+        <svg viewBox="0 0 300 190" class="dia"><rect x="10" y="40" width="120" height="100" fill="none" stroke="var(--rule-strong)"/><rect x="170" y="40" width="120" height="100" fill="none" stroke="var(--rule-strong)"/><circle cx="60" cy="90" r="3.5" fill="var(--bone)"/><line x1="175" y1="120" x2="285" y2="60" stroke="var(--lane-cameras)"/><circle cx="238" cy="104" r="3.5" fill="var(--bone)"/><line x1="238" y1="104" x2="230" y2="90" stroke="var(--sodium)"/><text x="10" y="180" font-size="10">point → its predicted line, in px</text></svg>
+        <p class="small">Predicted cameras say where a matched point in one photo must fall in another: a line. Sampson error is the pixel distance from that line. Under 8 px passes.</p>
+      </div>
+    </div>
+  </div>
+  <footer class="plate__foot"><span class="src">scripts/mesh_metrics_seeded.py · scripts/evaluate_lego_mesh.py</span><span data-pno></span></footer>
+</section></div>
+
+<!-- ======================================================================= COLOPHON -->
+<div class="plate-wrap"><section class="plate plate--deep" id="p-colophon" data-title="Colophon">
+  <header class="plate__head"><span class="no"><b data-pno></b> · Colophon</span><span class="time">Snapshot <span data-bind="snapshot"></span></span></header>
+  <div class="plate__body" style="align-content:center">
+    <div class="c1-6 stack stack-lg">
+      <h2 class="h1"><em>Built alongside</em><br>the research.</h2>
+      <p class="body">This report reads the research's own ledger, run folders and reports. The 3D on every plate is actual method output, decimated for the web. It is rebuilt as the work moves; curated results are traced to their source reports.</p>
+      <div class="turntable" id="turntable" aria-label="The 20 turntable views of the bear, lamp 001"></div>
+      <p class="cap">The 20 turntable views of the public bear, lamp 001.</p>
+    </div>
+    <div class="c8-12 stack">
+      <table class="kv">
+        <tr><th>Hardware</th><td>1 × RTX 4090 (24 GB), Windows 10, no system changes</td></tr>
+        <tr><th>GPU ledger</th><td><span data-bind="jobs"></span> jobs, <span data-bind="jobsOk"></span> exit 0 · <span data-bind="gpuh"></span> h under the lock</td></tr>
+        <tr><th>Datasets</th><td>DiLiGenT-MV · NeRF synthetic · Skoltech3D</td></tr>
+        <tr><th>Rendering</th><td>Three.js r180 (vendored) · custom normal-spectrum shader</td></tr>
+        <tr><th>Type</th><td>Instrument Serif · Geist · Geist Mono</td></tr>
+        <tr><th>Rebuild</th><td class="mono" style="font-size:calc(var(--k)*12)">deck/_build/build_all.cmd</td></tr>
+      </table>
+      <p class="cap">Public-data results use scanned references held out from every run. Method rankings across different inputs, budgets or metrics are not claimed.</p>
+    </div>
+  </div>
+  <footer class="plate__foot"><span class="src">deck/README.md</span><span data-pno></span></footer>
+</section></div>
+
+</main>
+<script type="module" src="js/main.js"></script>
+<script type="module" src="js/diagrams.js"></script>
 </body>
 </html>
