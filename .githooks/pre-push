@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-set -e
-repo_root="$(git rev-parse --show-toplevel)"
-script_path="$(cygpath -w "$repo_root/scripts/sync-to-drive.ps1")"
-powershell.exe -NoProfile -ExecutionPolicy Bypass -File "$script_path"
