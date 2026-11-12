@@ -14,13 +14,32 @@
 <link rel="stylesheet" href="css/report.css">
 <link rel="stylesheet" href="css/interact.css">
 <link rel="stylesheet" href="css/print.css">
-<script type="importmap">{ "imports": { "three": "./vendor/three/three.module.js" } }</script>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/portfolio.css">
+<script type="importmap">{"imports": {"three": "./vendor/three/three.module.js"}, "scopes": {"../../assets/js/": {"three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js", "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}, "https://cdn.jsdelivr.net/npm/three@0.160.0/": {"three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js"}}}</script>
 <script src="data/timeline.js"></script>
 <script src="data/meshes.js"></script>
 <script src="data/results.js"></script>
 <script src="data/olat.js"></script>
 </head>
-<body>
+<body id="top" data-project="mesh-research">
+<div class="portfolio-shell" id="portfolio-header">
+  <header class="bar">
+    <a class="bar__id" href="../../"><b>Ken Bechtold</b><span>AI · 3D · Motion</span></a>
+    <nav class="bar__links" aria-label="Contact">
+      <a href="mailto:ken@afterthehomework.com"><span class="l">ken@afterthehomework.com</span><span class="s">Email</span></a>
+      <a href="#">CV ↓</a>
+      <a href="#">LinkedIn</a>
+      <a href="#">Instagram</a>
+      <a href="#">Vimeo</a>
+    </nav>
+    <div class="code" data-code>
+      <button type="button" class="code__toggle" data-code-toggle>Have a code?</button>
+      <form autocomplete="off"><input maxlength="5" placeholder="•••••" aria-label="Access code" spellcheck="false" autocapitalize="characters"><button type="submit" aria-label="Enter code">→</button></form>
+      <span class="code__on">For <b data-code-name></b><button type="button" data-code-clear aria-label="Clear code">×</button></span>
+    </div>
+  </header>
+</div>
 <div class="progress" aria-hidden="true"></div>
 <nav class="index" aria-label="Plates"></nav>
 <!-- Plate numbers (data-pno) are filled in by js/main.js, so plates can be reordered freely. -->
@@ -995,7 +1014,23 @@
 </section></div>
 
 </main>
+<div class="portfolio-shell" id="portfolio-footer">
+  <nav class="portfolio-return" aria-label="Portfolio navigation"><a href="../../">&#8592; All work</a></nav>
+  <a class="cs__next" data-next href="../virtual-space/">
+    <div><small class="mono">Next project</small><strong data-next-title>Virtual Space</strong></div>
+    <div data-next-media></div>
+  </a>
+  <footer class="foot">
+    <div class="foot__row">
+      <a href="../../">&#8592; Back to all work</a>
+      <span>&copy; 2026 Ken Bechtold</span>
+      <nav aria-label="Contact links"><a href="mailto:ken@afterthehomework.com">Email</a><a href="#">CV &#8599;</a><a href="#">LinkedIn</a></nav>
+      <a href="#top">Top &#8593;</a>
+    </div>
+  </footer>
+</div>
 <script type="module" src="js/main.js"></script>
 <script type="module" src="js/diagrams.js"></script>
+<script type="module" src="js/portfolio.js"></script>
 </body>
 </html>
