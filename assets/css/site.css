@@ -351,6 +351,30 @@ figcaption, .caption { margin-top: 10px; font: 500 var(--t-label)/1.4 var(--mono
 .cs__nums b { display: block; font-size: clamp(2.6rem, 8vw, 8rem); font-weight: 800; font-stretch: 125%; line-height: .9; letter-spacing: -.03em; }
 .cs__nums span { display: block; margin-top: 12px; color: var(--mut); }
 
+/* 13b Case study: chapter mark, facts, card grid, card wall, sheet shapes */
+.cs__chap { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; margin: clamp(96px, 13vw, 220px) var(--pad) 0; padding-top: 16px; border-top: 1px solid var(--fg); }
+.cs__chap h2 { font-size: clamp(2.2rem, 7.4vw, 7.5rem); font-weight: 800; font-stretch: 125%; line-height: .86; letter-spacing: -.028em; text-transform: uppercase; }
+.cs__chap p { max-width: 30ch; padding-bottom: .5em; text-align: right; color: var(--mut); }
+.cs__chap + .cs__block { padding-top: clamp(40px, 5vw, 80px); }
+.cs__facts { display: grid; grid-template-columns: auto 1fr; gap: 8px 28px; margin-top: 28px; font: 500 var(--t-label)/1.4 var(--mono); letter-spacing: .07em; text-transform: uppercase; }
+.cs__facts dt { color: var(--mut); }
+.cs__facts dd { color: var(--fg); }
+.cs__block + .cs__wide, .cs__wide + .cs__cards, .cs__wide + .cs__sheet, .cs__wide + .cs__pair, .cs__pair + .cs__pair, .cs__block + .cs__sheet, .cs__block + .cs__wall { margin-top: clamp(24px, 3vw, 48px); }
+.cs__cards { display: grid; grid-template-columns: repeat(6, 1fr); gap: var(--gap); margin: 0 var(--pad); }
+.cs__cards figure { min-width: 0; }
+.cs__cards figcaption { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2px 10px; color: var(--fg-2); }
+.cs__cards figcaption span { color: var(--mut); }
+.cs__cards .media:hover img, .cs__cards .media:hover video { transform: scale(1.045); }
+.cs__wall { display: grid; grid-template-columns: repeat(auto-fill, minmax(clamp(40px, 4.6vw, 76px), 1fr)); gap: 1px; margin: 0 var(--pad); border: 1px solid var(--line); background: var(--line); }
+.cs__wall img { display: block; width: 100%; height: auto; aspect-ratio: 1; background: var(--bg-2); transition: opacity .2s; }
+.cs__wall:hover img { opacity: .45; }
+.cs__wall img:hover { opacity: 1; }
+.cs__wall + .caption { margin: 12px var(--pad) 0; }
+.cs__sheet--wide { grid-template-columns: repeat(2, 1fr); }
+.cs__sheet--wide figure { aspect-ratio: 16 / 9; }
+.cs__sheet--sq figure { aspect-ratio: 1; }
+.cs__sheet figcaption { padding: 5px 8px; background: rgb(8 8 10 / .78); color: var(--fg-2); }
+
 .cs__next { position: relative; display: grid; grid-template-columns: 1fr auto; align-items: end; gap: 24px; margin-top: clamp(80px, 12vw, 200px); padding: clamp(28px, 4vw, 56px) var(--pad); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); overflow: hidden; transition: background .4s, color .4s; }
 .cs__next small { display: block; margin-bottom: 14px; color: var(--mut); transition: color .4s; }
 .cs__next strong { display: block; font-size: clamp(2.4rem, 9vw, 9.5rem); font-weight: 800; font-stretch: 125%; line-height: .86; letter-spacing: -.028em; text-transform: uppercase; overflow-wrap: break-word; }
@@ -398,6 +422,7 @@ figcaption, .caption { margin-top: 10px; font: 500 var(--t-label)/1.4 var(--mono
   .cs__block > .mono, .cs__block > div { grid-column: span 12; }
   .cs__block > div { border-top: 0; padding-top: 0; }
   .cs__sheet { grid-template-columns: repeat(2, 1fr); }
+  .cs__cards { grid-template-columns: repeat(3, 1fr); }
   .foot__row nav { display: none; }
 }
 @media (max-width: 560px) {
@@ -406,7 +431,10 @@ figcaption, .caption { margin-top: 10px; font: 500 var(--t-label)/1.4 var(--mono
   .bar__links .s { display: inline; }
   .bar__links { gap: 14px; }
   .frag { grid-template-columns: repeat(2, 1fr); }
-  .cs__steps, .cs__nums, .cs__pair { grid-template-columns: 1fr; }
+  .cs__steps, .cs__nums, .cs__pair, .cs__sheet--wide { grid-template-columns: 1fr; }
+  .cs__cards { grid-template-columns: repeat(2, 1fr); }
+  .cs__chap { display: block; }
+  .cs__chap p { margin-top: 14px; padding: 0; text-align: left; }
   .cs__sub dl { gap: 6px 22px; }
   .cs__hint span:last-child { display: none; }
   .vw__stats, .vw__spin { display: none; }

@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>The Sixfold War — Ken Bechtold</title>
-  <meta name="description" content="A strategy game and the platform that builds it.">
+  <meta name="description" content="The Sixfold War: a hex strategy game for Steam and iOS, and Hex Studio, the agentic studio built to make it.">
   <meta name="theme-color" content="#08080a">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2308080a'/%3E%3Ccircle cx='16' cy='16' r='6' fill='%2333ff99'/%3E%3C/svg%3E">
   <script>document.documentElement.classList.remove('no-js');</script>
@@ -33,95 +33,741 @@
   </header>
 
   <main class="cs">
-    <!-- HEAD: title, one-line summary, three facts -->
+    <!-- HEAD -->
     <header class="cs__head">
       <div class="cs__top mono"><a href="../../">← All work</a><span>Case study <span data-count></span></span></div>
       <h1>The Sixfold War</h1>
       <div class="cs__sub">
-        <p>A strategy game and the platform that builds it.</p>
+        <p>Six factions, one hex world, and the studio I built to make them.</p>
         <dl class="mono">
-          <dt>Role</dt><dd>Creative direction</dd>
-          <dt>Year</dt><dd>2024—26</dd>
-          <dt>Scope</dt><dd>AI / Game / UI</dd>
+          <dt>Role</dt><dd>Design + build</dd>
+          <dt>Release</dt><dd>2027</dd>
+          <dt>Scope</dt><dd>AI / Game / Tools</dd>
         </dl>
       </div>
     </header>
 
-    <!-- VIEWER: interactive model with shaded / wireframe compare -->
-    <section class="cs__viewer">
-      <div data-viewer data-form="ribbon" data-seed="4" data-look="1"></div>
-    </section>
-    <div class="cs__hint mono"><span>Drag the model to rotate</span><span>Drag the line to compare</span></div>
+    <figure class="cs__wide" style="margin-top:0">
+      <div class="media media--frame r-16x9"><img src="media/key.webp" alt="The Sixfold War key art: six factions converging on a central star" width="1657" height="932" fetchpriority="high"></div>
+      <figcaption>Key art · Steam and iOS, 2027</figcaption>
+    </figure>
 
-    <!-- BLOCK: label + statement + short copy -->
+    <!-- THE GAME -->
     <section class="cs__block" data-reveal>
-      <span class="mono">01 — Brief</span>
+      <span class="mono">01 — The game</span>
       <div>
-        <h2>Lorem ipsum dolor sit amet, consectetur adipiscing.</h2>
-        <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.</p>
+        <h2>A hex strategy game you play with a deck.</h2>
+        <p>Six factions fight over floating hex worlds. Claim resource nodes, play units and structures from your hand, and send in a hero when it counts. Campaign, skirmish, survival and multiplayer.</p>
+        <dl class="cs__facts"><dt>Platforms</dt><dd>Steam, iOS</dd><dt>Release</dt><dd>2027</dd></dl>
       </div>
     </section>
-
-    <!-- SHEET: four-up breakdown. Swap each .media for <div class="media"><img src="media/x.jpg" alt="..."></div> -->
-    <section class="cs__sheet mono" data-reveal>
-      <figure><div class="media" data-still data-form="ribbon" data-seed="4" data-look="1" data-w="640" data-h="800"></div><figcaption>Shaded</figcaption></figure>
-      <figure><div class="media" data-still data-form="ribbon" data-seed="4" data-look="1" data-mode="wire" data-yaw="0.8" data-w="640" data-h="800"></div><figcaption>Wireframe</figcaption></figure>
-      <figure><div class="media" data-still data-form="ribbon" data-seed="4" data-look="1" data-mode="normals" data-yaw="1.6" data-w="640" data-h="800"></div><figcaption>Normals</figcaption></figure>
-      <figure><div class="media" data-still data-form="ribbon" data-seed="4" data-look="1" data-mode="points" data-yaw="2.4" data-w="640" data-h="800"></div><figcaption>Point cloud</figcaption></figure>
+    <figure class="cs__wide" data-reveal>
+      <div class="media media--frame r-16x9"><img src="media/shot-battle.webp" alt="In-game battle between Diesel Dinos raptors and Cuddle Corps bears on a hex island" loading="lazy" width="1920" height="1080"></div>
+      <figcaption>In game · Diesel Dinos against Cuddle Corps</figcaption>
+    </figure>
+    <section class="cs__pair" data-reveal>
+      <figure><div class="media media--frame r-16x9"><img src="media/shot-hud.webp" alt="A card being played from the hand onto the hex board" loading="lazy"></div><figcaption>Playing a card</figcaption></figure>
+      <figure><div class="media media--frame r-16x9"><img src="media/shot-hero.webp" alt="Lady Rhonda facing a Diesel Dinos war herd" loading="lazy"></div><figcaption>Hero against a war herd</figcaption></figure>
     </section>
 
-    <!-- BLOCK with STEPS -->
+    <!-- THE STUDIO -->
     <section class="cs__block" data-reveal>
-      <span class="mono">02 — Process</span>
+      <span class="mono">02 — Hex Studio</span>
       <div>
-        <h2>Duis aute irure dolor in reprehenderit.</h2>
+        <h2>Every map, card, character and effect is made in one application.</h2>
+        <p>Hex Studio is the authoring tool I built alongside the game. Agents do the repetitive work: frames, cleanup, variations, channels. People write the brief, pick the take and approve the result.</p>
         <ol class="cs__steps">
-          <li><b>Capture</b>Lorem ipsum dolor sit amet consectetur.</li>
-          <li><b>Process</b>Sed do eiusmod tempor incididunt ut labore.</li>
-          <li><b>Deliver</b>Ut enim ad minim veniam quis nostrud.</li>
+          <li><b>Brief</b>Each faction starts as one written paragraph.</li>
+          <li><b>Graph</b>Forge Graphs chain LLM, image, video and QC nodes.</li>
+          <li><b>Gate</b>Nothing is written to the project without approval.</li>
         </ol>
       </div>
     </section>
-
-    <!-- WIDE: one full-width image, video or placeholder -->
-    <figure class="cs__wide" data-reveal>
-      <div class="media media--frame" data-still data-form="ribbon" data-seed="4" data-look="1" data-mode="overlay" data-yaw="-0.7" data-w="1800" data-h="1000"></div>
-      <figcaption>Caption for the wide image</figcaption>
-    </figure>
-
-    <!-- VIDEO LOOP: silent, plays only while on screen. No controls attribute. -->
-    <figure class="cs__wide" data-reveal>
-      <div class="media media--frame r-16x9">
-        <video src="../../assets/media/placeholder-loop.mp4" poster="../../assets/media/placeholder-loop.jpg" muted loop playsinline preload="none"></video>
-      </div>
-      <figcaption>Silent loop</figcaption>
-    </figure>
-
-    <!-- VIDEO PLAYER: add the controls attribute for a clip people start themselves, with sound. -->
-    <figure class="cs__wide" data-reveal>
-      <div class="media media--frame r-16x9">
-        <video src="../../assets/media/placeholder-film.mp4" poster="../../assets/media/placeholder-film.jpg" controls playsinline preload="none"></video>
-      </div>
-      <figcaption>Film with sound</figcaption>
-    </figure>
-
-    <!-- QUOTE: one big statement; <em> takes the accent -->
-    <section class="cs__quote" data-reveal>
-      <p>Lorem ipsum dolor <em>sit amet</em> consectetur.</p>
-      <cite>Source or context</cite>
-    </section>
-
-    <!-- PAIR: two-up media -->
-    <section class="cs__pair" data-reveal>
-      <figure><div class="media media--frame r-4x3" data-still data-form="ribbon" data-seed="4" data-look="1" data-yaw="0.5" data-w="960" data-h="720"></div><figcaption>Left caption</figcaption></figure>
-      <figure><div class="media media--frame r-4x3" data-still data-form="ribbon" data-seed="4" data-look="2" data-mode="clay" data-yaw="2" data-w="960" data-h="720"></div><figcaption>Right caption</figcaption></figure>
-    </section>
-
-    <!-- NUMS: up to three results -->
     <section class="cs__nums" data-reveal>
-      <div><b>400+</b><span class="mono">Lorem ipsum</span></div>
-      <div><b>$2M</b><span class="mono">Dolor sit amet</span></div>
-      <div><b>0.902</b><span class="mono">Consectetur</span></div>
+      <div><b><!-- gen:wall-count -->372<!-- /gen:wall-count --></b><span class="mono">Faction cards</span></div>
+      <div><b>68</b><span class="mono">Forge Graphs</span></div>
+      <div><b>1.0 MB</b><span class="mono">Trained opponent, in browser</span></div>
+    </section>
+
+    <!-- BUILD LOG -->
+    <div class="cs__chap" data-reveal>
+      <h2>Build log</h2>
+      <p class="mono">Feature notes from inside Hex Studio. Real UI, recorded.</p>
+    </div>
+
+    <!-- LOG 01 -->
+    <section class="cs__block" data-reveal>
+      <span class="mono">Log 01 — The AI pipeline</span>
+      <div>
+        <h2>One paragraph in. A playable, animated, lit unit out.</h2>
+        <p>Followed end to end on one card, the Runecarved Hound. The faction brief becomes DNA, the DNA becomes 62 cards, and one of them becomes a sprite that walks, loops and takes light.</p>
+        <ol class="cs__steps">
+          <li><b>DNA</b>Eight LLM calls expand the brief: vibe, research, art direction, palette, ranks.</li>
+          <li><b>Cards</b>Twelve parallel calls write all 62 cards, down to the art prompt.</li>
+          <li><b>Art</b>A batch graph composes each prompt and sends it to Nano Banana Pro.</li>
+          <li><b>Sprite</b>GPT Image 2 redraws the card for the game camera, then the background is keyed out.</li>
+          <li><b>Motion</b>MiniMax H3 animates it in local ComfyUI on an RTX 4090. A vision model picks six frames that loop.</li>
+          <li><b>Light</b>MoGe-2 estimates depth and normals, so the game can light a painted sprite.</li>
+        </ol>
+      </div>
+    </section>
+    <figure class="cs__wide" data-reveal>
+      <div class="media media--frame r-16x9">
+        <video src="media/film-ai-pipeline.mp4" poster="media/film-ai-pipeline.jpg" controls playsinline preload="none"></video>
+      </div>
+      <figcaption>Film · The AI pipeline · 3:11</figcaption>
+    </figure>
+    <section class="cs__sheet cs__sheet--wide mono" data-reveal>
+      <figure><div class="media"><img src="media/st-pipeline-1.webp" alt="Sixty-two generated Natures Edge card paintings in a grid" loading="lazy"></div><figcaption>62 cards, one faction</figcaption></figure>
+      <figure><div class="media"><img src="media/st-pipeline-2.webp" alt="Card art beside the keyed 2.5D game sprite of the same creature" loading="lazy"></div><figcaption>Card art to game sprite</figcaption></figure>
+      <figure><div class="media"><img src="media/st-pipeline-3.webp" alt="A generated video clip broken into a contact sheet of thirty frames" loading="lazy"></div><figcaption>Video to contact sheet</figcaption></figure>
+      <figure><div class="media"><img src="media/st-pipeline-4.webp" alt="Colour, depth, normal and lit versions of the sprite" loading="lazy"></div><figcaption>Colour, depth, normal, lit</figcaption></figure>
+    </section>
+
+    <!-- LOG 02 -->
+    <section class="cs__block" data-reveal>
+      <span class="mono">Log 02 — The AI trainer</span>
+      <div>
+        <h2>An opponent trained from scratch, small enough to run in a browser.</h2>
+        <p>Behavior graphs handle the small moves. A residual policy network I designed and trained makes the big calls: what to capture, which card to play, and where. It reads 26 planes of board state and answers through four heads.</p>
+        <ol class="cs__steps">
+          <li><b>Learn</b>Behavior cloning on thousands of recorded matches.</li>
+          <li><b>Practise</b>PPO self-play: 6,000 headless matches in one overnight job.</li>
+          <li><b>Rate</b>Round-robin tournaments. Elo decides whether it ships.</li>
+        </ol>
+      </div>
+    </section>
+    <figure class="cs__wide" data-reveal>
+      <div class="media media--frame r-16x9">
+        <video src="media/film-ai-trainer.mp4" poster="media/film-ai-trainer.jpg" controls playsinline preload="none"></video>
+      </div>
+      <figcaption>Film · The AI trainer · 2:27</figcaption>
+    </figure>
+    <section class="cs__sheet cs__sheet--wide mono" data-reveal>
+      <figure><div class="media"><img src="media/st-trainer-1.webp" alt="A wall of recorded matches playing at once" loading="lazy"></div><figcaption>Thousands of battles</figcaption></figure>
+      <figure><div class="media"><img src="media/st-trainer-2.webp" alt="Diagram of the dataset feeding one policy network with four output heads" loading="lazy"></div><figcaption>One network</figcaption></figure>
+      <figure><div class="media"><img src="media/st-trainer-3.webp" alt="Tournament standings and ladder history in the Trainer" loading="lazy"></div><figcaption>Tournament pool · 288 matches</figcaption></figure>
+      <figure><div class="media"><img src="media/st-trainer-4.webp" alt="Elo ladder with the retrained net climbing" loading="lazy"></div><figcaption>The climb</figcaption></figure>
+    </section>
+
+    <!-- LOG 03 -->
+    <section class="cs__block" data-reveal>
+      <span class="mono">Log 03 — The Map Maker</span>
+      <div>
+        <h2>Paint half a battlefield. The other half fills itself in.</h2>
+        <p>Symmetry mirrors every stroke. A seeded generator grows resources outward like a slime mold, and an image model bakes the layout into finished ground art.</p>
+      </div>
+    </section>
+    <figure class="cs__wide" data-reveal>
+      <div class="media media--frame r-16x9">
+        <video src="media/film-map-maker.mp4" poster="media/film-map-maker.jpg" controls playsinline preload="none"></video>
+      </div>
+      <figcaption>Film · The Map Maker · 2:14</figcaption>
+    </figure>
+    <section class="cs__pair" data-reveal>
+      <figure><div class="media media--frame r-4x3"><img src="media/web-diagram.webp" alt="Resource web diagram: clustered deposits, forking growth and shared routes" loading="lazy"></div><figcaption>Resource webs · art direction</figcaption></figure>
+      <figure><div class="media media--frame r-4x3"><img src="media/web-networks.webp" alt="Four glowing branching network studies" loading="lazy"></div><figcaption>Network studies</figcaption></figure>
+    </section>
+    <section class="cs__pair" data-reveal>
+      <figure><div class="media media--frame r-16x9"><img src="media/world-cinder.webp" alt="Cinder Halo: a volcanic salt planet board with magma fissures" loading="lazy"></div><figcaption>World concept · Cinder Halo</figcaption></figure>
+      <figure><div class="media media--frame r-16x9"><img src="media/world-verdant.webp" alt="Verdant Divide: a green river valley board" loading="lazy"></div><figcaption>World concept · Verdant Divide</figcaption></figure>
+    </section>
+
+    <!-- LOG 04 -->
+    <section class="cs__block" data-reveal>
+      <span class="mono">Log 04 — Scenarios</span>
+      <div>
+        <h2>A map becomes a mission.</h2>
+        <p>Rez-Shore, General Zogg's first story mission. Objectives, dialogue, spawners and phases are placed on the board and playtested straight from the editor.</p>
+      </div>
+    </section>
+    <figure class="cs__wide" data-reveal>
+      <div class="media media--frame r-16x9">
+        <video src="media/film-scenario.mp4" poster="media/film-scenario.jpg" controls playsinline preload="none"></video>
+      </div>
+      <figcaption>Film · The scenario editor · 2:17</figcaption>
+    </figure>
+
+    <!-- LOG 05 -->
+    <section class="cs__block" data-reveal>
+      <span class="mono">Log 05 — VFX</span>
+      <div>
+        <h2>Effects built in layers, tuned on a timeline.</h2>
+        <p>Emitters, waves and ribbons, scrubbed frame by frame. Human controlled, with agents for scale.</p>
+      </div>
+    </section>
+    <figure class="cs__wide" data-reveal>
+      <div class="media media--frame r-16x9">
+        <video src="media/film-vfx.mp4" poster="media/film-vfx.jpg" controls playsinline preload="none"></video>
+      </div>
+      <figcaption>Film · VFX · 2:13</figcaption>
+    </figure>
+
+    <!-- LOG 06 -->
+    <section class="cs__block" data-reveal>
+      <span class="mono">Log 06 — Art direction</span>
+      <div>
+        <h2>Style rules the models have to follow.</h2>
+        <p>Every sprite prompt carries the same anchors: camera, silhouette, line weight, shading. Environment art arrives as nine-up kits that are sliced into world props.</p>
+      </div>
+    </section>
+    <section class="cs__sheet cs__sheet--sq mono" data-reveal>
+      <figure><div class="media"><img src="media/sprite-guide.webp" alt="Isometric sprite style guide: unit, hero, building, silhouette, line art, shading and camera" loading="lazy"></div><figcaption>Sprite style anchor</figcaption></figure>
+      <figure><div class="media"><img src="media/kit-pipelines.webp" alt="Nine pipeline props for Diesel Dinos territory" loading="lazy"></div><figcaption>Kit · pipelines</figcaption></figure>
+      <figure><div class="media"><img src="media/kit-archways.webp" alt="Nine patchwork archways for Cuddle Corps territory" loading="lazy"></div><figcaption>Kit · archways</figcaption></figure>
+      <figure><div class="media"><img src="media/kit-trees.webp" alt="Nine bioluminescent trees" loading="lazy"></div><figcaption>Kit · trees</figcaption></figure>
+    </section>
+
+    <!-- THE SIX -->
+    <div class="cs__chap" data-reveal>
+      <h2>The six</h2>
+      <p class="mono">Six briefs. Six art directions. 62 cards each.</p>
+    </div>
+
+    <!-- FACTION 01: Diesel Dinos -->
+    <section class="cs__block" data-reveal>
+      <span class="mono">Faction 01 — Diesel Dinos</span>
+      <div>
+        <h2>Thunder-lizards rebuilt as war machines.</h2>
+        <p>Prehistoric beasts reawakened by an industrial age that never ended. Riveted armor, turbine organs, Art Deco trim and WWII nose art, all of it soot-streaked and overbuilt.</p>
+        <dl class="cs__facts"><dt>Hero</dt><dd>General Zogg</dd><dt>Deck</dt><dd>62 cards</dd></dl>
+      </div>
+    </section>
+    <figure class="cs__wide" data-reveal>
+      <div class="media media--frame r-21x9"><img src="media/land-dd.webp" alt="Refinery outpost, Diesel Dinos landscape concept" loading="lazy" width="1672" height="717"></div>
+      <figcaption>Refinery outpost · landscape concept</figcaption>
+    </figure>
+    <section class="cs__cards mono" data-reveal>
+      <!-- gen:cards-dd -->
+      <figure><div class="media media--frame r-1x1"><video src="media/cards/dd_hero_1.mp4" poster="media/cards/dd_hero_1.webp" muted loop playsinline preload="none" data-hover aria-label="General Zogg, Diesel Dinos hero card art"></video></div><figcaption>General Zogg<span>Hero</span></figcaption></figure>
+      <figure><div class="media media--frame r-1x1"><video src="media/cards/dd_melee_5.mp4" poster="media/cards/dd_melee_5.webp" muted loop playsinline preload="none" data-hover aria-label="Dread Saurian, Diesel Dinos melee card art"></video></div><figcaption>Dread Saurian<span>Melee</span></figcaption></figure>
+      <figure><div class="media media--frame r-1x1"><video src="media/cards/dd_ranged_3.mp4" poster="media/cards/dd_ranged_3.webp" muted loop playsinline preload="none" data-hover aria-label="Howitzer Stego, Diesel Dinos ranged card art"></video></div><figcaption>Howitzer Stego<span>Ranged</span></figcaption></figure>
+      <figure><div class="media media--frame r-1x1"><video src="media/cards/dd_scout_3.mp4" poster="media/cards/dd_scout_3.webp" muted loop playsinline preload="none" data-hover aria-label="Veloci-Ace, Diesel Dinos scout card art"></video></div><figcaption>Veloci-Ace<span>Scout</span></figcaption></figure>
+      <figure><div class="media media--frame r-1x1"><video src="media/cards/dd_support_4.mp4" poster="media/cards/dd_support_4.webp" muted loop playsinline preload="none" data-hover aria-label="Nose-Art Standard, Diesel Dinos support card art"></video></div><figcaption>Nose-Art Standard<span>Support</span></figcaption></figure>
+      <figure><div class="media media--frame r-1x1"><img src="media/cards/dd_capital_0.webp" alt="Diesel Dinos Capital, Diesel Dinos capital card art" loading="lazy" width="640" height="640"></div><figcaption>Diesel Dinos Capital<span>Capital</span></figcaption></figure>
+      <!-- /gen:cards-dd -->
+    </section>
+
+    <!-- FACTION 02: Cuddle Corps -->
+    <section class="cs__block" data-reveal>
+      <span class="mono">Faction 02 — Cuddle Corps</span>
+      <div>
+        <h2>Battle-hardened plushies, stitched for war.</h2>
+        <p>Grimdark haberdashery meets neon madness. Mismatched high-voltage fabric, with crude artillery grafted straight into the stuffing.</p>
+        <dl class="cs__facts"><dt>Hero</dt><dd>Sergeant Snuggles</dd><dt>Deck</dt><dd>62 cards</dd></dl>
+      </div>
+    </section>
+    <figure class="cs__wide" data-reveal>
+      <div class="media media--frame r-21x9"><img src="media/land-cc.webp" alt="Patchwork cliff city, Cuddle Corps landscape concept" loading="lazy" width="1672" height="717"></div>
+      <figcaption>Patchwork cliff city · landscape concept</figcaption>
+    </figure>
+    <section class="cs__cards mono" data-reveal>
+      <!-- gen:cards-cc -->
+      <figure><div class="media media--frame r-1x1"><img src="media/cards/cc_hero_1.webp" alt="Sergeant Snuggles, Cuddle Corps hero card art" loading="lazy" width="640" height="640"></div><figcaption>Sergeant Snuggles<span>Hero</span></figcaption></figure>
+      <figure><div class="media media--frame r-1x1"><img src="media/cards/cc_melee_3.webp" alt="Gutting Grizzly, Cuddle Corps melee card art" loading="lazy" width="640" height="640"></div><figcaption>Gutting Grizzly<span>Melee</span></figcaption></figure>
+      <figure><div class="media media--frame r-1x1"><img src="media/cards/cc_scout_4.webp" alt="Midnight Leveret, Cuddle Corps scout card art" loading="lazy" width="640" height="640"></div><figcaption>Midnight Leveret<span>Scout</span></figcaption></figure>
+      <figure><div class="media media--frame r-1x1"><img src="media/cards/cc_ranged_0.webp" alt="Cap-Gun Kitten, Cuddle Corps ranged card art" loading="lazy" width="640" height="640"></div><figcaption>Cap-Gun Kitten<span>Ranged</span></figcaption></figure>
+      <figure><div class="media media--frame r-1x1"><img src="media/cards/cc_healer_0.webp" alt="Boo-Boo Bunny, Cuddle Corps healer card art" loading="lazy" width="640" height="640"></div><figcaption>Boo-Boo Bunny<span>Healer</span></figcaption></figure>
+      <figure><div class="media media--frame r-1x1"><img src="media/cards/cc_bank_4.webp" alt="Allowance Office, Cuddle Corps bank card art" loading="lazy" width="640" height="640"></div><figcaption>Allowance Office<span>Bank</span></figcaption></figure>
+      <!-- /gen:cards-cc -->
+    </section>
+
+    <!-- FACTION 03: Rhondan Archive -->
+    <section class="cs__block" data-reveal>
+      <span class="mono">Faction 03 — Rhondan Archive</span>
+      <div>
+        <h2>Android nobility that preserves life by controlling it.</h2>
+        <p>Porcelain shells, chrome warframes and gold circuit filigree, guided by Special Lady Rhonda, a serene distributed AI. Memory, repair and obedience are sacred arts.</p>
+        <dl class="cs__facts"><dt>Hero</dt><dd>Lady Rhonda</dd><dt>Deck</dt><dd>62 cards</dd></dl>
+      </div>
+    </section>
+    <figure class="cs__wide" data-reveal>
+      <div class="media media--frame r-21x9"><img src="media/land-ra.webp" alt="Crystal city, Rhondan Archive landscape concept" loading="lazy" width="1672" height="717"></div>
+      <figcaption>Crystal city · landscape concept</figcaption>
+    </figure>
+    <section class="cs__cards mono" data-reveal>
+      <!-- gen:cards-ra -->
+      <figure><div class="media media--frame r-1x1"><video src="media/cards/ra_hero_1.mp4" poster="media/cards/ra_hero_1.webp" muted loop playsinline preload="none" data-hover aria-label="Lady Rhonda, Rhondan Archive hero card art"></video></div><figcaption>Lady Rhonda<span>Hero</span></figcaption></figure>
+      <figure><div class="media media--frame r-1x1"><video src="media/cards/ra_melee_3.mp4" poster="media/cards/ra_melee_3.webp" muted loop playsinline preload="none" data-hover aria-label="Gavel, Rhondan Archive melee card art"></video></div><figcaption>Gavel<span>Melee</span></figcaption></figure>
+      <figure><div class="media media--frame r-1x1"><video src="media/cards/ra_melee_6.mp4" poster="media/cards/ra_melee_6.webp" muted loop playsinline preload="none" data-hover aria-label="Paragon, Rhondan Archive melee card art"></video></div><figcaption>Paragon<span>Melee</span></figcaption></figure>
+      <figure><div class="media media--frame r-1x1"><video src="media/cards/ra_scout_4.mp4" poster="media/cards/ra_scout_4.webp" muted loop playsinline preload="none" data-hover aria-label="Vesper, Rhondan Archive scout card art"></video></div><figcaption>Vesper<span>Scout</span></figcaption></figure>
+      <figure><div class="media media--frame r-1x1"><video src="media/cards/ra_healer_4.mp4" poster="media/cards/ra_healer_4.webp" muted loop playsinline preload="none" data-hover aria-label="Triage, Rhondan Archive healer card art"></video></div><figcaption>Triage<span>Healer</span></figcaption></figure>
+      <figure><div class="media media--frame r-1x1"><img src="media/cards/ra_capital_0.webp" alt="Rhondan Archive Capital, Rhondan Archive capital card art" loading="lazy" width="640" height="640"></div><figcaption>Rhondan Archive Capital<span>Capital</span></figcaption></figure>
+      <!-- /gen:cards-ra -->
+    </section>
+
+    <!-- FACTION 04: Obsidian Tide -->
+    <section class="cs__block" data-reveal>
+      <span class="mono">Faction 04 — Obsidian Tide</span>
+      <div>
+        <h2>A cosmic end-state, bleeding into the world.</h2>
+        <p>The sleeping entity called the One arrives as sentient, star-speckled black ooze. No rage and no hunger: runic obsidian geometry, advancing with the calm of a void reclaiming everything.</p>
+        <dl class="cs__facts"><dt>Hero</dt><dd>The Nullheart Monolith</dd><dt>Deck</dt><dd>62 cards</dd></dl>
+      </div>
+    </section>
+    <figure class="cs__wide" data-reveal>
+      <div class="media media--frame r-21x9"><img src="media/land-ot.webp" alt="Obsidian Tide world, Obsidian Tide landscape concept" loading="lazy" width="1672" height="717"></div>
+      <figcaption>Obsidian Tide world · landscape concept</figcaption>
+    </figure>
+    <section class="cs__cards mono" data-reveal>
+      <!-- gen:cards-ot -->
+      <figure><div class="media media--frame r-1x1"><img src="media/cards/ot_hero_1.webp" alt="The Nullheart Monolith, Obsidian Tide hero card art" loading="lazy" width="640" height="640"></div><figcaption>The Nullheart Monolith<span>Hero</span></figcaption></figure>
+      <figure><div class="media media--frame r-1x1"><img src="media/cards/ot_melee_3.webp" alt="Forged Tidekeeper, Obsidian Tide melee card art" loading="lazy" width="640" height="640"></div><figcaption>Forged Tidekeeper<span>Melee</span></figcaption></figure>
+      <figure><div class="media media--frame r-1x1"><img src="media/cards/ot_ranged_2.webp" alt="Runic Boltframe, Obsidian Tide ranged card art" loading="lazy" width="640" height="640"></div><figcaption>Runic Boltframe<span>Ranged</span></figcaption></figure>
+      <figure><div class="media media--frame r-1x1"><img src="media/cards/ot_scout_1.webp" alt="Crescent Stalker, Obsidian Tide scout card art" loading="lazy" width="640" height="640"></div><figcaption>Crescent Stalker<span>Scout</span></figcaption></figure>
+      <figure><div class="media media--frame r-1x1"><img src="media/cards/ot_support_5.webp" alt="Voidline Marshal, Obsidian Tide support card art" loading="lazy" width="640" height="640"></div><figcaption>Voidline Marshal<span>Support</span></figcaption></figure>
+      <figure><div class="media media--frame r-1x1"><img src="media/cards/ot_capital_0.webp" alt="The Nullheart Monolith, Obsidian Tide capital card art" loading="lazy" width="640" height="640"></div><figcaption>The Nullheart Monolith<span>Capital</span></figcaption></figure>
+      <!-- /gen:cards-ot -->
+    </section>
+
+    <!-- FACTION 05: Natures Edge -->
+    <section class="cs__block" data-reveal>
+      <span class="mono">Faction 05 — Natures Edge</span>
+      <div>
+        <h2>A woodland sanctuary, curdled.</h2>
+        <p>Druidic puppet masters bind forest fauna with glowing red threads and bone-carved runes. Organic beauty and violent desecration share one silhouette.</p>
+        <dl class="cs__facts"><dt>Hero</dt><dd>The Weaver of Withered Crowns</dd><dt>Deck</dt><dd>62 cards</dd></dl>
+      </div>
+    </section>
+    <figure class="cs__wide" data-reveal>
+      <div class="media media--frame r-21x9"><img src="media/land-ne.webp" alt="Ancient biome forest, Natures Edge landscape concept" loading="lazy" width="1672" height="717"></div>
+      <figcaption>Ancient biome forest · landscape concept</figcaption>
+    </figure>
+    <section class="cs__cards mono" data-reveal>
+      <!-- gen:cards-ne -->
+      <figure><div class="media media--frame r-1x1"><img src="media/cards/ne_hero_1.webp" alt="The Weaver of Withered Crowns, Natures Edge hero card art" loading="lazy" width="640" height="640"></div><figcaption>The Weaver of Withered Crowns<span>Hero</span></figcaption></figure>
+      <figure><div class="media media--frame r-1x1"><img src="media/cards/ne_scout_3.webp" alt="Runecarved Hound, Natures Edge scout card art" loading="lazy" width="640" height="640"></div><figcaption>Runecarved Hound<span>Scout</span></figcaption></figure>
+      <figure><div class="media media--frame r-1x1"><img src="media/cards/ne_melee_3.webp" alt="Carrion Chimera, Natures Edge melee card art" loading="lazy" width="640" height="640"></div><figcaption>Carrion Chimera<span>Melee</span></figcaption></figure>
+      <figure><div class="media media--frame r-1x1"><img src="media/cards/ne_ranged_2.webp" alt="Hollowed Harpy, Natures Edge ranged card art" loading="lazy" width="640" height="640"></div><figcaption>Hollowed Harpy<span>Ranged</span></figcaption></figure>
+      <figure><div class="media media--frame r-1x1"><img src="media/cards/ne_support_4.webp" alt="Vein-Stitcher Matriarch, Natures Edge support card art" loading="lazy" width="640" height="640"></div><figcaption>Vein-Stitcher Matriarch<span>Support</span></figcaption></figure>
+      <figure><div class="media media--frame r-1x1"><img src="media/cards/ne_forge_3.webp" alt="Conduit Grove, Natures Edge forge card art" loading="lazy" width="640" height="640"></div><figcaption>Conduit Grove<span>Forge</span></figcaption></figure>
+      <!-- /gen:cards-ne -->
+    </section>
+
+    <!-- FACTION 06: Fungal Factors -->
+    <section class="cs__block" data-reveal>
+      <span class="mono">Faction 06 — Fungal Factors</span>
+      <div>
+        <h2>A plague that turns the battlefield into a nursery.</h2>
+        <p>Fibrous roots weave through rusted refinery husks, topped with fruiting-body artillery. Every machine is a host, and all of it glows like a heartbeat.</p>
+        <dl class="cs__facts"><dt>Hero</dt><dd>The Spore-Mother</dd><dt>Deck</dt><dd>62 cards</dd></dl>
+      </div>
+    </section>
+    <figure class="cs__wide" data-reveal>
+      <div class="media media--frame r-21x9"><img src="media/land-ff.webp" alt="Biomechanical wetlands, Fungal Factors landscape concept" loading="lazy" width="1672" height="717"></div>
+      <figcaption>Biomechanical wetlands · landscape concept</figcaption>
+    </figure>
+    <section class="cs__cards mono" data-reveal>
+      <!-- gen:cards-ff -->
+      <figure><div class="media media--frame r-1x1"><img src="media/cards/ff_hero_1.webp" alt="The Spore-Mother, Fungal Factors hero card art" loading="lazy" width="640" height="640"></div><figcaption>The Spore-Mother<span>Hero</span></figcaption></figure>
+      <figure><div class="media media--frame r-1x1"><img src="media/cards/ff_melee_4.webp" alt="Node-Core Brute, Fungal Factors melee card art" loading="lazy" width="640" height="640"></div><figcaption>Node-Core Brute<span>Melee</span></figcaption></figure>
+      <figure><div class="media media--frame r-1x1"><img src="media/cards/ff_healer_1.webp" alt="Mycelial Stitcher, Fungal Factors healer card art" loading="lazy" width="640" height="640"></div><figcaption>Mycelial Stitcher<span>Healer</span></figcaption></figure>
+      <figure><div class="media media--frame r-1x1"><img src="media/cards/ff_ranged_4.webp" alt="Parasitic Siege-Node, Fungal Factors ranged card art" loading="lazy" width="640" height="640"></div><figcaption>Parasitic Siege-Node<span>Ranged</span></figcaption></figure>
+      <figure><div class="media media--frame r-1x1"><img src="media/cards/ff_scout_3.webp" alt="Bursting Pod, Fungal Factors scout card art" loading="lazy" width="640" height="640"></div><figcaption>Bursting Pod<span>Scout</span></figcaption></figure>
+      <figure><div class="media media--frame r-1x1"><img src="media/cards/ff_capital_0.webp" alt="Fungal Factors Capital, Fungal Factors capital card art" loading="lazy" width="640" height="640"></div><figcaption>Fungal Factors Capital<span>Capital</span></figcaption></figure>
+      <!-- /gen:cards-ff -->
+    </section>
+
+    <section class="cs__block" data-reveal>
+      <span class="mono">Collisions</span>
+      <div>
+        <h2>Then they meet.</h2>
+        <p>Paired landscapes set the tone for every matchup before a single map is built.</p>
+      </div>
+    </section>
+    <section class="cs__sheet cs__sheet--wide mono" data-reveal>
+      <figure><div class="media"><img src="media/war-cc-dd.webp" alt="Cuddle Corps swarm fighting a Diesel Dinos war beast" loading="lazy"></div><figcaption>Cuddle Corps × Diesel Dinos</figcaption></figure>
+      <figure><div class="media"><img src="media/war-ot-ra.webp" alt="Obsidian Tide constructs pushing into a Rhondan crystal city" loading="lazy"></div><figcaption>Obsidian Tide × Rhondan Archive</figcaption></figure>
+      <figure><div class="media"><img src="media/war-ne-dd.webp" alt="Natures Edge ambushing a Diesel Dinos column in an ancient forest" loading="lazy"></div><figcaption>Natures Edge × Diesel Dinos</figcaption></figure>
+      <figure><div class="media"><img src="media/war-ff-ot.webp" alt="Fungal Factors meeting an Obsidian Tide aerial invasion" loading="lazy"></div><figcaption>Fungal Factors × Obsidian Tide</figcaption></figure>
+    </section>
+
+    <!-- THE WALL -->
+    <div class="cs__chap" data-reveal>
+      <h2>The wall</h2>
+      <p class="mono">Every faction card in the game.</p>
+    </div>
+    <section class="cs__wall" style="margin-top:clamp(24px,3vw,48px)" aria-label="All faction card art">
+      <!-- gen:wall -->
+      <img src="media/wall/dd_bank_0.webp" alt="Fuel Drum" title="Fuel Drum" loading="lazy" width="160" height="160">
+      <img src="media/wall/dd_bank_1.webp" alt="Tar Silo" title="Tar Silo" loading="lazy" width="160" height="160">
+      <img src="media/wall/dd_bank_2.webp" alt="Fossil Patent Office" title="Fossil Patent Office" loading="lazy" width="160" height="160">
+      <img src="media/wall/dd_bank_3.webp" alt="Oil Baron Ledger" title="Oil Baron Ledger" loading="lazy" width="160" height="160">
+      <img src="media/wall/dd_bank_4.webp" alt="Concession Office" title="Concession Office" loading="lazy" width="160" height="160">
+      <img src="media/wall/dd_bank_5.webp" alt="Relic Fuel Reserve" title="Relic Fuel Reserve" loading="lazy" width="160" height="160">
+      <img src="media/wall/dd_bank_6.webp" alt="Golden Derrick Field" title="Golden Derrick Field" loading="lazy" width="160" height="160">
+      <img src="media/wall/dd_capital_0.webp" alt="Diesel Dinos Capital" title="Diesel Dinos Capital" loading="lazy" width="160" height="160">
+      <img src="media/wall/dd_forge_0.webp" alt="Rivet Yard" title="Rivet Yard" loading="lazy" width="160" height="160">
+      <img src="media/wall/dd_forge_1.webp" alt="Chrome Chapel" title="Chrome Chapel" loading="lazy" width="160" height="160">
+      <img src="media/wall/dd_forge_2.webp" alt="Piston Foundry" title="Piston Foundry" loading="lazy" width="160" height="160">
+      <img src="media/wall/dd_forge_3.webp" alt="Armor Press" title="Armor Press" loading="lazy" width="160" height="160">
+      <img src="media/wall/dd_forge_4.webp" alt="Fuel Baptistry" title="Fuel Baptistry" loading="lazy" width="160" height="160">
+      <img src="media/wall/dd_forge_5.webp" alt="Aero Refit Bay" title="Aero Refit Bay" loading="lazy" width="160" height="160">
+      <img src="media/wall/dd_forge_6.webp" alt="Monarch Works" title="Monarch Works" loading="lazy" width="160" height="160">
+      <img src="media/wall/dd_healer_0.webp" alt="Grease Medic" title="Grease Medic" loading="lazy" width="160" height="160">
+      <img src="media/wall/dd_healer_1.webp" alt="Boneyard Mechanic" title="Boneyard Mechanic" loading="lazy" width="160" height="160">
+      <img src="media/wall/dd_healer_2.webp" alt="Patchplate Ankyl" title="Patchplate Ankyl" loading="lazy" width="160" height="160">
+      <img src="media/wall/dd_healer_3.webp" alt="Piston Surgeon" title="Piston Surgeon" loading="lazy" width="160" height="160">
+      <img src="media/wall/dd_healer_4.webp" alt="Tar Pit Nurse" title="Tar Pit Nurse" loading="lazy" width="160" height="160">
+      <img src="media/wall/dd_healer_5.webp" alt="Refinery Matron" title="Refinery Matron" loading="lazy" width="160" height="160">
+      <img src="media/wall/dd_healer_6.webp" alt="The Last Tar Pit" title="The Last Tar Pit" loading="lazy" width="160" height="160">
+      <img src="media/wall/dd_hero_1.webp" alt="General Zogg" title="General Zogg" loading="lazy" width="160" height="160">
+      <img src="media/wall/dd_lane_0.webp" alt="Diesel Dinos Lane Runner" title="Diesel Dinos Lane Runner" loading="lazy" width="160" height="160">
+      <img src="media/wall/dd_melee_0.webp" alt="Rivet Juvenile" title="Rivet Juvenile" loading="lazy" width="160" height="160">
+      <img src="media/wall/dd_melee_1.webp" alt="Jawplate Rex" title="Jawplate Rex" loading="lazy" width="160" height="160">
+      <img src="media/wall/dd_melee_2.webp" alt="Triceratops Halftrack" title="Triceratops Halftrack" loading="lazy" width="160" height="160">
+      <img src="media/wall/dd_melee_3.webp" alt="Ankylo Wrecker" title="Ankylo Wrecker" loading="lazy" width="160" height="160">
+      <img src="media/wall/dd_melee_4.webp" alt="Ceratops Ram" title="Ceratops Ram" loading="lazy" width="160" height="160">
+      <img src="media/wall/dd_melee_5.webp" alt="Dread Saurian" title="Dread Saurian" loading="lazy" width="160" height="160">
+      <img src="media/wall/dd_melee_6.webp" alt="Iron Monarch" title="Iron Monarch" loading="lazy" width="160" height="160">
+      <img src="media/wall/dd_outpost_0.webp" alt="Plains Derrick" title="Plains Derrick" loading="lazy" width="160" height="160">
+      <img src="media/wall/dd_outpost_1.webp" alt="Mountain Cut" title="Mountain Cut" loading="lazy" width="160" height="160">
+      <img src="media/wall/dd_outpost_2.webp" alt="Timber Works" title="Timber Works" loading="lazy" width="160" height="160">
+      <img src="media/wall/dd_ranged_0.webp" alt="Capgun Compy" title="Capgun Compy" loading="lazy" width="160" height="160">
+      <img src="media/wall/dd_ranged_1.webp" alt="Flak Raptor" title="Flak Raptor" loading="lazy" width="160" height="160">
+      <img src="media/wall/dd_ranged_2.webp" alt="Mortar Iguanodon" title="Mortar Iguanodon" loading="lazy" width="160" height="160">
+      <img src="media/wall/dd_ranged_3.webp" alt="Howitzer Stego" title="Howitzer Stego" loading="lazy" width="160" height="160">
+      <img src="media/wall/dd_ranged_4.webp" alt="Rocket Carnotaur" title="Rocket Carnotaur" loading="lazy" width="160" height="160">
+      <img src="media/wall/dd_ranged_5.webp" alt="Chrome-Crest Spino" title="Chrome-Crest Spino" loading="lazy" width="160" height="160">
+      <img src="media/wall/dd_ranged_6.webp" alt="Siege Brontosaur" title="Siege Brontosaur" loading="lazy" width="160" height="160">
+      <img src="media/wall/dd_ranged_structure_0.webp" alt="Flak Nest" title="Flak Nest" loading="lazy" width="160" height="160">
+      <img src="media/wall/dd_ranged_structure_1.webp" alt="Hangar Turret" title="Hangar Turret" loading="lazy" width="160" height="160">
+      <img src="media/wall/dd_ranged_structure_2.webp" alt="Primal Battery" title="Primal Battery" loading="lazy" width="160" height="160">
+      <img src="media/wall/dd_ranged_structure_3.webp" alt="Searchlight Spire" title="Searchlight Spire" loading="lazy" width="160" height="160">
+      <img src="media/wall/dd_ranged_structure_4.webp" alt="Tar Anchor" title="Tar Anchor" loading="lazy" width="160" height="160">
+      <img src="media/wall/dd_ranged_structure_5.webp" alt="Museum Redoubt" title="Museum Redoubt" loading="lazy" width="160" height="160">
+      <img src="media/wall/dd_ranged_structure_6.webp" alt="Refinery Citadel" title="Refinery Citadel" loading="lazy" width="160" height="160">
+      <img src="media/wall/dd_scout_0.webp" alt="Goggle Raptor" title="Goggle Raptor" loading="lazy" width="160" height="160">
+      <img src="media/wall/dd_scout_1.webp" alt="Skid Compsognathus" title="Skid Compsognathus" loading="lazy" width="160" height="160">
+      <img src="media/wall/dd_scout_2.webp" alt="Rapter Spotter" title="Rapter Spotter" loading="lazy" width="160" height="160">
+      <img src="media/wall/dd_scout_3.webp" alt="Veloci-Ace" title="Veloci-Ace" loading="lazy" width="160" height="160">
+      <img src="media/wall/dd_scout_4.webp" alt="Tarstep Runner" title="Tarstep Runner" loading="lazy" width="160" height="160">
+      <img src="media/wall/dd_scout_5.webp" alt="Exo " title="Exo " loading="lazy" width="160" height="160">
+      <img src="media/wall/dd_scout_6.webp" alt="Squadron Alpha" title="Squadron Alpha" loading="lazy" width="160" height="160">
+      <img src="media/wall/dd_support_0.webp" alt="Flagcrest" title="Flagcrest" loading="lazy" width="160" height="160">
+      <img src="media/wall/dd_support_1.webp" alt="War Supplies" title="War Supplies" loading="lazy" width="160" height="160">
+      <img src="media/wall/dd_support_2.webp" alt="Fuel Chaplain" title="Fuel Chaplain" loading="lazy" width="160" height="160">
+      <img src="media/wall/dd_support_3.webp" alt="Convoy Marshal" title="Convoy Marshal" loading="lazy" width="160" height="160">
+      <img src="media/wall/dd_support_4.webp" alt="Nose-Art Standard" title="Nose-Art Standard" loading="lazy" width="160" height="160">
+      <img src="media/wall/dd_support_5.webp" alt="Smoke" title="Smoke" loading="lazy" width="160" height="160">
+      <img src="media/wall/dd_support_6.webp" alt="Propaganda Idol" title="Propaganda Idol" loading="lazy" width="160" height="160">
+      <img src="media/wall/cc_bank_0.webp" alt="Piggy Bank" title="Piggy Bank" loading="lazy" width="160" height="160">
+      <img src="media/wall/cc_bank_1.webp" alt="Coin Jar Hutch" title="Coin Jar Hutch" loading="lazy" width="160" height="160">
+      <img src="media/wall/cc_bank_2.webp" alt="Honey Vault" title="Honey Vault" loading="lazy" width="160" height="160">
+      <img src="media/wall/cc_bank_3.webp" alt="Acorn Treasury" title="Acorn Treasury" loading="lazy" width="160" height="160">
+      <img src="media/wall/cc_bank_4.webp" alt="Allowance Office" title="Allowance Office" loading="lazy" width="160" height="160">
+      <img src="media/wall/cc_bank_5.webp" alt="Trinket Reserve" title="Trinket Reserve" loading="lazy" width="160" height="160">
+      <img src="media/wall/cc_bank_6.webp" alt="Golden Hoard" title="Golden Hoard" loading="lazy" width="160" height="160">
+      <img src="media/wall/cc_capital_0.webp" alt="Cuddle Corps Capital" title="Cuddle Corps Capital" loading="lazy" width="160" height="160">
+      <img src="media/wall/cc_forge_0.webp" alt="Sewing Circle" title="Sewing Circle" loading="lazy" width="160" height="160">
+      <img src="media/wall/cc_forge_1.webp" alt="Patchwork Tent" title="Patchwork Tent" loading="lazy" width="160" height="160">
+      <img src="media/wall/cc_forge_2.webp" alt="Quilting Bee" title="Quilting Bee" loading="lazy" width="160" height="160">
+      <img src="media/wall/cc_forge_3.webp" alt="Armory of Hugs" title="Armory of Hugs" loading="lazy" width="160" height="160">
+      <img src="media/wall/cc_forge_4.webp" alt="Kevlar Cotton Mill" title="Kevlar Cotton Mill" loading="lazy" width="160" height="160">
+      <img src="media/wall/cc_forge_5.webp" alt="Aegis Workshop" title="Aegis Workshop" loading="lazy" width="160" height="160">
+      <img src="media/wall/cc_forge_6.webp" alt="Bulwark Foundry" title="Bulwark Foundry" loading="lazy" width="160" height="160">
+      <img src="media/wall/cc_healer_0.webp" alt="Boo-Boo Bunny" title="Boo-Boo Bunny" loading="lazy" width="160" height="160">
+      <img src="media/wall/cc_healer_1.webp" alt="Cotton Nurse" title="Cotton Nurse" loading="lazy" width="160" height="160">
+      <img src="media/wall/cc_healer_2.webp" alt="Bandage Bear" title="Bandage Bear" loading="lazy" width="160" height="160">
+      <img src="media/wall/cc_healer_3.webp" alt="Mender Marten" title="Mender Marten" loading="lazy" width="160" height="160">
+      <img src="media/wall/cc_healer_4.webp" alt="Triage Tabby" title="Triage Tabby" loading="lazy" width="160" height="160">
+      <img src="media/wall/cc_healer_5.webp" alt="Matron Mole" title="Matron Mole" loading="lazy" width="160" height="160">
+      <img src="media/wall/cc_healer_6.webp" alt="Sanctuary Saint Bernard" title="Sanctuary Saint Bernard" loading="lazy" width="160" height="160">
+      <img src="media/wall/cc_hero_1.webp" alt="Sergeant Snuggles" title="Sergeant Snuggles" loading="lazy" width="160" height="160">
+      <img src="media/wall/cc_lane_0.webp" alt="Cuddle Corps Lane Runner" title="Cuddle Corps Lane Runner" loading="lazy" width="160" height="160">
+      <img src="media/wall/cc_melee_0.webp" alt="Stuffing-Stuffed Recruit" title="Stuffing-Stuffed Recruit" loading="lazy" width="160" height="160">
+      <img src="media/wall/cc_melee_1.webp" alt="Knife Cub" title="Knife Cub" loading="lazy" width="160" height="160">
+      <img src="media/wall/cc_melee_2.webp" alt="Button Brawler" title="Button Brawler" loading="lazy" width="160" height="160">
+      <img src="media/wall/cc_melee_3.webp" alt="Gutting Grizzly" title="Gutting Grizzly" loading="lazy" width="160" height="160">
+      <img src="media/wall/cc_melee_4.webp" alt="Seamripper Bruin" title="Seamripper Bruin" loading="lazy" width="160" height="160">
+      <img src="media/wall/cc_melee_5.webp" alt="Dreadbear" title="Dreadbear" loading="lazy" width="160" height="160">
+      <img src="media/wall/cc_melee_6.webp" alt="Ursa Major" title="Ursa Major" loading="lazy" width="160" height="160">
+      <img src="media/wall/cc_outpost_0.webp" alt="Pillow Picket" title="Pillow Picket" loading="lazy" width="160" height="160">
+      <img src="media/wall/cc_outpost_1.webp" alt="Cushion Redoubt" title="Cushion Redoubt" loading="lazy" width="160" height="160">
+      <img src="media/wall/cc_outpost_2.webp" alt="Quilt Blind" title="Quilt Blind" loading="lazy" width="160" height="160">
+      <img src="media/wall/cc_ranged_0.webp" alt="Cap-Gun Kitten" title="Cap-Gun Kitten" loading="lazy" width="160" height="160">
+      <img src="media/wall/cc_ranged_1.webp" alt="Slingshot Squirrel" title="Slingshot Squirrel" loading="lazy" width="160" height="160">
+      <img src="media/wall/cc_ranged_2.webp" alt="Mortar Marmot" title="Mortar Marmot" loading="lazy" width="160" height="160">
+      <img src="media/wall/cc_ranged_3.webp" alt="Howitzer Hedgehog" title="Howitzer Hedgehog" loading="lazy" width="160" height="160">
+      <img src="media/wall/cc_ranged_4.webp" alt="Bombard Beaver" title="Bombard Beaver" loading="lazy" width="160" height="160">
+      <img src="media/wall/cc_ranged_5.webp" alt="Siege Otter" title="Siege Otter" loading="lazy" width="160" height="160">
+      <img src="media/wall/cc_ranged_6.webp" alt="Dreadnought Walrus" title="Dreadnought Walrus" loading="lazy" width="160" height="160">
+      <img src="media/wall/cc_ranged_structure_0.webp" alt="Pillow Fort" title="Pillow Fort" loading="lazy" width="160" height="160">
+      <img src="media/wall/cc_ranged_structure_1.webp" alt="Toybox Bunker" title="Toybox Bunker" loading="lazy" width="160" height="160">
+      <img src="media/wall/cc_ranged_structure_2.webp" alt="Cushion Battery" title="Cushion Battery" loading="lazy" width="160" height="160">
+      <img src="media/wall/cc_ranged_structure_3.webp" alt="Plushwall Turret" title="Plushwall Turret" loading="lazy" width="160" height="160">
+      <img src="media/wall/cc_ranged_structure_4.webp" alt="Stitched Redoubt" title="Stitched Redoubt" loading="lazy" width="160" height="160">
+      <img src="media/wall/cc_ranged_structure_5.webp" alt="Bastion of Buttons" title="Bastion of Buttons" loading="lazy" width="160" height="160">
+      <img src="media/wall/cc_ranged_structure_6.webp" alt="Citadel of Stuffing" title="Citadel of Stuffing" loading="lazy" width="160" height="160">
+      <img src="media/wall/cc_scout_0.webp" alt="Stalker" title="Stalker" loading="lazy" width="160" height="160">
+      <img src="media/wall/cc_scout_1.webp" alt="Shiv Bunny" title="Shiv Bunny" loading="lazy" width="160" height="160">
+      <img src="media/wall/cc_scout_2.webp" alt="Twitchwhisker Spotter" title="Twitchwhisker Spotter" loading="lazy" width="160" height="160">
+      <img src="media/wall/cc_scout_3.webp" alt="Razor Hare" title="Razor Hare" loading="lazy" width="160" height="160">
+      <img src="media/wall/cc_scout_4.webp" alt="Midnight Leveret" title="Midnight Leveret" loading="lazy" width="160" height="160">
+      <img src="media/wall/cc_scout_5.webp" alt="Phantom Jackrabbit" title="Phantom Jackrabbit" loading="lazy" width="160" height="160">
+      <img src="media/wall/cc_scout_6.webp" alt="Warren Marshal" title="Warren Marshal" loading="lazy" width="160" height="160">
+      <img src="media/wall/cc_support_0.webp" alt="Cheer Cub" title="Cheer Cub" loading="lazy" width="160" height="160">
+      <img src="media/wall/cc_support_1.webp" alt="Pom-Pom Panda" title="Pom-Pom Panda" loading="lazy" width="160" height="160">
+      <img src="media/wall/cc_support_2.webp" alt="Rally Raccoon" title="Rally Raccoon" loading="lazy" width="160" height="160">
+      <img src="media/wall/cc_support_3.webp" alt="Warchief Ferret" title="Warchief Ferret" loading="lazy" width="160" height="160">
+      <img src="media/wall/cc_support_4.webp" alt="Banner Badger" title="Banner Badger" loading="lazy" width="160" height="160">
+      <img src="media/wall/cc_support_5.webp" alt="Warden Wolverine" title="Warden Wolverine" loading="lazy" width="160" height="160">
+      <img src="media/wall/cc_support_6.webp" alt="Alpha Mascot" title="Alpha Mascot" loading="lazy" width="160" height="160">
+      <img src="media/wall/ra_bank_0.webp" alt="Credit Core" title="Credit Core" loading="lazy" width="160" height="160">
+      <img src="media/wall/ra_bank_1.webp" alt="Data Jar" title="Data Jar" loading="lazy" width="160" height="160">
+      <img src="media/wall/ra_bank_2.webp" alt="Patent Vault" title="Patent Vault" loading="lazy" width="160" height="160">
+      <img src="media/wall/ra_bank_3.webp" alt="Ledger Engine" title="Ledger Engine" loading="lazy" width="160" height="160">
+      <img src="media/wall/ra_bank_4.webp" alt="Archive Office" title="Archive Office" loading="lazy" width="160" height="160">
+      <img src="media/wall/ra_bank_5.webp" alt="Relic Reserve" title="Relic Reserve" loading="lazy" width="160" height="160">
+      <img src="media/wall/ra_bank_6.webp" alt="Golden Array" title="Golden Array" loading="lazy" width="160" height="160">
+      <img src="media/wall/ra_capital_0.webp" alt="Rhondan Archive Capital" title="Rhondan Archive Capital" loading="lazy" width="160" height="160">
+      <img src="media/wall/ra_forge_0.webp" alt="Polish Rite" title="Polish Rite" loading="lazy" width="160" height="160">
+      <img src="media/wall/ra_forge_1.webp" alt="Upgrade Shrine" title="Upgrade Shrine" loading="lazy" width="160" height="160">
+      <img src="media/wall/ra_forge_2.webp" alt="Choir Mill" title="Choir Mill" loading="lazy" width="160" height="160">
+      <img src="media/wall/ra_forge_3.webp" alt="Shell Armory" title="Shell Armory" loading="lazy" width="160" height="160">
+      <img src="media/wall/ra_forge_4.webp" alt="Core Foundry" title="Core Foundry" loading="lazy" width="160" height="160">
+      <img src="media/wall/ra_forge_5.webp" alt="Aegis Loom" title="Aegis Loom" loading="lazy" width="160" height="160">
+      <img src="media/wall/ra_forge_6.webp" alt="Paragon Works" title="Paragon Works" loading="lazy" width="160" height="160">
+      <img src="media/wall/ra_healer_0.webp" alt="Patch" title="Patch" loading="lazy" width="160" height="160">
+      <img src="media/wall/ra_healer_1.webp" alt="Nurse" title="Nurse" loading="lazy" width="160" height="160">
+      <img src="media/wall/ra_healer_2.webp" alt="Binder" title="Binder" loading="lazy" width="160" height="160">
+      <img src="media/wall/ra_healer_3.webp" alt="Mender" title="Mender" loading="lazy" width="160" height="160">
+      <img src="media/wall/ra_healer_4.webp" alt="Triage" title="Triage" loading="lazy" width="160" height="160">
+      <img src="media/wall/ra_healer_5.webp" alt="Matron" title="Matron" loading="lazy" width="160" height="160">
+      <img src="media/wall/ra_healer_6.webp" alt="Sanctuary" title="Sanctuary" loading="lazy" width="160" height="160">
+      <img src="media/wall/ra_hero_1.webp" alt="Lady Rhonda" title="Lady Rhonda" loading="lazy" width="160" height="160">
+      <img src="media/wall/ra_lane_0.webp" alt="Rhondan Archive Lane Runner" title="Rhondan Archive Lane Runner" loading="lazy" width="160" height="160">
+      <img src="media/wall/ra_melee_0.webp" alt="Ward" title="Ward" loading="lazy" width="160" height="160">
+      <img src="media/wall/ra_melee_1.webp" alt="Cutter" title="Cutter" loading="lazy" width="160" height="160">
+      <img src="media/wall/ra_melee_2.webp" alt="Bulwark" title="Bulwark" loading="lazy" width="160" height="160">
+      <img src="media/wall/ra_melee_3.webp" alt="Gavel" title="Gavel" loading="lazy" width="160" height="160">
+      <img src="media/wall/ra_melee_4.webp" alt="Aegis" title="Aegis" loading="lazy" width="160" height="160">
+      <img src="media/wall/ra_melee_5.webp" alt="Dreadnought" title="Dreadnought" loading="lazy" width="160" height="160">
+      <img src="media/wall/ra_melee_6.webp" alt="Paragon" title="Paragon" loading="lazy" width="160" height="160">
+      <img src="media/wall/ra_outpost_0.webp" alt="Survey Pylon" title="Survey Pylon" loading="lazy" width="160" height="160">
+      <img src="media/wall/ra_outpost_1.webp" alt="Lens Mast" title="Lens Mast" loading="lazy" width="160" height="160">
+      <img src="media/wall/ra_outpost_2.webp" alt="Canopy Relay" title="Canopy Relay" loading="lazy" width="160" height="160">
+      <img src="media/wall/ra_ranged_0.webp" alt="Spark" title="Spark" loading="lazy" width="160" height="160">
+      <img src="media/wall/ra_ranged_1.webp" alt="Lancer" title="Lancer" loading="lazy" width="160" height="160">
+      <img src="media/wall/ra_ranged_2.webp" alt="Mortar" title="Mortar" loading="lazy" width="160" height="160">
+      <img src="media/wall/ra_ranged_3.webp" alt="Prism" title="Prism" loading="lazy" width="160" height="160">
+      <img src="media/wall/ra_ranged_4.webp" alt="Barrage" title="Barrage" loading="lazy" width="160" height="160">
+      <img src="media/wall/ra_ranged_5.webp" alt="Oracle" title="Oracle" loading="lazy" width="160" height="160">
+      <img src="media/wall/ra_ranged_6.webp" alt="Annihilator" title="Annihilator" loading="lazy" width="160" height="160">
+      <img src="media/wall/ra_ranged_structure_0.webp" alt="Glass Nest" title="Glass Nest" loading="lazy" width="160" height="160">
+      <img src="media/wall/ra_ranged_structure_1.webp" alt="Pulse Tower" title="Pulse Tower" loading="lazy" width="160" height="160">
+      <img src="media/wall/ra_ranged_structure_2.webp" alt="Prism Battery" title="Prism Battery" loading="lazy" width="160" height="160">
+      <img src="media/wall/ra_ranged_structure_3.webp" alt="Still Turret" title="Still Turret" loading="lazy" width="160" height="160">
+      <img src="media/wall/ra_ranged_structure_4.webp" alt="Anchor" title="Anchor" loading="lazy" width="160" height="160">
+      <img src="media/wall/ra_ranged_structure_5.webp" alt="Reliquary" title="Reliquary" loading="lazy" width="160" height="160">
+      <img src="media/wall/ra_ranged_structure_6.webp" alt="Star Citadel" title="Star Citadel" loading="lazy" width="160" height="160">
+      <img src="media/wall/ra_scout_0.webp" alt="Starling" title="Starling" loading="lazy" width="160" height="160">
+      <img src="media/wall/ra_scout_1.webp" alt="Skimmer" title="Skimmer" loading="lazy" width="160" height="160">
+      <img src="media/wall/ra_scout_2.webp" alt="Glint" title="Glint" loading="lazy" width="160" height="160">
+      <img src="media/wall/ra_scout_3.webp" alt="Comet" title="Comet" loading="lazy" width="160" height="160">
+      <img src="media/wall/ra_scout_4.webp" alt="Vesper" title="Vesper" loading="lazy" width="160" height="160">
+      <img src="media/wall/ra_scout_5.webp" alt="Needle" title="Needle" loading="lazy" width="160" height="160">
+      <img src="media/wall/ra_scout_6.webp" alt="Herald" title="Herald" loading="lazy" width="160" height="160">
+      <img src="media/wall/ra_support_0.webp" alt="Page" title="Page" loading="lazy" width="160" height="160">
+      <img src="media/wall/ra_support_1.webp" alt="Cantor" title="Cantor" loading="lazy" width="160" height="160">
+      <img src="media/wall/ra_support_2.webp" alt="Beacon" title="Beacon" loading="lazy" width="160" height="160">
+      <img src="media/wall/ra_support_3.webp" alt="Marshal" title="Marshal" loading="lazy" width="160" height="160">
+      <img src="media/wall/ra_support_4.webp" alt="Standard" title="Standard" loading="lazy" width="160" height="160">
+      <img src="media/wall/ra_support_5.webp" alt="Warden" title="Warden" loading="lazy" width="160" height="160">
+      <img src="media/wall/ra_support_6.webp" alt="Icon" title="Icon" loading="lazy" width="160" height="160">
+      <img src="media/wall/ot_bank_0.webp" alt="Blood-Seep Cistern" title="Blood-Seep Cistern" loading="lazy" width="160" height="160">
+      <img src="media/wall/ot_bank_1.webp" alt="Shardcache Reliquary" title="Shardcache Reliquary" loading="lazy" width="160" height="160">
+      <img src="media/wall/ot_bank_2.webp" alt="Coalescence Reservoir" title="Coalescence Reservoir" loading="lazy" width="160" height="160">
+      <img src="media/wall/ot_bank_3.webp" alt="Tideflow Exchange" title="Tideflow Exchange" loading="lazy" width="160" height="160">
+      <img src="media/wall/ot_bank_4.webp" alt="Abyssal Harvest Crucible" title="Abyssal Harvest Crucible" loading="lazy" width="160" height="160">
+      <img src="media/wall/ot_bank_5.webp" alt="Void-Meridian Engine" title="Void-Meridian Engine" loading="lazy" width="160" height="160">
+      <img src="media/wall/ot_bank_6.webp" alt="The One’s Infinite Treasury" title="The One’s Infinite Treasury" loading="lazy" width="160" height="160">
+      <img src="media/wall/ot_capital_0.webp" alt="The Nullheart Monolith" title="The Nullheart Monolith" loading="lazy" width="160" height="160">
+      <img src="media/wall/ot_forge_0.webp" alt="Blood-Seam Workbench" title="Blood-Seam Workbench" loading="lazy" width="160" height="160">
+      <img src="media/wall/ot_forge_1.webp" alt="Shardbinding Rack" title="Shardbinding Rack" loading="lazy" width="160" height="160">
+      <img src="media/wall/ot_forge_2.webp" alt="Runic Calibration Spire" title="Runic Calibration Spire" loading="lazy" width="160" height="160">
+      <img src="media/wall/ot_forge_3.webp" alt="Coalescence Foundry" title="Coalescence Foundry" loading="lazy" width="160" height="160">
+      <img src="media/wall/ot_forge_4.webp" alt="Mimicry Crucible" title="Mimicry Crucible" loading="lazy" width="160" height="160">
+      <img src="media/wall/ot_forge_5.webp" alt="Void-Architect Array" title="Void-Architect Array" loading="lazy" width="160" height="160">
+      <img src="media/wall/ot_forge_6.webp" alt="The One’s Transformation Engine" title="The One’s Transformation Engine" loading="lazy" width="160" height="160">
+      <img src="media/wall/ot_healer_0.webp" alt="Blood-Seed Mender" title="Blood-Seed Mender" loading="lazy" width="160" height="160">
+      <img src="media/wall/ot_healer_1.webp" alt="Shardbound Stitcher" title="Shardbound Stitcher" loading="lazy" width="160" height="160">
+      <img src="media/wall/ot_healer_2.webp" alt="Runic Reclaimer" title="Runic Reclaimer" loading="lazy" width="160" height="160">
+      <img src="media/wall/ot_healer_3.webp" alt="Tide Reliquary" title="Tide Reliquary" loading="lazy" width="160" height="160">
+      <img src="media/wall/ot_healer_4.webp" alt="Abyssal Ossuary" title="Abyssal Ossuary" loading="lazy" width="160" height="160">
+      <img src="media/wall/ot_healer_5.webp" alt="Void Reassembly Conduit" title="Void Reassembly Conduit" loading="lazy" width="160" height="160">
+      <img src="media/wall/ot_healer_6.webp" alt="The One’s Resurrection Engine" title="The One’s Resurrection Engine" loading="lazy" width="160" height="160">
+      <img src="media/wall/ot_hero_1.webp" alt="The Nullheart Monolith" title="The Nullheart Monolith" loading="lazy" width="160" height="160">
+      <img src="media/wall/ot_lane_0.webp" alt="Blood-Seed Recruit" title="Blood-Seed Recruit" loading="lazy" width="160" height="160">
+      <img src="media/wall/ot_melee_0.webp" alt="Blood-Seed Scrapper" title="Blood-Seed Scrapper" loading="lazy" width="160" height="160">
+      <img src="media/wall/ot_melee_1.webp" alt="Crescent Shardbound" title="Crescent Shardbound" loading="lazy" width="160" height="160">
+      <img src="media/wall/ot_melee_2.webp" alt="Runic Coalescer" title="Runic Coalescer" loading="lazy" width="160" height="160">
+      <img src="media/wall/ot_melee_3.webp" alt="Forged Tidekeeper" title="Forged Tidekeeper" loading="lazy" width="160" height="160">
+      <img src="media/wall/ot_melee_4.webp" alt="Abyssal Mimic" title="Abyssal Mimic" loading="lazy" width="160" height="160">
+      <img src="media/wall/ot_melee_5.webp" alt="Void-Architect Colossus" title="Void-Architect Colossus" loading="lazy" width="160" height="160">
+      <img src="media/wall/ot_melee_6.webp" alt="The One’s Warform" title="The One’s Warform" loading="lazy" width="160" height="160">
+      <img src="media/wall/ot_outpost_0.webp" alt="Blackfield Coalescence" title="Blackfield Coalescence" loading="lazy" width="160" height="160">
+      <img src="media/wall/ot_outpost_1.webp" alt="Abyssal Veinhold" title="Abyssal Veinhold" loading="lazy" width="160" height="160">
+      <img src="media/wall/ot_outpost_2.webp" alt="Rootless Convergence" title="Rootless Convergence" loading="lazy" width="160" height="160">
+      <img src="media/wall/ot_ranged_0.webp" alt="Bloodseed Needle" title="Bloodseed Needle" loading="lazy" width="160" height="160">
+      <img src="media/wall/ot_ranged_1.webp" alt="Shardbound Spitter" title="Shardbound Spitter" loading="lazy" width="160" height="160">
+      <img src="media/wall/ot_ranged_2.webp" alt="Runic Boltframe" title="Runic Boltframe" loading="lazy" width="160" height="160">
+      <img src="media/wall/ot_ranged_3.webp" alt="Tidefire Obelisk" title="Tidefire Obelisk" loading="lazy" width="160" height="160">
+      <img src="media/wall/ot_ranged_4.webp" alt="Abyssal Lensforger" title="Abyssal Lensforger" loading="lazy" width="160" height="160">
+      <img src="media/wall/ot_ranged_5.webp" alt="Void-Splitter Spire" title="Void-Splitter Spire" loading="lazy" width="160" height="160">
+      <img src="media/wall/ot_ranged_6.webp" alt="The Black Horizon" title="The Black Horizon" loading="lazy" width="160" height="160">
+      <img src="media/wall/ot_ranged_structure_0.webp" alt="Bloodmark Pylon" title="Bloodmark Pylon" loading="lazy" width="160" height="160">
+      <img src="media/wall/ot_ranged_structure_1.webp" alt="Shardwatch Spire" title="Shardwatch Spire" loading="lazy" width="160" height="160">
+      <img src="media/wall/ot_ranged_structure_2.webp" alt="Runic Ballista Obelisk" title="Runic Ballista Obelisk" loading="lazy" width="160" height="160">
+      <img src="media/wall/ot_ranged_structure_3.webp" alt="Tidekeeper Bastion" title="Tidekeeper Bastion" loading="lazy" width="160" height="160">
+      <img src="media/wall/ot_ranged_structure_4.webp" alt="Abyssal Lens Tower" title="Abyssal Lens Tower" loading="lazy" width="160" height="160">
+      <img src="media/wall/ot_ranged_structure_5.webp" alt="Void-Siphon Citadel" title="Void-Siphon Citadel" loading="lazy" width="160" height="160">
+      <img src="media/wall/ot_ranged_structure_6.webp" alt="The One&#x27;s Black Meridian" title="The One&#x27;s Black Meridian" loading="lazy" width="160" height="160">
+      <img src="media/wall/ot_scout_0.webp" alt="Bloodseed Skitter" title="Bloodseed Skitter" loading="lazy" width="160" height="160">
+      <img src="media/wall/ot_scout_1.webp" alt="Crescent Stalker" title="Crescent Stalker" loading="lazy" width="160" height="160">
+      <img src="media/wall/ot_scout_2.webp" alt="Poolstep Reaver" title="Poolstep Reaver" loading="lazy" width="160" height="160">
+      <img src="media/wall/ot_scout_3.webp" alt="Tidehook Pursuer" title="Tidehook Pursuer" loading="lazy" width="160" height="160">
+      <img src="media/wall/ot_scout_4.webp" alt="Mimicry Harrier" title="Mimicry Harrier" loading="lazy" width="160" height="160">
+      <img src="media/wall/ot_scout_5.webp" alt="Voidline Talon" title="Voidline Talon" loading="lazy" width="160" height="160">
+      <img src="media/wall/ot_scout_6.webp" alt="Incarnate Skirmisher" title="Incarnate Skirmisher" loading="lazy" width="160" height="160">
+      <img src="media/wall/ot_support_0.webp" alt="Blood-Seed Binder" title="Blood-Seed Binder" loading="lazy" width="160" height="160">
+      <img src="media/wall/ot_support_1.webp" alt="Shardchorus Acolyte" title="Shardchorus Acolyte" loading="lazy" width="160" height="160">
+      <img src="media/wall/ot_support_2.webp" alt="Runic Confluence" title="Runic Confluence" loading="lazy" width="160" height="160">
+      <img src="media/wall/ot_support_3.webp" alt="Tidekeeper Standard" title="Tidekeeper Standard" loading="lazy" width="160" height="160">
+      <img src="media/wall/ot_support_4.webp" alt="Abyssal Liturgist" title="Abyssal Liturgist" loading="lazy" width="160" height="160">
+      <img src="media/wall/ot_support_5.webp" alt="Voidline Marshal" title="Voidline Marshal" loading="lazy" width="160" height="160">
+      <img src="media/wall/ot_support_6.webp" alt="Coalescence Hierarch" title="Coalescence Hierarch" loading="lazy" width="160" height="160">
+      <img src="media/wall/ne_bank_0.webp" alt="Lichen Siphon" title="Lichen Siphon" loading="lazy" width="160" height="160">
+      <img src="media/wall/ne_bank_1.webp" alt="Root-Vein Tap" title="Root-Vein Tap" loading="lazy" width="160" height="160">
+      <img src="media/wall/ne_bank_2.webp" alt="Carrion Grove" title="Carrion Grove" loading="lazy" width="160" height="160">
+      <img src="media/wall/ne_bank_3.webp" alt="Soul-Well Basin" title="Soul-Well Basin" loading="lazy" width="160" height="160">
+      <img src="media/wall/ne_bank_4.webp" alt="Siphoning Spire" title="Siphoning Spire" loading="lazy" width="160" height="160">
+      <img src="media/wall/ne_bank_5.webp" alt="Marrow Cathedral" title="Marrow Cathedral" loading="lazy" width="160" height="160">
+      <img src="media/wall/ne_bank_6.webp" alt="Apex Altar of the Rot-Bloom" title="Apex Altar of the Rot-Bloom" loading="lazy" width="160" height="160">
+      <img src="media/wall/ne_capital_0.webp" alt="Natures Edge Capital" title="Natures Edge Capital" loading="lazy" width="160" height="160">
+      <img src="media/wall/ne_forge_0.webp" alt="Whispered Root-Spire" title="Whispered Root-Spire" loading="lazy" width="160" height="160">
+      <img src="media/wall/ne_forge_1.webp" alt="Binding Totem" title="Binding Totem" loading="lazy" width="160" height="160">
+      <img src="media/wall/ne_forge_2.webp" alt="Siphoning Well" title="Siphoning Well" loading="lazy" width="160" height="160">
+      <img src="media/wall/ne_forge_3.webp" alt="Conduit Grove" title="Conduit Grove" loading="lazy" width="160" height="160">
+      <img src="media/wall/ne_forge_4.webp" alt="Carapace Nursery" title="Carapace Nursery" loading="lazy" width="160" height="160">
+      <img src="media/wall/ne_forge_5.webp" alt="Altar of the Withered Crown" title="Altar of the Withered Crown" loading="lazy" width="160" height="160">
+      <img src="media/wall/ne_forge_6.webp" alt="Apex of the Blood-Altar" title="Apex of the Blood-Altar" loading="lazy" width="160" height="160">
+      <img src="media/wall/ne_healer_0.webp" alt="Spore-Carrier" title="Spore-Carrier" loading="lazy" width="160" height="160">
+      <img src="media/wall/ne_healer_1.webp" alt="Marrow-Stitcher" title="Marrow-Stitcher" loading="lazy" width="160" height="160">
+      <img src="media/wall/ne_healer_2.webp" alt="Parasitic Graft" title="Parasitic Graft" loading="lazy" width="160" height="160">
+      <img src="media/wall/ne_healer_3.webp" alt="Soul-Well Warden" title="Soul-Well Warden" loading="lazy" width="160" height="160">
+      <img src="media/wall/ne_healer_4.webp" alt="Siphon-Matriarch" title="Siphon-Matriarch" loading="lazy" width="160" height="160">
+      <img src="media/wall/ne_healer_5.webp" alt="Blood-Altar Weaver" title="Blood-Altar Weaver" loading="lazy" width="160" height="160">
+      <img src="media/wall/ne_healer_6.webp" alt="The Weaver of Withered Crowns" title="The Weaver of Withered Crowns" loading="lazy" width="160" height="160">
+      <img src="media/wall/ne_hero_1.webp" alt="The Weaver of Withered Crowns" title="The Weaver of Withered Crowns" loading="lazy" width="160" height="160">
+      <img src="media/wall/ne_lane_0.webp" alt="Natures Edge Lane Runner" title="Natures Edge Lane Runner" loading="lazy" width="160" height="160">
+      <img src="media/wall/ne_melee_0.webp" alt="Whispering Larva" title="Whispering Larva" loading="lazy" width="160" height="160">
+      <img src="media/wall/ne_melee_1.webp" alt="Hollowed Hound" title="Hollowed Hound" loading="lazy" width="160" height="160">
+      <img src="media/wall/ne_melee_2.webp" alt="Thorn-Bound Thrall" title="Thorn-Bound Thrall" loading="lazy" width="160" height="160">
+      <img src="media/wall/ne_melee_3.webp" alt="Carrion Chimera" title="Carrion Chimera" loading="lazy" width="160" height="160">
+      <img src="media/wall/ne_melee_4.webp" alt="Soul-Siphon Warden" title="Soul-Siphon Warden" loading="lazy" width="160" height="160">
+      <img src="media/wall/ne_melee_5.webp" alt="Grave-Root Dreadnought" title="Grave-Root Dreadnought" loading="lazy" width="160" height="160">
+      <img src="media/wall/ne_melee_6.webp" alt="Blood-Altar Colossus" title="Blood-Altar Colossus" loading="lazy" width="160" height="160">
+      <img src="media/wall/ne_outpost_0.webp" alt="Vine Stone" title="Vine Stone" loading="lazy" width="160" height="160">
+      <img src="media/wall/ne_outpost_1.webp" alt="Bone Conduit" title="Bone Conduit" loading="lazy" width="160" height="160">
+      <img src="media/wall/ne_outpost_2.webp" alt="Root Siphon" title="Root Siphon" loading="lazy" width="160" height="160">
+      <img src="media/wall/ne_ranged_0.webp" alt="Skeletal Skitterer" title="Skeletal Skitterer" loading="lazy" width="160" height="160">
+      <img src="media/wall/ne_ranged_1.webp" alt="Thorn-Bound Archer" title="Thorn-Bound Archer" loading="lazy" width="160" height="160">
+      <img src="media/wall/ne_ranged_2.webp" alt="Hollowed Harpy" title="Hollowed Harpy" loading="lazy" width="160" height="160">
+      <img src="media/wall/ne_ranged_3.webp" alt="Runecarved Trapper" title="Runecarved Trapper" loading="lazy" width="160" height="160">
+      <img src="media/wall/ne_ranged_4.webp" alt="Carrion Launcher" title="Carrion Launcher" loading="lazy" width="160" height="160">
+      <img src="media/wall/ne_ranged_5.webp" alt="Rib-Arch Warden" title="Rib-Arch Warden" loading="lazy" width="160" height="160">
+      <img src="media/wall/ne_ranged_6.webp" alt="Blood-Altar Siege-Host" title="Blood-Altar Siege-Host" loading="lazy" width="160" height="160">
+      <img src="media/wall/ne_ranged_structure_0.webp" alt="Siphoning Sprout" title="Siphoning Sprout" loading="lazy" width="160" height="160">
+      <img src="media/wall/ne_ranged_structure_1.webp" alt="Bone-Spike Cluster" title="Bone-Spike Cluster" loading="lazy" width="160" height="160">
+      <img src="media/wall/ne_ranged_structure_2.webp" alt="Conduit Totem" title="Conduit Totem" loading="lazy" width="160" height="160">
+      <img src="media/wall/ne_ranged_structure_3.webp" alt="Vinespire Outpost" title="Vinespire Outpost" loading="lazy" width="160" height="160">
+      <img src="media/wall/ne_ranged_structure_4.webp" alt="Soul-Well Bastion" title="Soul-Well Bastion" loading="lazy" width="160" height="160">
+      <img src="media/wall/ne_ranged_structure_5.webp" alt="Rib-Vaulted Watchtower" title="Rib-Vaulted Watchtower" loading="lazy" width="160" height="160">
+      <img src="media/wall/ne_ranged_structure_6.webp" alt="Cathedral of the Rot-Bloom" title="Cathedral of the Rot-Bloom" loading="lazy" width="160" height="160">
+      <img src="media/wall/ne_scout_0.webp" alt="Whispering Fawn" title="Whispering Fawn" loading="lazy" width="160" height="160">
+      <img src="media/wall/ne_scout_1.webp" alt="Binding Sprite" title="Binding Sprite" loading="lazy" width="160" height="160">
+      <img src="media/wall/ne_scout_2.webp" alt="Hollowed Hare" title="Hollowed Hare" loading="lazy" width="160" height="160">
+      <img src="media/wall/ne_scout_3.webp" alt="Runecarved Hound" title="Runecarved Hound" loading="lazy" width="160" height="160">
+      <img src="media/wall/ne_scout_4.webp" alt="Siphoning Stalker" title="Siphoning Stalker" loading="lazy" width="160" height="160">
+      <img src="media/wall/ne_scout_5.webp" alt="Carrion Runner" title="Carrion Runner" loading="lazy" width="160" height="160">
+      <img src="media/wall/ne_scout_6.webp" alt="Grove Wraith" title="Grove Wraith" loading="lazy" width="160" height="160">
+      <img src="media/wall/ne_support_0.webp" alt="Spore-Laden Thrall" title="Spore-Laden Thrall" loading="lazy" width="160" height="160">
+      <img src="media/wall/ne_support_1.webp" alt="Bone-Conduit Siphon" title="Bone-Conduit Siphon" loading="lazy" width="160" height="160">
+      <img src="media/wall/ne_support_2.webp" alt="Ritual Weaver" title="Ritual Weaver" loading="lazy" width="160" height="160">
+      <img src="media/wall/ne_support_3.webp" alt="Marrow-Well Sentinel" title="Marrow-Well Sentinel" loading="lazy" width="160" height="160">
+      <img src="media/wall/ne_support_4.webp" alt="Vein-Stitcher Matriarch" title="Vein-Stitcher Matriarch" loading="lazy" width="160" height="160">
+      <img src="media/wall/ne_support_5.webp" alt="Carrion-Host Colossus" title="Carrion-Host Colossus" loading="lazy" width="160" height="160">
+      <img src="media/wall/ne_support_6.webp" alt="Apex Siphon-Host" title="Apex Siphon-Host" loading="lazy" width="160" height="160">
+      <img src="media/wall/ff_bank_0.webp" alt="Spore-Pocket" title="Spore-Pocket" loading="lazy" width="160" height="160">
+      <img src="media/wall/ff_bank_1.webp" alt="Mycelial Mat" title="Mycelial Mat" loading="lazy" width="160" height="160">
+      <img src="media/wall/ff_bank_2.webp" alt="Nutrient Vein" title="Nutrient Vein" loading="lazy" width="160" height="160">
+      <img src="media/wall/ff_bank_3.webp" alt="Biomass Refinery" title="Biomass Refinery" loading="lazy" width="160" height="160">
+      <img src="media/wall/ff_bank_4.webp" alt="Fruiting Hub" title="Fruiting Hub" loading="lazy" width="160" height="160">
+      <img src="media/wall/ff_bank_5.webp" alt="Nursery Spire" title="Nursery Spire" loading="lazy" width="160" height="160">
+      <img src="media/wall/ff_bank_6.webp" alt="The Great Nursery" title="The Great Nursery" loading="lazy" width="160" height="160">
+      <img src="media/wall/ff_capital_0.webp" alt="Fungal Factors Capital" title="Fungal Factors Capital" loading="lazy" width="160" height="160">
+      <img src="media/wall/ff_forge_0.webp" alt="Spore-Laden Outpost" title="Spore-Laden Outpost" loading="lazy" width="160" height="160">
+      <img src="media/wall/ff_forge_1.webp" alt="Mycelial Infusion Hub" title="Mycelial Infusion Hub" loading="lazy" width="160" height="160">
+      <img src="media/wall/ff_forge_2.webp" alt="Root-Bound Refinery" title="Root-Bound Refinery" loading="lazy" width="160" height="160">
+      <img src="media/wall/ff_forge_3.webp" alt="Fruiting-Body Foundry" title="Fruiting-Body Foundry" loading="lazy" width="160" height="160">
+      <img src="media/wall/ff_forge_4.webp" alt="Node-Core Nursery" title="Node-Core Nursery" loading="lazy" width="160" height="160">
+      <img src="media/wall/ff_forge_5.webp" alt="Bloom-Strider Catalyst" title="Bloom-Strider Catalyst" loading="lazy" width="160" height="160">
+      <img src="media/wall/ff_forge_6.webp" alt="Great Nursery Apex" title="Great Nursery Apex" loading="lazy" width="160" height="160">
+      <img src="media/wall/ff_healer_0.webp" alt="Spore-Mote Mender" title="Spore-Mote Mender" loading="lazy" width="160" height="160">
+      <img src="media/wall/ff_healer_1.webp" alt="Mycelial Stitcher" title="Mycelial Stitcher" loading="lazy" width="160" height="160">
+      <img src="media/wall/ff_healer_2.webp" alt="Filter-Bloom Node" title="Filter-Bloom Node" loading="lazy" width="160" height="160">
+      <img src="media/wall/ff_healer_3.webp" alt="Vascular Graft-Strider" title="Vascular Graft-Strider" loading="lazy" width="160" height="160">
+      <img src="media/wall/ff_healer_4.webp" alt="Nursery-Vein Weaver" title="Nursery-Vein Weaver" loading="lazy" width="160" height="160">
+      <img src="media/wall/ff_healer_5.webp" alt="Spore-Sleep Resurrector" title="Spore-Sleep Resurrector" loading="lazy" width="160" height="160">
+      <img src="media/wall/ff_healer_6.webp" alt="Apex Bloom-Mother" title="Apex Bloom-Mother" loading="lazy" width="160" height="160">
+      <img src="media/wall/ff_hero_1.webp" alt="The Spore-Mother" title="The Spore-Mother" loading="lazy" width="160" height="160">
+      <img src="media/wall/ff_lane_0.webp" alt="Fungal Factors Lane Runner" title="Fungal Factors Lane Runner" loading="lazy" width="160" height="160">
+      <img src="media/wall/ff_melee_0.webp" alt="Spore-Mote Swarm" title="Spore-Mote Swarm" loading="lazy" width="160" height="160">
+      <img src="media/wall/ff_melee_1.webp" alt="Mycelial Creeper" title="Mycelial Creeper" loading="lazy" width="160" height="160">
+      <img src="media/wall/ff_melee_2.webp" alt="Root-Bound Ravager" title="Root-Bound Ravager" loading="lazy" width="160" height="160">
+      <img src="media/wall/ff_melee_3.webp" alt="Fruiting Vanguard" title="Fruiting Vanguard" loading="lazy" width="160" height="160">
+      <img src="media/wall/ff_melee_4.webp" alt="Node-Core Brute" title="Node-Core Brute" loading="lazy" width="160" height="160">
+      <img src="media/wall/ff_melee_5.webp" alt="Bloom-Strider Siege" title="Bloom-Strider Siege" loading="lazy" width="160" height="160">
+      <img src="media/wall/ff_melee_6.webp" alt="Apex Bloom-Colossus" title="Apex Bloom-Colossus" loading="lazy" width="160" height="160">
+      <img src="media/wall/ff_outpost_0.webp" alt="Spore Mat" title="Spore Mat" loading="lazy" width="160" height="160">
+      <img src="media/wall/ff_outpost_1.webp" alt="Chitin Node" title="Chitin Node" loading="lazy" width="160" height="160">
+      <img src="media/wall/ff_outpost_2.webp" alt="Rot Bracket" title="Rot Bracket" loading="lazy" width="160" height="160">
+      <img src="media/wall/ff_ranged_0.webp" alt="Spore-Drifter" title="Spore-Drifter" loading="lazy" width="160" height="160">
+      <img src="media/wall/ff_ranged_1.webp" alt="Mycelial Slinger" title="Mycelial Slinger" loading="lazy" width="160" height="160">
+      <img src="media/wall/ff_ranged_2.webp" alt="Ventral Spore-Pod" title="Ventral Spore-Pod" loading="lazy" width="160" height="160">
+      <img src="media/wall/ff_ranged_3.webp" alt="Fruiting-Body Mortar" title="Fruiting-Body Mortar" loading="lazy" width="160" height="160">
+      <img src="media/wall/ff_ranged_4.webp" alt="Parasitic Siege-Node" title="Parasitic Siege-Node" loading="lazy" width="160" height="160">
+      <img src="media/wall/ff_ranged_5.webp" alt="Bloom-Strider Artillery" title="Bloom-Strider Artillery" loading="lazy" width="160" height="160">
+      <img src="media/wall/ff_ranged_6.webp" alt="Apex Spore-Battery" title="Apex Spore-Battery" loading="lazy" width="160" height="160">
+      <img src="media/wall/ff_ranged_structure_0.webp" alt="Spore-Vent Pylon" title="Spore-Vent Pylon" loading="lazy" width="160" height="160">
+      <img src="media/wall/ff_ranged_structure_1.webp" alt="Mycelial Siphon Tower" title="Mycelial Siphon Tower" loading="lazy" width="160" height="160">
+      <img src="media/wall/ff_ranged_structure_2.webp" alt="Fruiting-Body Turret" title="Fruiting-Body Turret" loading="lazy" width="160" height="160">
+      <img src="media/wall/ff_ranged_structure_3.webp" alt="Parasitic Node Hub" title="Parasitic Node Hub" loading="lazy" width="160" height="160">
+      <img src="media/wall/ff_ranged_structure_4.webp" alt="Refinery-Bloom Siege-Node" title="Refinery-Bloom Siege-Node" loading="lazy" width="160" height="160">
+      <img src="media/wall/ff_ranged_structure_5.webp" alt="Great Nursery Spire" title="Great Nursery Spire" loading="lazy" width="160" height="160">
+      <img src="media/wall/ff_ranged_structure_6.webp" alt="Apex Necro-Bloom Citadel" title="Apex Necro-Bloom Citadel" loading="lazy" width="160" height="160">
+      <img src="media/wall/ff_scout_0.webp" alt="Drifting Mote" title="Drifting Mote" loading="lazy" width="160" height="160">
+      <img src="media/wall/ff_scout_1.webp" alt="Creeping Filament" title="Creeping Filament" loading="lazy" width="160" height="160">
+      <img src="media/wall/ff_scout_2.webp" alt="Ventral Sprout" title="Ventral Sprout" loading="lazy" width="160" height="160">
+      <img src="media/wall/ff_scout_3.webp" alt="Bursting Pod" title="Bursting Pod" loading="lazy" width="160" height="160">
+      <img src="media/wall/ff_scout_4.webp" alt="Strider Vine" title="Strider Vine" loading="lazy" width="160" height="160">
+      <img src="media/wall/ff_scout_5.webp" alt="Bloom Runner" title="Bloom Runner" loading="lazy" width="160" height="160">
+      <img src="media/wall/ff_scout_6.webp" alt="Apex Spore-Wraith" title="Apex Spore-Wraith" loading="lazy" width="160" height="160">
+      <img src="media/wall/ff_support_0.webp" alt="Spore-Vent Drone" title="Spore-Vent Drone" loading="lazy" width="160" height="160">
+      <img src="media/wall/ff_support_1.webp" alt="Mycelial Weaver" title="Mycelial Weaver" loading="lazy" width="160" height="160">
+      <img src="media/wall/ff_support_2.webp" alt="Fruiting-Body Beacon" title="Fruiting-Body Beacon" loading="lazy" width="160" height="160">
+      <img src="media/wall/ff_support_3.webp" alt="Chitinous Carrier" title="Chitinous Carrier" loading="lazy" width="160" height="160">
+      <img src="media/wall/ff_support_4.webp" alt="Root-Strider Relay" title="Root-Strider Relay" loading="lazy" width="160" height="160">
+      <img src="media/wall/ff_support_5.webp" alt="Bio-Refinery Node" title="Bio-Refinery Node" loading="lazy" width="160" height="160">
+      <img src="media/wall/ff_support_6.webp" alt="Mycelial Bloom Spire" title="Mycelial Bloom Spire" loading="lazy" width="160" height="160">
+      <!-- /gen:wall -->
+    </section>
+    <p class="caption">372 cards · written and painted by graphs · approved by a person</p>
+
+    <section class="cs__quote" data-reveal>
+      <p>No frame drawn by hand. <em>Every frame chosen</em> by a person.</p>
+      <cite>Hex Studio</cite>
     </section>
 
     <!-- NEXT: filled in automatically from assets/js/data.js -->

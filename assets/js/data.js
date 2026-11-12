@@ -9,7 +9,7 @@
 // and optionally  hover: 'work/<id>/media/cover-wire.jpg'  for the wireframe swap.
 export const PROJECTS = [
   { id: 'deep-capture', title: 'Deep Capture', kind: 'Capture system', line: 'Product capture to geometry, materials and AI-ready data.', tags: ['3D', 'AI', 'Pipeline'], year: '2021—26', role: 'Systems architect', form: 'shape', seed: 21, look: 0 },
-  { id: 'sixfold-war', title: 'The Sixfold War', kind: 'Game + agentic tools', line: 'A strategy game and the platform that builds it.', tags: ['AI', 'Game', 'UI'], year: '2024—26', role: 'Creative direction', form: 'ribbon', seed: 4, look: 1 },
+  { id: 'sixfold-war', title: 'The Sixfold War', kind: 'Game + agentic tools', line: 'Six factions, one hex world, and the studio built to make them.', tags: ['AI', 'Game', 'Tools'], year: '2024—27', role: 'Design + build', img: 'work/sixfold-war/media/cover.webp' },
   { id: 'arena-51', title: 'Arena 51', kind: 'Immersive tool', line: 'Side-by-side footwear comparison in real time.', tags: ['3D', 'Realtime'], year: '2022', role: 'Design + build', form: 'ring', seed: 5, look: 2 },
   { id: 'mesh-research', title: 'AI Meshing', kind: 'Research', line: 'Splats and photometric stereo for glossy surfaces.', tags: ['AI', 'Research'], year: '2025', role: 'Research', form: 'knot', seed: 3, look: 0 },
   { id: 'virtual-space', title: 'Virtual Space', kind: 'Environment', line: 'Lorem ipsum dolor sit amet consectetur.', tags: ['3D', 'Motion'], year: '2020', role: 'Design + build', form: 'terrain', seed: 9, look: 2 },
