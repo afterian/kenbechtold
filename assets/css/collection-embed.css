@@ -1,0 +1,17 @@
+/* Only active when this report is inside the collection on the same site. */
+html.collection-embed { scroll-behavior:auto; }
+.collection-embed body { padding:0; min-height:0; overflow:hidden; }
+.collection-embed #portfolio-header, .collection-embed #portfolio-footer,
+.collection-embed .index, .collection-embed .progress, .collection-embed .toast { display:none!important; }
+.collection-embed .plate { scroll-margin-top:0; }
+.collection-embed .guide-fab { position:absolute; top:calc(var(--embed-offset, 0px) + var(--embed-height, 800px) - 58px); bottom:auto; }
+.collection-embed .guide { position:absolute; top:var(--embed-offset, 0px); bottom:auto; height:var(--embed-height, 800px); align-items:start; overflow:auto; }
+.collection-embed .guide-card { margin:20px auto; }
+.collection-embed:not(.embed-visible) .guide-fab { visibility:hidden; }
+@media(max-width:899px) {
+  .collection-embed .plate { min-height:var(--embed-height, 800px); }
+  .collection-embed #p-cover .well { min-height:calc(var(--embed-height, 800px) * .6); }
+  .collection-embed .cover-kicker { position:static; line-height:1.6; }
+  .collection-embed .cover-title, .collection-embed .cover-meta { align-self:stretch; }
+  .collection-embed .cover-title .display.cover-h { font-size:clamp(40px,12vw,52px); }
+}

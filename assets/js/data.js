@@ -42,7 +42,11 @@ Object.assign(PIECES[10], FILM);  // Title card (has sound)
 // Access codes: a visitor types one in the top bar and the site reorders around their picks.
 // The first id in `order` becomes the hero. These are plain text in a public file:
 // good for tailoring, not for hiding confidential work.
+// layout: 'collection' shows exactly these projects as one continuous page.
+// Add another lowercase key with name, note, layout and order to curate a new client.
+// Static codes and all files are readable if published. Never put confidential media here.
 export const CODES = {
+  iglab: { name: 'IGLab', note: 'Game worlds, reconstruction research, and the systems connecting capture to creation.', layout: 'collection', order: ['sixfold-war', 'mesh-research', 'deep-capture'] },
   nike: { name: 'Nike', note: 'Three picks for the Generative AI team.', order: ['sixfold-war', 'mesh-research', 'deep-capture'] },
   demo: { name: 'Studio', note: 'Lorem ipsum dolor sit amet.', order: ['deep-capture'] },
 };

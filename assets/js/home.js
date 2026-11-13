@@ -1,5 +1,7 @@
 // Home page: featured hero, selected work, fragments.
-import { PIECES } from './data.js';
+import { PIECES, CODES } from './data.js';
+import { findCode } from './curation.js';
+import { showCollection, hideCollection } from './collection.js';
 import { $, $$, pad, media, stills, videos, loopInView, reveal, bindCode, paintCode, access, ordered, curtain, lightbox, createViewer, projectURL, ROOT } from './ui.js';
 
 const hero = $('[data-hero]'), heroVideo = $('.hero__v', hero);
@@ -38,6 +40,13 @@ function paintHero(f) {
 const hoverLabel = (p) => (p.video ? 'Preview' : p.img && !p.hover ? '' : 'Wireframe');
 
 function render(a) {
+  if (a?.layout === 'collection') {
+    heroVideo.pause();
+    showCollection(a);
+    paintCode(a);
+    return;
+  }
+  hideCollection();
   const list = ordered(a), f = list[0];
   const h = (k) => $(`[data-h="${k}"]`, hero);
   featured = f;
@@ -91,14 +100,27 @@ $('[data-frag]').addEventListener('click', (e) => {
   lb.open(set, set.indexOf(PIECES[+t.dataset.i]));
 });
 
+const requestedCode = new URL(location.href).searchParams.get('code');
+if (requestedCode !== null) access.set(findCode(CODES, requestedCode)?.code || null);
 bindCode(document, {
   onChange: async (a, fresh) => {
-    if (a && fresh) await curtain(`<small>Prepared for</small><strong>${a.name}</strong>`);
+    const url = new URL(location.href);
+    if (a?.layout === 'collection') url.searchParams.set('code', a.code); else url.searchParams.delete('code');
+    if (!a) url.hash = '';
+    history.replaceState({ kbCode:a?.code || null }, '', url);
+    if (a && fresh && a.layout !== 'collection') await curtain(`<small>Prepared for</small><strong>${a.name}</strong>`);
     render(a);
     if (fresh) scrollTo(0, 0);
   },
 });
+history.replaceState({ kbCode:access.get()?.code || null }, '', location.href);
 render(access.get());
+addEventListener('popstate', event => {
+  const query = new URL(location.href).searchParams.get('code');
+  access.set(query !== null ? query : event.state?.kbCode);
+  render(access.get());
+  requestAnimationFrame(() => dispatchEvent(new HashChangeEvent('hashchange')));
+});
 
 /* hero: the wipe line follows the pointer and drifts on its own when idle */
 const cur = $('.hero__cur');

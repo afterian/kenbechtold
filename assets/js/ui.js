@@ -1,6 +1,7 @@
 // Shared behaviour for every page: page transitions, scroll reveal, media placeholders,
 // access codes, the lightbox and the 3D viewer controls.
 import { PROJECTS, CODES } from './data.js';
+import { normalizeCode, findCode, selectProjects } from './curation.js';
 import { pixels } from './pixels.js';
 import { reveal, observePosters } from './loading.js';
 export { reveal };
@@ -234,36 +235,54 @@ export function videos(root = document) {
 
 /* ---------- access codes ---------- */
 const KEY = 'kb-access';
+let memoryCode;
 export const access = {
   get() {
-    try { const c = sessionStorage.getItem(KEY); return c && CODES[c] ? { code: c, ...CODES[c] } : null; } catch { return null; }
+    if (memoryCode !== undefined) return findCode(CODES, memoryCode);
+    try { return findCode(CODES, sessionStorage.getItem(KEY)); } catch { return null; }
   },
-  set(c) {
-    try { if (c) sessionStorage.setItem(KEY, c); else sessionStorage.removeItem(KEY); } catch { /* private mode */ }
+  set(value) {
+    memoryCode = findCode(CODES, value)?.code || '';
+    try { if (memoryCode) sessionStorage.setItem(KEY, memoryCode); else sessionStorage.removeItem(KEY); } catch { /* current page still works without storage */ }
   },
 };
 
 export function bindCode(root, { onChange }) {
-  $$('[data-code]', root).forEach((box) => {
+  $$('[data-code]', root).forEach((box, index) => {
     const form = $('form', box), input = $('input', box), toggle = $('[data-code-toggle]', box);
+    input.maxLength = 32;
+    input.setAttribute('aria-label', 'Portfolio code');
+    input.placeholder = 'CODE';
+    const status = document.createElement('span');
+    status.className = 'code__error'; status.id = `code-error-${index}`;
+    status.setAttribute('role', 'status'); status.setAttribute('aria-live', 'polite');
+    status.style.cssText = 'position:absolute;top:100%;right:0;padding:8px 12px;background:#08080a;color:#ff5a4a;font-size:11px;white-space:normal;max-width:240px';
+    status.hidden = true; box.style.position = 'relative'; box.append(status);
+    input.setAttribute('aria-describedby', status.id);
+    const clearError = () => { box.classList.remove('bad'); status.hidden = true; status.textContent = ''; input.removeAttribute('aria-invalid'); };
+    const close = () => { box.classList.remove('open'); input.value = ''; clearError(); toggle?.focus(); };
     if (toggle) toggle.addEventListener('click', () => { box.classList.add('open'); input.focus(); });
-    input.addEventListener('input', () => box.classList.remove('bad'));
-    input.addEventListener('keydown', (e) => { if (e.key === 'Escape') { box.classList.remove('open', 'bad'); input.value = ''; input.blur(); } });
-    input.addEventListener('blur', () => { if (!input.value) box.classList.remove('open', 'bad'); });
-    form.addEventListener('submit', (e) => {
+    input.addEventListener('input', clearError);
+    input.addEventListener('keydown', e => { if (e.key === 'Escape') { close(); } });
+    input.addEventListener('blur', () => { if (!input.value) { box.classList.remove('open'); clearError(); } });
+    form.addEventListener('submit', e => {
       e.preventDefault();
-      const c = input.value.trim().toLowerCase();
-      if (CODES[c]) {
-        access.set(c);
-        input.value = ''; input.blur();
-        box.classList.remove('open', 'bad');
-        onChange(access.get(), true);
+      const selection = findCode(CODES, input.value);
+      if (selection) {
+        access.set(selection.code);
+        input.value = ''; input.blur(); clearError(); box.classList.remove('open');
+        onChange(selection, true);
       } else {
         box.classList.remove('bad'); void box.offsetWidth; box.classList.add('bad');
+        input.setAttribute('aria-invalid', 'true'); status.textContent = 'Code not recognized. Check it and try again.'; status.hidden = false;
+        input.focus();
       }
     });
   });
-  $$('[data-code-clear]', root).forEach((b) => b.addEventListener('click', () => { access.set(null); onChange(null, false); }));
+  $$('[data-code-clear]', root).forEach(b => b.addEventListener('click', () => {
+    access.set(null); onChange(null, false);
+    $('[data-code-toggle]', b.closest('[data-code]'))?.focus();
+  }));
 }
 
 export function paintCode(a) {
@@ -274,12 +293,7 @@ export function paintCode(a) {
 }
 
 // Project order for the current visitor: picked projects first when a code is active.
-export function ordered(a) {
-  const ids = a ? a.order : [];
-  const picks = ids.map((id) => PROJECTS.find((p) => p.id === id)).filter(Boolean).map((p) => ({ ...p, picked: true }));
-  const rest = PROJECTS.filter((p) => !ids.includes(p.id)).map((p) => ({ ...p }));
-  return [...picks, ...rest].map((p, i) => ({ ...p, n: pad(i + 1) }));
-}
+export function ordered(a) { return selectProjects(PROJECTS, a); }
 
 export function curtain(html, ms = 1700) {
   return new Promise((res) => {

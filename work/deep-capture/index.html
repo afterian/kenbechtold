@@ -4,7 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Deep Capture — Ken Bechtold</title>
-  <meta name="description" content="Product capture to geometry, materials and AI-ready data.">
+  <meta name="description" content="Systems architecture connecting physical product capture with 3D, AI and creative workflows.">
+  <meta name="robots" content="noindex, nofollow">
   <meta name="theme-color" content="#08080a">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2308080a'/%3E%3Ccircle cx='16' cy='16' r='6' fill='%2333ff99'/%3E%3C/svg%3E">
   <script>document.documentElement.classList.remove('no-js');</script>
@@ -38,113 +39,88 @@
     </div>
   </header>
 
-  <main class="cs">
-    <!-- HEAD: title, one-line summary, three facts -->
+  <main class="cs dc dc-accomplishment">
     <header class="cs__head">
-      <div class="cs__top mono"><a href="../../">← All work</a><span>Case study <span data-count></span></span></div>
+      <div class="cs__top mono"><a href="../../">&#8592; All work</a><span>Case study <span data-count></span></span></div>
+      <div class="dc-kicker mono"><span>Systems architecture / Product capture</span><span class="dc-draft">Work in progress</span></div>
       <h1>Deep Capture</h1>
       <div class="cs__sub">
-        <p>Product capture to geometry, materials and AI-ready data.</p>
-        <dl class="mono">
-          <dt>Role</dt><dd>Systems architect</dd>
-          <dt>Year</dt><dd>2021—26</dd>
-          <dt>Scope</dt><dd>3D / AI / Pipeline</dd>
-        </dl>
+        <p>Designing the scanning platform.<br> Building Deep Capture Studio.</p>
+        <dl class="mono"><dt>My role</dt><dd>Systems architect</dd><dt>Focus</dt><dd>Footwear + apparel</dd><dt>Scope</dt><dd>Capture to creation</dd></dl>
       </div>
     </header>
 
-    <!-- VIEWER: interactive model with shaded / wireframe compare -->
-    <section class="cs__viewer">
-      <div data-viewer data-form="shape" data-seed="21" data-look="0"></div>
-    </section>
-    <div class="cs__hint mono"><span>Drag the model to rotate</span><span>Drag the line to compare</span></div>
-
-    <!-- BLOCK: label + statement + short copy -->
-    <section class="cs__block" data-reveal>
-      <span class="mono">01 — Brief</span>
-      <div>
-        <h2>Lorem ipsum dolor sit amet, consectetur adipiscing.</h2>
-        <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.</p>
+    <section class="dc-hero" aria-labelledby="dc-hero-heading">
+      <div class="dc-stage">
+        <div class="dc-stage-top mono"><span id="dc-hero-heading">From physical product to digital possibility</span><span id="dc-image-qualifier">AI-edited WIP</span></div>
+        <img id="dc-hero-image" src="media/scanner-wip.webp" width="1672" height="941" fetchpriority="high" alt="AI-edited work-in-progress visualization of the Deep Capture scanner in a dark studio. Not an exact record of its hardware configuration.">
+        <div class="dc-stage-bottom mono"><span>Deep Capture / platform study</span><span id="dc-view-label" aria-live="polite">Scanner visualization</span></div>
       </div>
+      <aside class="dc-hero-aside">
+        <span class="mono dc-index">The accomplishment</span>
+        <h2>Designed the platform.<br> Built the studio.</h2>
+        <p>A connected system for product capture, 3D representation and AI, shaped through research, testing and workflow development.</p>
+        <div class="dc-view-controls" role="group" aria-label="Scanner and illustrative product views">
+          <button type="button" data-view="scanner" aria-pressed="true"><span>01</span> Scanner WIP <b>&#8599;</b></button>
+          <button type="button" data-view="surface" aria-pressed="false"><span>02</span> Surface + structure <b>&#8599;</b></button>
+          <button type="button" data-view="wire" aria-pressed="false"><span>03</span> Geometry <b>&#8599;</b></button>
+          <button type="button" data-view="points" aria-pressed="false"><span>04</span> Point representation <b>&#8599;</b></button>
+        </div>
+        <small>Scanner: AI-edited work in progress, not an exact record of the hardware configuration. Product views: original illustrations, not captured products or scan results.</small>
+      </aside>
+    </section>
+    <nav class="dc-chapters mono" aria-label="Case study chapters"><a href="#challenge">01 / Challenge</a><a href="#contribution">02 / My contribution</a><a href="#impact">03 / Capabilities</a><a href="#evolution">04 / Evolution</a></nav>
+
+    <section class="cs__block" id="challenge" data-reveal>
+      <span class="mono">01 / The challenge</span>
+      <div><h2>Make the physical product<br> useful in a digital world.</h2><p>A product carries shape, surface behavior and fine detail that need to survive the move into digital tools. The challenge was connecting capture, processing and creation into a system that could support more than a single final image.</p></div>
+    </section>
+    <section class="dc-achievement-strip" aria-label="Project challenge and scope" data-reveal>
+      <div><span class="mono">The subject</span><h3>Real products</h3><p>Footwear and apparel, with complex form and material behavior.</p></div>
+      <div><span class="mono">The work</span><h3>A connected system</h3><p>Capture, reconstruction, processing and the tools that use the result.</p></div>
+      <div><span class="mono">The ambition</span><h3>More useful outputs</h3><p>A foundation for 3D, AI-assisted imagery and creative workflows.</p></div>
     </section>
 
-    <!-- SHEET: four-up breakdown. Swap each .media for <div class="media"><img src="media/x.jpg" alt="..."></div> -->
-    <section class="cs__sheet mono" data-reveal>
-      <figure><div class="media" data-still data-form="shape" data-seed="21" data-look="0" data-w="640" data-h="800"></div><figcaption>Shaded</figcaption></figure>
-      <figure><div class="media" data-still data-form="shape" data-seed="21" data-look="0" data-mode="wire" data-yaw="0.8" data-w="640" data-h="800"></div><figcaption>Wireframe</figcaption></figure>
-      <figure><div class="media" data-still data-form="shape" data-seed="21" data-look="0" data-mode="normals" data-yaw="1.6" data-w="640" data-h="800"></div><figcaption>Normals</figcaption></figure>
-      <figure><div class="media" data-still data-form="shape" data-seed="21" data-look="0" data-mode="points" data-yaw="2.4" data-w="640" data-h="800"></div><figcaption>Point cloud</figcaption></figure>
+    <section class="cs__block" id="contribution" data-reveal>
+      <span class="mono">02 / My contribution</span>
+      <div><h2>The scanning platform.<br> Deep Capture Studio.<br> The workflow between them.</h2><p>I designed the scanning platform and built Deep Capture Studio. Researching and testing photogrammetry, then refining the workflows, helped connect capture with the tools that put the result to use.</p></div>
+    </section>
+    <section class="dc-system-story" aria-label="High-level system overview" data-reveal>
+      <div class="dc-system-top mono"><span>Deep Capture / system overview</span><span>Abstract illustration</span></div>
+      <div class="dc-system-visual" aria-hidden="true"><div class="dc-system-node dc-system-capture"><i></i><i></i><i></i><b></b><span class="mono">Capture</span></div><div class="dc-system-connector"></div><div class="dc-system-node dc-system-process"><i></i><i></i><i></i><i></i><b></b><span class="mono">Connect</span></div><div class="dc-system-connector"></div><div class="dc-system-node dc-system-create"><i></i><i></i><i></i><b></b><span class="mono">Create</span></div></div>
+      <div class="dc-system-columns"><div><span class="mono">01 / Platform design</span><h3>Designed the scanning platform.</h3><p>A foundation for high-resolution product imaging from multiple views and lighting conditions.</p></div><div><span class="mono">02 / Studio development</span><h3>Built Deep Capture Studio.</h3><p>Bringing the capture work into a connected system for processing and downstream use.</p></div><div><span class="mono">03 / Research + iteration</span><h3>Refined the workflows.</h3><p>Photogrammetry research and testing, with an expanding set of 3D, vision and AI tools.</p></div></div>
     </section>
 
-    <!-- BLOCK with STEPS -->
-    <section class="cs__block" data-reveal>
-      <span class="mono">02 — Process</span>
-      <div>
-        <h2>Duis aute irure dolor in reprehenderit.</h2>
-        <ol class="cs__steps">
-          <li><b>Capture</b>Lorem ipsum dolor sit amet consectetur.</li>
-          <li><b>Process</b>Sed do eiusmod tempor incididunt ut labore.</li>
-          <li><b>Deliver</b>Ut enim ad minim veniam quis nostrud.</li>
-        </ol>
-      </div>
+    <section class="cs__quote" data-reveal><p>A platform.<br> A studio.<br> <em>A connected system.</em></p><cite>Systems architecture / Deep Capture</cite></section>
+
+    <section class="cs__block" id="impact" data-reveal>
+      <span class="mono">03 / Capabilities</span>
+      <div><h2>Capture. Understand.<br> Create.</h2><p>The system connects detailed product capture with materials, 3D, AI and automation. These capabilities carry the physical product into new digital workflows.</p></div>
+    </section>
+    <section class="dc-outcomes dc-capabilities" aria-label="High-level Deep Capture capabilities" data-reveal>
+      <article><span class="mono">01 / Capture</span><h3>Capture the<br> physical product.</h3><p>High-resolution imaging from multiple angles and lighting conditions, built around footwear and apparel.</p><span class="dc-outcome-tag mono">Multi-view + controlled lighting</span></article>
+      <article><span class="mono">02 / Materials</span><h3>Understand<br> the surface.</h3><p>Geometry and material information, including normals, roughness, metalness, height and ultraviolet capture.</p><span class="dc-outcome-tag mono">Form + material response</span></article>
+      <article><span class="mono">03 / AI + automation</span><h3>Connect the<br> tools and models.</h3><p>Computer vision, segmentation and LoRA training, supported by deterministic and agentic workflows.</p><span class="dc-outcome-tag mono">Vision + training + workflow</span></article>
+      <article><span class="mono">04 / Neural rendering</span><h3>Render new views<br> from real capture.</h3><p>A trained model, 3D representation and nearby source photographs support rendering the selected product view.</p><span class="dc-outcome-tag mono">Learned rendering + source detail</span></article>
+      <article><span class="mono">05 / Outputs + use</span><h3>Put the product<br> to work.</h3><p>3D representations and product imagery that can support creative, marketing and sales workflows.</p><span class="dc-outcome-tag mono">Digital assets + product imagery</span></article>
     </section>
 
-    <!-- WIDE: one full-width image, video or placeholder -->
-    <figure class="cs__wide" data-reveal>
-      <div class="media media--frame" data-still data-form="shape" data-seed="21" data-look="0" data-mode="overlay" data-yaw="-0.7" data-w="1800" data-h="1000"></div>
-      <figcaption>Caption for the wide image</figcaption>
-    </figure>
-
-    <!-- VIDEO LOOP: silent, plays only while on screen. No controls attribute. -->
-    <figure class="cs__wide" data-reveal>
-      <div class="media media--frame r-16x9">
-        <video src="../../assets/media/placeholder-loop.mp4" poster="../../assets/media/placeholder-loop.jpg" muted loop playsinline preload="none"></video>
-      </div>
-      <figcaption>Silent loop</figcaption>
-    </figure>
-
-    <!-- VIDEO PLAYER: add the controls attribute for a clip people start themselves, with sound. -->
-    <figure class="cs__wide" data-reveal>
-      <div class="media media--frame r-16x9">
-        <video src="../../assets/media/placeholder-film.mp4" poster="../../assets/media/placeholder-film.jpg" controls playsinline preload="none"></video>
-      </div>
-      <figcaption>Film with sound</figcaption>
-    </figure>
-
-    <!-- QUOTE: one big statement; <em> takes the accent -->
-    <section class="cs__quote" data-reveal>
-      <p>Lorem ipsum dolor <em>sit amet</em> consectetur.</p>
-      <cite>Source or context</cite>
+    <section class="cs__block" id="evolution" data-reveal>
+      <span class="mono">04 / The evolution</span>
+      <div><h2>A capture foundation.<br> An expanding toolset.</h2><p>The work reaches from 3D reconstruction into computer vision, model training and AI-assisted workflows. Neural rendering is one extension of that same capture foundation.</p></div>
+    </section>
+    <section class="dc-evolution-list" aria-label="Supporting developments in Deep Capture" data-reveal>
+      <article id="workflow"><div class="mono">Pipeline development</div><h3>Deterministic + agentic</h3><p>Repeatable processing handles defined steps. Agentic workflows connect tools and support more open-ended tasks, with review at the points that matter.</p></article>
+      <article><div class="mono">AI development</div><h3>Vision + model training</h3><p>Segmentation and LoRA training extend what can be done with the captured product, from image processing to creative exploration.</p></article>
+      <article id="neural-rendering"><div class="mono">Rendering development</div><h3>Capture-backed neural rendering</h3><div><p>A trained model works with a 3D representation, camera positions and nearby source photographs to render the chosen view. The aim is high-fidelity, high-resolution product imagery grounded in real capture.</p></div></article>
     </section>
 
-    <!-- PAIR: two-up media -->
-    <section class="cs__pair" data-reveal>
-      <figure><div class="media media--frame r-4x3" data-still data-form="shape" data-seed="21" data-look="1" data-yaw="0.5" data-w="960" data-h="720"></div><figcaption>Left caption</figcaption></figure>
-      <figure><div class="media media--frame r-4x3" data-still data-form="shape" data-seed="21" data-look="2" data-mode="clay" data-yaw="2" data-w="960" data-h="720"></div><figcaption>Right caption</figcaption></figure>
-    </section>
+    <section class="dc-end" data-reveal><span class="mono">Deep Capture / Systems architecture</span><h2>From a physical product<br> to what comes next.</h2><p>A connected approach to capture, 3D and AI, built around making the product useful across digital workflows.</p><a class="dc-text-link mono" href="#top">Back to the project &#8593;</a></section>
 
-    <!-- NUMS: up to three results -->
-    <section class="cs__nums" data-reveal>
-      <div><b>400+</b><span class="mono">Lorem ipsum</span></div>
-      <div><b>$2M</b><span class="mono">Dolor sit amet</span></div>
-      <div><b>0.902</b><span class="mono">Consectetur</span></div>
-    </section>
-
-    <!-- NEXT: filled in automatically from assets/js/data.js -->
-    <a class="cs__next" data-next href="../../">
-      <div><small class="mono">Next project</small><strong data-next-title>All work</strong></div>
-      <div data-next-media></div>
-    </a>
-
-    <footer class="foot">
-      <div class="foot__row">
-        <span>© 2026 Ken Bechtold</span>
-        <nav aria-label="Links"><a href="mailto:ken@afterthehomework.com">Email</a><a href="#">CV ↓</a><a href="#">LinkedIn</a></nav>
-        <a href="#top">Top ↑</a>
-      </div>
-    </footer>
+    <a class="cs__next" data-next href="../sixfold-war/"><div><small class="mono">Next project</small><strong data-next-title>The Sixfold War</strong></div><div data-next-media></div></a>
+    <footer class="foot"><div class="foot__row"><span>&copy; 2026 Ken Bechtold</span><nav aria-label="Links"><a href="mailto:ken@afterthehomework.com">Email</a></nav><a href="#top">Top &#8593;</a></div></footer>
   </main>
-
   <script type="module" src="../../assets/js/case.js"></script>
+  <script type="module" src="deep-capture.js"></script>
 </body>
 </html>

@@ -230,7 +230,7 @@ function startWell(e) {
   window.__stages = window.__stages || {};
   f && f(e).then((r) => (window.__stages[e.dataset.well] = r)).catch((err) => { console.error(err); const l = e.querySelector(".loading"); if (l) l.textContent = "3D unavailable"; });
 }
-const wellObs = new IntersectionObserver((es) => es.forEach((x) => x.isIntersecting && startWell(x.target)), { rootMargin: "50% 0px" });
+const wellObs = new IntersectionObserver((es) => es.forEach((x) => x.isIntersecting && startWell(x.target)), { rootMargin: new URLSearchParams(location.search).has("collection") ? "600px 0px" : "50% 0px" });
 const NOGL = new URLSearchParams(location.search).has("nogl");
 if (!NOGL) $$("[data-well]").forEach((e) => (PRINT ? startWell(e) : wellObs.observe(e)));
 else $$(".well .loading").forEach((l) => l.remove());
