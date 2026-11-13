@@ -39,7 +39,7 @@
     </div>
   </header>
 
-  <main class="cs dc dc-accomplishment">
+  <main class="cs dc dc-presentation">
     <header class="cs__head">
       <div class="cs__top mono"><a href="../../">&#8592; All work</a><span>Case study <span data-count></span></span></div>
       <div class="dc-kicker mono"><span>Systems architecture / Product capture</span><span class="dc-draft">Work in progress</span></div>
@@ -69,53 +69,63 @@
         <small>Scanner: AI-edited work in progress, not an exact record of the hardware configuration. Product views: original illustrations, not captured products or scan results.</small>
       </aside>
     </section>
-    <nav class="dc-chapters mono" aria-label="Case study chapters"><a href="#challenge">01 / Challenge</a><a href="#contribution">02 / My contribution</a><a href="#impact">03 / Capabilities</a><a href="#evolution">04 / Evolution</a></nav>
+    <nav class="dc-chapters dc-deck-index mono" aria-label="Deep Capture presentation sections"><a href="#system">01 / System</a><a href="#pipeline">02 / Pipeline</a><a href="#capture">03 / Capture</a><a href="#materials">04 / Materials</a><a href="#ai-ready">05 / AI</a><a href="#vision">06 / Vision</a><a href="#neural-rendering">07 / Rendering</a><a href="#creation">08 / Creation</a></nav>
 
-    <section class="cs__block" id="challenge" data-reveal>
-      <span class="mono">01 / The challenge</span>
-      <div><h2>Make the physical product<br> useful in a digital world.</h2><p>A product carries shape, surface behavior and fine detail that need to survive the move into digital tools. The challenge was connecting capture, processing and creation into a system that could support more than a single final image.</p></div>
-    </section>
-    <section class="dc-achievement-strip" aria-label="Project challenge and scope" data-reveal>
-      <div><span class="mono">The subject</span><h3>Real products</h3><p>Footwear and apparel, with complex form and material behavior.</p></div>
-      <div><span class="mono">The work</span><h3>A connected system</h3><p>Capture, reconstruction, processing and the tools that use the result.</p></div>
-      <div><span class="mono">The ambition</span><h3>More useful outputs</h3><p>A foundation for 3D, AI-assisted imagery and creative workflows.</p></div>
+    <section class="dc-slide" id="system" aria-labelledby="system-title">
+      <div class="dc-slide-head mono"><span>01 / The system</span><span>Deep Capture</span></div>
+      <div class="dc-slide-body"><div class="dc-slide-copy"><h2 id="system-title">The starting point<br> for digital<br> product creation.</h2><p>Deep Capture is an advanced 3D + AI capture system for digitizing footwear and apparel at high resolution.</p><div class="dc-slide-role"><span class="mono">My contribution</span><p>Designed the scanning platform.<br> Built Deep Capture Studio.</p></div></div>
+      <div class="dc-slide-visual dc-platform-diagram" role="img" aria-label="High-level diagram showing a physical product moving through the Deep Capture platform and studio into digital creation"><span class="dc-visual-note mono">System overview / illustrative</span><div class="dc-platform-source mono">Physical product</div><div class="dc-platform-line"></div><div class="dc-platform-core"><small class="mono">Platform + Studio</small><strong>Deep<br> Capture</strong></div><div class="dc-platform-line"></div><div class="dc-platform-outputs mono"><span>3D</span><span>AI</span><span>Content</span></div></div></div>
+      <div class="dc-slide-foot mono"><span>Footwear + apparel / Capture to creation</span><a href="#pipeline">Next / Pipeline &#8595;</a></div>
     </section>
 
-    <section class="cs__block" id="contribution" data-reveal>
-      <span class="mono">02 / My contribution</span>
-      <div><h2>The scanning platform.<br> Deep Capture Studio.<br> The workflow between them.</h2><p>I designed the scanning platform and built Deep Capture Studio. Researching and testing photogrammetry, then refining the workflows, helped connect capture with the tools that put the result to use.</p></div>
-    </section>
-    <section class="dc-system-story" aria-label="High-level system overview" data-reveal>
-      <div class="dc-system-top mono"><span>Deep Capture / system overview</span><span>Abstract illustration</span></div>
-      <div class="dc-system-visual" aria-hidden="true"><div class="dc-system-node dc-system-capture"><i></i><i></i><i></i><b></b><span class="mono">Capture</span></div><div class="dc-system-connector"></div><div class="dc-system-node dc-system-process"><i></i><i></i><i></i><i></i><b></b><span class="mono">Connect</span></div><div class="dc-system-connector"></div><div class="dc-system-node dc-system-create"><i></i><i></i><i></i><b></b><span class="mono">Create</span></div></div>
-      <div class="dc-system-columns"><div><span class="mono">01 / Platform design</span><h3>Designed the scanning platform.</h3><p>A foundation for high-resolution product imaging from multiple views and lighting conditions.</p></div><div><span class="mono">02 / Studio development</span><h3>Built Deep Capture Studio.</h3><p>Bringing the capture work into a connected system for processing and downstream use.</p></div><div><span class="mono">03 / Research + iteration</span><h3>Refined the workflows.</h3><p>Photogrammetry research and testing, with an expanding set of 3D, vision and AI tools.</p></div></div>
+    <section class="dc-slide" id="pipeline" aria-labelledby="pipeline-title">
+      <div class="dc-slide-head mono"><span>02 / The pipeline</span><span>Data-driven + agentic</span></div>
+      <div class="dc-slide-body"><div class="dc-slide-copy"><h2 id="pipeline-title">Deterministic<br> precision.<br> Agentic workflows.</h2><p>The Deep Capture pipeline is data-driven, mixing traditional deterministic automation with agentic workflows.</p><ul><li>Repeatable operations for defined tasks.</li><li>Tool-connected workflows for adaptive tasks.</li><li>A shared path from capture to creation.</li></ul></div>
+      <div class="dc-slide-visual dc-pipeline-diagram" role="img" aria-label="Illustrative pipeline showing capture feeding deterministic automation and agentic workflows, which both connect to digital outputs"><span class="dc-visual-note mono">Workflow illustration</span><div class="dc-pipe-terminal mono">Capture input</div><div class="dc-pipe-branch"><div><span class="mono">Deterministic</span><strong>Prepare<br> Process<br> Validate</strong></div><div><span class="mono">Agentic</span><strong>Plan<br> Connect<br> Iterate</strong></div></div><div class="dc-pipe-terminal mono">Digital outputs</div></div></div>
+      <div class="dc-slide-foot mono"><span>Automation + orchestration</span><a href="#capture">Next / Capture &#8595;</a></div>
     </section>
 
-    <section class="cs__quote" data-reveal><p>A platform.<br> A studio.<br> <em>A connected system.</em></p><cite>Systems architecture / Deep Capture</cite></section>
-
-    <section class="cs__block" id="impact" data-reveal>
-      <span class="mono">03 / Capabilities</span>
-      <div><h2>Capture. Understand.<br> Create.</h2><p>The system connects detailed product capture with materials, 3D, AI and automation. These capabilities carry the physical product into new digital workflows.</p></div>
-    </section>
-    <section class="dc-outcomes dc-capabilities" aria-label="High-level Deep Capture capabilities" data-reveal>
-      <article><span class="mono">01 / Capture</span><h3>Capture the<br> physical product.</h3><p>High-resolution imaging from multiple angles and lighting conditions, built around footwear and apparel.</p><span class="dc-outcome-tag mono">Multi-view + controlled lighting</span></article>
-      <article><span class="mono">02 / Materials</span><h3>Understand<br> the surface.</h3><p>Geometry and material information, including normals, roughness, metalness, height and ultraviolet capture.</p><span class="dc-outcome-tag mono">Form + material response</span></article>
-      <article><span class="mono">03 / AI + automation</span><h3>Connect the<br> tools and models.</h3><p>Computer vision, segmentation and LoRA training, supported by deterministic and agentic workflows.</p><span class="dc-outcome-tag mono">Vision + training + workflow</span></article>
-      <article><span class="mono">04 / Neural rendering</span><h3>Render new views<br> from real capture.</h3><p>A trained model, 3D representation and nearby source photographs support rendering the selected product view.</p><span class="dc-outcome-tag mono">Learned rendering + source detail</span></article>
-      <article><span class="mono">05 / Outputs + use</span><h3>Put the product<br> to work.</h3><p>3D representations and product imagery that can support creative, marketing and sales workflows.</p><span class="dc-outcome-tag mono">Digital assets + product imagery</span></article>
+    <section class="dc-slide" id="capture" aria-labelledby="capture-title">
+      <div class="dc-slide-head mono"><span>03 / Capture depth</span><span>High resolution / Multiple conditions</span></div>
+      <div class="dc-slide-body"><div class="dc-slide-copy"><h2 id="capture-title">Thousands<br> of images.<br> A deeper capture.</h2><p>The system captures thousands of high-resolution images across multiple viewpoints and lighting conditions.</p><ul><li>Product form from different angles.</li><li>Surface response under changing light.</li><li>A rich foundation for 3D and AI.</li></ul></div>
+      <div class="dc-slide-visual dc-capture-visual"><span class="dc-visual-note mono">Illustrative product / not a dataset</span><div class="dc-capture-orbit" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div><img src="media/specimen-wire.svg" width="1400" height="820" alt="Original illustrative footwear wireframe surrounded by capture viewpoints, not actual scan data" loading="lazy"><div class="dc-visual-caption mono"><span>Viewpoints</span><b>&#215;</b><span>Lighting</span><b>&#215;</b><span>Detail</span></div></div></div>
+      <div class="dc-slide-foot mono"><span>High-resolution product imaging</span><a href="#materials">Next / Materials &#8595;</a></div>
     </section>
 
-    <section class="cs__block" id="evolution" data-reveal>
-      <span class="mono">04 / The evolution</span>
-      <div><h2>A capture foundation.<br> An expanding toolset.</h2><p>The work reaches from 3D reconstruction into computer vision, model training and AI-assisted workflows. Neural rendering is one extension of that same capture foundation.</p></div>
-    </section>
-    <section class="dc-evolution-list" aria-label="Supporting developments in Deep Capture" data-reveal>
-      <article id="workflow"><div class="mono">Pipeline development</div><h3>Deterministic + agentic</h3><p>Repeatable processing handles defined steps. Agentic workflows connect tools and support more open-ended tasks, with review at the points that matter.</p></article>
-      <article><div class="mono">AI development</div><h3>Vision + model training</h3><p>Segmentation and LoRA training extend what can be done with the captured product, from image processing to creative exploration.</p></article>
-      <article id="neural-rendering"><div class="mono">Rendering development</div><h3>Capture-backed neural rendering</h3><div><p>A trained model works with a 3D representation, camera positions and nearby source photographs to render the chosen view. The aim is high-fidelity, high-resolution product imagery grounded in real capture.</p></div></article>
+    <section class="dc-slide" id="materials" aria-labelledby="materials-title">
+      <div class="dc-slide-head mono"><span>04 / Material capture</span><span>PBR + Surface information</span></div>
+      <div class="dc-slide-body"><div class="dc-slide-copy"><h2 id="materials-title">Capture how<br> the surface<br> behaves.</h2><p>Deep Capture supports standard PBR material information, including roughness and metalness, alongside surface normals, height data and ultraviolet capture.</p><p class="dc-slide-secondary">The capability extends beyond visible color into the properties that shape a digital product.</p></div>
+      <div class="dc-slide-visual dc-material-visual"><span class="dc-visual-note mono">Channel concepts / illustrative swatches</span><div class="dc-material-grid"><div><i class="dc-swatch dc-swatch-color" aria-hidden="true"></i><span class="mono">Color</span></div><div><i class="dc-swatch dc-swatch-rough" aria-hidden="true"></i><span class="mono">Roughness</span></div><div><i class="dc-swatch dc-swatch-metal" aria-hidden="true"></i><span class="mono">Metalness</span></div><div><i class="dc-swatch dc-swatch-normal" aria-hidden="true"></i><span class="mono">Normals</span></div><div><i class="dc-swatch dc-swatch-height" aria-hidden="true"></i><span class="mono">Height</span></div><div><i class="dc-swatch dc-swatch-uv" aria-hidden="true"></i><span class="mono">Ultraviolet</span></div></div></div></div>
+      <div class="dc-slide-foot mono"><span>Material response + Fine surface detail</span><a href="#ai-ready">Next / AI-ready capture &#8595;</a></div>
     </section>
 
-    <section class="dc-end" data-reveal><span class="mono">Deep Capture / Systems architecture</span><h2>From a physical product<br> to what comes next.</h2><p>A connected approach to capture, 3D and AI, built around making the product useful across digital workflows.</p><a class="dc-text-link mono" href="#top">Back to the project &#8593;</a></section>
+    <section class="dc-slide dc-slide-wide" id="ai-ready" aria-labelledby="ai-title">
+      <div class="dc-slide-head mono"><span>05 / AI-ready capture</span><span>One foundation / Multiple uses</span></div>
+      <div class="dc-slide-wide-intro"><h2 id="ai-title">Built for the next<br> generation of tools.</h2><p>High-resolution, multi-view capture provides a foundation for LoRA training, Gaussian-splat reconstruction and AI vision models.</p></div>
+      <div class="dc-ai-panels"><article><div class="dc-ai-art dc-ai-model" aria-hidden="true"><i></i><i></i><i></i><b>LoRA</b></div><span class="mono">Model adaptation</span><h3>LoRA training</h3><p>Product imagery for targeted model training and creative exploration.</p></article><article><div class="dc-ai-art"><img src="media/specimen-points.svg" width="1400" height="820" alt="Illustrative point representation, not an actual Gaussian-splat reconstruction" loading="lazy"></div><span class="mono">Spatial representation</span><h3>Gaussian splats</h3><p>Multi-view imagery for reconstructing the product spatially.</p></article><article><div class="dc-ai-art dc-ai-vision" aria-hidden="true"><i></i><i></i><i></i><b>Vision</b></div><span class="mono">Image understanding</span><h3>AI vision models</h3><p>Capture data for models that identify and interpret product imagery.</p></article></div>
+      <div class="dc-slide-foot mono"><span>Illustrative application overview</span><a href="#vision">Next / Computer vision &#8595;</a></div>
+    </section>
+
+    <section class="dc-slide" id="vision" aria-labelledby="vision-title">
+      <div class="dc-slide-head mono"><span>06 / Computer vision</span><span>Segmentation + Processing</span></div>
+      <div class="dc-slide-body"><div class="dc-slide-copy"><h2 id="vision-title">Understand<br> the product.<br> Separate the detail.</h2><p>Advanced computer vision and AI segmentation help isolate the product and its regions for downstream processing and content creation.</p><ul><li>Separate the product from its surroundings.</li><li>Identify regions within the image.</li><li>Connect the result to the next workflow.</li></ul></div>
+      <div class="dc-slide-visual dc-segmentation-visual"><span class="dc-visual-note mono">Segmentation concept / not a model result</span><img src="media/specimen-surface.svg" width="1400" height="820" alt="Illustrative footwear form with conceptual segmentation regions, not an actual AI segmentation output" loading="lazy"><div class="dc-segmentation-box" aria-hidden="true"><span class="mono">Product region</span><i></i><b></b></div><div class="dc-visual-caption mono">Product &#8594; Regions &#8594; Workflow</div></div></div>
+      <div class="dc-slide-foot mono"><span>AI-assisted image understanding</span><a href="#neural-rendering">Next / Neural rendering &#8595;</a></div>
+    </section>
+
+    <section class="dc-slide" id="neural-rendering" aria-labelledby="rendering-title">
+      <div class="dc-slide-head mono"><span>07 / Neural rendering</span><span>Capture-backed image creation</span></div>
+      <div class="dc-slide-body"><div class="dc-slide-copy"><h2 id="rendering-title">A learned model.<br> Real source<br> detail.</h2><p>A trained AI model works with a 3D representation, camera positions and nearby source photographs to render the chosen product view.</p><p class="dc-slide-secondary">The aim is high-fidelity, high-resolution product imagery grounded in the original capture.</p></div>
+      <div class="dc-slide-visual dc-rendering-visual"><span class="dc-visual-note mono">Illustrative placeholder / not a render result</span><img src="media/specimen-surface.svg" width="1400" height="820" alt="Original illustrative product standing in for a future approved neural-rendering example" loading="lazy"><div class="dc-rendering-inputs mono"><span>Trained model</span><b>+</b><span>Captured source</span></div></div></div>
+      <div class="dc-slide-foot mono"><span>Selected view / Source-supported rendering</span><a href="#creation">Next / Digital creation &#8595;</a></div>
+    </section>
+
+    <section class="dc-slide dc-slide-creation" id="creation" aria-labelledby="creation-title">
+      <div class="dc-slide-head mono"><span>08 / Digital creation</span><span>Creative / Marketing / Sales</span></div>
+      <div class="dc-slide-body"><div class="dc-slide-copy"><h2 id="creation-title">The center<br> of digital<br> creation.</h2><p>Deep Capture brings product capture, 3D, materials and AI together as a foundation for creative, marketing and sales content.</p><p class="dc-slide-secondary">The accomplishment is the connected system, and the range of capabilities it makes available.</p></div>
+      <div class="dc-slide-visual dc-creation-visual" role="img" aria-label="High-level overview connecting Deep Capture with creative, marketing and sales content"><span class="dc-visual-note mono">Output directions / illustrative</span><div class="dc-creation-core"><span class="mono">Capture + 3D + AI</span><strong>Deep Capture</strong></div><div class="dc-creation-destinations"><div><i aria-hidden="true">01</i><strong>Creative</strong><span class="mono">Explore + create</span></div><div><i aria-hidden="true">02</i><strong>Marketing</strong><span class="mono">Present + communicate</span></div><div><i aria-hidden="true">03</i><strong>Sales</strong><span class="mono">Show + explain</span></div></div></div></div>
+      <div class="dc-slide-foot mono"><span>Physical product &#8594; Digital possibility</span><a href="#top">Back to the project &#8593;</a></div>
+    </section>
 
     <a class="cs__next" data-next href="../sixfold-war/"><div><small class="mono">Next project</small><strong data-next-title>The Sixfold War</strong></div><div data-next-media></div></a>
     <footer class="foot"><div class="foot__row"><span>&copy; 2026 Ken Bechtold</span><nav aria-label="Links"><a href="mailto:ken@afterthehomework.com">Email</a></nav><a href="#top">Top &#8593;</a></div></footer>
