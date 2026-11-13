@@ -8,9 +8,9 @@
 // To use real media add  img: 'work/<id>/media/cover.jpg'  (paths from the site root)
 // and optionally  hover: 'work/<id>/media/cover-wire.jpg'  for the wireframe swap.
 export const PROJECTS = [
-  { id: 'deep-capture', title: 'Deep Capture', kind: 'Capture system', line: 'Product capture to geometry, materials and AI-ready data.', tags: ['3D', 'AI', 'Pipeline'], year: '2021—26', role: 'Systems architect', form: 'shape', seed: 21, look: 0 },
   { id: 'sixfold-war', title: 'The Sixfold War', kind: 'Game + agentic tools', line: 'Six factions, one hex world, and the studio built to make them.', tags: ['AI', 'Game', 'Tools'], year: '2024—27', role: 'Design + build', img: 'work/sixfold-war/media/cover.webp' },
   { id: 'mesh-research', title: 'Advanced Mesh Reconstruction', kind: 'Interactive research report', line: 'Moving beyond photogrammetry with Gaussians and photometric stereo.', tags: ['3D', 'AI', 'Research'], year: '2026', role: 'Research', img: 'work/mesh-research/assets/img/thumbs/bear_supernormal.png', form: 'knot', seed: 3, look: 0 },
+  { id: 'deep-capture', title: 'Deep Capture', kind: 'Capture system', line: 'Product capture to geometry, materials and AI-ready data.', tags: ['3D', 'AI', 'Pipeline'], year: '2021—26', role: 'Systems architect', img: 'work/deep-capture/media/scanner-wip.webp', imgAlt: 'AI-edited WIP visualization of the Deep Capture scanner. Not an exact record of its hardware configuration.', imageLabel: 'AI-edited WIP' },
 ];
 
 // Fragments: single pieces shown in the grid at the bottom of the home page.

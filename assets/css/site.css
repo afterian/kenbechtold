@@ -551,3 +551,12 @@ figcaption, .caption { margin-top: 10px; font: 500 var(--t-label)/1.4 var(--mono
 @media(max-width:560px) { .dc-stage-top,.dc-stage-bottom { max-width:calc(100% - 24px); }.dc-stage-top { width:calc(100% - 24px); }.dc-stage>img { object-fit:contain; aspect-ratio:auto; } }
 
 @media(max-width:560px) { .dc .cs__head h1 { max-width:none; } }
+
+/* Project artwork is also supported in the homepage hero, without a 3D placeholder. */
+.hero__i { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:50% 42%; }
+.hero--image .hero__c,.hero--image .hero__split { display:none; }
+.hero--image::after { content:''; position:absolute; inset:0; z-index:1; pointer-events:none; background:linear-gradient(180deg,rgba(8,8,10,.08) 24%,rgba(8,8,10,.4) 55%,rgba(8,8,10,.93) 100%); }
+.hero__image-note,.card__image-note { position:absolute; z-index:2; right:var(--pad); top:calc(var(--bar) + 24px); padding:7px 9px; background:rgba(8,8,10,.8); color:var(--fg-2); font:500 var(--t-micro)/1.4 var(--mono); letter-spacing:.07em; text-transform:uppercase; }
+.card__image-note { top:14px; right:14px; }
+.card__image-note:empty { display:none; }
+@media(max-width:900px) { .hero--image .hero__i { top:var(--bar); height:65%; object-position:50% 40%; }.hero--image::after { background:linear-gradient(180deg,transparent 28%,rgba(8,8,10,.3) 46%,var(--bg) 68%); } }

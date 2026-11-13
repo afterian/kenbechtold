@@ -4,14 +4,18 @@ import { findCode } from './curation.js';
 import { showCollection, hideCollection } from './collection.js';
 import { $, $$, pad, media, stills, videos, loopInView, reveal, bindCode, paintCode, access, ordered, curtain, lightbox, createViewer, projectURL, ROOT } from './ui.js';
 
-const hero = $('[data-hero]'), heroVideo = $('.hero__v', hero);
+const hero = $('[data-hero]'), heroVideo = $('.hero__v', hero), heroImage = $('.hero__i', hero), heroImageNote = $('.hero__image-note', hero);
 const lb = lightbox();
 let viewer = null, viewerAsked = false, featured = null;
 
-// The hero is a live 3D model, or a looping video when the featured project has `video`.
+// Use project artwork when available; procedural 3D remains the fallback for projects without media.
 function paintHero(f) {
-  const video = !!f.video;
+  const video = !!f.video, image = !video && !!f.img;
   hero.classList.toggle('hero--video', video);
+  hero.classList.toggle('hero--image', image);
+  heroImage.hidden = !image;
+  heroImageNote.hidden = !image || !f.imageLabel;
+  heroImageNote.textContent = image ? (f.imageLabel || '') : '';
   if (video) {
     if (heroVideo.dataset.id !== f.id) {
       heroVideo.dataset.id = f.id;
@@ -23,6 +27,11 @@ function paintHero(f) {
     return;
   }
   if (heroVideo.dataset.id) { heroVideo.pause(); heroVideo.removeAttribute('src'); heroVideo.load(); delete heroVideo.dataset.id; }
+  if (image) {
+    heroImage.src = ROOT + f.img;
+    heroImage.alt = f.imgAlt || `${f.title} project artwork`;
+    return;
+  }
   if (viewer) viewer.setForm(f.form, f.seed, f.look);
   else if (!viewerAsked) {
     viewerAsked = true;
@@ -31,7 +40,7 @@ function paintHero(f) {
       drag: false, parallax: 1, spin: 0.12, split: 0.62, margin: 1.22, shift: 0.42,
     }).then((v) => {
       viewer = v;
-      if (v && !featured.video && (v.form !== featured.form || v.seed !== featured.seed)) v.setForm(featured.form, featured.seed, featured.look);
+      if (v && !featured.video && !featured.img && (v.form !== featured.form || v.seed !== featured.seed)) v.setForm(featured.form, featured.seed, featured.look);
     });
   }
 }
@@ -68,6 +77,7 @@ function render(a) {
       ${media(p, { w: 1200, h: 750, cls: 'media--frame' })}
       <span class="card__flag">${p.picked ? 'Picked for you' : ''}</span>
       <span class="card__wire">${hoverLabel(p)}</span>
+      <span class="card__image-note">${p.imageLabel || ''}</span>
       <div class="card__meta"><span class="n">${p.n}</span><h3>${p.title}</h3><span class="y">${p.year}</span><span class="k">${p.kind}</span></div>
     </a>`).join('');
 

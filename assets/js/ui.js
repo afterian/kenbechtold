@@ -44,7 +44,7 @@ export function media(p, { w = 960, h = 600, hover = true, cls = '' } = {}) {
     return `<div class="${c}"><video src="${ROOT}${p.video}"${poster ? ` poster="${ROOT}${poster}"` : ''} muted loop playsinline preload="none" data-hover aria-label="${p.title}"></video></div>`;
   }
   if (p.img) {
-    return `<div class="${c}"><img class="media__a" src="${ROOT}${p.img}" alt="${p.title}" loading="lazy">${
+    return `<div class="${c}"><img class="media__a" src="${ROOT}${p.img}" alt="${p.imgAlt || p.title}" loading="lazy">${
       p.hover && hover ? `<img class="media__b" src="${ROOT}${p.hover}" alt="" loading="lazy">` : ''}</div>`;
   }
   return `<div class="${c}" data-still data-form="${p.form}" data-seed="${p.seed}" data-look="${p.look || 0}"${
