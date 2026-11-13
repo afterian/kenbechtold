@@ -2,6 +2,8 @@
 // access codes, the lightbox and the 3D viewer controls.
 import { PROJECTS, CODES } from './data.js';
 import { pixels } from './pixels.js';
+import { reveal, observePosters } from './loading.js';
+export { reveal };
 
 // Pixel motion ([data-pixels]) starts itself on every page.
 pixels();
@@ -27,26 +29,9 @@ export async function createViewer(canvas, opts) {
   try { return new m.Viewer(canvas, opts); } catch (err) { return no3d(err); }
 }
 
-/* ---------- page transitions: fade out before following an internal link ---------- */
+// Use native navigation: keep the current page visible while the next response arrives.
+// Clear the old transition state when returning through the back/forward cache.
 addEventListener('pageshow', () => document.body.classList.remove('leaving'));
-document.addEventListener('click', (e) => {
-  const a = e.target.closest('a[href]');
-  if (!a || e.defaultPrevented || e.button || e.metaKey || e.ctrlKey || e.shiftKey || a.target || a.hasAttribute('download')) return;
-  const u = new URL(a.href, location.href);
-  if (u.origin !== location.origin || (u.pathname === location.pathname && u.search === location.search)) return;
-  e.preventDefault();
-  document.body.classList.add('leaving');
-  setTimeout(() => { location.href = a.href; }, 240);
-});
-
-/* ---------- scroll reveal: [data-reveal] fades up once when it enters the viewport ---------- */
-let io;
-export function reveal(root = document) {
-  io = io || new IntersectionObserver((es) => es.forEach((e) => {
-    if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
-  }), { rootMargin: '0px 0px -6% 0px' });
-  $$('[data-reveal]:not(.in)', root).forEach((el) => io.observe(el));
-}
 
 /* ---------- media ----------
    media(item) returns the markup for a project or fragment: a real image when the item
@@ -237,6 +222,7 @@ function player(v, wrap) {
 }
 
 export function videos(root = document) {
+  observePosters(root);
   $$('.media > video:not([data-vdone])', root).forEach((v) => {
     v.dataset.vdone = '1';
     const wrap = v.parentElement;
