@@ -1,0 +1,142 @@
+{
+  "assets": [
+    {
+      "source": "delivery/scout-v2.mp4",
+      "output": "scout-v2.mp4",
+      "sha256": "f2563e5bdb09131165f8e841b645f4670e495947e6ce38449b1b5ebd70f522fa",
+      "dimensions": null,
+      "size_bytes": 12766603,
+      "role": "film"
+    },
+    {
+      "source": "delivery/scout-v2-case-study.pdf",
+      "output": "case-study.pdf",
+      "sha256": "1970ac263c153c75b17bad6b37c56e90031caac12ffcb285264b3581468f1685",
+      "dimensions": null,
+      "size_bytes": 2287729,
+      "role": "designed case study"
+    },
+    {
+      "source": "outputs/01_seedance_prompt.txt",
+      "output": "prompts.txt",
+      "sha256": "58750506a28ac97309c024d74cc52179a51c4e7648f54f5944dda834d86095a4",
+      "dimensions": null,
+      "size_bytes": 3030,
+      "role": "exact generation prompts"
+    },
+    {
+      "source": "review/final-hero.png",
+      "output": "film-poster.webp",
+      "sha256": "fbc72e5d8ae68f10f0cbe15fe354b573278049ff73d87c04c4a8c1ce1d2f0e5d",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "size_bytes": 101210,
+      "role": "film poster"
+    },
+    {
+      "source": "outputs/02_storyboard_input.png",
+      "output": "storyboard.webp",
+      "sha256": "b900ce3ab5fa4ad7e7589494f98c7c219f8c5799031b411e6389b346d2175c10",
+      "dimensions": [
+        1280,
+        1907
+      ],
+      "size_bytes": 415460,
+      "role": "storyboard development study"
+    },
+    {
+      "source": "outputs/intro-a-board.png",
+      "output": "intro-a.webp",
+      "sha256": "dcaf0887c2e6c90524871bf06fcebfc20cfc259f29d90359dfe6d16ddfd57247",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "size_bytes": 149622,
+      "role": "intro A development study"
+    },
+    {
+      "source": "outputs/intro-b-board.png",
+      "output": "intro-b.webp",
+      "sha256": "2c63119be8493b4d89ea86d1f07098e622bdd36167c61cca7b36b037e658a1fd",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "size_bytes": 191578,
+      "role": "intro B development study"
+    },
+    {
+      "source": "outputs/action-board.png",
+      "output": "action-study.webp",
+      "sha256": "85535029a4fc8f136da7483312d3c9b34dd54283c31c445623b2964ad31db3c7",
+      "dimensions": [
+        720,
+        1232
+      ],
+      "size_bytes": 112060,
+      "role": "action development study"
+    },
+    {
+      "source": "review/film-contact-sheet.jpg",
+      "output": "film-contact-sheet.webp",
+      "sha256": "77ab1a8a00256796575de5e417b9290916149a4c5b623d7d251bc0e3ef5031e0",
+      "dimensions": [
+        1280,
+        615
+      ],
+      "size_bytes": 127976,
+      "role": "final film contact sheet"
+    },
+    {
+      "source": "delivery/scout-v2.mp4",
+      "timestamp": "00:00.625",
+      "output": "line.webp",
+      "sha256": "bdd9e1ef201c592b9d2946ab7c3bc0dd55418563b2a1792ab3569bf8f0bcb790",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "size_bytes": 56610,
+      "role": "final film still: contour line"
+    },
+    {
+      "source": "delivery/scout-v2.mp4",
+      "timestamp": "00:04.375",
+      "output": "canyon.webp",
+      "sha256": "361998841e7b3dd020b2ceedbe300ec5d8243098315c8bd444096d060edff4ec",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "size_bytes": 40120,
+      "role": "final film still: slot canyon"
+    },
+    {
+      "source": "delivery/scout-v2.mp4",
+      "timestamp": "00:13.500",
+      "output": "cover.webp",
+      "sha256": "c20d55493f5312eada64af89d5d410db9089af54869d5150547109670df927ec",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "size_bytes": 63342,
+      "role": "action cover"
+    },
+    {
+      "source": "delivery/scout-v2.mp4",
+      "timestamp": "00:13.500",
+      "output": "action.webp",
+      "sha256": "c20d55493f5312eada64af89d5d410db9089af54869d5150547109670df927ec",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "size_bytes": 63342,
+      "role": "final film still: action"
+    }
+  ]
+}

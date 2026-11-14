@@ -1,0 +1,2 @@
+# Deliverable PDFs must remain byte-for-byte through Git checkouts.
+*.pdf binary
