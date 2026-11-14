@@ -1,0 +1,163 @@
+{
+  "project": "acg",
+  "source_film_sha256": "d0cfb0cc2b601f7f541726901887e9f77ccff12b27538e4348fc9b984a37efd4",
+  "assets": [
+    {
+      "file": "acg-winter-taken-in-stride-v1.mp4",
+      "source": "acg-winter-taken-in-stride-v1.mp4",
+      "role": "unchanged final film",
+      "sha256": "d0cfb0cc2b601f7f541726901887e9f77ccff12b27538e4348fc9b984a37efd4",
+      "bytes": 11864518
+    },
+    {
+      "file": "film-poster.webp",
+      "source": "acg-winter-taken-in-stride-v1.mp4",
+      "timestamp_seconds": 19.5,
+      "source_frame": 468,
+      "role": "final-film-derived still; no added text",
+      "width": 1280,
+      "height": 720,
+      "sha256": "8ca6d12e7501200863bfd6a439e2d2e02e32e28298d54b9c4b22d037031924ca",
+      "bytes": 74516,
+      "dimensions": [
+        1280,
+        720
+      ]
+    },
+    {
+      "file": "cover.webp",
+      "source": "acg-winter-taken-in-stride-v1.mp4",
+      "timestamp_seconds": 16,
+      "source_frame": 384,
+      "role": "final-film-derived still; no added text",
+      "width": 1280,
+      "height": 720,
+      "sha256": "1d721d0ceb41713026351c5745d97cbe1719223a41d02bc56bc55fd22e909a1f",
+      "bytes": 57426,
+      "dimensions": [
+        1280,
+        720
+      ]
+    },
+    {
+      "file": "pouch.webp",
+      "source": "acg-winter-taken-in-stride-v1.mp4",
+      "timestamp_seconds": 1.5,
+      "source_frame": 36,
+      "role": "final-film-derived still; no added text",
+      "width": 1280,
+      "height": 720,
+      "sha256": "708c4b8f73ff6cee5f1ab66d53071b0071b1ceb84654e74701dd1ed0a45a6528",
+      "bytes": 49224,
+      "dimensions": [
+        1280,
+        720
+      ]
+    },
+    {
+      "file": "cuff.webp",
+      "source": "acg-winter-taken-in-stride-v1.mp4",
+      "timestamp_seconds": 3.75,
+      "source_frame": 90,
+      "role": "final-film-derived still; no added text",
+      "width": 1280,
+      "height": 720,
+      "sha256": "0f3b5c251c107d4b25206292d7737f930118733e5076fca548b7c32913544628",
+      "bytes": 35870,
+      "dimensions": [
+        1280,
+        720
+      ]
+    },
+    {
+      "file": "quilting.webp",
+      "source": "acg-winter-taken-in-stride-v1.mp4",
+      "timestamp_seconds": 5,
+      "source_frame": 120,
+      "role": "final-film-derived still; no added text",
+      "width": 1280,
+      "height": 720,
+      "sha256": "1dfe47bff57ae023c3847695e9ec32942cf1b0416edac1b7a17e0e44e7c2051a",
+      "bytes": 58146,
+      "dimensions": [
+        1280,
+        720
+      ]
+    },
+    {
+      "file": "rock.webp",
+      "source": "acg-winter-taken-in-stride-v1.mp4",
+      "timestamp_seconds": 6,
+      "source_frame": 144,
+      "role": "final-film-derived still; no added text",
+      "width": 1280,
+      "height": 720,
+      "sha256": "1a0dfce00e5d573ace23d5d45b6c784b04a48e05b4128f076ddb75e1a4d9953f",
+      "bytes": 53004,
+      "dimensions": [
+        1280,
+        720
+      ]
+    },
+    {
+      "file": "entry.webp",
+      "source": "acg-winter-taken-in-stride-v1.mp4",
+      "timestamp_seconds": 7.75,
+      "source_frame": 186,
+      "role": "final-film-derived still; no added text",
+      "width": 1280,
+      "height": 720,
+      "sha256": "b9d411991f10061b4f1951edfed5fe1bda16ab23895670ad3acb0650d11f9557",
+      "bytes": 84276,
+      "dimensions": [
+        1280,
+        720
+      ]
+    },
+    {
+      "file": "face.webp",
+      "source": "acg-winter-taken-in-stride-v1.mp4",
+      "timestamp_seconds": 9.75,
+      "source_frame": 234,
+      "role": "final-film-derived still; no added text",
+      "width": 1280,
+      "height": 720,
+      "sha256": "b09457d6518fc454ee48562ce2d5b940e20e32b661b9e85363fe61d0cfe4adce",
+      "bytes": 68204,
+      "dimensions": [
+        1280,
+        720
+      ]
+    },
+    {
+      "file": "passage.webp",
+      "source": "acg-winter-taken-in-stride-v1.mp4",
+      "timestamp_seconds": 12.25,
+      "source_frame": 294,
+      "role": "final-film-derived still; no added text",
+      "width": 1280,
+      "height": 720,
+      "sha256": "56fdccf17bfa1a75a2c9302ceb16bcaeab0c5aae522f9da6cbe1cf365fecb7f5",
+      "bytes": 81452,
+      "dimensions": [
+        1280,
+        720
+      ]
+    },
+    {
+      "file": "summit.webp",
+      "source": "acg-winter-taken-in-stride-v1.mp4",
+      "timestamp_seconds": 16,
+      "source_frame": 384,
+      "role": "final-film-derived still; no added text",
+      "width": 1280,
+      "height": 720,
+      "sha256": "1d721d0ceb41713026351c5745d97cbe1719223a41d02bc56bc55fd22e909a1f",
+      "bytes": 57426,
+      "dimensions": [
+        1280,
+        720
+      ]
+    }
+  ]
+}

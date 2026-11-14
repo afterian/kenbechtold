@@ -1,0 +1,62 @@
+.nikeskims__head { padding-top: clamp(28px, 3vw, 48px); padding-bottom: clamp(18px, 2vw, 30px); }
+.nikeskims__head .cs__top { margin-bottom: clamp(18px, 2.4vw, 36px); }
+.nikeskims__kicker { color: var(--mut); font-size: var(--t-label); text-transform: uppercase; letter-spacing: .04em; }
+.nikeskims__head h1 { max-width: none; margin-top: 8px; font-size: clamp(2.55rem, 6.5vw, 6.5rem); line-height: .98; letter-spacing: -.055em; }
+.nikeskims__head .cs__sub { margin-top: clamp(16px, 2vw, 28px); }
+.nikeskims__head .cs__sub dl { grid-template-columns: repeat(3, auto); gap: 6px 24px; }
+.nikeskims__head .cs__sub dd { max-width: 25ch; }
+.nikeskims__tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; color: var(--fg-2); }
+.nikeskims__tags li { padding: 9px 11px; border: 1px solid var(--line); }
+.nikeskims__tags li:first-child { border-color: rgb(var(--acc-rgb) / .65); color: var(--acc); }
+.nikeskims__nav { display: flex; flex-wrap: wrap; gap: 10px 22px; margin-top: 28px; padding: 14px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); color: var(--mut); font-size: var(--t-label); text-transform: uppercase; }
+.nikeskims__nav a:hover, .nikeskims__nav a:focus-visible { color: var(--fg); }
+.nikeskims__film { margin-top: 8px; }
+.nikeskims__video { aspect-ratio: 16 / 9; }
+.nikeskims__video video { display: block; width: 100%; height: 100%; object-fit: contain; background: var(--bg); }
+.nikeskims__film-caption { display: flex; justify-content: space-between; gap: 16px; margin-top: 10px; color: var(--mut); font-size: var(--t-label); text-transform: uppercase; }
+.nikeskims__film-caption a, .nikeskims__download { color: var(--fg-2); }
+.nikeskims__film-caption a:hover, .nikeskims__download:hover { color: var(--fg); }
+.nikeskims__block { margin-top: 0; }
+.nikeskims__concepts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--gap); margin-top: 40px; }
+.nikeskims__concepts figure, .nikeskims__board, .nikeskims__stills figure { min-width: 0; }
+.nikeskims__concepts img, .nikeskims__board img, .nikeskims__stills img { display: block; width: 100%; height: auto; border: 1px solid var(--line); }
+.nikeskims__concepts figcaption, .nikeskims__board figcaption, .nikeskims__stills figcaption { margin-top: 9px; color: var(--mut); font-size: var(--t-label); text-transform: uppercase; }
+.nikeskims__board { width: min(calc(100% - var(--pad) - var(--pad)), 1100px); margin: 34px auto 0; }
+.nikeskims__timeline { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px; margin-top: 32px; padding: 0; list-style: none; background: var(--line); border: 1px solid var(--line); }
+.nikeskims__timeline li { min-width: 0; padding: clamp(16px, 2vw, 28px); background: var(--bg); }
+.nikeskims__timeline time { display: block; color: var(--mut); font: 400 var(--t-label)/1.5 var(--mono); }
+.nikeskims__timeline b { display: block; margin-top: 20px; font-size: clamp(18px, 2vw, 26px); font-weight: 500; letter-spacing: -.03em; }
+.nikeskims__timeline p { margin-top: 9px; color: var(--fg-2); font-size: var(--t-body); }
+.nikeskims__stills { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--gap); margin-top: 32px; }
+.nikeskims__prompt { margin-top: 22px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.nikeskims__prompt summary { padding: 13px 0; color: var(--fg-2); cursor: pointer; font-size: var(--t-label); text-transform: uppercase; }
+.nikeskims__prompt p { padding: 0 0 16px; color: var(--fg-2); }
+.nikeskims__download { display: inline-block; margin-top: 18px; font-size: var(--t-label); text-transform: uppercase; }
+.nikeskims__context { margin-top: 14px; color: var(--mut); font-size: .82rem; }
+.nikeskims__credits { margin-top: 30px; color: var(--mut); font-size: var(--t-label); }
+.nikeskims__delivery { display: grid; grid-template-columns: 1fr minmax(260px, .8fr); gap: 32px; align-items: end; margin-top: var(--sec); padding: 28px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.nikeskims__delivery h2 { margin-top: 14px; font-size: clamp(1.55rem, 3.5vw, 3.1rem); line-height: 1.05; letter-spacing: -.04em; }
+.nikeskims__delivery>div>span, .nikeskims__pdf span { color: var(--mut); font-size: var(--t-label); text-transform: uppercase; }
+.nikeskims__pdf { display: grid; gap: 7px; padding: 18px; border: 1px solid var(--line); }
+.nikeskims__pdf strong { font-size: 1rem; font-weight: 500; }
+.nikeskims__pdf:hover { border-color: var(--fg-2); }
+@media (max-width: 800px) {
+  .nikeskims__concepts { grid-template-columns: 1fr; }
+  .nikeskims__timeline { grid-template-columns: 1fr; }
+  .nikeskims__timeline b { margin-top: 10px; }
+  .nikeskims__delivery { grid-template-columns: 1fr; }
+}
+@media (max-width: 560px) {
+  .nikeskims__head h1 { max-width: 10ch; font-size: clamp(2.55rem, 12vw, 4.2rem); }
+  .nikeskims__head .cs__sub dl { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px 12px; }
+  .nikeskims__nav { gap: 10px 16px; }
+  .nikeskims__film-caption { align-items: flex-start; flex-direction: column; gap: 4px; }
+  .nikeskims__stills { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px 10px; }
+  .nikeskims__stills figcaption { font-size: 9px; }
+}
+
+.nikeskims__film, .nikeskims__concepts, .nikeskims__timeline, .nikeskims__stills, .nikeskims__credits, .nikeskims__delivery { margin-left: var(--pad); margin-right: var(--pad); }
+
+.nikeskims__stills { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+@media (max-width: 900px) { .nikeskims__stills { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 560px) { .nikeskims__stills { grid-template-columns: 1fr; } }
