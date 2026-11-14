@@ -1,2 +1,3 @@
-# Deliverable PDFs must remain byte-for-byte through Git checkouts.
+# Deliverable downloads must remain byte-for-byte through Git checkouts.
 *.pdf binary
+work/scout/media/prompts.txt binary
