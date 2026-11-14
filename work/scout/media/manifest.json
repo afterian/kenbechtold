@@ -2,18 +2,18 @@
   "assets": [
     {
       "source": "delivery/scout-v2.mp4",
-      "output": "scout-v2.mp4",
-      "sha256": "f2563e5bdb09131165f8e841b645f4670e495947e6ce38449b1b5ebd70f522fa",
+      "output": "scout-v2-clean.mp4",
+      "sha256": "d7314d3bd261fc16c30aac0ede5862d13808e80270a1b816e5c544782601a740",
       "dimensions": null,
-      "size_bytes": 12766603,
+      "size_bytes": 12764149,
       "role": "film"
     },
     {
       "source": "delivery/scout-v2-case-study.pdf",
       "output": "case-study.pdf",
-      "sha256": "1970ac263c153c75b17bad6b37c56e90031caac12ffcb285264b3581468f1685",
+      "sha256": "a5b28db537f7107a1faba4b91ff8e8c07b304e36c22676a82a746e314d13f6de",
       "dimensions": null,
-      "size_bytes": 2287729,
+      "size_bytes": 2282911,
       "role": "designed case study"
     },
     {
@@ -27,12 +27,12 @@
     {
       "source": "review/final-hero.png",
       "output": "film-poster.webp",
-      "sha256": "fbc72e5d8ae68f10f0cbe15fe354b573278049ff73d87c04c4a8c1ce1d2f0e5d",
+      "sha256": "19034a37d17c620bc358c045cb394b9e1b422efc7f9da7d212664aa12179ca10",
       "dimensions": [
         1280,
         720
       ],
-      "size_bytes": 101210,
+      "size_bytes": 98130,
       "role": "film poster"
     },
     {
@@ -82,12 +82,12 @@
     {
       "source": "review/film-contact-sheet.jpg",
       "output": "film-contact-sheet.webp",
-      "sha256": "77ab1a8a00256796575de5e417b9290916149a4c5b623d7d251bc0e3ef5031e0",
+      "sha256": "dc0ec60b5fea3d54f2192d81bb7f65591adb1282383d4db15fe2283e48d66862",
       "dimensions": [
         1280,
         615
       ],
-      "size_bytes": 127976,
+      "size_bytes": 127792,
       "role": "final film contact sheet"
     },
     {

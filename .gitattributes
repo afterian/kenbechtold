@@ -1,3 +1,4 @@
 # Deliverable downloads must remain byte-for-byte through Git checkouts.
 *.pdf binary
 work/scout/media/prompts.txt binary
+work/caitlin/media/prompts.txt binary

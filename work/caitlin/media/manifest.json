@@ -1,0 +1,199 @@
+{
+  "assets": [
+    {
+      "source": "catilin-light-takes-shape-v1.mp4",
+      "timestamp": null,
+      "output": "catilin-light-takes-shape-v1.mp4",
+      "sha256": "4cb907a827d8c71cb4d194b928a976257b841634a2fddd8e2f12bd1b5e2aac6a",
+      "dimensions": null,
+      "size_bytes": 11015467,
+      "role": "approved 25-second film"
+    },
+    {
+      "source": "delivery/v1/catilin-case-study-v1.pdf",
+      "timestamp": null,
+      "output": "case-study.pdf",
+      "sha256": "968f512f1b1e1b0016c760dde05516754a20f7adf1a4d3fadfc9abdaed7606f7",
+      "dimensions": null,
+      "size_bytes": 12880772,
+      "role": "designed companion case study"
+    },
+    {
+      "source": "delivery/v1/records/selected-job.json",
+      "timestamp": null,
+      "output": "prompts.txt",
+      "sha256": "eced4197309508cd351fb892bd18d25d42bf116906a18b03c3736d1565243589",
+      "dimensions": null,
+      "size_bytes": 4623,
+      "role": "exact selected-take generation prompt"
+    },
+    {
+      "source": "delivery/v1/catilin-poster.jpg",
+      "timestamp": null,
+      "output": "film-poster.webp",
+      "sha256": "edf0fcaf49a2c3f9f6455f74224418d48ad014cb0b1f76e290ec7a0d62ea450a",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "size_bytes": 42074,
+      "role": "supplied film poster"
+    },
+    {
+      "source": "delivery/v1/stills/09-hero.jpg",
+      "timestamp": null,
+      "output": "cover.webp",
+      "sha256": "edf0fcaf49a2c3f9f6455f74224418d48ad014cb0b1f76e290ec7a0d62ea450a",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "size_bytes": 42074,
+      "role": "home-page cover: final-derived hero still"
+    },
+    {
+      "source": "delivery/v1/stills/01-world.jpg",
+      "timestamp": "00:01.000",
+      "output": "world.webp",
+      "sha256": "9efa952e6376943e0619186809396059991e3a7581687928e2363ce51c7fa3c5",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "size_bytes": 55628,
+      "role": "final film still: cobalt abstract world"
+    },
+    {
+      "source": "delivery/v1/stills/02-gravity.jpg",
+      "timestamp": "00:04.500",
+      "output": "gravity.webp",
+      "sha256": "8b136121f0a62e8ecca84a1f4adf854afef501f287abd7ff3269ea1df9738adf",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "size_bytes": 97866,
+      "role": "final film still: abstract gravity space"
+    },
+    {
+      "source": "delivery/v1/stills/03-chrome.jpg",
+      "timestamp": "00:07.500",
+      "output": "chrome.webp",
+      "sha256": "83ca710a83c5302bae269c8af4fe003361780963bcd718f20c43b42ce7288e86",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "size_bytes": 71980,
+      "role": "final film still: reflective abstract world"
+    },
+    {
+      "source": "delivery/v1/stills/04-macro.jpg",
+      "timestamp": "00:11.000",
+      "output": "macro.webp",
+      "sha256": "c30ec08048f777eadc77ba590a05c984f44a79292caea7eecb84c552f6e1ae70",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "size_bytes": 68104,
+      "role": "final film still: shoe material macro"
+    },
+    {
+      "source": "delivery/v1/stills/05-lateral.jpg",
+      "timestamp": "00:14.000",
+      "output": "lateral.webp",
+      "sha256": "04fa2c6f84ccfe1625dacd08f50cd323f6779ff22e038706c5b4ca63698aa4cb",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "size_bytes": 45978,
+      "role": "final film still: lateral shoe view"
+    },
+    {
+      "source": "delivery/v1/stills/06-medial.jpg",
+      "timestamp": "00:17.000",
+      "output": "medial.webp",
+      "sha256": "379e75089ca96dd770780935d95c48f582eaff544262ef04942b047c39f73a59",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "size_bytes": 46440,
+      "role": "final film still: medial shoe view"
+    },
+    {
+      "source": "delivery/v1/stills/07-heel.jpg",
+      "timestamp": "00:19.000",
+      "output": "heel.webp",
+      "sha256": "07c9c8b154ec05ee30569bfaf1884eb283ec518853390f328aeb905e7824e53e",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "size_bytes": 44728,
+      "role": "final film still: heel detail"
+    },
+    {
+      "source": "delivery/v1/stills/08-outsole.jpg",
+      "timestamp": "00:22.000",
+      "output": "outsole.webp",
+      "sha256": "ffe67cff8827578a9acf8ef7b984b7c2c2843f30136d50653ace670fab50bbd3",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "size_bytes": 24844,
+      "role": "final film still: outsole detail"
+    },
+    {
+      "source": "delivery/v1/stills/09-hero.jpg",
+      "timestamp": "00:24.875",
+      "output": "hero.webp",
+      "sha256": "edf0fcaf49a2c3f9f6455f74224418d48ad014cb0b1f76e290ec7a0d62ea450a",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "size_bytes": 42074,
+      "role": "final film still: fully lit shoe reveal"
+    },
+    {
+      "source": "seedance_handoff/outputs/02_storyboard_input.png",
+      "timestamp": null,
+      "output": "storyboard.webp",
+      "sha256": "b83d2c3f9004ca87b221ca10a032cbec567c6f77d86432e15ca6e5db55e0dfd2",
+      "dimensions": [
+        1600,
+        2359
+      ],
+      "size_bytes": 541342,
+      "role": "ten-shot storyboard development direction"
+    },
+    {
+      "source": "concepts/abstract_worlds_v2/02_symmetry_cathedral.png",
+      "timestamp": null,
+      "output": "concept-cathedral.webp",
+      "sha256": "c867b26ed3fb7d64ebdf5125ee58ecc93bd23456384fa619d5256a3724b40ae9",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "size_bytes": 191316,
+      "role": "generated abstract-world development study: symmetry cathedral"
+    },
+    {
+      "source": "concepts/abstract_worlds_v2/03_chrome_infinity.png",
+      "timestamp": null,
+      "output": "concept-chrome.webp",
+      "sha256": "9f15c77b4c70f0183e706d9ae9cc30fc3dc7b298f3ea479129099ce51818e7d7",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "size_bytes": 247424,
+      "role": "generated abstract-world development study: chrome infinity"
+    }
+  ]
+}
