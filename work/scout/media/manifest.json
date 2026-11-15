@@ -1,12 +1,12 @@
 {
   "assets": [
     {
-      "source": "delivery/scout-v2.mp4",
-      "output": "scout-v2-clean.mp4",
-      "sha256": "d7314d3bd261fc16c30aac0ede5862d13808e80270a1b816e5c544782601a740",
+      "source": "../scout-current.mp4",
+      "output": "scout-v2-copper-trail.mp4",
+      "sha256": "fd35e3c8d6522bb5efaee318a12be080b536d7126aeab847e4585de7290b701e",
       "dimensions": null,
-      "size_bytes": 12764149,
-      "role": "film"
+      "size_bytes": 12762380,
+      "role": "film with refreshed instrumental score"
     },
     {
       "source": "delivery/scout-v2-case-study.pdf",
