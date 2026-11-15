@@ -1,0 +1,38 @@
+{
+  "id": "air-max-racer-pt",
+  "title": "Air Max Racer PT",
+  "tags": [
+    "Fragments",
+    "3D",
+    "SubD",
+    "Modeling",
+    "Footwear",
+    "Nike",
+    "Polygon"
+  ],
+  "appearance": {
+    "name": "Gunmetal",
+    "color": "#5a5e68",
+    "metallic": 1,
+    "roughness": 0.26
+  },
+  "note": "Original source-edge display; no new subdivision. Lossless retained geometry.",
+  "assets": [
+    {
+      "file": "model.meshopt.glb.gz",
+      "bytes": 22073962,
+      "sha256": "f02abf85df1b779cd7f609d868c9556fe0eb5bfbbc566efb01266d672042965e",
+      "triangles": 1580069,
+      "segments": 0,
+      "url": "https://raw.githubusercontent.com/afterian/kenbechtold/06404d65326ee0b7bd22e1b62df2645096e7c989/fragments/air-max-racer-pt/media/model.meshopt.glb.gz"
+    },
+    {
+      "file": "wire.meshopt.glb.gz",
+      "bytes": 12007849,
+      "sha256": "8e99b763fc505cadc51d27303bef451591f209e4129dbb195737609291be2fc3",
+      "triangles": 0,
+      "segments": 2385235,
+      "url": "https://raw.githubusercontent.com/afterian/kenbechtold/06404d65326ee0b7bd22e1b62df2645096e7c989/fragments/air-max-racer-pt/media/wire.meshopt.glb.gz"
+    }
+  ]
+}

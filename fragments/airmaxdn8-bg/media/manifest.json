@@ -1,0 +1,38 @@
+{
+  "id": "airmaxdn8-bg",
+  "title": "Air Max DN8 / BG",
+  "tags": [
+    "Fragments",
+    "3D",
+    "SubD",
+    "Modeling",
+    "Footwear",
+    "Nike",
+    "Polygon"
+  ],
+  "appearance": {
+    "name": "Gunmetal",
+    "color": "#5a5e68",
+    "metallic": 1,
+    "roughness": 0.26
+  },
+  "note": "Original source-edge display; no new subdivision. Lossless retained geometry.",
+  "assets": [
+    {
+      "file": "model.meshopt.glb.gz",
+      "bytes": 21826733,
+      "sha256": "b63222635c9afa77fc8cb2490ca52209b3eb25b35f15fb8616f45ecb8a3da0a5",
+      "triangles": 1558284,
+      "segments": 0,
+      "url": "https://raw.githubusercontent.com/afterian/kenbechtold/06404d65326ee0b7bd22e1b62df2645096e7c989/fragments/airmaxdn8-bg/media/model.meshopt.glb.gz"
+    },
+    {
+      "file": "wire.meshopt.glb.gz",
+      "bytes": 10937039,
+      "sha256": "8c9a9a4a2155f4f68db43a0b242e3b86898c6fcfa6e6b71f0d4acca13bd8f77c",
+      "triangles": 0,
+      "segments": 2331637,
+      "url": "https://raw.githubusercontent.com/afterian/kenbechtold/06404d65326ee0b7bd22e1b62df2645096e7c989/fragments/airmaxdn8-bg/media/wire.meshopt.glb.gz"
+    }
+  ]
+}

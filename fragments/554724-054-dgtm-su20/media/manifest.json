@@ -1,0 +1,38 @@
+{
+  "id": "554724-054-dgtm-su20",
+  "title": "Nike Footwear",
+  "tags": [
+    "Fragments",
+    "3D",
+    "SubD",
+    "Modeling",
+    "Footwear",
+    "Nike",
+    "Polygon"
+  ],
+  "appearance": {
+    "name": "Gunmetal",
+    "color": "#5a5e68",
+    "metallic": 1,
+    "roughness": 0.26
+  },
+  "note": "Original source-edge display; no new subdivision. Lossless retained geometry.",
+  "assets": [
+    {
+      "file": "model.meshopt.glb.gz",
+      "bytes": 13404288,
+      "sha256": "ac8c24123906924841b766013bfa2dc1e51d24b779b25ef5d324187b3a4c0c75",
+      "triangles": 1024625,
+      "segments": 0,
+      "url": "https://raw.githubusercontent.com/afterian/kenbechtold/06404d65326ee0b7bd22e1b62df2645096e7c989/fragments/554724-054-dgtm-su20/media/model.meshopt.glb.gz"
+    },
+    {
+      "file": "wire.meshopt.glb.gz",
+      "bytes": 7264044,
+      "sha256": "a478da0cfda63ba11ee713d858affed4a1968df1a160c45c41879ffd3f54aa82",
+      "triangles": 0,
+      "segments": 1561116,
+      "url": "https://raw.githubusercontent.com/afterian/kenbechtold/06404d65326ee0b7bd22e1b62df2645096e7c989/fragments/554724-054-dgtm-su20/media/wire.meshopt.glb.gz"
+    }
+  ]
+}

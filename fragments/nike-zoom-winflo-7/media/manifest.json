@@ -1,0 +1,38 @@
+{
+  "id": "nike-zoom-winflo-7",
+  "title": "Zoom Winflo 7",
+  "tags": [
+    "Fragments",
+    "3D",
+    "SubD",
+    "Modeling",
+    "Footwear",
+    "Nike",
+    "Polygon"
+  ],
+  "appearance": {
+    "name": "Gunmetal",
+    "color": "#5a5e68",
+    "metallic": 1,
+    "roughness": 0.26
+  },
+  "note": "Original source-edge display; no new subdivision. Lossless retained geometry.",
+  "assets": [
+    {
+      "file": "model.meshopt.glb.gz",
+      "bytes": 12591151,
+      "sha256": "a228505afb968260a1aae36cec2fe3dc03a1fd83d6354866e5f1ac4527a1ba87",
+      "triangles": 967703,
+      "segments": 0,
+      "url": "https://raw.githubusercontent.com/afterian/kenbechtold/06404d65326ee0b7bd22e1b62df2645096e7c989/fragments/nike-zoom-winflo-7/media/model.meshopt.glb.gz"
+    },
+    {
+      "file": "wire.meshopt.glb.gz",
+      "bytes": 7201156,
+      "sha256": "353cbd3dba382c0f3328602e23bfe6b15144779687390957a71b40a9610d6fee",
+      "triangles": 0,
+      "segments": 1458471,
+      "url": "https://raw.githubusercontent.com/afterian/kenbechtold/06404d65326ee0b7bd22e1b62df2645096e7c989/fragments/nike-zoom-winflo-7/media/wire.meshopt.glb.gz"
+    }
+  ]
+}

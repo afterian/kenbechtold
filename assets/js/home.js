@@ -2,7 +2,7 @@
 import { PIECES, CODES } from './data.js';
 import { findCode } from './curation.js';
 import { showCollection, hideCollection } from './collection.js';
-import { $, $$, pad, media, stills, videos, loopInView, reveal, bindCode, paintCode, access, ordered, curtain, lightbox, createViewer, projectURL, ROOT } from './ui.js';
+import { $, $$, pad, escapeHTML, media, stills, videos, loopInView, reveal, bindCode, paintCode, access, ordered, curtain, lightbox, createViewer, projectURL, ROOT } from './ui.js';
 
 const hero = $('[data-hero]'), heroVideo = $('.hero__v', hero), heroImage = $('.hero__i', hero), heroImageNote = $('.hero__image-note', hero);
 const lb = lightbox();
@@ -89,10 +89,10 @@ function render(a) {
 
 /* fragments */
 $('[data-frag]').innerHTML = PIECES.map((p, i) => `
-  <button type="button" class="tile" data-i="${i}" data-tag="${p.tag}" data-reveal style="--d:${i % 6}">
+  <button type="button" class="tile" data-i="${i}" data-tag="${escapeHTML(p.tag)}" data-reveal style="--d:${i % 6}">
     ${media(p, { w: 640, h: 640 })}
-    <span class="tile__tag">${p.video ? '▸ ' : ''}${p.tag}</span>
-    <span class="tile__cap"><span>${pad(i + 1)}</span><span>${p.title}</span></span>
+    <span class="tile__tag">${p.video ? '▸ ' : ''}${escapeHTML(p.tag)}</span>
+    <span class="tile__cap"><span>${pad(i + 1)}</span><span>${escapeHTML(p.title)}</span></span>
   </button>`).join('');
 
 let filter = '';

@@ -13,40 +13,26 @@
   "appearance": {
     "name": "Gunmetal",
     "color": "#5a5e68",
-    "metallic": 1.0,
+    "metallic": 1,
     "roughness": 0.26
   },
-  "note": "Original source-edge display; no new subdivision.",
+  "note": "Original source-edge display; no new subdivision. Lossless retained geometry.",
   "assets": [
     {
-      "file": "model.glb",
-      "bytes": 1842716,
-      "sha256": "0a340f31ac81749f1d93be1c34f9b277b366c3f7c6ad288aa1633206177ce8e7",
+      "file": "model.meshopt.glb.gz",
+      "bytes": 946425,
+      "sha256": "6fb717cab55767dd8959f9d083b560a38583c16154afc9cd5144c093e54cb2ac",
       "triangles": 76491,
-      "segments": 0
+      "segments": 0,
+      "url": "https://raw.githubusercontent.com/afterian/kenbechtold/06404d65326ee0b7bd22e1b62df2645096e7c989/fragments/kyrie-7/media/model.meshopt.glb.gz"
     },
     {
-      "file": "wire.glb",
-      "bytes": 1426604,
-      "sha256": "3a8cdb41ce5c30ab0a431de55d7fb3f33a69816aee92bc98fda7b24813ac4d46",
+      "file": "wire.meshopt.glb.gz",
+      "bytes": 537760,
+      "sha256": "4a8fad0094f80ff7b3cdd6d2d92e989ae49e0ba93640429cd15c35f276eaf453",
       "triangles": 0,
-      "segments": 116630
-    }
-  ],
-  "posters": [
-    {
-      "file": "poster.webp",
-      "bytes": 49946,
-      "sha256": "073fba03d690325831d0dc9c0dbef7bf08e188b7d9c12875ec1ea92397721aa5",
-      "width": 1200,
-      "height": 1200
-    },
-    {
-      "file": "topology.webp",
-      "bytes": 212344,
-      "sha256": "6250d9bb473ef3ff24001e89e3ecde1252831653a52bdf9d4eb0911872636f94",
-      "width": 1200,
-      "height": 1200
+      "segments": 116630,
+      "url": "https://raw.githubusercontent.com/afterian/kenbechtold/06404d65326ee0b7bd22e1b62df2645096e7c989/fragments/kyrie-7/media/wire.meshopt.glb.gz"
     }
   ]
 }

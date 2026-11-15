@@ -1,0 +1,38 @@
+{
+  "id": "air-max-tm",
+  "title": "Air Max TM",
+  "tags": [
+    "Fragments",
+    "3D",
+    "SubD",
+    "Modeling",
+    "Footwear",
+    "Nike",
+    "Polygon"
+  ],
+  "appearance": {
+    "name": "Gunmetal",
+    "color": "#5a5e68",
+    "metallic": 1,
+    "roughness": 0.26
+  },
+  "note": "Original source-edge display; no new subdivision. Lossless retained geometry.",
+  "assets": [
+    {
+      "file": "model.meshopt.glb.gz",
+      "bytes": 17212154,
+      "sha256": "ffa86b061b67c00f143b6c63ad500686d247f20665409581dee43ea3f356b238",
+      "triangles": 1282521,
+      "segments": 0,
+      "url": "https://raw.githubusercontent.com/afterian/kenbechtold/06404d65326ee0b7bd22e1b62df2645096e7c989/fragments/air-max-tm/media/model.meshopt.glb.gz"
+    },
+    {
+      "file": "wire.meshopt.glb.gz",
+      "bytes": 9165545,
+      "sha256": "43974f3349b268d2db73003576ced9b9b00e6be4104c42f411eea6d980bd94ef",
+      "triangles": 0,
+      "segments": 1715936,
+      "url": "https://raw.githubusercontent.com/afterian/kenbechtold/06404d65326ee0b7bd22e1b62df2645096e7c989/fragments/air-max-tm/media/wire.meshopt.glb.gz"
+    }
+  ]
+}

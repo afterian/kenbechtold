@@ -1,0 +1,38 @@
+{
+  "id": "wmns-nike-air-max-fusion",
+  "title": "Air Max Fusion / Women's",
+  "tags": [
+    "Fragments",
+    "3D",
+    "SubD",
+    "Modeling",
+    "Footwear",
+    "Nike",
+    "Polygon"
+  ],
+  "appearance": {
+    "name": "Gunmetal",
+    "color": "#5a5e68",
+    "metallic": 1,
+    "roughness": 0.26
+  },
+  "note": "Original source-edge display; no new subdivision. Lossless retained geometry.",
+  "assets": [
+    {
+      "file": "model.meshopt.glb.gz",
+      "bytes": 13282532,
+      "sha256": "853da5f311314fc473e5635d58ba000760a71ea7f3937a227d95ce47529371dc",
+      "triangles": 969447,
+      "segments": 0,
+      "url": "https://raw.githubusercontent.com/afterian/kenbechtold/06404d65326ee0b7bd22e1b62df2645096e7c989/fragments/wmns-nike-air-max-fusion/media/model.meshopt.glb.gz"
+    },
+    {
+      "file": "wire.meshopt.glb.gz",
+      "bytes": 7292275,
+      "sha256": "c5eeffd5ed349cde132fc7213343d8f2da0564b137af29aee8c76faaadec0d59",
+      "triangles": 0,
+      "segments": 1468059,
+      "url": "https://raw.githubusercontent.com/afterian/kenbechtold/06404d65326ee0b7bd22e1b62df2645096e7c989/fragments/wmns-nike-air-max-fusion/media/wire.meshopt.glb.gz"
+    }
+  ]
+}

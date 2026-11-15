@@ -1,0 +1,38 @@
+{
+  "id": "academy-ic",
+  "title": "Academy / IC",
+  "tags": [
+    "Fragments",
+    "3D",
+    "SubD",
+    "Modeling",
+    "Footwear",
+    "Nike",
+    "Polygon"
+  ],
+  "appearance": {
+    "name": "Gunmetal",
+    "color": "#5a5e68",
+    "metallic": 1,
+    "roughness": 0.26
+  },
+  "note": "Original source-edge display; no new subdivision. Lossless retained geometry.",
+  "assets": [
+    {
+      "file": "model.meshopt.glb.gz",
+      "bytes": 26337464,
+      "sha256": "a313da983a19f31092ad510e789b33f1c225c8cb4f83995857fe56d343b0654f",
+      "triangles": 1355033,
+      "segments": 0,
+      "url": "https://raw.githubusercontent.com/afterian/kenbechtold/06404d65326ee0b7bd22e1b62df2645096e7c989/fragments/academy-ic/media/model.meshopt.glb.gz"
+    },
+    {
+      "file": "wire.meshopt.glb.gz",
+      "bytes": 10888856,
+      "sha256": "fb86beb205943aa4a568f587896e7971a7c771c50ef112e447845e2033ac974e",
+      "triangles": 0,
+      "segments": 1767959,
+      "url": "https://raw.githubusercontent.com/afterian/kenbechtold/06404d65326ee0b7bd22e1b62df2645096e7c989/fragments/academy-ic/media/wire.meshopt.glb.gz"
+    }
+  ]
+}

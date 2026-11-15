@@ -1,0 +1,38 @@
+{
+  "id": "nike-md-runner-high",
+  "title": "MD Runner High",
+  "tags": [
+    "Fragments",
+    "3D",
+    "SubD",
+    "Modeling",
+    "Footwear",
+    "Nike",
+    "Polygon"
+  ],
+  "appearance": {
+    "name": "Gunmetal",
+    "color": "#5a5e68",
+    "metallic": 1,
+    "roughness": 0.26
+  },
+  "note": "Original source-edge display; no new subdivision. Lossless retained geometry.",
+  "assets": [
+    {
+      "file": "model.meshopt.glb.gz",
+      "bytes": 23625067,
+      "sha256": "e515f8a3bf618375e2573a2a07fc3ff22d1f6b0c9443a0e56579bda813b57a97",
+      "triangles": 1368148,
+      "segments": 0,
+      "url": "https://raw.githubusercontent.com/afterian/kenbechtold/06404d65326ee0b7bd22e1b62df2645096e7c989/fragments/nike-md-runner-high/media/model.meshopt.glb.gz"
+    },
+    {
+      "file": "wire.meshopt.glb.gz",
+      "bytes": 8430878,
+      "sha256": "46e35c8a1377a70a3e36c5353655532ebd956b0e96ec0911d2f92452760b16d2",
+      "triangles": 0,
+      "segments": 1544022,
+      "url": "https://raw.githubusercontent.com/afterian/kenbechtold/06404d65326ee0b7bd22e1b62df2645096e7c989/fragments/nike-md-runner-high/media/wire.meshopt.glb.gz"
+    }
+  ]
+}

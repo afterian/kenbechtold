@@ -1,0 +1,38 @@
+{
+  "id": "epic-react-2-147454-cmg",
+  "title": "Epic React 2 / 147454 / CMG",
+  "tags": [
+    "Fragments",
+    "3D",
+    "SubD",
+    "Modeling",
+    "Footwear",
+    "Nike",
+    "Polygon"
+  ],
+  "appearance": {
+    "name": "Gunmetal",
+    "color": "#5a5e68",
+    "metallic": 1,
+    "roughness": 0.26
+  },
+  "note": "Original source-edge display; no new subdivision. Lossless retained geometry.",
+  "assets": [
+    {
+      "file": "model.meshopt.glb.gz",
+      "bytes": 9723643,
+      "sha256": "8d0371dc3f4fe44e2d00d2cd4e6a105e21a35dcf39c244347f85f51dfa2a57f1",
+      "triangles": 742130,
+      "segments": 0,
+      "url": "https://raw.githubusercontent.com/afterian/kenbechtold/06404d65326ee0b7bd22e1b62df2645096e7c989/fragments/epic-react-2-147454-cmg/media/model.meshopt.glb.gz"
+    },
+    {
+      "file": "wire.meshopt.glb.gz",
+      "bytes": 5135438,
+      "sha256": "db7edd174993422aae8301fdfda217f3cb3639eeaf0b6699b414cb7edf1cdf8b",
+      "triangles": 0,
+      "segments": 991735,
+      "url": "https://raw.githubusercontent.com/afterian/kenbechtold/06404d65326ee0b7bd22e1b62df2645096e7c989/fragments/epic-react-2-147454-cmg/media/wire.meshopt.glb.gz"
+    }
+  ]
+}

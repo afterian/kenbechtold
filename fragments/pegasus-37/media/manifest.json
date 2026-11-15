@@ -1,0 +1,38 @@
+{
+  "id": "pegasus-37",
+  "title": "Pegasus 37",
+  "tags": [
+    "Fragments",
+    "3D",
+    "SubD",
+    "Modeling",
+    "Footwear",
+    "Nike",
+    "Polygon"
+  ],
+  "appearance": {
+    "name": "Gunmetal",
+    "color": "#5a5e68",
+    "metallic": 1,
+    "roughness": 0.26
+  },
+  "note": "Original source-edge display; no new subdivision. Lossless retained geometry.",
+  "assets": [
+    {
+      "file": "model.meshopt.glb.gz",
+      "bytes": 10786241,
+      "sha256": "d2d93d8939de41b79417039f2e6c76da3a3826b7a02ed925b74ba7a7cec120ac",
+      "triangles": 792520,
+      "segments": 0,
+      "url": "https://raw.githubusercontent.com/afterian/kenbechtold/06404d65326ee0b7bd22e1b62df2645096e7c989/fragments/pegasus-37/media/model.meshopt.glb.gz"
+    },
+    {
+      "file": "wire.meshopt.glb.gz",
+      "bytes": 6189391,
+      "sha256": "ad42066339f8989d057e189643596a31319ddbe7ef18ce20aef4e4ab041c9b4b",
+      "triangles": 0,
+      "segments": 1199283,
+      "url": "https://raw.githubusercontent.com/afterian/kenbechtold/06404d65326ee0b7bd22e1b62df2645096e7c989/fragments/pegasus-37/media/wire.meshopt.glb.gz"
+    }
+  ]
+}

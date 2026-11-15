@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "posters": {
+    "surface": {
+      "file": "poster.webp",
+      "sha256": "920b6d7cd6db1e62546ea2aff1cb0c1b4e83a3eb543f96d098ce5cd73fde7c56",
+      "bytes": 70082,
+      "width": 1200,
+      "height": 1200
+    },
+    "wire": {
+      "file": "topology.webp",
+      "sha256": "0cdd0f88b7854442967aab69b1ecc460308e26e0a7a00987862e4c02062283bf",
+      "bytes": 205122,
+      "width": 1200,
+      "height": 1200
+    }
+  }
+}

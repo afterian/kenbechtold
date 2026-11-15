@@ -1,0 +1,38 @@
+{
+  "id": "air-jordan-1-mid-554724-160-stitched-swoosh",
+  "title": "Air Jordan 1 Mid / Stitched Swoosh / 554724-160",
+  "tags": [
+    "Fragments",
+    "3D",
+    "SubD",
+    "Modeling",
+    "Footwear",
+    "Nike",
+    "Polygon"
+  ],
+  "appearance": {
+    "name": "Gunmetal",
+    "color": "#5a5e68",
+    "metallic": 1,
+    "roughness": 0.26
+  },
+  "note": "Original source-edge display; no new subdivision. Lossless retained geometry.",
+  "assets": [
+    {
+      "file": "model.meshopt.glb.gz",
+      "bytes": 17522035,
+      "sha256": "356381cdf781f8da136017c1d1d61b21a833899318b5143a614b05ec3c614eef",
+      "triangles": 1374260,
+      "segments": 0,
+      "url": "https://raw.githubusercontent.com/afterian/kenbechtold/06404d65326ee0b7bd22e1b62df2645096e7c989/fragments/air-jordan-1-mid-554724-160-stitched-swoosh/media/model.meshopt.glb.gz"
+    },
+    {
+      "file": "wire.meshopt.glb.gz",
+      "bytes": 7765498,
+      "sha256": "e1f60fcee1af3656700d7a699b78dd7c20c6b341e34a9fbf6c3cf62fdddeedd4",
+      "triangles": 0,
+      "segments": 1432331,
+      "url": "https://raw.githubusercontent.com/afterian/kenbechtold/06404d65326ee0b7bd22e1b62df2645096e7c989/fragments/air-jordan-1-mid-554724-160-stitched-swoosh/media/wire.meshopt.glb.gz"
+    }
+  ]
+}

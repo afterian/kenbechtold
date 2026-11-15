@@ -1,0 +1,38 @@
+{
+  "id": "air-max-verona",
+  "title": "Air Max Verona",
+  "tags": [
+    "Fragments",
+    "3D",
+    "SubD",
+    "Modeling",
+    "Footwear",
+    "Nike",
+    "Polygon"
+  ],
+  "appearance": {
+    "name": "Gunmetal",
+    "color": "#5a5e68",
+    "metallic": 1,
+    "roughness": 0.26
+  },
+  "note": "Original source-edge display; no new subdivision. Lossless retained geometry.",
+  "assets": [
+    {
+      "file": "model.meshopt.glb.gz",
+      "bytes": 12552001,
+      "sha256": "61fec33db11a7cf8d31b12eb98039fa3f3dee05ad40cd0ceb207655874fb2a31",
+      "triangles": 893061,
+      "segments": 0,
+      "url": "https://raw.githubusercontent.com/afterian/kenbechtold/06404d65326ee0b7bd22e1b62df2645096e7c989/fragments/air-max-verona/media/model.meshopt.glb.gz"
+    },
+    {
+      "file": "wire.meshopt.glb.gz",
+      "bytes": 6635548,
+      "sha256": "65dd5dd46f8c9ec32ffa9fa04d87fca1b943cfab176f417c7c28e3188424bbad",
+      "triangles": 0,
+      "segments": 1353282,
+      "url": "https://raw.githubusercontent.com/afterian/kenbechtold/06404d65326ee0b7bd22e1b62df2645096e7c989/fragments/air-max-verona/media/wire.meshopt.glb.gz"
+    }
+  ]
+}

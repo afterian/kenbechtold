@@ -1,0 +1,38 @@
+{
+  "id": "air-force-1-07-diamonds",
+  "title": "Air Force 1 '07 / Diamonds",
+  "tags": [
+    "Fragments",
+    "3D",
+    "SubD",
+    "Modeling",
+    "Footwear",
+    "Nike",
+    "Polygon"
+  ],
+  "appearance": {
+    "name": "Gunmetal",
+    "color": "#5a5e68",
+    "metallic": 1,
+    "roughness": 0.26
+  },
+  "note": "Original source-edge display; no new subdivision. Lossless retained geometry.",
+  "assets": [
+    {
+      "file": "model.meshopt.glb.gz",
+      "bytes": 22156923,
+      "sha256": "f5894400cec4608a733db6965b6f6a844b0bd7ed16fe0b88c0af240f3a8ca971",
+      "triangles": 1556874,
+      "segments": 0,
+      "url": "https://raw.githubusercontent.com/afterian/kenbechtold/06404d65326ee0b7bd22e1b62df2645096e7c989/fragments/air-force-1-07-diamonds/media/model.meshopt.glb.gz"
+    },
+    {
+      "file": "wire.meshopt.glb.gz",
+      "bytes": 9113757,
+      "sha256": "922a9029c32b6fb357c67c2b59296e7a71bdfc883a7cadb4fd9f2d46b96638ab",
+      "triangles": 0,
+      "segments": 2389508,
+      "url": "https://raw.githubusercontent.com/afterian/kenbechtold/06404d65326ee0b7bd22e1b62df2645096e7c989/fragments/air-force-1-07-diamonds/media/wire.meshopt.glb.gz"
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "id": "air-force-1-mid",
+  "title": "Air Force 1 Mid",
+  "tags": [
+    "Fragments",
+    "3D",
+    "SubD",
+    "Modeling",
+    "Footwear",
+    "Nike",
+    "Polygon"
+  ],
+  "appearance": {
+    "name": "Gunmetal",
+    "color": "#5a5e68",
+    "metallic": 1,
+    "roughness": 0.26
+  },
+  "note": "Original source-edge display; no new subdivision. Lossless retained geometry.",
+  "assets": [
+    {
+      "file": "model.meshopt.glb.gz",
+      "bytes": 8965191,
+      "sha256": "0eb7920c527d48ecadc1c5b20d9e2039c40b9fac104f474e5d48e80dcc7c2ab8",
+      "triangles": 688900,
+      "segments": 0,
+      "url": "https://raw.githubusercontent.com/afterian/kenbechtold/06404d65326ee0b7bd22e1b62df2645096e7c989/fragments/air-force-1-mid/media/model.meshopt.glb.gz"
+    },
+    {
+      "file": "wire.meshopt.glb.gz",
+      "bytes": 3496725,
+      "sha256": "358ef373b5eeba365a11c40d56ac8f867488d24847d66aceea9a9b872ee50a63",
+      "triangles": 0,
+      "segments": 826424,
+      "url": "https://raw.githubusercontent.com/afterian/kenbechtold/06404d65326ee0b7bd22e1b62df2645096e7c989/fragments/air-force-1-mid/media/wire.meshopt.glb.gz"
+    }
+  ]
+}

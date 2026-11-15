@@ -4,6 +4,7 @@ import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
 import { RectAreaLightUniformsLib } from 'three/addons/lights/RectAreaLightUniformsLib.js';
+import { MeshoptDecoder } from 'three/addons/libs/meshopt_decoder.module.js';
 
 function releaseTree(root) {
   if (!root) return;
@@ -23,11 +24,13 @@ function releaseTree(root) {
 export async function mountModelViewer(host, config) {
   let disposed = false, generation = 0, frame = 0, lastTime = 0;
   let visible = true, rotating = false, mode = 'surface', material = 'metal';
-  let renderer, scene, camera, controls, environment, surface, edges, modelGroup;
+  let renderer, scene, camera, controls, environment, backdrop, surface, edges, modelGroup;
   let metal, clay, depth, line, surfacePromise, wirePromise, normalization;
   let contextLost = false, resizeObserver, intersectionObserver;
   const requests = new Set(), loader = new GLTFLoader();
+  loader.setMeshoptDecoder(MeshoptDecoder);
   const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
+  rotating = !reducedMotion.matches;
   const listeners = [];
   const on = (node, event, fn, options) => {
     node.addEventListener(event, fn, options);
@@ -120,6 +123,23 @@ export async function mountModelViewer(host, config) {
     if (!rotating) pauseFrame();
     invalidate();
   }
+  function resizeBackdrop(width, height) {
+    if (!backdrop) return;
+    const canvas = backdrop.image, longest = Math.max(width, height);
+    const canvasWidth = Math.max(1, Math.round(512 * width / longest));
+    const canvasHeight = Math.max(1, Math.round(512 * height / longest));
+    if (canvas.width === canvasWidth && canvas.height === canvasHeight) return;
+    canvas.width = canvasWidth; canvas.height = canvasHeight;
+    const context = canvas.getContext('2d');
+    // Keep a circular falloff inside every edge, including narrow viewports.
+    const glow = context.createRadialGradient(canvasWidth / 2, canvasHeight / 2, 0,
+      canvasWidth / 2, canvasHeight / 2, Math.min(canvasWidth, canvasHeight) / 2);
+    glow.addColorStop(0, '#1b1d21');
+    glow.addColorStop(.5, '#111215');
+    glow.addColorStop(1, '#08080a');
+    context.fillStyle = glow; context.fillRect(0, 0, canvasWidth, canvasHeight);
+    backdrop.needsUpdate = true;
+  }
   function resize() {
     if (!renderer || !camera || disposed) return;
     const width = Math.max(1, viewport.clientWidth), height = Math.max(1, viewport.clientHeight);
@@ -129,6 +149,7 @@ export async function mountModelViewer(host, config) {
     camera.updateProjectionMatrix();
     renderer.setPixelRatio(Math.min(devicePixelRatio || 1, 2));
     renderer.setSize(width, height, false);
+    resizeBackdrop(width, height);
     invalidate();
   }
   function releaseGraphics() {
@@ -142,11 +163,12 @@ export async function mountModelViewer(host, config) {
     // A failed initial load may leave these materials unattached to the scene.
     [metal, clay, depth, line].forEach(value => value?.dispose());
     environment?.dispose();
+    backdrop?.dispose();
     if (renderer) {
       renderer.renderLists.dispose(); renderer.dispose(); renderer.forceContextLoss();
       renderer.domElement.remove();
     }
-    renderer = scene = camera = controls = environment = surface = edges = modelGroup = null;
+    renderer = scene = camera = controls = environment = backdrop = surface = edges = modelGroup = null;
     metal = clay = depth = line = null;
   }
   function lostContext(event) {
@@ -157,7 +179,10 @@ export async function mountModelViewer(host, config) {
   function restoredContext() { if (!disposed) state('error', '3D view ready to restart.', true); }
   function initialize() {
     releaseGraphics(); contextLost = false;
-    scene = new THREE.Scene(); scene.background = new THREE.Color('#08080a');
+    scene = new THREE.Scene();
+    backdrop = new THREE.CanvasTexture(document.createElement('canvas'));
+    backdrop.colorSpace = THREE.SRGBColorSpace;
+    scene.background = backdrop;
     camera = new THREE.OrthographicCamera(-2, 2, 1.4, -1.4, .1, 100);
     camera.position.set(3.4, 2.2, 6);
     renderer = new THREE.WebGLRenderer({ antialias: true, alpha: false, preserveDrawingBuffer: true });
@@ -214,6 +239,28 @@ export async function mountModelViewer(host, config) {
         buffer = buffer.buffer;
       } else buffer = await response.arrayBuffer();
       if (disposed || token !== generation) throw new DOMException('Canceled', 'AbortError');
+      // Hosts may send gzip unchanged or apply Content-Encoding themselves.
+      // Sniff actual body bytes so both responses and original raw GLBs work.
+      const signature = new Uint8Array(buffer, 0, Math.min(2, buffer.byteLength));
+      if (signature[0] === 0x1f && signature[1] === 0x8b) {
+        if (typeof DecompressionStream !== 'function') throw new Error('Gzip decompression unavailable');
+        const reader = new Blob([buffer]).stream().pipeThrough(new DecompressionStream('gzip')).getReader();
+        const cancel = () => { void reader.cancel().catch(() => {}); };
+        request.signal.addEventListener('abort', cancel, { once: true });
+        try {
+          const chunks = []; let length = 0;
+          for (;;) {
+            if (disposed || token !== generation || request.signal.aborted) throw new DOMException('Canceled', 'AbortError');
+            const { done, value } = await reader.read();
+            if (done) break;
+            chunks.push(value); length += value.byteLength;
+          }
+          const decoded = new Uint8Array(length); let offset = 0;
+          chunks.forEach(chunk => { decoded.set(chunk, offset); offset += chunk.byteLength; });
+          buffer = decoded.buffer;
+        } finally { request.signal.removeEventListener('abort', cancel); reader.releaseLock(); }
+      }
+      if (disposed || token !== generation || request.signal.aborted) throw new DOMException('Canceled', 'AbortError');
       const gltf = await loader.parseAsync(buffer, new URL('.', new URL(url, location.href)).href);
       if (disposed || token !== generation) { releaseTree(gltf.scene); throw new DOMException('Canceled', 'AbortError'); }
       return gltf.scene;

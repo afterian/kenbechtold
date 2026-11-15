@@ -1,0 +1,38 @@
+{
+  "id": "air-max-love-color2",
+  "title": "Air Max Love / Color 2",
+  "tags": [
+    "Fragments",
+    "3D",
+    "SubD",
+    "Modeling",
+    "Footwear",
+    "Nike",
+    "Polygon"
+  ],
+  "appearance": {
+    "name": "Gunmetal",
+    "color": "#5a5e68",
+    "metallic": 1,
+    "roughness": 0.26
+  },
+  "note": "Original source-edge display; no new subdivision. Lossless retained geometry.",
+  "assets": [
+    {
+      "file": "model.meshopt.glb.gz",
+      "bytes": 15164987,
+      "sha256": "00e643e56826732f5cd15f0141435c681f16b6ad21eec56fb1c685c72f6c75a1",
+      "triangles": 850594,
+      "segments": 0,
+      "url": "https://raw.githubusercontent.com/afterian/kenbechtold/06404d65326ee0b7bd22e1b62df2645096e7c989/fragments/air-max-love-color2/media/model.meshopt.glb.gz"
+    },
+    {
+      "file": "wire.meshopt.glb.gz",
+      "bytes": 6355333,
+      "sha256": "2de5cd162ff46eaa9f00f929de74131448be655170d14c5a14acadfc15b26ea3",
+      "triangles": 0,
+      "segments": 1287873,
+      "url": "https://raw.githubusercontent.com/afterian/kenbechtold/06404d65326ee0b7bd22e1b62df2645096e7c989/fragments/air-max-love-color2/media/wire.meshopt.glb.gz"
+    }
+  ]
+}

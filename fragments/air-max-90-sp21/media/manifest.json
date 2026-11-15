@@ -1,0 +1,38 @@
+{
+  "id": "air-max-90-sp21",
+  "title": "Air Max 90 / SP21",
+  "tags": [
+    "Fragments",
+    "3D",
+    "SubD",
+    "Modeling",
+    "Footwear",
+    "Nike",
+    "Polygon"
+  ],
+  "appearance": {
+    "name": "Gunmetal",
+    "color": "#5a5e68",
+    "metallic": 1,
+    "roughness": 0.26
+  },
+  "note": "Original source-edge display; no new subdivision. Lossless retained geometry.",
+  "assets": [
+    {
+      "file": "model.meshopt.glb.gz",
+      "bytes": 17841854,
+      "sha256": "74aa1712786406d37cd3618574f5fcf1a817517697eb9154bab31a134a1cb886",
+      "triangles": 1419383,
+      "segments": 0,
+      "url": "https://raw.githubusercontent.com/afterian/kenbechtold/06404d65326ee0b7bd22e1b62df2645096e7c989/fragments/air-max-90-sp21/media/model.meshopt.glb.gz"
+    },
+    {
+      "file": "wire.meshopt.glb.gz",
+      "bytes": 8276737,
+      "sha256": "b4ce494cc078345a94d52dbc70da4c77c2715a837e7a92f210dfd3fd6fd74ed2",
+      "triangles": 0,
+      "segments": 1588098,
+      "url": "https://raw.githubusercontent.com/afterian/kenbechtold/06404d65326ee0b7bd22e1b62df2645096e7c989/fragments/air-max-90-sp21/media/wire.meshopt.glb.gz"
+    }
+  ]
+}

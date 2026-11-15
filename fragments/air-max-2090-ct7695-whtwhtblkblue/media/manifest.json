@@ -1,0 +1,38 @@
+{
+  "id": "air-max-2090-ct7695-whtwhtblkblue",
+  "title": "Air Max 2090 / CT7695 / WHTWHTBLKBLUE",
+  "tags": [
+    "Fragments",
+    "3D",
+    "SubD",
+    "Modeling",
+    "Footwear",
+    "Nike",
+    "Polygon"
+  ],
+  "appearance": {
+    "name": "Gunmetal",
+    "color": "#5a5e68",
+    "metallic": 1,
+    "roughness": 0.26
+  },
+  "note": "Original source-edge display; no new subdivision. Lossless retained geometry.",
+  "assets": [
+    {
+      "file": "model.meshopt.glb.gz",
+      "bytes": 16101165,
+      "sha256": "fcb6b6d37026866c4ec380208216aa8faa26c74b343722ecbf9844a6723ced1f",
+      "triangles": 1272474,
+      "segments": 0,
+      "url": "https://raw.githubusercontent.com/afterian/kenbechtold/06404d65326ee0b7bd22e1b62df2645096e7c989/fragments/air-max-2090-ct7695-whtwhtblkblue/media/model.meshopt.glb.gz"
+    },
+    {
+      "file": "wire.meshopt.glb.gz",
+      "bytes": 7896344,
+      "sha256": "8e5c162a8eeadd9c086abb8b19b7374c753caf71b802fa8bf93d495644ca274c",
+      "triangles": 0,
+      "segments": 1941977,
+      "url": "https://raw.githubusercontent.com/afterian/kenbechtold/06404d65326ee0b7bd22e1b62df2645096e7c989/fragments/air-max-2090-ct7695-whtwhtblkblue/media/wire.meshopt.glb.gz"
+    }
+  ]
+}

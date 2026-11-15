@@ -1,0 +1,38 @@
+{
+  "id": "vapor-academy-ag",
+  "title": "Vapor Academy / AG",
+  "tags": [
+    "Fragments",
+    "3D",
+    "SubD",
+    "Modeling",
+    "Footwear",
+    "Nike",
+    "Polygon"
+  ],
+  "appearance": {
+    "name": "Gunmetal",
+    "color": "#5a5e68",
+    "metallic": 1,
+    "roughness": 0.26
+  },
+  "note": "Original source-edge display; no new subdivision. Lossless retained geometry.",
+  "assets": [
+    {
+      "file": "model.meshopt.glb.gz",
+      "bytes": 6128847,
+      "sha256": "d5c24728add287d322ead4dfb82491d32665c9c432bfc4526dfd4aaa9c543859",
+      "triangles": 337485,
+      "segments": 0,
+      "url": "https://raw.githubusercontent.com/afterian/kenbechtold/06404d65326ee0b7bd22e1b62df2645096e7c989/fragments/vapor-academy-ag/media/model.meshopt.glb.gz"
+    },
+    {
+      "file": "wire.meshopt.glb.gz",
+      "bytes": 2890700,
+      "sha256": "35b70905d9f59204909b338156292e7a70e5257215337c4548c0f5701c22070b",
+      "triangles": 0,
+      "segments": 476091,
+      "url": "https://raw.githubusercontent.com/afterian/kenbechtold/06404d65326ee0b7bd22e1b62df2645096e7c989/fragments/vapor-academy-ag/media/wire.meshopt.glb.gz"
+    }
+  ]
+}

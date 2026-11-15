@@ -1,0 +1,38 @@
+{
+  "id": "kyrie-low",
+  "title": "Kyrie Low",
+  "tags": [
+    "Fragments",
+    "3D",
+    "SubD",
+    "Modeling",
+    "Footwear",
+    "Nike",
+    "Polygon"
+  ],
+  "appearance": {
+    "name": "Gunmetal",
+    "color": "#5a5e68",
+    "metallic": 1,
+    "roughness": 0.26
+  },
+  "note": "Original source-edge display; no new subdivision. Lossless retained geometry.",
+  "assets": [
+    {
+      "file": "model.meshopt.glb.gz",
+      "bytes": 154219,
+      "sha256": "0fb7ad6fad58271b5a710fd71dccf23d1cfd364184b0675511b2e0c01b820d14",
+      "triangles": 11479,
+      "segments": 0,
+      "url": "https://raw.githubusercontent.com/afterian/kenbechtold/06404d65326ee0b7bd22e1b62df2645096e7c989/fragments/kyrie-low/media/model.meshopt.glb.gz"
+    },
+    {
+      "file": "wire.meshopt.glb.gz",
+      "bytes": 78205,
+      "sha256": "ef70c64663c0d2d5610445dc187c1cde5c88a03b9f2cb8af134ac4c180003a22",
+      "triangles": 0,
+      "segments": 12351,
+      "url": "https://raw.githubusercontent.com/afterian/kenbechtold/06404d65326ee0b7bd22e1b62df2645096e7c989/fragments/kyrie-low/media/wire.meshopt.glb.gz"
+    }
+  ]
+}

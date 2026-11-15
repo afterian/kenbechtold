@@ -1,0 +1,38 @@
+{
+  "id": "dysonsphere",
+  "title": "Dysonsphere",
+  "tags": [
+    "Fragments",
+    "3D",
+    "SubD",
+    "Modeling",
+    "Footwear",
+    "Nike",
+    "Polygon"
+  ],
+  "appearance": {
+    "name": "Gunmetal",
+    "color": "#5a5e68",
+    "metallic": 1,
+    "roughness": 0.26
+  },
+  "note": "Original source-edge display; no new subdivision. Lossless retained geometry.",
+  "assets": [
+    {
+      "file": "model.meshopt.glb.gz",
+      "bytes": 20974639,
+      "sha256": "1664385bc05198409fcebe4e42b4b6eab8ceb81cd06877fc02ac40b49d93ea8a",
+      "triangles": 1538324,
+      "segments": 0,
+      "url": "https://raw.githubusercontent.com/afterian/kenbechtold/06404d65326ee0b7bd22e1b62df2645096e7c989/fragments/dysonsphere/media/model.meshopt.glb.gz"
+    },
+    {
+      "file": "wire.meshopt.glb.gz",
+      "bytes": 10160582,
+      "sha256": "5eac6425f8f1af977d7017666fd830ab7c0314d2486dd115c16976a7bf3fdcde",
+      "triangles": 0,
+      "segments": 1851885,
+      "url": "https://raw.githubusercontent.com/afterian/kenbechtold/06404d65326ee0b7bd22e1b62df2645096e7c989/fragments/dysonsphere/media/wire.meshopt.glb.gz"
+    }
+  ]
+}

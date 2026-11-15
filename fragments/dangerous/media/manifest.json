@@ -1,0 +1,38 @@
+{
+  "id": "dangerous",
+  "title": "Dangerous",
+  "tags": [
+    "Fragments",
+    "3D",
+    "SubD",
+    "Modeling",
+    "Footwear",
+    "Nike",
+    "Polygon"
+  ],
+  "appearance": {
+    "name": "Gunmetal",
+    "color": "#5a5e68",
+    "metallic": 1,
+    "roughness": 0.26
+  },
+  "note": "Original source-edge display; no new subdivision. Lossless retained geometry.",
+  "assets": [
+    {
+      "file": "model.meshopt.glb.gz",
+      "bytes": 10176826,
+      "sha256": "dbfaea190e2f8d0aa98d8936ecc2c715591f91d5349aa992bfc951cdaf48dbe0",
+      "triangles": 744775,
+      "segments": 0,
+      "url": "https://raw.githubusercontent.com/afterian/kenbechtold/06404d65326ee0b7bd22e1b62df2645096e7c989/fragments/dangerous/media/model.meshopt.glb.gz"
+    },
+    {
+      "file": "wire.meshopt.glb.gz",
+      "bytes": 5179057,
+      "sha256": "beb783ef9e4654528b6e7884bf200bd051309e593c37985acb479a30e1c20880",
+      "triangles": 0,
+      "segments": 1126061,
+      "url": "https://raw.githubusercontent.com/afterian/kenbechtold/06404d65326ee0b7bd22e1b62df2645096e7c989/fragments/dangerous/media/wire.meshopt.glb.gz"
+    }
+  ]
+}

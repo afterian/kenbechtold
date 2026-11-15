@@ -12,6 +12,7 @@ pixels();
 export const ROOT = new URL('../../', import.meta.url).href; // site root, wherever it is hosted
 export const $ = (s, r = document) => r.querySelector(s);
 export const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+export const escapeHTML = (value) => String(value ?? '').replace(/[&<>"']/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[char]));
 export const pad = (n) => String(n).padStart(2, '0');
 export const projectURL = (id) => `${ROOT}work/${id}/`;
 
@@ -38,17 +39,35 @@ addEventListener('pageshow', () => document.body.classList.remove('leaving'));
    media(item) returns the markup for a project or fragment: a real image when the item
    has `img`, otherwise a procedural placeholder (<div class="media" data-still ...>). */
 export function media(p, { w = 960, h = 600, hover = true, cls = '' } = {}) {
-  const c = `media${cls ? ' ' + cls : ''}`;
+  const c = escapeHTML(`media${cls ? ' ' + cls : ''}`);
+  const title = escapeHTML(p.title);
   if (p.video) {
     const poster = p.poster || p.img;
-    return `<div class="${c}"><video src="${ROOT}${p.video}"${poster ? ` poster="${ROOT}${poster}"` : ''} muted loop playsinline preload="none" data-hover aria-label="${p.title}"></video></div>`;
+    return `<div class="${c}"><video src="${escapeHTML(ROOT + p.video)}"${poster ? ` poster="${escapeHTML(ROOT + poster)}"` : ''} muted loop playsinline preload="none" data-hover aria-label="${title}"></video></div>`;
   }
   if (p.img) {
-    return `<div class="${c}"><img class="media__a" src="${ROOT}${p.img}" alt="${p.imgAlt || p.title}" loading="lazy">${
-      p.hover && hover ? `<img class="media__b" src="${ROOT}${p.hover}" alt="" loading="lazy">` : ''}</div>`;
+    const alternate = p.hover && hover ? `<img class="media__b" ${p.model ? 'data-hover-src' : 'src'}="${escapeHTML(ROOT + p.hover)}" alt="" loading="lazy">` : '';
+    return `<div class="${c}"><img class="media__a" src="${escapeHTML(ROOT + p.img)}" alt="${escapeHTML(p.imgAlt || p.title)}" loading="lazy">${alternate}</div>`;
   }
-  return `<div class="${c}" data-still data-form="${p.form}" data-seed="${p.seed}" data-look="${p.look || 0}"${
-    hover ? ' data-hover="wire"' : ''} data-w="${w}" data-h="${h}" data-alt="${p.title}"></div>`;
+  return `<div class="${c}" data-still data-form="${escapeHTML(p.form)}" data-seed="${escapeHTML(p.seed)}" data-look="${escapeHTML(p.look || 0)}"${
+    hover ? ' data-hover="wire"' : ''} data-w="${w}" data-h="${h}" data-alt="${title}"></div>`;
+}
+
+// Model cards stay image-only. Their alternate poster starts downloading on intent.
+function hoverPosters(root) {
+  $$('img[data-hover-src]:not([data-hover-bound])', root).forEach(image => {
+    image.dataset.hoverBound = '1';
+    const host = image.closest('a, button') || image.parentElement;
+    const activate = event => {
+      if (event.pointerType === 'touch') return;
+      image.src = image.dataset.hoverSrc;
+      delete image.dataset.hoverSrc;
+      host.removeEventListener('pointerenter', activate);
+      host.removeEventListener('focusin', activate);
+    };
+    host.addEventListener('pointerenter', activate);
+    host.addEventListener('focusin', activate);
+  });
 }
 
 // Placeholders render lazily as they near the viewport (data-eager skips the wait).
@@ -73,6 +92,7 @@ async function loadStill(el) {
   if (w) b.src = w;
 }
 export function stills(root = document) {
+  hoverPosters(root);
   sio = sio || new IntersectionObserver((es) => es.forEach((e) => {
     if (e.isIntersecting) { sio.unobserve(e.target); loadStill(e.target); }
   }), { rootMargin: '60% 0px' });
@@ -320,14 +340,27 @@ export function lightbox() {
   el.setAttribute('aria-hidden', 'true');
   el.inert = true;
   el.innerHTML = `
-    <div class="lb__top"><span class="lb__n"></span><span class="lb__t"></span><button type="button" class="lb__x">Close ×</button></div>
+    <div class="lb__top"><span class="lb__n"></span><span class="lb__t"></span><button type="button" class="lb__x" aria-label="Close"><span>Close</span><svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="m5 5 10 10M15 5 5 15"/></svg></button></div>
     <div class="lb__stage"><img class="lb__a" alt=""><img class="lb__b" alt=""></div>
-    <div class="lb__bot"><button type="button" data-d="-1">← Prev</button><button type="button" class="lb__w" aria-pressed="false">Wireframe</button><button type="button" data-d="1">Next →</button></div>`;
+    <div class="lb__bot">${[-1, 1].map(direction => `<button type="button" class="lb__nav" data-d="${direction}"><svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="${direction < 0 ? 'm12 4-6 6 6 6' : 'm8 4 6 6-6 6'}"/></svg><img class="lb__preview" alt=""><span class="lb__nav-copy"><span class="lb__direction">${direction < 0 ? 'Prev' : 'Next'}</span><span class="lb__title"></span></span></button>`).join('<button type="button" class="lb__w" aria-pressed="false">Wireframe</button>')}</div>`;
   document.body.append(el);
   const A = $('.lb__a', el), B = $('.lb__b', el), W = $('.lb__w', el), X = $('.lb__x', el);
   const stage = $('.lb__stage', el);
   let items = [], i = 0, opener = null, generation = 0, modelHandle = null, modelHost = null;
   let overflow = '', scroll = [0, 0];
+  const navigation = () => {
+    $$('[data-d]', el).forEach(button => {
+      const adjacent = items[(i + Number(button.dataset.d) + items.length) % items.length];
+      const image = $('.lb__preview', button), source = adjacent.img || adjacent.poster || adjacent.model?.poster;
+      button.disabled = items.length < 2;
+      button.dataset.id = adjacent.id || '';
+      button.setAttribute('aria-label', `${Number(button.dataset.d) < 0 ? 'Previous' : 'Next'}: ${adjacent.title}`);
+      $('.lb__title', button).textContent = adjacent.title;
+      image.hidden = !source;
+      if (source) image.src = new URL(source, ROOT).href;
+      else image.removeAttribute('src');
+    });
+  };
   const stopVideo = () => {
     const old = $('.lb__v', stage);
     if (!old) return;
@@ -360,6 +393,7 @@ export function lightbox() {
   const show = async () => {
     const p = items[i], me = ++generation;
     stopVideo(); stopModel();
+    navigation();
     el.classList.remove('wire'); W.setAttribute('aria-pressed', 'false');
     $('.lb__n', el).textContent = `${pad(i + 1)} / ${pad(items.length)}`;
     const tags = p.model ? (p.tags || [p.tag]).join(' / ') : p.tag;
@@ -378,7 +412,7 @@ export function lightbox() {
       stage.append(host); modelHost = host;
       modelFallback(host, p);
       try {
-        const { mountModelViewer } = await import('./footwear-viewer.js?v=fill-1');
+        const { mountModelViewer } = await import('./footwear-viewer.js?v=footwear-32');
         if (me !== generation) return;
         const config = { ...p.model };
         for (const key of ['model', 'wire', 'poster']) if (config[key]) config[key] = new URL(config[key], ROOT).href;
@@ -397,7 +431,7 @@ export function lightbox() {
     if (p.video) {
       // clips open in the full player, with sound available
       const poster = p.poster || p.img;
-      stage.insertAdjacentHTML('beforeend', `<div class="media lb__v"><video src="${ROOT}${p.video}"${poster ? ` poster="${ROOT}${poster}"` : ''} controls playsinline preload="metadata" aria-label="${p.title}"></video></div>`);
+      stage.insertAdjacentHTML('beforeend', `<div class="media lb__v"><video src="${escapeHTML(ROOT + p.video)}"${poster ? ` poster="${escapeHTML(ROOT + poster)}"` : ''} controls playsinline preload="metadata" aria-label="${escapeHTML(p.title)}"></video></div>`);
       videos(stage);
       return;
     }
@@ -413,7 +447,7 @@ export function lightbox() {
     m.still(o).then((u) => { if (me === generation && u) { A.src = u; A.style.opacity = ''; } }).catch(no3d);
     m.still({ ...o, mode: 'wire' }).then((u) => { if (me === generation && u) B.src = u; }).catch(no3d);
   };
-  const go = (d) => { i = (i + d + items.length) % items.length; show(); };
+  const go = (d) => { if (items.length < 2) return; i = (i + d + items.length) % items.length; show(); };
   const close = () => {
     ++generation; stopVideo(); stopModel();
     el.classList.remove('open', 'wire', 'lb--model');

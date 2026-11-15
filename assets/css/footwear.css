@@ -24,6 +24,22 @@
 .lb--model .lb__model { position: absolute; inset: 0; min-height: 0; }
 .lb--model .lb__t { display: block; }
 .lb--model .lb__top { align-items: flex-start; }
+.lb .lb__x { display: inline-flex; flex: none; align-items: center; justify-content: center; gap: 10px; min-width: 94px; min-height: 44px; background: var(--fg); color: var(--bg); border-color: var(--fg); }
+.lb .lb__x:hover { background: var(--acc); border-color: var(--acc); color: var(--bg); }
+.lb__x svg, .lb__nav svg { width: 20px; height: 20px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+.lb .lb__x:focus-visible, .lb .lb__nav:focus-visible { outline: 2px solid var(--acc); outline-offset: 3px; }
+.lb__bot { gap: 12px; }
+.lb .lb__nav { display: flex; align-items: center; gap: 12px; flex: 0 1 320px; min-width: 0; min-height: 74px; padding: 8px 12px; border-radius: var(--r); border-color: #43464c; background: #272a2f; color: var(--fg); text-align: left; white-space: normal; }
+.lb .lb__nav:hover { border-color: var(--acc); background: #30382f; color: var(--acc); }
+.lb .lb__nav:disabled { opacity: .45; cursor: default; }
+.lb .lb__nav:disabled:hover { border-color: #43464c; background: #272a2f; color: var(--fg); }
+.lb__nav .lb__preview { display: block; flex: none; width: 68px; height: 54px; object-fit: contain; background: var(--bg); border-radius: var(--r); }
+.lb__nav .lb__preview[hidden] { display: none; }
+.lb__nav-copy { display: flex; flex-direction: column; gap: 7px; min-width: 0; }
+.lb__direction { color: #b9bfc5; font-size: 10px; letter-spacing: .1em; }
+.lb__title { overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; font-size: 11px; line-height: 1.35; overflow-wrap: anywhere; }
+.lb__nav[data-d="1"] { flex-direction: row-reverse; text-align: right; }
+.lb__nav[data-d="1"] .lb__nav-copy { margin-left: auto; }
 @media (max-width: 560px) {
   .fragment-page { padding-top: 12px; }
   .fragment-page__head { padding-top: 12px; }
@@ -35,4 +51,17 @@
   .lb--model .lb__n { margin-right: 0; }
   .lb--model .lb__t { flex: 1; min-width: 120px; font-size: 10px; }
   .lb--model .footwear__viewport { min-height: 100px; }
+  .lb__top { gap: 8px 12px; }
+  .lb__bot { flex-wrap: wrap; gap: 8px; padding-top: 10px; padding-bottom: 10px; }
+  .lb .lb__nav { display: grid; grid-template-columns: 14px 40px minmax(0, 1fr); flex: 1 1 calc(50% - 4px); gap: 5px 6px; min-height: 92px; padding: 8px; }
+  .lb__nav svg { width: 14px; height: 18px; }
+  .lb__nav .lb__preview { width: 40px; height: 36px; }
+  .lb__nav-copy { display: contents; }
+  .lb__title { grid-column: 1 / -1; grid-row: 2; font-size: 10px; letter-spacing: .02em; }
+  .lb__direction { font-size: 9px; }
+  .lb__nav[data-d="1"] { grid-template-columns: minmax(0, 1fr) 40px 14px; }
+  .lb__nav[data-d="1"] svg { grid-column: 3; grid-row: 1; }
+  .lb__nav[data-d="1"] .lb__preview { grid-column: 2; grid-row: 1; }
+  .lb__nav[data-d="1"] .lb__direction { grid-column: 1; grid-row: 1; }
+  .lb__bot .lb__w { order: 1; margin: 0 auto; }
 }

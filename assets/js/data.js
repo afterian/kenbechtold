@@ -1,3 +1,5 @@
+import { FOOTWEAR } from './footwear-catalog.js';
+
 // Site content. Everything on the home page is rendered from this file.
 // Copy here is still placeholder; titles come from the resume.
 
@@ -20,48 +22,15 @@ export const PROJECTS = [
 ];
 
 // Fragments: single pieces shown in the grid at the bottom of the home page.
-// Same media rules as projects. tags support multiple filter chips; tag is the short card label.
-const NAMES = ['Material study', 'Loop 014', 'Node graph', 'Rig test', 'Splat pass', 'Turntable', 'Lighting test', 'Colorway set', 'Shader ball', 'Capture pass', 'Title card', 'Tool UI'];
-const TAGS = ['3D', 'Motion', 'AI', '3D', 'AI', 'Motion', '3D', 'AI', '3D', 'Tools', 'Motion', 'Tools'];
-const FORMS = ['knot', 'ribbon', 'blob', 'ring', 'terrain', 'shape', 'vase'];
-
-export const PIECES = [{
-  id: 'kyrie-7',
-  title: 'Kyrie 7',
-  tag: '3D',
-  tags: ['Fragments', '3D', 'SubD', 'Modeling', 'Footwear', 'Nike', 'Polygon'],
-  img: 'fragments/kyrie-7/media/poster.webp',
-  hover: 'fragments/kyrie-7/media/topology.webp',
-  href: 'fragments/kyrie-7/',
-  model: {
-    title: 'Kyrie 7',
-    model: 'fragments/kyrie-7/media/model.glb',
-    wire: 'fragments/kyrie-7/media/wire.glb',
-    poster: 'fragments/kyrie-7/media/poster.webp',
-    modelBytes: 1842716,
-    wireBytes: 1426604,
-    triangles: 76491,
-    edgeSegments: 116630,
-  },
-}, ...NAMES.map((title, i) => ({
-  id: 's' + (i + 1),
-  title,
-  tag: TAGS[i],
-  year: String(2026 - (i >> 1)),
-  form: FORMS[i % 7],
-  seed: 40 + i * 13,
-  look: i % 3,
-}))];
-
-// Video: add  video: '<path>.mp4'  and  poster: '<path>.jpg'  to any project or fragment.
-// It previews silently on hover; fragments open in the full player with sound.
-// A project with `video` that is first in PROJECTS plays it as the hero background.
-// These three use the placeholder clips; replace them with real ones.
+// tags support multiple filter chips; tag is the short card label.
+// Video fragments preview silently on hover and open in the full player with sound.
 const LOOP = { video: 'assets/media/placeholder-loop.mp4', poster: 'assets/media/placeholder-loop.jpg' };
 const FILM = { video: 'assets/media/placeholder-film.mp4', poster: 'assets/media/placeholder-film.jpg' };
-Object.assign(PIECES.find(p => p.id === 's2'), LOOP);   // Loop 014
-Object.assign(PIECES.find(p => p.id === 's6'), LOOP);   // Turntable
-Object.assign(PIECES.find(p => p.id === 's11'), FILM);  // Title card (has sound)
+export const PIECES = [...FOOTWEAR,
+  { id: 's2', title: 'Loop 014', tag: 'Motion', year: '2026', form: 'ribbon', seed: 53, look: 1, ...LOOP },
+  { id: 's6', title: 'Turntable', tag: 'Motion', year: '2024', form: 'shape', seed: 105, look: 2, ...LOOP },
+  { id: 's11', title: 'Title card', tag: 'Motion', year: '2021', form: 'ring', seed: 170, look: 1, ...FILM },
+];
 
 // Access codes: a visitor types one in the top bar and the site reorders around their picks.
 // The first id in `order` becomes the hero. These are plain text in a public file:

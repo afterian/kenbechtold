@@ -1,0 +1,38 @@
+{
+  "id": "superfly-academy-ag",
+  "title": "Superfly Academy / AG",
+  "tags": [
+    "Fragments",
+    "3D",
+    "SubD",
+    "Modeling",
+    "Footwear",
+    "Nike",
+    "Polygon"
+  ],
+  "appearance": {
+    "name": "Gunmetal",
+    "color": "#5a5e68",
+    "metallic": 1,
+    "roughness": 0.26
+  },
+  "note": "Original source-edge display; no new subdivision. Lossless retained geometry.",
+  "assets": [
+    {
+      "file": "model.meshopt.glb.gz",
+      "bytes": 15834146,
+      "sha256": "efcf79d49e394fec1c83c0cd08dc97287c293fc6c9c5b18f1cc3a652cdb935e2",
+      "triangles": 1147631,
+      "segments": 0,
+      "url": "https://raw.githubusercontent.com/afterian/kenbechtold/06404d65326ee0b7bd22e1b62df2645096e7c989/fragments/superfly-academy-ag/media/model.meshopt.glb.gz"
+    },
+    {
+      "file": "wire.meshopt.glb.gz",
+      "bytes": 8541324,
+      "sha256": "3e7ee08fd905adbfac47998ddf9ea74095f22c2620d8163f6c6a28274777142f",
+      "triangles": 0,
+      "segments": 1741155,
+      "url": "https://raw.githubusercontent.com/afterian/kenbechtold/06404d65326ee0b7bd22e1b62df2645096e7c989/fragments/superfly-academy-ag/media/wire.meshopt.glb.gz"
+    }
+  ]
+}

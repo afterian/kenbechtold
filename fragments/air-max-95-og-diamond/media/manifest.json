@@ -1,0 +1,38 @@
+{
+  "id": "air-max-95-og-diamond",
+  "title": "Air Max 95 OG / Diamond",
+  "tags": [
+    "Fragments",
+    "3D",
+    "SubD",
+    "Modeling",
+    "Footwear",
+    "Nike",
+    "Polygon"
+  ],
+  "appearance": {
+    "name": "Gunmetal",
+    "color": "#5a5e68",
+    "metallic": 1,
+    "roughness": 0.26
+  },
+  "note": "Original source-edge display; no new subdivision. Lossless retained geometry.",
+  "assets": [
+    {
+      "file": "model.meshopt.glb.gz",
+      "bytes": 13992837,
+      "sha256": "f1089fb94d594029959d1fe184939b09538c1427176a3fd4e76dafb490382187",
+      "triangles": 1046168,
+      "segments": 0,
+      "url": "https://raw.githubusercontent.com/afterian/kenbechtold/06404d65326ee0b7bd22e1b62df2645096e7c989/fragments/air-max-95-og-diamond/media/model.meshopt.glb.gz"
+    },
+    {
+      "file": "wire.meshopt.glb.gz",
+      "bytes": 7334604,
+      "sha256": "0e1987253498691bf39ebf07cb2254be6a924fda5a109e1b7dc47c1a51e2bf0f",
+      "triangles": 0,
+      "segments": 1591017,
+      "url": "https://raw.githubusercontent.com/afterian/kenbechtold/06404d65326ee0b7bd22e1b62df2645096e7c989/fragments/air-max-95-og-diamond/media/wire.meshopt.glb.gz"
+    }
+  ]
+}
