@@ -1,0 +1,38 @@
+{
+  "id": "air-jordan-6-retro",
+  "title": "Air Jordan 6 Retro",
+  "tags": [
+    "Fragments",
+    "3D",
+    "SubD",
+    "Modeling",
+    "Footwear",
+    "Nike",
+    "Polygon"
+  ],
+  "appearance": {
+    "name": "Gunmetal",
+    "color": "#5a5e68",
+    "metallic": 1,
+    "roughness": 0.26
+  },
+  "note": "Original source-edge display. Lossless retained geometry.",
+  "assets": [
+    {
+      "file": "model.meshopt.glb.gz",
+      "bytes": 10947030,
+      "sha256": "f750a45e2e49df6e9a19a095ec154bd5347c603c631fb744ad6d5a89d8a2fa73",
+      "triangles": 816746,
+      "segments": 0,
+      "url": "https://raw.githubusercontent.com/afterian/kenbechtold/1bbee6d97e806cf60a3eeba03162e0fac5d6e439/fragments/air-jordan-6-retro/media/model.meshopt.glb.gz"
+    },
+    {
+      "file": "wire.meshopt.glb.gz",
+      "bytes": 4266141,
+      "sha256": "ef9312ec86e554999a1e4d7400aade39bdf0270c4592b16df1a6e18afa9c84c8",
+      "triangles": 0,
+      "segments": 849917,
+      "url": "https://raw.githubusercontent.com/afterian/kenbechtold/1bbee6d97e806cf60a3eeba03162e0fac5d6e439/fragments/air-jordan-6-retro/media/wire.meshopt.glb.gz"
+    }
+  ]
+}

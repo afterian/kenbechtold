@@ -1,0 +1,38 @@
+{
+  "id": "nike-cortez-basic-16-jewel",
+  "title": "Cortez Basic 16 / Jewel",
+  "tags": [
+    "Fragments",
+    "3D",
+    "SubD",
+    "Modeling",
+    "Footwear",
+    "Nike",
+    "Polygon"
+  ],
+  "appearance": {
+    "name": "Gunmetal",
+    "color": "#5a5e68",
+    "metallic": 1,
+    "roughness": 0.26
+  },
+  "note": "Original source-edge display. Lossless retained geometry.",
+  "assets": [
+    {
+      "file": "model.meshopt.glb.gz",
+      "bytes": 8752080,
+      "sha256": "fe8cbe7ae3a958fbe3ff8418e3a8b4a814bb70232a5f6f600f1abf1e52a97f65",
+      "triangles": 479135,
+      "segments": 0,
+      "url": "https://raw.githubusercontent.com/afterian/kenbechtold/1bbee6d97e806cf60a3eeba03162e0fac5d6e439/fragments/nike-cortez-basic-16-jewel/media/model.meshopt.glb.gz"
+    },
+    {
+      "file": "wire.meshopt.glb.gz",
+      "bytes": 2654630,
+      "sha256": "3e80a468e85aa9ce72d1465534dffef49c980c3a9eb18bf0b864e39ba99b2d67",
+      "triangles": 0,
+      "segments": 556558,
+      "url": "https://raw.githubusercontent.com/afterian/kenbechtold/1bbee6d97e806cf60a3eeba03162e0fac5d6e439/fragments/nike-cortez-basic-16-jewel/media/wire.meshopt.glb.gz"
+    }
+  ]
+}

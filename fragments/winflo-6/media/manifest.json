@@ -1,0 +1,38 @@
+{
+  "id": "winflo-6",
+  "title": "Winflo 6",
+  "tags": [
+    "Fragments",
+    "3D",
+    "SubD",
+    "Modeling",
+    "Footwear",
+    "Nike",
+    "Polygon"
+  ],
+  "appearance": {
+    "name": "Gunmetal",
+    "color": "#5a5e68",
+    "metallic": 1,
+    "roughness": 0.26
+  },
+  "note": "Original source-edge display. Lossless retained geometry.",
+  "assets": [
+    {
+      "file": "model.meshopt.glb.gz",
+      "bytes": 3942497,
+      "sha256": "a37d005e12d3c4d6018697f3a2bc9801260aff289577ef2eb7aaaf2461f23427",
+      "triangles": 257510,
+      "segments": 0,
+      "url": "https://raw.githubusercontent.com/afterian/kenbechtold/1bbee6d97e806cf60a3eeba03162e0fac5d6e439/fragments/winflo-6/media/model.meshopt.glb.gz"
+    },
+    {
+      "file": "wire.meshopt.glb.gz",
+      "bytes": 1715551,
+      "sha256": "c9e0035d8b71f6d02917ee1bacf596593e2e3e7778e21595a300bec4b29b9b5d",
+      "triangles": 0,
+      "segments": 347786,
+      "url": "https://raw.githubusercontent.com/afterian/kenbechtold/1bbee6d97e806cf60a3eeba03162e0fac5d6e439/fragments/winflo-6/media/wire.meshopt.glb.gz"
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "id": "air-max-excee",
+  "title": "Air Max Excee",
+  "tags": [
+    "Fragments",
+    "3D",
+    "SubD",
+    "Modeling",
+    "Footwear",
+    "Nike",
+    "Polygon"
+  ],
+  "appearance": {
+    "name": "Gunmetal",
+    "color": "#5a5e68",
+    "metallic": 1,
+    "roughness": 0.26
+  },
+  "note": "Original source-edge display. Lossless retained geometry.",
+  "assets": [
+    {
+      "file": "model.meshopt.glb.gz",
+      "bytes": 9902143,
+      "sha256": "5e714bee4e0fc48ec6642f5c7cd5a3e42a1498f24454573c6db3cc9ed121f01b",
+      "triangles": 743238,
+      "segments": 0,
+      "url": "https://raw.githubusercontent.com/afterian/kenbechtold/1bbee6d97e806cf60a3eeba03162e0fac5d6e439/fragments/air-max-excee/media/model.meshopt.glb.gz"
+    },
+    {
+      "file": "wire.meshopt.glb.gz",
+      "bytes": 4305694,
+      "sha256": "3f73d712457afe6bb89c9edd5943a267b42c59e8fface44e40a851e0c24a317a",
+      "triangles": 0,
+      "segments": 946305,
+      "url": "https://raw.githubusercontent.com/afterian/kenbechtold/1bbee6d97e806cf60a3eeba03162e0fac5d6e439/fragments/air-max-excee/media/wire.meshopt.glb.gz"
+    }
+  ]
+}

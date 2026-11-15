@@ -1,0 +1,38 @@
+{
+  "id": "air-zoom-pegasus-36-aq2203-center-swoosh",
+  "title": "Air Zoom Pegasus 36 / Center Swoosh / AQ2203",
+  "tags": [
+    "Fragments",
+    "3D",
+    "SubD",
+    "Modeling",
+    "Footwear",
+    "Nike",
+    "Polygon"
+  ],
+  "appearance": {
+    "name": "Gunmetal",
+    "color": "#5a5e68",
+    "metallic": 1,
+    "roughness": 0.26
+  },
+  "note": "Original source-edge display. Lossless retained geometry.",
+  "assets": [
+    {
+      "file": "model.meshopt.glb.gz",
+      "bytes": 4896068,
+      "sha256": "01f5dc262eebb20772ef1509409eaadc224f07eee6ba7131303d1164c49c459b",
+      "triangles": 338335,
+      "segments": 0,
+      "url": "https://raw.githubusercontent.com/afterian/kenbechtold/1bbee6d97e806cf60a3eeba03162e0fac5d6e439/fragments/air-zoom-pegasus-36-aq2203-center-swoosh/media/model.meshopt.glb.gz"
+    },
+    {
+      "file": "wire.meshopt.glb.gz",
+      "bytes": 2056699,
+      "sha256": "daf9abbaeae0b5ade487fc8b024f976e93e276431e2fe3358b966a8c54447c92",
+      "triangles": 0,
+      "segments": 406390,
+      "url": "https://raw.githubusercontent.com/afterian/kenbechtold/1bbee6d97e806cf60a3eeba03162e0fac5d6e439/fragments/air-zoom-pegasus-36-aq2203-center-swoosh/media/wire.meshopt.glb.gz"
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "id": "kd-trey-5-viii",
+  "title": "KD Trey 5 VIII",
+  "tags": [
+    "Fragments",
+    "3D",
+    "SubD",
+    "Modeling",
+    "Footwear",
+    "Nike",
+    "Polygon"
+  ],
+  "appearance": {
+    "name": "Gunmetal",
+    "color": "#5a5e68",
+    "metallic": 1,
+    "roughness": 0.26
+  },
+  "note": "Original source-edge display. Lossless retained geometry.",
+  "assets": [
+    {
+      "file": "model.meshopt.glb.gz",
+      "bytes": 9338192,
+      "sha256": "e5203488ffab3949af2863a515e6bebef9bafbafc21d86958fd2d33acf88b626",
+      "triangles": 691939,
+      "segments": 0,
+      "url": "https://raw.githubusercontent.com/afterian/kenbechtold/1bbee6d97e806cf60a3eeba03162e0fac5d6e439/fragments/kd-trey-5-viii/media/model.meshopt.glb.gz"
+    },
+    {
+      "file": "wire.meshopt.glb.gz",
+      "bytes": 4478289,
+      "sha256": "253857f7a142f22454a53c1f90e588726f92a845d37f2d01304eef7f89e4e196",
+      "triangles": 0,
+      "segments": 902774,
+      "url": "https://raw.githubusercontent.com/afterian/kenbechtold/1bbee6d97e806cf60a3eeba03162e0fac5d6e439/fragments/kd-trey-5-viii/media/wire.meshopt.glb.gz"
+    }
+  ]
+}

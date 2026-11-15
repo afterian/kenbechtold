@@ -1,0 +1,38 @@
+{
+  "id": "air-max-270",
+  "title": "Air Max 270",
+  "tags": [
+    "Fragments",
+    "3D",
+    "SubD",
+    "Modeling",
+    "Footwear",
+    "Nike",
+    "Polygon"
+  ],
+  "appearance": {
+    "name": "Gunmetal",
+    "color": "#5a5e68",
+    "metallic": 1,
+    "roughness": 0.26
+  },
+  "note": "Original source-edge display. Lossless retained geometry.",
+  "assets": [
+    {
+      "file": "model.meshopt.glb.gz",
+      "bytes": 10811887,
+      "sha256": "81e126e6ef197b98439e17d0684bea2fcb25955531d18b4e0abcbdb7c4d68307",
+      "triangles": 821552,
+      "segments": 0,
+      "url": "https://raw.githubusercontent.com/afterian/kenbechtold/1bbee6d97e806cf60a3eeba03162e0fac5d6e439/fragments/air-max-270/media/model.meshopt.glb.gz"
+    },
+    {
+      "file": "wire.meshopt.glb.gz",
+      "bytes": 4416821,
+      "sha256": "97eaa118f5cbb765dd192b0548658400573341ec1ff0e0427d837d0b91cb0159",
+      "triangles": 0,
+      "segments": 932914,
+      "url": "https://raw.githubusercontent.com/afterian/kenbechtold/1bbee6d97e806cf60a3eeba03162e0fac5d6e439/fragments/air-max-270/media/wire.meshopt.glb.gz"
+    }
+  ]
+}

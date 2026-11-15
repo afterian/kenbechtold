@@ -1,0 +1,38 @@
+{
+  "id": "nike-air-max-97-se-new-tab",
+  "title": "Air Max 97 SE / New Tab",
+  "tags": [
+    "Fragments",
+    "3D",
+    "SubD",
+    "Modeling",
+    "Footwear",
+    "Nike",
+    "Polygon"
+  ],
+  "appearance": {
+    "name": "Gunmetal",
+    "color": "#5a5e68",
+    "metallic": 1,
+    "roughness": 0.26
+  },
+  "note": "Original source-edge display. Lossless retained geometry.",
+  "assets": [
+    {
+      "file": "model.meshopt.glb.gz",
+      "bytes": 6008310,
+      "sha256": "e03bb8e1b3cd9956c64286dd85544462e91515243bd4ae6f3120685deb1bf998",
+      "triangles": 436126,
+      "segments": 0,
+      "url": "https://raw.githubusercontent.com/afterian/kenbechtold/1bbee6d97e806cf60a3eeba03162e0fac5d6e439/fragments/nike-air-max-97-se-new-tab/media/model.meshopt.glb.gz"
+    },
+    {
+      "file": "wire.meshopt.glb.gz",
+      "bytes": 2497847,
+      "sha256": "f41b319c9dd640aaf9bbbb61b1721763083a1cc3ddc6c7b5958b4e7047aef7a3",
+      "triangles": 0,
+      "segments": 530433,
+      "url": "https://raw.githubusercontent.com/afterian/kenbechtold/1bbee6d97e806cf60a3eeba03162e0fac5d6e439/fragments/nike-air-max-97-se-new-tab/media/wire.meshopt.glb.gz"
+    }
+  ]
+}

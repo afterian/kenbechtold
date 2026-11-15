@@ -1,0 +1,38 @@
+{
+  "id": "air-presto-ip",
+  "title": "Air Presto IP",
+  "tags": [
+    "Fragments",
+    "3D",
+    "SubD",
+    "Modeling",
+    "Footwear",
+    "Nike",
+    "Polygon"
+  ],
+  "appearance": {
+    "name": "Gunmetal",
+    "color": "#5a5e68",
+    "metallic": 1,
+    "roughness": 0.26
+  },
+  "note": "Original source-edge display. Lossless retained geometry.",
+  "assets": [
+    {
+      "file": "model.meshopt.glb.gz",
+      "bytes": 11958225,
+      "sha256": "e704afeb2a417363a989c9ab582c8ffd6fff9ab4651afd639b910536afe74428",
+      "triangles": 1135413,
+      "segments": 0,
+      "url": "https://raw.githubusercontent.com/afterian/kenbechtold/1bbee6d97e806cf60a3eeba03162e0fac5d6e439/fragments/air-presto-ip/media/model.meshopt.glb.gz"
+    },
+    {
+      "file": "wire.meshopt.glb.gz",
+      "bytes": 4618019,
+      "sha256": "988a915ebb158ef04509fee851a683913e3b04268307cc4951059951ff1f97e0",
+      "triangles": 0,
+      "segments": 1259639,
+      "url": "https://raw.githubusercontent.com/afterian/kenbechtold/1bbee6d97e806cf60a3eeba03162e0fac5d6e439/fragments/air-presto-ip/media/wire.meshopt.glb.gz"
+    }
+  ]
+}

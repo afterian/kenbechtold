@@ -862,5 +862,1220 @@ export const FOOTWEAR = [
       "triangles": 1538324,
       "edgeSegments": 1851885
     }
+  },
+  {
+    "id": "air-jordan-1-low-ultra-light",
+    "title": "Air Jordan 1 Low / Ultra Light",
+    "tag": "3D",
+    "tags": [
+      "Fragments",
+      "3D",
+      "SubD",
+      "Modeling",
+      "Footwear",
+      "Nike",
+      "Polygon"
+    ],
+    "img": "fragments/air-jordan-1-low-ultra-light/media/poster.webp",
+    "hover": "fragments/air-jordan-1-low-ultra-light/media/topology.webp",
+    "href": "fragments/air-jordan-1-low-ultra-light/",
+    "model": {
+      "title": "Air Jordan 1 Low / Ultra Light",
+      "model": "https://raw.githubusercontent.com/afterian/kenbechtold/1bbee6d97e806cf60a3eeba03162e0fac5d6e439/fragments/air-jordan-1-low-ultra-light/media/model.meshopt.glb.gz",
+      "wire": "https://raw.githubusercontent.com/afterian/kenbechtold/1bbee6d97e806cf60a3eeba03162e0fac5d6e439/fragments/air-jordan-1-low-ultra-light/media/wire.meshopt.glb.gz",
+      "poster": "fragments/air-jordan-1-low-ultra-light/media/poster.webp",
+      "modelBytes": 9778445,
+      "wireBytes": 3317838,
+      "triangles": 697542,
+      "edgeSegments": 727744
+    }
+  },
+  {
+    "id": "air-max-270",
+    "title": "Air Max 270",
+    "tag": "3D",
+    "tags": [
+      "Fragments",
+      "3D",
+      "SubD",
+      "Modeling",
+      "Footwear",
+      "Nike",
+      "Polygon"
+    ],
+    "img": "fragments/air-max-270/media/poster.webp",
+    "hover": "fragments/air-max-270/media/topology.webp",
+    "href": "fragments/air-max-270/",
+    "model": {
+      "title": "Air Max 270",
+      "model": "https://raw.githubusercontent.com/afterian/kenbechtold/1bbee6d97e806cf60a3eeba03162e0fac5d6e439/fragments/air-max-270/media/model.meshopt.glb.gz",
+      "wire": "https://raw.githubusercontent.com/afterian/kenbechtold/1bbee6d97e806cf60a3eeba03162e0fac5d6e439/fragments/air-max-270/media/wire.meshopt.glb.gz",
+      "poster": "fragments/air-max-270/media/poster.webp",
+      "modelBytes": 10811887,
+      "wireBytes": 4416821,
+      "triangles": 821552,
+      "edgeSegments": 932914
+    }
+  },
+  {
+    "id": "af1-low",
+    "title": "Air Force 1 Low",
+    "tag": "3D",
+    "tags": [
+      "Fragments",
+      "3D",
+      "SubD",
+      "Modeling",
+      "Footwear",
+      "Nike",
+      "Polygon"
+    ],
+    "img": "fragments/af1-low/media/poster.webp",
+    "hover": "fragments/af1-low/media/topology.webp",
+    "href": "fragments/af1-low/",
+    "model": {
+      "title": "Air Force 1 Low",
+      "model": "https://raw.githubusercontent.com/afterian/kenbechtold/1bbee6d97e806cf60a3eeba03162e0fac5d6e439/fragments/af1-low/media/model.meshopt.glb.gz",
+      "wire": "https://raw.githubusercontent.com/afterian/kenbechtold/1bbee6d97e806cf60a3eeba03162e0fac5d6e439/fragments/af1-low/media/wire.meshopt.glb.gz",
+      "poster": "fragments/af1-low/media/poster.webp",
+      "modelBytes": 7779892,
+      "wireBytes": 2800233,
+      "triangles": 570486,
+      "edgeSegments": 600565
+    }
+  },
+  {
+    "id": "air-force-1-high",
+    "title": "Air Force 1 High",
+    "tag": "3D",
+    "tags": [
+      "Fragments",
+      "3D",
+      "SubD",
+      "Modeling",
+      "Footwear",
+      "Nike",
+      "Polygon"
+    ],
+    "img": "fragments/air-force-1-high/media/poster.webp",
+    "hover": "fragments/air-force-1-high/media/topology.webp",
+    "href": "fragments/air-force-1-high/",
+    "model": {
+      "title": "Air Force 1 High",
+      "model": "https://raw.githubusercontent.com/afterian/kenbechtold/1bbee6d97e806cf60a3eeba03162e0fac5d6e439/fragments/air-force-1-high/media/model.meshopt.glb.gz",
+      "wire": "https://raw.githubusercontent.com/afterian/kenbechtold/1bbee6d97e806cf60a3eeba03162e0fac5d6e439/fragments/air-force-1-high/media/wire.meshopt.glb.gz",
+      "poster": "fragments/air-force-1-high/media/poster.webp",
+      "modelBytes": 11150543,
+      "wireBytes": 4436973,
+      "triangles": 809123,
+      "edgeSegments": 938919
+    }
+  },
+  {
+    "id": "air-force-1-utility",
+    "title": "Air Force 1 Utility",
+    "tag": "3D",
+    "tags": [
+      "Fragments",
+      "3D",
+      "SubD",
+      "Modeling",
+      "Footwear",
+      "Nike",
+      "Polygon"
+    ],
+    "img": "fragments/air-force-1-utility/media/poster.webp",
+    "hover": "fragments/air-force-1-utility/media/topology.webp",
+    "href": "fragments/air-force-1-utility/",
+    "model": {
+      "title": "Air Force 1 Utility",
+      "model": "https://raw.githubusercontent.com/afterian/kenbechtold/1bbee6d97e806cf60a3eeba03162e0fac5d6e439/fragments/air-force-1-utility/media/model.meshopt.glb.gz",
+      "wire": "https://raw.githubusercontent.com/afterian/kenbechtold/1bbee6d97e806cf60a3eeba03162e0fac5d6e439/fragments/air-force-1-utility/media/wire.meshopt.glb.gz",
+      "poster": "fragments/air-force-1-utility/media/poster.webp",
+      "modelBytes": 7978968,
+      "wireBytes": 3171454,
+      "triangles": 560242,
+      "edgeSegments": 668886
+    }
+  },
+  {
+    "id": "air-huarache-run",
+    "title": "Air Huarache Run",
+    "tag": "3D",
+    "tags": [
+      "Fragments",
+      "3D",
+      "SubD",
+      "Modeling",
+      "Footwear",
+      "Nike",
+      "Polygon"
+    ],
+    "img": "fragments/air-huarache-run/media/poster.webp",
+    "hover": "fragments/air-huarache-run/media/topology.webp",
+    "href": "fragments/air-huarache-run/",
+    "model": {
+      "title": "Air Huarache Run",
+      "model": "https://raw.githubusercontent.com/afterian/kenbechtold/1bbee6d97e806cf60a3eeba03162e0fac5d6e439/fragments/air-huarache-run/media/model.meshopt.glb.gz",
+      "wire": "https://raw.githubusercontent.com/afterian/kenbechtold/1bbee6d97e806cf60a3eeba03162e0fac5d6e439/fragments/air-huarache-run/media/wire.meshopt.glb.gz",
+      "poster": "fragments/air-huarache-run/media/poster.webp",
+      "modelBytes": 9372818,
+      "wireBytes": 4281826,
+      "triangles": 700563,
+      "edgeSegments": 840786
+    }
+  },
+  {
+    "id": "air-huarache-run-ultra",
+    "title": "Air Huarache Run Ultra",
+    "tag": "3D",
+    "tags": [
+      "Fragments",
+      "3D",
+      "SubD",
+      "Modeling",
+      "Footwear",
+      "Nike",
+      "Polygon"
+    ],
+    "img": "fragments/air-huarache-run-ultra/media/poster.webp",
+    "hover": "fragments/air-huarache-run-ultra/media/topology.webp",
+    "href": "fragments/air-huarache-run-ultra/",
+    "model": {
+      "title": "Air Huarache Run Ultra",
+      "model": "https://raw.githubusercontent.com/afterian/kenbechtold/1bbee6d97e806cf60a3eeba03162e0fac5d6e439/fragments/air-huarache-run-ultra/media/model.meshopt.glb.gz",
+      "wire": "https://raw.githubusercontent.com/afterian/kenbechtold/1bbee6d97e806cf60a3eeba03162e0fac5d6e439/fragments/air-huarache-run-ultra/media/wire.meshopt.glb.gz",
+      "poster": "fragments/air-huarache-run-ultra/media/poster.webp",
+      "modelBytes": 6464217,
+      "wireBytes": 2823407,
+      "triangles": 488130,
+      "edgeSegments": 568629
+    }
+  },
+  {
+    "id": "air-jordan-12-retro",
+    "title": "Air Jordan 12 Retro",
+    "tag": "3D",
+    "tags": [
+      "Fragments",
+      "3D",
+      "SubD",
+      "Modeling",
+      "Footwear",
+      "Nike",
+      "Polygon"
+    ],
+    "img": "fragments/air-jordan-12-retro/media/poster.webp",
+    "hover": "fragments/air-jordan-12-retro/media/topology.webp",
+    "href": "fragments/air-jordan-12-retro/",
+    "model": {
+      "title": "Air Jordan 12 Retro",
+      "model": "https://raw.githubusercontent.com/afterian/kenbechtold/1bbee6d97e806cf60a3eeba03162e0fac5d6e439/fragments/air-jordan-12-retro/media/model.meshopt.glb.gz",
+      "wire": "https://raw.githubusercontent.com/afterian/kenbechtold/1bbee6d97e806cf60a3eeba03162e0fac5d6e439/fragments/air-jordan-12-retro/media/wire.meshopt.glb.gz",
+      "poster": "fragments/air-jordan-12-retro/media/poster.webp",
+      "modelBytes": 8828069,
+      "wireBytes": 3398814,
+      "triangles": 702134,
+      "edgeSegments": 725543
+    }
+  },
+  {
+    "id": "air-jordan-1-low",
+    "title": "Air Jordan 1 Low",
+    "tag": "3D",
+    "tags": [
+      "Fragments",
+      "3D",
+      "SubD",
+      "Modeling",
+      "Footwear",
+      "Nike",
+      "Polygon"
+    ],
+    "img": "fragments/air-jordan-1-low/media/poster.webp",
+    "hover": "fragments/air-jordan-1-low/media/topology.webp",
+    "href": "fragments/air-jordan-1-low/",
+    "model": {
+      "title": "Air Jordan 1 Low",
+      "model": "https://raw.githubusercontent.com/afterian/kenbechtold/1bbee6d97e806cf60a3eeba03162e0fac5d6e439/fragments/air-jordan-1-low/media/model.meshopt.glb.gz",
+      "wire": "https://raw.githubusercontent.com/afterian/kenbechtold/1bbee6d97e806cf60a3eeba03162e0fac5d6e439/fragments/air-jordan-1-low/media/wire.meshopt.glb.gz",
+      "poster": "fragments/air-jordan-1-low/media/poster.webp",
+      "modelBytes": 8589579,
+      "wireBytes": 3069648,
+      "triangles": 610518,
+      "edgeSegments": 651087
+    }
+  },
+  {
+    "id": "air-jordan-1-mid",
+    "title": "Air Jordan 1 Mid",
+    "tag": "3D",
+    "tags": [
+      "Fragments",
+      "3D",
+      "SubD",
+      "Modeling",
+      "Footwear",
+      "Nike",
+      "Polygon"
+    ],
+    "img": "fragments/air-jordan-1-mid/media/poster.webp",
+    "hover": "fragments/air-jordan-1-mid/media/topology.webp",
+    "href": "fragments/air-jordan-1-mid/",
+    "model": {
+      "title": "Air Jordan 1 Mid",
+      "model": "https://raw.githubusercontent.com/afterian/kenbechtold/1bbee6d97e806cf60a3eeba03162e0fac5d6e439/fragments/air-jordan-1-mid/media/model.meshopt.glb.gz",
+      "wire": "https://raw.githubusercontent.com/afterian/kenbechtold/1bbee6d97e806cf60a3eeba03162e0fac5d6e439/fragments/air-jordan-1-mid/media/wire.meshopt.glb.gz",
+      "poster": "fragments/air-jordan-1-mid/media/poster.webp",
+      "modelBytes": 7673975,
+      "wireBytes": 2772590,
+      "triangles": 565139,
+      "edgeSegments": 590972
+    }
+  },
+  {
+    "id": "air-jordan-3-retro",
+    "title": "Air Jordan 3 Retro",
+    "tag": "3D",
+    "tags": [
+      "Fragments",
+      "3D",
+      "SubD",
+      "Modeling",
+      "Footwear",
+      "Nike",
+      "Polygon"
+    ],
+    "img": "fragments/air-jordan-3-retro/media/poster.webp",
+    "hover": "fragments/air-jordan-3-retro/media/topology.webp",
+    "href": "fragments/air-jordan-3-retro/",
+    "model": {
+      "title": "Air Jordan 3 Retro",
+      "model": "https://raw.githubusercontent.com/afterian/kenbechtold/1bbee6d97e806cf60a3eeba03162e0fac5d6e439/fragments/air-jordan-3-retro/media/model.meshopt.glb.gz",
+      "wire": "https://raw.githubusercontent.com/afterian/kenbechtold/1bbee6d97e806cf60a3eeba03162e0fac5d6e439/fragments/air-jordan-3-retro/media/wire.meshopt.glb.gz",
+      "poster": "fragments/air-jordan-3-retro/media/poster.webp",
+      "modelBytes": 16182611,
+      "wireBytes": 4892374,
+      "triangles": 795515,
+      "edgeSegments": 988784
+    }
+  },
+  {
+    "id": "air-jordan-4-retro",
+    "title": "Air Jordan 4 Retro",
+    "tag": "3D",
+    "tags": [
+      "Fragments",
+      "3D",
+      "SubD",
+      "Modeling",
+      "Footwear",
+      "Nike",
+      "Polygon"
+    ],
+    "img": "fragments/air-jordan-4-retro/media/poster.webp",
+    "hover": "fragments/air-jordan-4-retro/media/topology.webp",
+    "href": "fragments/air-jordan-4-retro/",
+    "model": {
+      "title": "Air Jordan 4 Retro",
+      "model": "https://raw.githubusercontent.com/afterian/kenbechtold/1bbee6d97e806cf60a3eeba03162e0fac5d6e439/fragments/air-jordan-4-retro/media/model.meshopt.glb.gz",
+      "wire": "https://raw.githubusercontent.com/afterian/kenbechtold/1bbee6d97e806cf60a3eeba03162e0fac5d6e439/fragments/air-jordan-4-retro/media/wire.meshopt.glb.gz",
+      "poster": "fragments/air-jordan-4-retro/media/poster.webp",
+      "modelBytes": 12795300,
+      "wireBytes": 3717446,
+      "triangles": 771668,
+      "edgeSegments": 798131
+    }
+  },
+  {
+    "id": "air-jordan-6-retro",
+    "title": "Air Jordan 6 Retro",
+    "tag": "3D",
+    "tags": [
+      "Fragments",
+      "3D",
+      "SubD",
+      "Modeling",
+      "Footwear",
+      "Nike",
+      "Polygon"
+    ],
+    "img": "fragments/air-jordan-6-retro/media/poster.webp",
+    "hover": "fragments/air-jordan-6-retro/media/topology.webp",
+    "href": "fragments/air-jordan-6-retro/",
+    "model": {
+      "title": "Air Jordan 6 Retro",
+      "model": "https://raw.githubusercontent.com/afterian/kenbechtold/1bbee6d97e806cf60a3eeba03162e0fac5d6e439/fragments/air-jordan-6-retro/media/model.meshopt.glb.gz",
+      "wire": "https://raw.githubusercontent.com/afterian/kenbechtold/1bbee6d97e806cf60a3eeba03162e0fac5d6e439/fragments/air-jordan-6-retro/media/wire.meshopt.glb.gz",
+      "poster": "fragments/air-jordan-6-retro/media/poster.webp",
+      "modelBytes": 10947030,
+      "wireBytes": 4266141,
+      "triangles": 816746,
+      "edgeSegments": 849917
+    }
+  },
+  {
+    "id": "air-max-1-g",
+    "title": "Air Max 1 G",
+    "tag": "3D",
+    "tags": [
+      "Fragments",
+      "3D",
+      "SubD",
+      "Modeling",
+      "Footwear",
+      "Nike",
+      "Polygon"
+    ],
+    "img": "fragments/air-max-1-g/media/poster.webp",
+    "hover": "fragments/air-max-1-g/media/topology.webp",
+    "href": "fragments/air-max-1-g/",
+    "model": {
+      "title": "Air Max 1 G",
+      "model": "https://raw.githubusercontent.com/afterian/kenbechtold/1bbee6d97e806cf60a3eeba03162e0fac5d6e439/fragments/air-max-1-g/media/model.meshopt.glb.gz",
+      "wire": "https://raw.githubusercontent.com/afterian/kenbechtold/1bbee6d97e806cf60a3eeba03162e0fac5d6e439/fragments/air-max-1-g/media/wire.meshopt.glb.gz",
+      "poster": "fragments/air-max-1-g/media/poster.webp",
+      "modelBytes": 6992166,
+      "wireBytes": 3146008,
+      "triangles": 544472,
+      "edgeSegments": 694124
+    }
+  },
+  {
+    "id": "air-max-2090",
+    "title": "Air Max 2090",
+    "tag": "3D",
+    "tags": [
+      "Fragments",
+      "3D",
+      "SubD",
+      "Modeling",
+      "Footwear",
+      "Nike",
+      "Polygon"
+    ],
+    "img": "fragments/air-max-2090/media/poster.webp",
+    "hover": "fragments/air-max-2090/media/topology.webp",
+    "href": "fragments/air-max-2090/",
+    "model": {
+      "title": "Air Max 2090",
+      "model": "https://raw.githubusercontent.com/afterian/kenbechtold/1bbee6d97e806cf60a3eeba03162e0fac5d6e439/fragments/air-max-2090/media/model.meshopt.glb.gz",
+      "wire": "https://raw.githubusercontent.com/afterian/kenbechtold/1bbee6d97e806cf60a3eeba03162e0fac5d6e439/fragments/air-max-2090/media/wire.meshopt.glb.gz",
+      "poster": "fragments/air-max-2090/media/poster.webp",
+      "modelBytes": 14189589,
+      "wireBytes": 6179421,
+      "triangles": 1097882,
+      "edgeSegments": 1318453
+    }
+  },
+  {
+    "id": "air-max-270-react-072619",
+    "title": "Air Max 270 React / Source version 072619",
+    "tag": "3D",
+    "tags": [
+      "Fragments",
+      "3D",
+      "SubD",
+      "Modeling",
+      "Footwear",
+      "Nike",
+      "Polygon"
+    ],
+    "img": "fragments/air-max-270-react-072619/media/poster.webp",
+    "hover": "fragments/air-max-270-react-072619/media/topology.webp",
+    "href": "fragments/air-max-270-react-072619/",
+    "model": {
+      "title": "Air Max 270 React / Source version 072619",
+      "model": "https://raw.githubusercontent.com/afterian/kenbechtold/1bbee6d97e806cf60a3eeba03162e0fac5d6e439/fragments/air-max-270-react-072619/media/model.meshopt.glb.gz",
+      "wire": "https://raw.githubusercontent.com/afterian/kenbechtold/1bbee6d97e806cf60a3eeba03162e0fac5d6e439/fragments/air-max-270-react-072619/media/wire.meshopt.glb.gz",
+      "poster": "fragments/air-max-270-react-072619/media/poster.webp",
+      "modelBytes": 7932859,
+      "wireBytes": 3414449,
+      "triangles": 580401,
+      "edgeSegments": 731726
+    }
+  },
+  {
+    "id": "air-max-720",
+    "title": "Air Max 720",
+    "tag": "3D",
+    "tags": [
+      "Fragments",
+      "3D",
+      "SubD",
+      "Modeling",
+      "Footwear",
+      "Nike",
+      "Polygon"
+    ],
+    "img": "fragments/air-max-720/media/poster.webp",
+    "hover": "fragments/air-max-720/media/topology.webp",
+    "href": "fragments/air-max-720/",
+    "model": {
+      "title": "Air Max 720",
+      "model": "https://raw.githubusercontent.com/afterian/kenbechtold/1bbee6d97e806cf60a3eeba03162e0fac5d6e439/fragments/air-max-720/media/model.meshopt.glb.gz",
+      "wire": "https://raw.githubusercontent.com/afterian/kenbechtold/1bbee6d97e806cf60a3eeba03162e0fac5d6e439/fragments/air-max-720/media/wire.meshopt.glb.gz",
+      "poster": "fragments/air-max-720/media/poster.webp",
+      "modelBytes": 4649140,
+      "wireBytes": 2379826,
+      "triangles": 284413,
+      "edgeSegments": 365829
+    }
+  },
+  {
+    "id": "air-max-97",
+    "title": "Air Max 97",
+    "tag": "3D",
+    "tags": [
+      "Fragments",
+      "3D",
+      "SubD",
+      "Modeling",
+      "Footwear",
+      "Nike",
+      "Polygon"
+    ],
+    "img": "fragments/air-max-97/media/poster.webp",
+    "hover": "fragments/air-max-97/media/topology.webp",
+    "href": "fragments/air-max-97/",
+    "model": {
+      "title": "Air Max 97",
+      "model": "https://raw.githubusercontent.com/afterian/kenbechtold/1bbee6d97e806cf60a3eeba03162e0fac5d6e439/fragments/air-max-97/media/model.meshopt.glb.gz",
+      "wire": "https://raw.githubusercontent.com/afterian/kenbechtold/1bbee6d97e806cf60a3eeba03162e0fac5d6e439/fragments/air-max-97/media/wire.meshopt.glb.gz",
+      "poster": "fragments/air-max-97/media/poster.webp",
+      "modelBytes": 6411237,
+      "wireBytes": 2543562,
+      "triangles": 449294,
+      "edgeSegments": 548641
+    }
+  },
+  {
+    "id": "air-max-axis",
+    "title": "Air Max Axis",
+    "tag": "3D",
+    "tags": [
+      "Fragments",
+      "3D",
+      "SubD",
+      "Modeling",
+      "Footwear",
+      "Nike",
+      "Polygon"
+    ],
+    "img": "fragments/air-max-axis/media/poster.webp",
+    "hover": "fragments/air-max-axis/media/topology.webp",
+    "href": "fragments/air-max-axis/",
+    "model": {
+      "title": "Air Max Axis",
+      "model": "https://raw.githubusercontent.com/afterian/kenbechtold/1bbee6d97e806cf60a3eeba03162e0fac5d6e439/fragments/air-max-axis/media/model.meshopt.glb.gz",
+      "wire": "https://raw.githubusercontent.com/afterian/kenbechtold/1bbee6d97e806cf60a3eeba03162e0fac5d6e439/fragments/air-max-axis/media/wire.meshopt.glb.gz",
+      "poster": "fragments/air-max-axis/media/poster.webp",
+      "modelBytes": 6905811,
+      "wireBytes": 2792648,
+      "triangles": 524914,
+      "edgeSegments": 588832
+    }
+  },
+  {
+    "id": "air-max-excee",
+    "title": "Air Max Excee",
+    "tag": "3D",
+    "tags": [
+      "Fragments",
+      "3D",
+      "SubD",
+      "Modeling",
+      "Footwear",
+      "Nike",
+      "Polygon"
+    ],
+    "img": "fragments/air-max-excee/media/poster.webp",
+    "hover": "fragments/air-max-excee/media/topology.webp",
+    "href": "fragments/air-max-excee/",
+    "model": {
+      "title": "Air Max Excee",
+      "model": "https://raw.githubusercontent.com/afterian/kenbechtold/1bbee6d97e806cf60a3eeba03162e0fac5d6e439/fragments/air-max-excee/media/model.meshopt.glb.gz",
+      "wire": "https://raw.githubusercontent.com/afterian/kenbechtold/1bbee6d97e806cf60a3eeba03162e0fac5d6e439/fragments/air-max-excee/media/wire.meshopt.glb.gz",
+      "poster": "fragments/air-max-excee/media/poster.webp",
+      "modelBytes": 9902143,
+      "wireBytes": 4305694,
+      "triangles": 743238,
+      "edgeSegments": 946305
+    }
+  },
+  {
+    "id": "air-max-plus",
+    "title": "Air Max Plus",
+    "tag": "3D",
+    "tags": [
+      "Fragments",
+      "3D",
+      "SubD",
+      "Modeling",
+      "Footwear",
+      "Nike",
+      "Polygon"
+    ],
+    "img": "fragments/air-max-plus/media/poster.webp",
+    "hover": "fragments/air-max-plus/media/topology.webp",
+    "href": "fragments/air-max-plus/",
+    "model": {
+      "title": "Air Max Plus",
+      "model": "https://raw.githubusercontent.com/afterian/kenbechtold/1bbee6d97e806cf60a3eeba03162e0fac5d6e439/fragments/air-max-plus/media/model.meshopt.glb.gz",
+      "wire": "https://raw.githubusercontent.com/afterian/kenbechtold/1bbee6d97e806cf60a3eeba03162e0fac5d6e439/fragments/air-max-plus/media/wire.meshopt.glb.gz",
+      "poster": "fragments/air-max-plus/media/poster.webp",
+      "modelBytes": 6534647,
+      "wireBytes": 2448089,
+      "triangles": 452578,
+      "edgeSegments": 461977
+    }
+  },
+  {
+    "id": "air-presto-ip",
+    "title": "Air Presto IP",
+    "tag": "3D",
+    "tags": [
+      "Fragments",
+      "3D",
+      "SubD",
+      "Modeling",
+      "Footwear",
+      "Nike",
+      "Polygon"
+    ],
+    "img": "fragments/air-presto-ip/media/poster.webp",
+    "hover": "fragments/air-presto-ip/media/topology.webp",
+    "href": "fragments/air-presto-ip/",
+    "model": {
+      "title": "Air Presto IP",
+      "model": "https://raw.githubusercontent.com/afterian/kenbechtold/1bbee6d97e806cf60a3eeba03162e0fac5d6e439/fragments/air-presto-ip/media/model.meshopt.glb.gz",
+      "wire": "https://raw.githubusercontent.com/afterian/kenbechtold/1bbee6d97e806cf60a3eeba03162e0fac5d6e439/fragments/air-presto-ip/media/wire.meshopt.glb.gz",
+      "poster": "fragments/air-presto-ip/media/poster.webp",
+      "modelBytes": 11958225,
+      "wireBytes": 4618019,
+      "triangles": 1135413,
+      "edgeSegments": 1259639
+    }
+  },
+  {
+    "id": "air-presto-mid-utility",
+    "title": "Air Presto Mid Utility",
+    "tag": "3D",
+    "tags": [
+      "Fragments",
+      "3D",
+      "SubD",
+      "Modeling",
+      "Footwear",
+      "Nike",
+      "Polygon"
+    ],
+    "img": "fragments/air-presto-mid-utility/media/poster.webp",
+    "hover": "fragments/air-presto-mid-utility/media/topology.webp",
+    "href": "fragments/air-presto-mid-utility/",
+    "model": {
+      "title": "Air Presto Mid Utility",
+      "model": "https://raw.githubusercontent.com/afterian/kenbechtold/1bbee6d97e806cf60a3eeba03162e0fac5d6e439/fragments/air-presto-mid-utility/media/model.meshopt.glb.gz",
+      "wire": "https://raw.githubusercontent.com/afterian/kenbechtold/1bbee6d97e806cf60a3eeba03162e0fac5d6e439/fragments/air-presto-mid-utility/media/wire.meshopt.glb.gz",
+      "poster": "fragments/air-presto-mid-utility/media/poster.webp",
+      "modelBytes": 10209529,
+      "wireBytes": 4547008,
+      "triangles": 694115,
+      "edgeSegments": 882507
+    }
+  },
+  {
+    "id": "air-zoom-pegasus-35",
+    "title": "Air Zoom Pegasus 35",
+    "tag": "3D",
+    "tags": [
+      "Fragments",
+      "3D",
+      "SubD",
+      "Modeling",
+      "Footwear",
+      "Nike",
+      "Polygon"
+    ],
+    "img": "fragments/air-zoom-pegasus-35/media/poster.webp",
+    "hover": "fragments/air-zoom-pegasus-35/media/topology.webp",
+    "href": "fragments/air-zoom-pegasus-35/",
+    "model": {
+      "title": "Air Zoom Pegasus 35",
+      "model": "https://raw.githubusercontent.com/afterian/kenbechtold/1bbee6d97e806cf60a3eeba03162e0fac5d6e439/fragments/air-zoom-pegasus-35/media/model.meshopt.glb.gz",
+      "wire": "https://raw.githubusercontent.com/afterian/kenbechtold/1bbee6d97e806cf60a3eeba03162e0fac5d6e439/fragments/air-zoom-pegasus-35/media/wire.meshopt.glb.gz",
+      "poster": "fragments/air-zoom-pegasus-35/media/poster.webp",
+      "modelBytes": 3526201,
+      "wireBytes": 1531327,
+      "triangles": 234799,
+      "edgeSegments": 301839
+    }
+  },
+  {
+    "id": "air-zoom-pegasus-36-aq2203-center-swoosh",
+    "title": "Air Zoom Pegasus 36 / Center Swoosh / AQ2203",
+    "tag": "3D",
+    "tags": [
+      "Fragments",
+      "3D",
+      "SubD",
+      "Modeling",
+      "Footwear",
+      "Nike",
+      "Polygon"
+    ],
+    "img": "fragments/air-zoom-pegasus-36-aq2203-center-swoosh/media/poster.webp",
+    "hover": "fragments/air-zoom-pegasus-36-aq2203-center-swoosh/media/topology.webp",
+    "href": "fragments/air-zoom-pegasus-36-aq2203-center-swoosh/",
+    "model": {
+      "title": "Air Zoom Pegasus 36 / Center Swoosh / AQ2203",
+      "model": "https://raw.githubusercontent.com/afterian/kenbechtold/1bbee6d97e806cf60a3eeba03162e0fac5d6e439/fragments/air-zoom-pegasus-36-aq2203-center-swoosh/media/model.meshopt.glb.gz",
+      "wire": "https://raw.githubusercontent.com/afterian/kenbechtold/1bbee6d97e806cf60a3eeba03162e0fac5d6e439/fragments/air-zoom-pegasus-36-aq2203-center-swoosh/media/wire.meshopt.glb.gz",
+      "poster": "fragments/air-zoom-pegasus-36-aq2203-center-swoosh/media/poster.webp",
+      "modelBytes": 4896068,
+      "wireBytes": 2056699,
+      "triangles": 338335,
+      "edgeSegments": 406390
+    }
+  },
+  {
+    "id": "classic-cortez-15",
+    "title": "Classic Cortez 15",
+    "tag": "3D",
+    "tags": [
+      "Fragments",
+      "3D",
+      "SubD",
+      "Modeling",
+      "Footwear",
+      "Nike",
+      "Polygon"
+    ],
+    "img": "fragments/classic-cortez-15/media/poster.webp",
+    "hover": "fragments/classic-cortez-15/media/topology.webp",
+    "href": "fragments/classic-cortez-15/",
+    "model": {
+      "title": "Classic Cortez 15",
+      "model": "https://raw.githubusercontent.com/afterian/kenbechtold/1bbee6d97e806cf60a3eeba03162e0fac5d6e439/fragments/classic-cortez-15/media/model.meshopt.glb.gz",
+      "wire": "https://raw.githubusercontent.com/afterian/kenbechtold/1bbee6d97e806cf60a3eeba03162e0fac5d6e439/fragments/classic-cortez-15/media/wire.meshopt.glb.gz",
+      "poster": "fragments/classic-cortez-15/media/poster.webp",
+      "modelBytes": 5835939,
+      "wireBytes": 2526595,
+      "triangles": 449185,
+      "edgeSegments": 522202
+    }
+  },
+  {
+    "id": "cortez-ultra",
+    "title": "Cortez Ultra",
+    "tag": "3D",
+    "tags": [
+      "Fragments",
+      "3D",
+      "SubD",
+      "Modeling",
+      "Footwear",
+      "Nike",
+      "Polygon"
+    ],
+    "img": "fragments/cortez-ultra/media/poster.webp",
+    "hover": "fragments/cortez-ultra/media/topology.webp",
+    "href": "fragments/cortez-ultra/",
+    "model": {
+      "title": "Cortez Ultra",
+      "model": "https://raw.githubusercontent.com/afterian/kenbechtold/1bbee6d97e806cf60a3eeba03162e0fac5d6e439/fragments/cortez-ultra/media/model.meshopt.glb.gz",
+      "wire": "https://raw.githubusercontent.com/afterian/kenbechtold/1bbee6d97e806cf60a3eeba03162e0fac5d6e439/fragments/cortez-ultra/media/wire.meshopt.glb.gz",
+      "poster": "fragments/cortez-ultra/media/poster.webp",
+      "modelBytes": 5710210,
+      "wireBytes": 1968781,
+      "triangles": 341655,
+      "edgeSegments": 379287
+    }
+  },
+  {
+    "id": "cw7356",
+    "title": "Nike Footwear",
+    "tag": "3D",
+    "tags": [
+      "Fragments",
+      "3D",
+      "SubD",
+      "Modeling",
+      "Footwear",
+      "Nike",
+      "Polygon"
+    ],
+    "img": "fragments/cw7356/media/poster.webp",
+    "hover": "fragments/cw7356/media/topology.webp",
+    "href": "fragments/cw7356/",
+    "model": {
+      "title": "Nike Footwear",
+      "model": "https://raw.githubusercontent.com/afterian/kenbechtold/1bbee6d97e806cf60a3eeba03162e0fac5d6e439/fragments/cw7356/media/model.meshopt.glb.gz",
+      "wire": "https://raw.githubusercontent.com/afterian/kenbechtold/1bbee6d97e806cf60a3eeba03162e0fac5d6e439/fragments/cw7356/media/wire.meshopt.glb.gz",
+      "poster": "fragments/cw7356/media/poster.webp",
+      "modelBytes": 11899825,
+      "wireBytes": 4752641,
+      "triangles": 747498,
+      "edgeSegments": 1134803
+    }
+  },
+  {
+    "id": "jordan-alpha-360",
+    "title": "Jordan Alpha 360",
+    "tag": "3D",
+    "tags": [
+      "Fragments",
+      "3D",
+      "SubD",
+      "Modeling",
+      "Footwear",
+      "Nike",
+      "Polygon"
+    ],
+    "img": "fragments/jordan-alpha-360/media/poster.webp",
+    "hover": "fragments/jordan-alpha-360/media/topology.webp",
+    "href": "fragments/jordan-alpha-360/",
+    "model": {
+      "title": "Jordan Alpha 360",
+      "model": "https://raw.githubusercontent.com/afterian/kenbechtold/1bbee6d97e806cf60a3eeba03162e0fac5d6e439/fragments/jordan-alpha-360/media/model.meshopt.glb.gz",
+      "wire": "https://raw.githubusercontent.com/afterian/kenbechtold/1bbee6d97e806cf60a3eeba03162e0fac5d6e439/fragments/jordan-alpha-360/media/wire.meshopt.glb.gz",
+      "poster": "fragments/jordan-alpha-360/media/poster.webp",
+      "modelBytes": 7652231,
+      "wireBytes": 2981507,
+      "triangles": 581168,
+      "edgeSegments": 597831
+    }
+  },
+  {
+    "id": "joyride-run-2pod",
+    "title": "Joyride Run 2Pod",
+    "tag": "3D",
+    "tags": [
+      "Fragments",
+      "3D",
+      "SubD",
+      "Modeling",
+      "Footwear",
+      "Nike",
+      "Polygon"
+    ],
+    "img": "fragments/joyride-run-2pod/media/poster.webp",
+    "hover": "fragments/joyride-run-2pod/media/topology.webp",
+    "href": "fragments/joyride-run-2pod/",
+    "model": {
+      "title": "Joyride Run 2Pod",
+      "model": "https://raw.githubusercontent.com/afterian/kenbechtold/1bbee6d97e806cf60a3eeba03162e0fac5d6e439/fragments/joyride-run-2pod/media/model.meshopt.glb.gz",
+      "wire": "https://raw.githubusercontent.com/afterian/kenbechtold/1bbee6d97e806cf60a3eeba03162e0fac5d6e439/fragments/joyride-run-2pod/media/wire.meshopt.glb.gz",
+      "poster": "fragments/joyride-run-2pod/media/poster.webp",
+      "modelBytes": 6395131,
+      "wireBytes": 2950643,
+      "triangles": 743734,
+      "edgeSegments": 790142
+    }
+  },
+  {
+    "id": "kd-trey-5-viii",
+    "title": "KD Trey 5 VIII",
+    "tag": "3D",
+    "tags": [
+      "Fragments",
+      "3D",
+      "SubD",
+      "Modeling",
+      "Footwear",
+      "Nike",
+      "Polygon"
+    ],
+    "img": "fragments/kd-trey-5-viii/media/poster.webp",
+    "hover": "fragments/kd-trey-5-viii/media/topology.webp",
+    "href": "fragments/kd-trey-5-viii/",
+    "model": {
+      "title": "KD Trey 5 VIII",
+      "model": "https://raw.githubusercontent.com/afterian/kenbechtold/1bbee6d97e806cf60a3eeba03162e0fac5d6e439/fragments/kd-trey-5-viii/media/model.meshopt.glb.gz",
+      "wire": "https://raw.githubusercontent.com/afterian/kenbechtold/1bbee6d97e806cf60a3eeba03162e0fac5d6e439/fragments/kd-trey-5-viii/media/wire.meshopt.glb.gz",
+      "poster": "fragments/kd-trey-5-viii/media/poster.webp",
+      "modelBytes": 9338192,
+      "wireBytes": 4478289,
+      "triangles": 691939,
+      "edgeSegments": 902774
+    }
+  },
+  {
+    "id": "nike-air-max-97-se-new-tab",
+    "title": "Air Max 97 SE / New Tab",
+    "tag": "3D",
+    "tags": [
+      "Fragments",
+      "3D",
+      "SubD",
+      "Modeling",
+      "Footwear",
+      "Nike",
+      "Polygon"
+    ],
+    "img": "fragments/nike-air-max-97-se-new-tab/media/poster.webp",
+    "hover": "fragments/nike-air-max-97-se-new-tab/media/topology.webp",
+    "href": "fragments/nike-air-max-97-se-new-tab/",
+    "model": {
+      "title": "Air Max 97 SE / New Tab",
+      "model": "https://raw.githubusercontent.com/afterian/kenbechtold/1bbee6d97e806cf60a3eeba03162e0fac5d6e439/fragments/nike-air-max-97-se-new-tab/media/model.meshopt.glb.gz",
+      "wire": "https://raw.githubusercontent.com/afterian/kenbechtold/1bbee6d97e806cf60a3eeba03162e0fac5d6e439/fragments/nike-air-max-97-se-new-tab/media/wire.meshopt.glb.gz",
+      "poster": "fragments/nike-air-max-97-se-new-tab/media/poster.webp",
+      "modelBytes": 6008310,
+      "wireBytes": 2497847,
+      "triangles": 436126,
+      "edgeSegments": 530433
+    }
+  },
+  {
+    "id": "nike-air-max-invigor",
+    "title": "Air Max Invigor",
+    "tag": "3D",
+    "tags": [
+      "Fragments",
+      "3D",
+      "SubD",
+      "Modeling",
+      "Footwear",
+      "Nike",
+      "Polygon"
+    ],
+    "img": "fragments/nike-air-max-invigor/media/poster.webp",
+    "hover": "fragments/nike-air-max-invigor/media/topology.webp",
+    "href": "fragments/nike-air-max-invigor/",
+    "model": {
+      "title": "Air Max Invigor",
+      "model": "https://raw.githubusercontent.com/afterian/kenbechtold/1bbee6d97e806cf60a3eeba03162e0fac5d6e439/fragments/nike-air-max-invigor/media/model.meshopt.glb.gz",
+      "wire": "https://raw.githubusercontent.com/afterian/kenbechtold/1bbee6d97e806cf60a3eeba03162e0fac5d6e439/fragments/nike-air-max-invigor/media/wire.meshopt.glb.gz",
+      "poster": "fragments/nike-air-max-invigor/media/poster.webp",
+      "modelBytes": 8594669,
+      "wireBytes": 3860279,
+      "triangles": 579517,
+      "edgeSegments": 711662
+    }
+  },
+  {
+    "id": "nike-air-max-thea",
+    "title": "Air Max Thea",
+    "tag": "3D",
+    "tags": [
+      "Fragments",
+      "3D",
+      "SubD",
+      "Modeling",
+      "Footwear",
+      "Nike",
+      "Polygon"
+    ],
+    "img": "fragments/nike-air-max-thea/media/poster.webp",
+    "hover": "fragments/nike-air-max-thea/media/topology.webp",
+    "href": "fragments/nike-air-max-thea/",
+    "model": {
+      "title": "Air Max Thea",
+      "model": "https://raw.githubusercontent.com/afterian/kenbechtold/1bbee6d97e806cf60a3eeba03162e0fac5d6e439/fragments/nike-air-max-thea/media/model.meshopt.glb.gz",
+      "wire": "https://raw.githubusercontent.com/afterian/kenbechtold/1bbee6d97e806cf60a3eeba03162e0fac5d6e439/fragments/nike-air-max-thea/media/wire.meshopt.glb.gz",
+      "poster": "fragments/nike-air-max-thea/media/poster.webp",
+      "modelBytes": 9737186,
+      "wireBytes": 3047617,
+      "triangles": 565153,
+      "edgeSegments": 663949
+    }
+  },
+  {
+    "id": "nike-cortez-basic-16-jewel",
+    "title": "Cortez Basic 16 / Jewel",
+    "tag": "3D",
+    "tags": [
+      "Fragments",
+      "3D",
+      "SubD",
+      "Modeling",
+      "Footwear",
+      "Nike",
+      "Polygon"
+    ],
+    "img": "fragments/nike-cortez-basic-16-jewel/media/poster.webp",
+    "hover": "fragments/nike-cortez-basic-16-jewel/media/topology.webp",
+    "href": "fragments/nike-cortez-basic-16-jewel/",
+    "model": {
+      "title": "Cortez Basic 16 / Jewel",
+      "model": "https://raw.githubusercontent.com/afterian/kenbechtold/1bbee6d97e806cf60a3eeba03162e0fac5d6e439/fragments/nike-cortez-basic-16-jewel/media/model.meshopt.glb.gz",
+      "wire": "https://raw.githubusercontent.com/afterian/kenbechtold/1bbee6d97e806cf60a3eeba03162e0fac5d6e439/fragments/nike-cortez-basic-16-jewel/media/wire.meshopt.glb.gz",
+      "poster": "fragments/nike-cortez-basic-16-jewel/media/poster.webp",
+      "modelBytes": 8752080,
+      "wireBytes": 2654630,
+      "triangles": 479135,
+      "edgeSegments": 556558
+    }
+  },
+  {
+    "id": "nike-court-borough-low",
+    "title": "Court Borough Low",
+    "tag": "3D",
+    "tags": [
+      "Fragments",
+      "3D",
+      "SubD",
+      "Modeling",
+      "Footwear",
+      "Nike",
+      "Polygon"
+    ],
+    "img": "fragments/nike-court-borough-low/media/poster.webp",
+    "hover": "fragments/nike-court-borough-low/media/topology.webp",
+    "href": "fragments/nike-court-borough-low/",
+    "model": {
+      "title": "Court Borough Low",
+      "model": "https://raw.githubusercontent.com/afterian/kenbechtold/1bbee6d97e806cf60a3eeba03162e0fac5d6e439/fragments/nike-court-borough-low/media/model.meshopt.glb.gz",
+      "wire": "https://raw.githubusercontent.com/afterian/kenbechtold/1bbee6d97e806cf60a3eeba03162e0fac5d6e439/fragments/nike-court-borough-low/media/wire.meshopt.glb.gz",
+      "poster": "fragments/nike-court-borough-low/media/poster.webp",
+      "modelBytes": 7805023,
+      "wireBytes": 2765941,
+      "triangles": 515277,
+      "edgeSegments": 626339
+    }
+  },
+  {
+    "id": "nike-court-borough-mid",
+    "title": "Court Borough Mid",
+    "tag": "3D",
+    "tags": [
+      "Fragments",
+      "3D",
+      "SubD",
+      "Modeling",
+      "Footwear",
+      "Nike",
+      "Polygon"
+    ],
+    "img": "fragments/nike-court-borough-mid/media/poster.webp",
+    "hover": "fragments/nike-court-borough-mid/media/topology.webp",
+    "href": "fragments/nike-court-borough-mid/",
+    "model": {
+      "title": "Court Borough Mid",
+      "model": "https://raw.githubusercontent.com/afterian/kenbechtold/1bbee6d97e806cf60a3eeba03162e0fac5d6e439/fragments/nike-court-borough-mid/media/model.meshopt.glb.gz",
+      "wire": "https://raw.githubusercontent.com/afterian/kenbechtold/1bbee6d97e806cf60a3eeba03162e0fac5d6e439/fragments/nike-court-borough-mid/media/wire.meshopt.glb.gz",
+      "poster": "fragments/nike-court-borough-mid/media/poster.webp",
+      "modelBytes": 8700023,
+      "wireBytes": 2520538,
+      "triangles": 450644,
+      "edgeSegments": 538864
+    }
+  },
+  {
+    "id": "nike-internationalist-113994-womens",
+    "title": "Internationalist / Women's / 113994",
+    "tag": "3D",
+    "tags": [
+      "Fragments",
+      "3D",
+      "SubD",
+      "Modeling",
+      "Footwear",
+      "Nike",
+      "Polygon"
+    ],
+    "img": "fragments/nike-internationalist-113994-womens/media/poster.webp",
+    "hover": "fragments/nike-internationalist-113994-womens/media/topology.webp",
+    "href": "fragments/nike-internationalist-113994-womens/",
+    "model": {
+      "title": "Internationalist / Women's / 113994",
+      "model": "https://raw.githubusercontent.com/afterian/kenbechtold/1bbee6d97e806cf60a3eeba03162e0fac5d6e439/fragments/nike-internationalist-113994-womens/media/model.meshopt.glb.gz",
+      "wire": "https://raw.githubusercontent.com/afterian/kenbechtold/1bbee6d97e806cf60a3eeba03162e0fac5d6e439/fragments/nike-internationalist-113994-womens/media/wire.meshopt.glb.gz",
+      "poster": "fragments/nike-internationalist-113994-womens/media/poster.webp",
+      "modelBytes": 7479804,
+      "wireBytes": 2666100,
+      "triangles": 539531,
+      "edgeSegments": 606061
+    }
+  },
+  {
+    "id": "nike-sb-blazer-zoom-low",
+    "title": "SB Blazer Zoom Low",
+    "tag": "3D",
+    "tags": [
+      "Fragments",
+      "3D",
+      "SubD",
+      "Modeling",
+      "Footwear",
+      "Nike",
+      "Polygon"
+    ],
+    "img": "fragments/nike-sb-blazer-zoom-low/media/poster.webp",
+    "hover": "fragments/nike-sb-blazer-zoom-low/media/topology.webp",
+    "href": "fragments/nike-sb-blazer-zoom-low/",
+    "model": {
+      "title": "SB Blazer Zoom Low",
+      "model": "https://raw.githubusercontent.com/afterian/kenbechtold/1bbee6d97e806cf60a3eeba03162e0fac5d6e439/fragments/nike-sb-blazer-zoom-low/media/model.meshopt.glb.gz",
+      "wire": "https://raw.githubusercontent.com/afterian/kenbechtold/1bbee6d97e806cf60a3eeba03162e0fac5d6e439/fragments/nike-sb-blazer-zoom-low/media/wire.meshopt.glb.gz",
+      "poster": "fragments/nike-sb-blazer-zoom-low/media/poster.webp",
+      "modelBytes": 4013516,
+      "wireBytes": 1494857,
+      "triangles": 287172,
+      "edgeSegments": 297564
+    }
+  },
+  {
+    "id": "nike-sb-check-solar-843895-010",
+    "title": "SB Check Solar / 843895-010",
+    "tag": "3D",
+    "tags": [
+      "Fragments",
+      "3D",
+      "SubD",
+      "Modeling",
+      "Footwear",
+      "Nike",
+      "Polygon"
+    ],
+    "img": "fragments/nike-sb-check-solar-843895-010/media/poster.webp",
+    "hover": "fragments/nike-sb-check-solar-843895-010/media/topology.webp",
+    "href": "fragments/nike-sb-check-solar-843895-010/",
+    "model": {
+      "title": "SB Check Solar / 843895-010",
+      "model": "https://raw.githubusercontent.com/afterian/kenbechtold/1bbee6d97e806cf60a3eeba03162e0fac5d6e439/fragments/nike-sb-check-solar-843895-010/media/model.meshopt.glb.gz",
+      "wire": "https://raw.githubusercontent.com/afterian/kenbechtold/1bbee6d97e806cf60a3eeba03162e0fac5d6e439/fragments/nike-sb-check-solar-843895-010/media/wire.meshopt.glb.gz",
+      "poster": "fragments/nike-sb-check-solar-843895-010/media/poster.webp",
+      "modelBytes": 5534412,
+      "wireBytes": 2430300,
+      "triangles": 399674,
+      "edgeSegments": 486831
+    }
+  },
+  {
+    "id": "nike-tanjun",
+    "title": "Tanjun",
+    "tag": "3D",
+    "tags": [
+      "Fragments",
+      "3D",
+      "SubD",
+      "Modeling",
+      "Footwear",
+      "Nike",
+      "Polygon"
+    ],
+    "img": "fragments/nike-tanjun/media/poster.webp",
+    "hover": "fragments/nike-tanjun/media/topology.webp",
+    "href": "fragments/nike-tanjun/",
+    "model": {
+      "title": "Tanjun",
+      "model": "https://raw.githubusercontent.com/afterian/kenbechtold/1bbee6d97e806cf60a3eeba03162e0fac5d6e439/fragments/nike-tanjun/media/model.meshopt.glb.gz",
+      "wire": "https://raw.githubusercontent.com/afterian/kenbechtold/1bbee6d97e806cf60a3eeba03162e0fac5d6e439/fragments/nike-tanjun/media/wire.meshopt.glb.gz",
+      "poster": "fragments/nike-tanjun/media/poster.webp",
+      "modelBytes": 6023720,
+      "wireBytes": 2118700,
+      "triangles": 275890,
+      "edgeSegments": 348497
+    }
+  },
+  {
+    "id": "nike-zoom-stefan-janoski",
+    "title": "Zoom Stefan Janoski",
+    "tag": "3D",
+    "tags": [
+      "Fragments",
+      "3D",
+      "SubD",
+      "Modeling",
+      "Footwear",
+      "Nike",
+      "Polygon"
+    ],
+    "img": "fragments/nike-zoom-stefan-janoski/media/poster.webp",
+    "hover": "fragments/nike-zoom-stefan-janoski/media/topology.webp",
+    "href": "fragments/nike-zoom-stefan-janoski/",
+    "model": {
+      "title": "Zoom Stefan Janoski",
+      "model": "https://raw.githubusercontent.com/afterian/kenbechtold/1bbee6d97e806cf60a3eeba03162e0fac5d6e439/fragments/nike-zoom-stefan-janoski/media/model.meshopt.glb.gz",
+      "wire": "https://raw.githubusercontent.com/afterian/kenbechtold/1bbee6d97e806cf60a3eeba03162e0fac5d6e439/fragments/nike-zoom-stefan-janoski/media/wire.meshopt.glb.gz",
+      "poster": "fragments/nike-zoom-stefan-janoski/media/poster.webp",
+      "modelBytes": 9128682,
+      "wireBytes": 3471354,
+      "triangles": 553675,
+      "edgeSegments": 696159
+    }
+  },
+  {
+    "id": "renew-run",
+    "title": "Renew Run",
+    "tag": "3D",
+    "tags": [
+      "Fragments",
+      "3D",
+      "SubD",
+      "Modeling",
+      "Footwear",
+      "Nike",
+      "Polygon"
+    ],
+    "img": "fragments/renew-run/media/poster.webp",
+    "hover": "fragments/renew-run/media/topology.webp",
+    "href": "fragments/renew-run/",
+    "model": {
+      "title": "Renew Run",
+      "model": "https://raw.githubusercontent.com/afterian/kenbechtold/1bbee6d97e806cf60a3eeba03162e0fac5d6e439/fragments/renew-run/media/model.meshopt.glb.gz",
+      "wire": "https://raw.githubusercontent.com/afterian/kenbechtold/1bbee6d97e806cf60a3eeba03162e0fac5d6e439/fragments/renew-run/media/wire.meshopt.glb.gz",
+      "poster": "fragments/renew-run/media/poster.webp",
+      "modelBytes": 7470596,
+      "wireBytes": 3855274,
+      "triangles": 487901,
+      "edgeSegments": 668296
+    }
+  },
+  {
+    "id": "revolution-5",
+    "title": "Revolution 5",
+    "tag": "3D",
+    "tags": [
+      "Fragments",
+      "3D",
+      "SubD",
+      "Modeling",
+      "Footwear",
+      "Nike",
+      "Polygon"
+    ],
+    "img": "fragments/revolution-5/media/poster.webp",
+    "hover": "fragments/revolution-5/media/topology.webp",
+    "href": "fragments/revolution-5/",
+    "model": {
+      "title": "Revolution 5",
+      "model": "https://raw.githubusercontent.com/afterian/kenbechtold/1bbee6d97e806cf60a3eeba03162e0fac5d6e439/fragments/revolution-5/media/model.meshopt.glb.gz",
+      "wire": "https://raw.githubusercontent.com/afterian/kenbechtold/1bbee6d97e806cf60a3eeba03162e0fac5d6e439/fragments/revolution-5/media/wire.meshopt.glb.gz",
+      "poster": "fragments/revolution-5/media/poster.webp",
+      "modelBytes": 9785689,
+      "wireBytes": 4423256,
+      "triangles": 743753,
+      "edgeSegments": 1029767
+    }
+  },
+  {
+    "id": "winflo-6",
+    "title": "Winflo 6",
+    "tag": "3D",
+    "tags": [
+      "Fragments",
+      "3D",
+      "SubD",
+      "Modeling",
+      "Footwear",
+      "Nike",
+      "Polygon"
+    ],
+    "img": "fragments/winflo-6/media/poster.webp",
+    "hover": "fragments/winflo-6/media/topology.webp",
+    "href": "fragments/winflo-6/",
+    "model": {
+      "title": "Winflo 6",
+      "model": "https://raw.githubusercontent.com/afterian/kenbechtold/1bbee6d97e806cf60a3eeba03162e0fac5d6e439/fragments/winflo-6/media/model.meshopt.glb.gz",
+      "wire": "https://raw.githubusercontent.com/afterian/kenbechtold/1bbee6d97e806cf60a3eeba03162e0fac5d6e439/fragments/winflo-6/media/wire.meshopt.glb.gz",
+      "poster": "fragments/winflo-6/media/poster.webp",
+      "modelBytes": 3942497,
+      "wireBytes": 1715551,
+      "triangles": 257510,
+      "edgeSegments": 347786
+    }
   }
 ];
