@@ -3,6 +3,7 @@ import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+import { RectAreaLightUniformsLib } from 'three/addons/lights/RectAreaLightUniformsLib.js';
 
 function releaseTree(root) {
   if (!root) return;
@@ -183,6 +184,9 @@ export async function mountModelViewer(host, config) {
     for (const [color, intensity, position] of [['#fff7ed', 4, [1, 4, 4]], ['#dce8ff', 3, [-3, 2, -4]]]) {
       const light = new THREE.DirectionalLight(color, intensity); light.position.set(...position); scene.add(light);
     }
+    RectAreaLightUniformsLib.init();
+    const fill = new THREE.RectAreaLight('#e7edf5', .6, 8, 6);
+    fill.position.set(-3, 2, 5); fill.lookAt(0, 0, 0); scene.add(fill);
     metal = new THREE.MeshStandardMaterial({ color: '#5a5e68', metalness: 1, roughness: .26, envMapIntensity: 1.65 });
     clay = new THREE.MeshStandardMaterial({ color: '#96938f', metalness: 0, roughness: .78 });
     depth = new THREE.MeshBasicMaterial({ colorWrite: false, depthWrite: true, polygonOffset: true, polygonOffsetFactor: 1, polygonOffsetUnits: 1 });
@@ -251,7 +255,7 @@ export async function mountModelViewer(host, config) {
     if (edges || !surface || disposed) return;
     if (wirePromise) return wirePromise;
     const token = generation;
-    state('loading', 'Loading edgesâ€¦');
+    state('loading', 'Loading edges...');
     // Keep the current surface visible while the optional edge download completes.
     poster.hidden = true;
     wirePromise = (async () => {
@@ -272,7 +276,7 @@ export async function mountModelViewer(host, config) {
     const token = ++generation;
     requests.forEach(request => request.abort());
     wirePromise = null;
-    state('loading', 'Loading modelâ€¦');
+    state('loading', 'Loading model...');
     try {
       initialize();
       const root = await download(config.model, config.modelBytes, 'model', token);

@@ -378,7 +378,7 @@ export function lightbox() {
       stage.append(host); modelHost = host;
       modelFallback(host, p);
       try {
-        const { mountModelViewer } = await import('./footwear-viewer.js');
+        const { mountModelViewer } = await import('./footwear-viewer.js?v=fill-1');
         if (me !== generation) return;
         const config = { ...p.model };
         for (const key of ['model', 'wire', 'poster']) if (config[key]) config[key] = new URL(config[key], ROOT).href;

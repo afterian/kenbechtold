@@ -42,7 +42,7 @@
     async function start() {
       const token = ++generation;
       try {
-        const { mountModelViewer } = await import('../../assets/js/footwear-viewer.js');
+        const { mountModelViewer } = await import('../../assets/js/footwear-viewer.js?v=fill-1');
         if (token !== generation) return;
         const mounted = await mountModelViewer(host, config);
         if (token !== generation) mounted.dispose();
