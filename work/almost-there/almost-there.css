@@ -1,0 +1,35 @@
+.at__head { padding: clamp(20px, 2.5vw, 36px) var(--pad) clamp(18px, 2vw, 28px); }
+.at__head .cs__top { margin-bottom: clamp(18px, 2vw, 28px); }
+.at__kicker { color: var(--mut); }
+.at__head h1 { max-width: none; margin-top: 8px; font-size: clamp(2.8rem, 7vw, 6.5rem); line-height: .94; letter-spacing: -.05em; }
+.at__head .cs__sub { margin-top: clamp(14px, 1.8vw, 24px); }
+.at__head .cs__sub dl { grid-template-columns: repeat(3, auto); gap: 6px 24px; }
+.at__head .cs__sub dd { max-width: 24ch; }
+.at__nav { display: flex; gap: 20px; margin-top: 18px; padding-top: 12px; border-top: 1px solid var(--line); color: var(--mut); }
+.at__nav a:hover, .at__film-caption a:hover { color: var(--fg); }
+.at__film { margin: 0 var(--pad); }
+.at__video { width: 100%; aspect-ratio: 16 / 9; overflow: hidden; background: var(--bg-2); }
+.at__video video { display: block; width: 100%; height: 100%; object-fit: contain; background: var(--bg); }
+.at__film-caption { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px 24px; margin-top: 10px; color: var(--mut); }
+.at__story, .at__making { margin-left: 0; margin-right: 0; }
+.at__stills { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--gap); margin: clamp(32px, 5vw, 72px) var(--pad) 0; }
+.at__stills figure { min-width: 0; }
+.at__stills img { display: block; width: 100%; height: auto; border: 1px solid var(--line); }
+.at__stills figcaption { margin-top: 9px; color: var(--mut); font-size: var(--t-label); }
+.at__credits { margin: clamp(30px, 4vw, 56px) var(--pad) 0; padding-top: 14px; border-top: 1px solid var(--line); color: var(--mut); line-height: 1.6; }
+.at__endline { margin: clamp(36px, 6vw, 84px) var(--pad) 0; color: var(--fg); font-size: clamp(2rem, 5vw, 5.5rem); font-weight: 700; line-height: .98; letter-spacing: -.04em; }
+
+@media (max-width: 760px) {
+  .at__head .cs__sub { grid-template-columns: 1fr; gap: 18px; }
+  .at__head .cs__sub dl { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px 12px; font-size: .62rem; }
+  .at__stills { grid-template-columns: 1fr; }
+  .at__stills figure { max-width: 720px; }
+}
+
+@media (max-width: 480px) {
+  .at__head h1 { font-size: clamp(2.8rem, 14vw, 4.2rem); }
+  .at__nav { gap: 16px; }
+  .at__film-caption { flex-direction: column; gap: 4px; font-size: .58rem; }
+  .at__credits { font-size: .58rem; }
+  .at__endline { max-width: 12ch; }
+}
