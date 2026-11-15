@@ -1,0 +1,55 @@
+{
+  "title": "WORLD SHIFT",
+  "durationSeconds": 18,
+  "width": 1280,
+  "height": 720,
+  "fps": 24,
+  "filmSha256": "ac74bf7e00a6e5dfaccf6342b233e9b2870abc684a24c330952397b7270e0217",
+  "assets": [
+    {
+      "file": "desert.webp",
+      "bytes": 86786,
+      "sha256": "b2d5fc4434fa786a06bb5e69fe19daf881b605afbc140b74a442c1a02b7b026c"
+    },
+    {
+      "file": "glacier.webp",
+      "bytes": 147124,
+      "sha256": "b0e4c05c9726e6f2b1810346d034506f7dcaef2e41b14307eef6bbf65f16b876"
+    },
+    {
+      "file": "poster.jpg",
+      "bytes": 219682,
+      "sha256": "dda32f64a7e8b7c3009b6a9701f5ede314419f7201e76479bb134f79a98bb937"
+    },
+    {
+      "file": "preview.mp4",
+      "bytes": 3617233,
+      "sha256": "063440f913d533d07203f434dcb18f216e15365b30dc775bbbba76b509b8a568"
+    },
+    {
+      "file": "pursuit.webp",
+      "bytes": 47900,
+      "sha256": "007f15adede7a91682fb2f9fde8c8a31a4da60a988dda10bf17269128d7ab2f5"
+    },
+    {
+      "file": "return.webp",
+      "bytes": 85406,
+      "sha256": "436383ae0731d557f56fb66255665052197870a5b0aac7db1b4cb45a00a0b96b"
+    },
+    {
+      "file": "storm.webp",
+      "bytes": 85044,
+      "sha256": "3cb1405860f0635add45d390fe615ea4b8415410de93a45cb564e84863079c7a"
+    },
+    {
+      "file": "transformation.webp",
+      "bytes": 58306,
+      "sha256": "576da1454bf64090e4208c01c10478231f86021c672128a55754b97f6dbbb320"
+    },
+    {
+      "file": "world-shift-loop.mp4",
+      "bytes": 14648968,
+      "sha256": "ac74bf7e00a6e5dfaccf6342b233e9b2870abc684a24c330952397b7270e0217"
+    }
+  ]
+}
