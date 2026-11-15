@@ -1,10 +1,10 @@
 {
   "assets": [
     {
-      "output": "nikeskims-rhythm-in-bone-v2.mp4",
-      "role": "Approved final film, unchanged",
-      "sha256": "a7b728ad03cf65bc73dd85a8819b915f8d43def7df7ed17e11cc3e051f73b0f0",
-      "size_bytes": 8856493,
+      "output": "nikeskims-rhythm-in-bone-v3.mp4",
+      "role": "Corrected final film; P02 removed, byte-identical to reviewed V3 export",
+      "sha256": "efca7ee3e151e4e7496165af1c26c87f103c3006eb8dd7c144a8c3d3ad952165",
+      "size_bytes": 6460895,
       "dimensions": [
         1280,
         720
@@ -14,7 +14,7 @@
     },
     {
       "output": "film-poster.webp",
-      "role": "Approved supplied final-film poster; WebP conversion only",
+      "role": "Current final-film poster; WebP conversion only",
       "sha256": "26a85f70ad26b7c6beb381ba335e530808ae8c26fb0f0c6da231eebddb6b4003",
       "size_bytes": 47336,
       "dimensions": [
@@ -26,7 +26,7 @@
     },
     {
       "output": "first-pulse.webp",
-      "role": "Selected frame from approved final film",
+      "role": "Selected frame from corrected final film",
       "sha256": "70fea2b69f46cd2eec1066f694db7aa67a220789951c000ab3175257fe36048b",
       "size_bytes": 43608,
       "dimensions": [
@@ -38,7 +38,7 @@
     },
     {
       "output": "toe.webp",
-      "role": "Selected frame from approved final film",
+      "role": "Selected frame from corrected final film",
       "sha256": "1a68aa6dde8fd8b108c7aed44078ad1f25ec7938393b334fc0428574378dbe71",
       "size_bytes": 64176,
       "dimensions": [
@@ -50,7 +50,7 @@
     },
     {
       "output": "laces.webp",
-      "role": "Selected frame from approved final film",
+      "role": "Selected frame from corrected final film",
       "sha256": "7607634dc66dcec66d287e1594fec0e3849db791f2a7581a92d17e02eb917b20",
       "size_bytes": 73342,
       "dimensions": [
@@ -62,7 +62,7 @@
     },
     {
       "output": "sole.webp",
-      "role": "Selected frame from approved final film",
+      "role": "Selected frame from corrected final film",
       "sha256": "b0abb081513a06185d09fa9ffbc8ff3163d123fbbe2934ba765f23e31449e605",
       "size_bytes": 46974,
       "dimensions": [
@@ -73,52 +73,40 @@
       "timestamp": 6.0
     },
     {
-      "output": "roll.webp",
-      "role": "Selected frame from approved final film",
-      "sha256": "e9c7083d3089b0953a72398470ca24ce5032904b2b7f2f2a40a10b3f2fce4a8b",
-      "size_bytes": 47072,
-      "dimensions": [
-        1280,
-        720
-      ],
-      "frame": 192,
-      "timestamp": 8.0
-    },
-    {
       "output": "heel.webp",
-      "role": "Selected frame from approved final film",
+      "role": "Selected frame from corrected final film",
       "sha256": "f660e11535355616586849ec12c080d7955f92a54b43ad60228dc4543c5035d3",
       "size_bytes": 54630,
       "dimensions": [
         1280,
         720
       ],
-      "frame": 276,
-      "timestamp": 11.5
+      "frame": 156,
+      "timestamp": 6.5
     },
     {
       "output": "pair.webp",
-      "role": "Selected frame from approved final film",
+      "role": "Selected frame from corrected final film",
       "sha256": "244468222375d9f4364fc4ca9e1ffcb099df10181211afde054415c5fdea37ed",
       "size_bytes": 51014,
       "dimensions": [
         1280,
         720
       ],
-      "frame": 300,
-      "timestamp": 12.5
+      "frame": 180,
+      "timestamp": 7.5
     },
     {
       "output": "hero.webp",
-      "role": "Selected frame from approved final film",
+      "role": "Selected frame from corrected final film",
       "sha256": "26a85f70ad26b7c6beb381ba335e530808ae8c26fb0f0c6da231eebddb6b4003",
       "size_bytes": 47336,
       "dimensions": [
         1280,
         720
       ],
-      "frame": 348,
-      "timestamp": 14.5
+      "frame": 228,
+      "timestamp": 9.5
     },
     {
       "output": "cover.webp",
@@ -129,8 +117,8 @@
         1280,
         720
       ],
-      "frame": 348,
-      "timestamp": 14.5
+      "frame": 228,
+      "timestamp": 9.5
     }
   ]
 }
