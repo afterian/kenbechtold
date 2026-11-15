@@ -317,14 +317,17 @@ export function lightbox() {
   el.setAttribute('role', 'dialog');
   el.setAttribute('aria-modal', 'true');
   el.setAttribute('aria-label', 'Fragment');
+  el.setAttribute('aria-hidden', 'true');
+  el.inert = true;
   el.innerHTML = `
     <div class="lb__top"><span class="lb__n"></span><span class="lb__t"></span><button type="button" class="lb__x">Close ×</button></div>
     <div class="lb__stage"><img class="lb__a" alt=""><img class="lb__b" alt=""></div>
     <div class="lb__bot"><button type="button" data-d="-1">← Prev</button><button type="button" class="lb__w" aria-pressed="false">Wireframe</button><button type="button" data-d="1">Next →</button></div>`;
   document.body.append(el);
-  const A = $('.lb__a', el), B = $('.lb__b', el), W = $('.lb__w', el);
+  const A = $('.lb__a', el), B = $('.lb__b', el), W = $('.lb__w', el), X = $('.lb__x', el);
   const stage = $('.lb__stage', el);
-  let items = [], i = 0, opener = null;
+  let items = [], i = 0, opener = null, generation = 0, modelHandle = null, modelHost = null;
+  let overflow = '', scroll = [0, 0];
   const stopVideo = () => {
     const old = $('.lb__v', stage);
     if (!old) return;
@@ -333,16 +336,64 @@ export function lightbox() {
     v.removeAttribute('src'); v.load(); // stop the download
     old.remove();
   };
+  const stopModel = () => {
+    (modelHandle || modelHost?.footwearViewer)?.dispose();
+    modelHandle = null;
+    modelHost?.remove(); modelHost = null;
+  };
+  const modelFallback = (host, p, failed = false) => {
+    const image = document.createElement('img');
+    image.src = new URL(p.model.poster || p.img, ROOT).href; image.alt = p.title;
+    const status = document.createElement('p');
+    status.className = 'mono'; status.setAttribute('role', 'status');
+    status.style.cssText = 'position:absolute;bottom:16px;left:16px;right:16px;text-align:center;color:var(--mut);line-height:1.5';
+    status.textContent = failed ? '3D preview unavailable. ' : 'Loading 3D preview…';
+    if (failed && p.href) {
+      const link = document.createElement('a');
+      link.href = new URL(p.href, ROOT).href; link.textContent = 'Open Fragment ↗';
+      link.style.cssText = 'color:var(--fg);text-decoration:underline';
+      status.append(link);
+    }
+    host.replaceChildren(image, status);
+    host.dataset.state = failed ? 'error' : 'loading';
+  };
   const show = async () => {
-    const p = items[i], me = i;
+    const p = items[i], me = ++generation;
+    stopVideo(); stopModel();
+    el.classList.remove('wire'); W.setAttribute('aria-pressed', 'false');
     $('.lb__n', el).textContent = `${pad(i + 1)} / ${pad(items.length)}`;
-    $('.lb__t', el).textContent = `${p.title} · ${p.tag} · ${p.year}`;
-    stopVideo();
-    A.alt = p.title;
-    A.style.opacity = 0;
+    const tags = p.model ? (p.tags || [p.tag]).join(' / ') : p.tag;
+    $('.lb__t', el).textContent = [p.title, tags, p.year].filter(Boolean).join(' · ');
+    el.setAttribute('aria-label', p.title);
+    A.onload = null; A.removeAttribute('src'); A.alt = p.title; A.style.opacity = 0;
     B.removeAttribute('src');
-    el.classList.toggle('lb--photo', !!p.img && !p.video);
-    W.hidden = !!p.video || (!!p.img && !p.hover);
+    A.hidden = B.hidden = !!p.model || !!p.video;
+    el.classList.toggle('lb--model', !!p.model);
+    el.classList.toggle('lb--photo', !p.model && !!p.img && !p.video);
+    W.hidden = !!p.model || !!p.video || (!!p.img && !p.hover);
+    if (p.model) {
+      const host = document.createElement('div');
+      host.className = 'lb__model'; host.dataset.modelHost = '';
+      host.style.cssText = 'position:absolute;inset:0;min-height:0';
+      stage.append(host); modelHost = host;
+      modelFallback(host, p);
+      try {
+        const { mountModelViewer } = await import('./footwear-viewer.js');
+        if (me !== generation) return;
+        const config = { ...p.model };
+        for (const key of ['model', 'wire', 'poster']) if (config[key]) config[key] = new URL(config[key], ROOT).href;
+        const handle = await mountModelViewer(host, config);
+        if (me !== generation) { handle.dispose(); return; }
+        modelHandle = handle;
+        handle.ready?.catch(() => {}); // the viewer owns its retry and error UI
+      } catch (err) {
+        if (me !== generation) return;
+        host.footwearViewer?.dispose();
+        modelFallback(host, p, true);
+        console.warn('Model preview unavailable:', err);
+      }
+      return;
+    }
     if (p.video) {
       // clips open in the full player, with sound available
       const poster = p.poster || p.img;
@@ -351,48 +402,65 @@ export function lightbox() {
       return;
     }
     if (p.img) {
-      A.onload = () => { A.style.opacity = ''; };
+      A.onload = () => { if (me === generation) A.style.opacity = ''; };
       A.src = ROOT + p.img;
       if (p.hover) B.src = ROOT + p.hover;
       return;
     }
     const m = await loadModels();
-    if (!m) return;
+    if (!m || me !== generation) return;
     const o = { form: p.form, seed: p.seed, look: p.look || 0, mode: 'shaded', w: 1500, h: 940, yaw: 0 };
-    m.still(o).then((u) => { if (me === i && u) { A.src = u; A.style.opacity = ''; } });
-    m.still({ ...o, mode: 'wire' }).then((u) => { if (me === i && u) B.src = u; });
+    m.still(o).then((u) => { if (me === generation && u) { A.src = u; A.style.opacity = ''; } }).catch(no3d);
+    m.still({ ...o, mode: 'wire' }).then((u) => { if (me === generation && u) B.src = u; }).catch(no3d);
   };
   const go = (d) => { i = (i + d + items.length) % items.length; show(); };
   const close = () => {
-    stopVideo();
-    el.classList.remove('open', 'wire');
+    ++generation; stopVideo(); stopModel();
+    el.classList.remove('open', 'wire', 'lb--model');
+    el.setAttribute('aria-hidden', 'true'); el.inert = true;
     W.setAttribute('aria-pressed', 'false');
-    document.documentElement.style.overflow = '';
-    if (opener) opener.focus();
+    document.documentElement.style.overflow = overflow;
+    if (opener?.isConnected) opener.focus({ preventScroll: true });
+    if (window.scrollX !== scroll[0] || window.scrollY !== scroll[1]) window.scrollTo(...scroll);
   };
   el.addEventListener('click', (e) => {
+    if (e.target.closest('.lb__model, .vid')) return; // viewers own all of their controls
     const b = e.target.closest('button');
-    if (!b) { if (e.target.classList.contains('lb__stage')) close(); return; }
-    if (b.closest('.vid')) return; // the player's own buttons
+    if (!b) { if (e.target === stage) close(); return; }
     if (b.dataset.d) go(+b.dataset.d);
     else if (b === W) b.setAttribute('aria-pressed', el.classList.toggle('wire'));
-    else close();
+    else if (b === X) close();
   });
   addEventListener('keydown', (e) => {
     if (!el.classList.contains('open')) return;
-    if (e.key === 'Escape') close();
-    if (document.activeElement && document.activeElement.closest('.vid')) return; // arrows seek inside the player
-    if (e.key === 'ArrowRight') go(1);
-    if (e.key === 'ArrowLeft') go(-1);
+    if (e.key === 'Escape') { e.preventDefault(); close(); return; }
+    if (e.key === 'Tab') {
+      const focusable = $$('a[href], button:not([disabled]), input:not([disabled]), [tabindex="0"]', el)
+        .filter(n => !n.hidden && n.getClientRects().length && getComputedStyle(n).visibility !== 'hidden');
+      const first = focusable[0], last = focusable[focusable.length - 1];
+      if (e.shiftKey && (document.activeElement === first || !el.contains(document.activeElement))) {
+        e.preventDefault(); last?.focus();
+      } else if (!e.shiftKey && (document.activeElement === last || !el.contains(document.activeElement))) {
+        e.preventDefault(); first?.focus();
+      }
+      return;
+    }
+    if (e.defaultPrevented || document.activeElement?.closest('.vid, .lb__model')) return;
+    if (e.key === 'ArrowRight') { e.preventDefault(); go(1); }
+    if (e.key === 'ArrowLeft') { e.preventDefault(); go(-1); }
   });
   return {
     open(list, at) {
-      items = list; i = Math.max(0, at);
-      opener = document.activeElement;
-      el.classList.add('open');
+      if (!list.length) return;
+      if (!el.classList.contains('open')) {
+        opener = document.activeElement;
+        overflow = document.documentElement.style.overflow;
+        scroll = [window.scrollX, window.scrollY];
+      }
+      items = list; i = Math.min(items.length - 1, Math.max(0, at));
+      el.inert = false; el.removeAttribute('aria-hidden'); el.classList.add('open');
       document.documentElement.style.overflow = 'hidden';
-      show();
-      $('.lb__x', el).focus();
+      show(); X.focus();
     },
   };
 }

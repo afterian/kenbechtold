@@ -18,12 +18,30 @@ export const PROJECTS = [
 ];
 
 // Fragments: single pieces shown in the grid at the bottom of the home page.
-// Same media rules as projects. tag is one of the filter chips: 3D, AI, Motion, Tools.
+// Same media rules as projects. tags support multiple filter chips; tag is the short card label.
 const NAMES = ['Material study', 'Loop 014', 'Node graph', 'Rig test', 'Splat pass', 'Turntable', 'Lighting test', 'Colorway set', 'Shader ball', 'Capture pass', 'Title card', 'Tool UI'];
 const TAGS = ['3D', 'Motion', 'AI', '3D', 'AI', 'Motion', '3D', 'AI', '3D', 'Tools', 'Motion', 'Tools'];
 const FORMS = ['knot', 'ribbon', 'blob', 'ring', 'terrain', 'shape', 'vase'];
 
-export const PIECES = NAMES.map((title, i) => ({
+export const PIECES = [{
+  id: 'kyrie-7',
+  title: 'Kyrie 7',
+  tag: '3D',
+  tags: ['Fragments', '3D', 'SubD', 'Modeling', 'Footwear', 'Nike', 'Polygon'],
+  img: 'fragments/kyrie-7/media/poster.webp',
+  hover: 'fragments/kyrie-7/media/topology.webp',
+  href: 'fragments/kyrie-7/',
+  model: {
+    title: 'Kyrie 7',
+    model: 'fragments/kyrie-7/media/model.glb',
+    wire: 'fragments/kyrie-7/media/wire.glb',
+    poster: 'fragments/kyrie-7/media/poster.webp',
+    modelBytes: 1842716,
+    wireBytes: 1426604,
+    triangles: 76491,
+    edgeSegments: 116630,
+  },
+}, ...NAMES.map((title, i) => ({
   id: 's' + (i + 1),
   title,
   tag: TAGS[i],
@@ -31,7 +49,7 @@ export const PIECES = NAMES.map((title, i) => ({
   form: FORMS[i % 7],
   seed: 40 + i * 13,
   look: i % 3,
-}));
+}))];
 
 // Video: add  video: '<path>.mp4'  and  poster: '<path>.jpg'  to any project or fragment.
 // It previews silently on hover; fragments open in the full player with sound.
@@ -39,9 +57,9 @@ export const PIECES = NAMES.map((title, i) => ({
 // These three use the placeholder clips; replace them with real ones.
 const LOOP = { video: 'assets/media/placeholder-loop.mp4', poster: 'assets/media/placeholder-loop.jpg' };
 const FILM = { video: 'assets/media/placeholder-film.mp4', poster: 'assets/media/placeholder-film.jpg' };
-Object.assign(PIECES[1], LOOP);   // Loop 014
-Object.assign(PIECES[5], LOOP);   // Turntable
-Object.assign(PIECES[10], FILM);  // Title card (has sound)
+Object.assign(PIECES.find(p => p.id === 's2'), LOOP);   // Loop 014
+Object.assign(PIECES.find(p => p.id === 's6'), LOOP);   // Turntable
+Object.assign(PIECES.find(p => p.id === 's11'), FILM);  // Title card (has sound)
 
 // Access codes: a visitor types one in the top bar and the site reorders around their picks.
 // The first id in `order` becomes the hero. These are plain text in a public file:

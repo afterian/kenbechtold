@@ -96,17 +96,22 @@ $('[data-frag]').innerHTML = PIECES.map((p, i) => `
   </button>`).join('');
 
 let filter = '';
+const matchesTag = (p) => !filter || (p.tags || [p.tag]).includes(filter);
 $('[data-chips]').addEventListener('click', (e) => {
   const b = e.target.closest('button');
   if (!b) return;
   filter = b.dataset.t;
   $$('[data-chips] button').forEach((x) => x.setAttribute('aria-pressed', x === b));
-  $$('.tile').forEach((t) => t.classList.toggle('off', !!filter && t.dataset.tag !== filter));
+  $$('.tile').forEach((t) => {
+    const matches = matchesTag(PIECES[+t.dataset.i]);
+    t.classList.toggle('off', !matches);
+    t.disabled = !matches;
+  });
 });
 $('[data-frag]').addEventListener('click', (e) => {
   const t = e.target.closest('.tile');
-  if (!t) return;
-  const set = PIECES.filter((p) => !filter || p.tag === filter);
+  if (!t || t.disabled) return;
+  const set = PIECES.filter(matchesTag);
   lb.open(set, set.indexOf(PIECES[+t.dataset.i]));
 });
 

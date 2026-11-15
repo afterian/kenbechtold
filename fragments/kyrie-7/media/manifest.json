@@ -1,0 +1,52 @@
+{
+  "id": "kyrie-7",
+  "title": "Kyrie 7",
+  "tags": [
+    "Fragments",
+    "3D",
+    "SubD",
+    "Modeling",
+    "Footwear",
+    "Nike",
+    "Polygon"
+  ],
+  "appearance": {
+    "name": "Gunmetal",
+    "color": "#5a5e68",
+    "metallic": 1.0,
+    "roughness": 0.26
+  },
+  "note": "Original source-edge display; no new subdivision.",
+  "assets": [
+    {
+      "file": "model.glb",
+      "bytes": 1842716,
+      "sha256": "0a340f31ac81749f1d93be1c34f9b277b366c3f7c6ad288aa1633206177ce8e7",
+      "triangles": 76491,
+      "segments": 0
+    },
+    {
+      "file": "wire.glb",
+      "bytes": 1426604,
+      "sha256": "3a8cdb41ce5c30ab0a431de55d7fb3f33a69816aee92bc98fda7b24813ac4d46",
+      "triangles": 0,
+      "segments": 116630
+    }
+  ],
+  "posters": [
+    {
+      "file": "poster.webp",
+      "bytes": 49444,
+      "sha256": "ca648acb2a0315be2d93080d0bd9815345cd3e71e67812384e7168b2cd63c504",
+      "width": 1200,
+      "height": 1200
+    },
+    {
+      "file": "topology.webp",
+      "bytes": 212344,
+      "sha256": "6250d9bb473ef3ff24001e89e3ecde1252831653a52bdf9d4eb0911872636f94",
+      "width": 1200,
+      "height": 1200
+    }
+  ]
+}
