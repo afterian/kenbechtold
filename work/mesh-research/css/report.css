@@ -150,3 +150,13 @@
 @media (max-width: 899px) {
   .gen-vs td:first-child { white-space: normal; }
 }
+
+/* Portfolio cover: keep methods and title in separate flow on phones. */
+.cover-h__sub { display: block; margin-top: .35em; font-size: .48em; line-height: 1.1; letter-spacing: 0; }
+@media (max-width: 899px) {
+  #p-cover .cover-kicker { position: static; align-self: stretch; }
+  #p-cover .cover-title { align-self: stretch; min-width: 0; padding-bottom: 0; }
+  #p-cover .cover-h { overflow-wrap: anywhere; }
+  #p-cover .cover-title .display.cover-h { font-size: clamp(36px, 10vw, 64px); line-height: 1.02; }
+  #p-cover .cover-h__sub { font-size: .6em; line-height: 1.15; }
+}
