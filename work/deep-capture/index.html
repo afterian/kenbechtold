@@ -53,20 +53,25 @@
 
     <section class="dc-hero" aria-labelledby="dc-hero-heading">
       <div class="dc-stage dc-video-stage">
-        <div class="dc-stage-top mono"><span id="dc-hero-heading">From physical product to digital possibility</span><span id="dc-image-qualifier">Actual capture / selected view</span></div>
-        <img id="dc-hero-image" src="media/capture-lateral.jpg" width="1920" height="1280" alt="Actual captured Air Jordan footwear, clean lateral view with calibration targets" fetchpriority="high">
-        <div class="dc-stage-bottom mono"><span>Deep Capture / platform study</span><span id="dc-view-label" aria-live="polite">Captured product</span></div>
+        <div class="dc-stage-top mono"><span id="dc-hero-heading">From physical product to digital possibility</span><span id="dc-image-qualifier">Animated explainer / WIP</span></div>
+        <video id="dc-hero-video" width="1920" height="1080" controls muted playsinline preload="metadata" poster="media/deep-capture-info-v08.jpg" aria-label="Deep Capture: 60-second silent animated explainer" aria-describedby="dc-video-note">
+          <source src="media/deep-capture-info-v08.mp4" type="video/mp4">
+          <a href="media/deep-capture-info-v08.mp4">Watch the Deep Capture explainer</a>
+        </video>
+        <img id="dc-hero-image" hidden src="media/capture-lateral.jpg" width="1920" height="1280" alt="Actual captured Air Jordan footwear, clean lateral view with calibration targets" fetchpriority="high">
+        <div class="dc-stage-bottom mono"><span>Deep Capture / platform study</span><span id="dc-view-label" aria-live="polite">60-second silent film</span></div>
       </div>
       <aside class="dc-hero-aside">
         <span class="mono dc-index">The accomplishment</span>
         <h2>Designed the platform.<br> Built the studio.</h2>
         <p>A connected system for product capture, 3D representation and AI, shaped through research, testing and workflow development.</p>
-        <div class="dc-view-controls" role="group" aria-label="Reviewed capture examples">
-          <button type="button" data-view="capture" aria-pressed="true"><span>01</span> Captured product <b>&#8599;</b></button>
-          <button type="button" data-view="detail" aria-pressed="false"><span>02</span> Surface detail <b>&#8599;</b></button>
-          <button type="button" data-view="wire" aria-pressed="false"><span>03</span> Derived geometry <b>&#8599;</b></button>
+        <div class="dc-view-controls" role="group" aria-label="Film and reviewed capture examples">
+          <button type="button" data-view="film" aria-pressed="true"><span>01</span> Watch the film <b>&#8599;</b></button>
+          <button type="button" data-view="capture" aria-pressed="false"><span>02</span> Captured product <b>&#8599;</b></button>
+          <button type="button" data-view="detail" aria-pressed="false"><span>03</span> Surface detail <b>&#8599;</b></button>
+          <button type="button" data-view="wire" aria-pressed="false"><span>04</span> Derived geometry <b>&#8599;</b></button>
         </div>
-        <small>Real capture photographs and a derived mesh view. The wireframe is a simplified visualization of scan geometry, not the original surface topology. Selected static views only.</small>
+        <small id="dc-video-note">Film: an animated explanation using capture data, explanatory graphics and generated imagery, not a recording of the system in operation. Image tabs: real capture photographs and a derived mesh view. The wireframe is a simplified visualization of scan geometry, not the original surface topology. Selected static views only.</small>
       </aside>
     </section>
     <nav class="dc-chapters dc-deck-index mono" aria-label="Deep Capture presentation sections"><a href="#system">01 / System</a><a href="#pipeline">02 / Pipeline</a><a href="#capture">03 / Capture</a><a href="#materials">04 / Materials</a><a href="#ai-ready">05 / AI</a><a href="#vision">06 / Vision</a><a href="#neural-rendering">07 / Rendering</a><a href="#creation">08 / Creation</a></nav>
