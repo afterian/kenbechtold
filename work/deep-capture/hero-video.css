@@ -3,3 +3,11 @@
 .dc-video-stage [hidden] { display:none !important; }
 .dc-video-stage>img { min-height:0; aspect-ratio:16/9; object-fit:contain; }
 @media(max-width:560px) { .dc-video-stage .dc-stage-top,.dc-video-stage .dc-stage-bottom { font-size:8px; padding:12px; } .dc-video-stage .dc-stage-top span:last-child { max-width:none; } }
+
+.dc-real-capture { display:flex; flex-direction:column; justify-content:center; overflow:hidden; background:#000; }
+.dc-real-capture .dc-visual-note { position:static; padding:16px; }
+.dc-real-capture img { display:block; position:static; width:100%; height:auto; max-width:100%; object-fit:contain; }
+.dc-capability-note { padding:24px; display:flex; flex-direction:column; justify-content:center; gap:20px; }
+.dc-capability-note p { font-size:clamp(22px,3vw,40px); line-height:1.2; }
+.dc-capability-note small { color:var(--mut); }
+

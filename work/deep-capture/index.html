@@ -53,25 +53,20 @@
 
     <section class="dc-hero" aria-labelledby="dc-hero-heading">
       <div class="dc-stage dc-video-stage">
-        <div class="dc-stage-top mono"><span id="dc-hero-heading">From physical product to digital possibility</span><span id="dc-image-qualifier">Animated explainer / WIP</span></div>
-        <video id="dc-hero-video" width="1920" height="1080" controls muted playsinline preload="metadata" poster="media/deep-capture-info-v08.jpg" aria-label="Deep Capture: 60-second silent animated explainer" aria-describedby="dc-video-note">
-          <source src="media/deep-capture-info-v08.mp4" type="video/mp4">
-          <a href="media/deep-capture-info-v08.mp4">Watch the Deep Capture explainer</a>
-        </video>
-        <img id="dc-hero-image" hidden src="media/specimen-surface.svg" width="1400" height="820" alt="Illustrative product view">
-        <div class="dc-stage-bottom mono"><span>Deep Capture / platform study</span><span id="dc-view-label" aria-live="polite">60-second silent film</span></div>
+        <div class="dc-stage-top mono"><span id="dc-hero-heading">From physical product to digital possibility</span><span id="dc-image-qualifier">Actual capture / selected view</span></div>
+        <img id="dc-hero-image" src="media/capture-lateral.jpg" width="1920" height="1280" alt="Actual captured Air Jordan footwear, clean lateral view with calibration targets" fetchpriority="high">
+        <div class="dc-stage-bottom mono"><span>Deep Capture / platform study</span><span id="dc-view-label" aria-live="polite">Captured product</span></div>
       </div>
       <aside class="dc-hero-aside">
         <span class="mono dc-index">The accomplishment</span>
         <h2>Designed the platform.<br> Built the studio.</h2>
         <p>A connected system for product capture, 3D representation and AI, shaped through research, testing and workflow development.</p>
-        <div class="dc-view-controls" role="group" aria-label="Film and illustrative product views">
-          <button type="button" data-view="scanner" aria-pressed="true"><span>01</span> Watch the film <b>&#8599;</b></button>
-          <button type="button" data-view="surface" aria-pressed="false"><span>02</span> Surface + structure <b>&#8599;</b></button>
-          <button type="button" data-view="wire" aria-pressed="false"><span>03</span> Geometry <b>&#8599;</b></button>
-          <button type="button" data-view="points" aria-pressed="false"><span>04</span> Point representation <b>&#8599;</b></button>
+        <div class="dc-view-controls" role="group" aria-label="Reviewed capture examples">
+          <button type="button" data-view="capture" aria-pressed="true"><span>01</span> Captured product <b>&#8599;</b></button>
+          <button type="button" data-view="detail" aria-pressed="false"><span>02</span> Surface detail <b>&#8599;</b></button>
+          <button type="button" data-view="wire" aria-pressed="false"><span>03</span> Derived geometry <b>&#8599;</b></button>
         </div>
-        <small id="dc-video-note">Film: a silent, animated explanation using capture data, explanatory graphics and generated imagery, not a recording of the system in operation. Product tabs: original illustrations, not scan results.</small>
+        <small>Real capture photographs and a derived mesh view. The wireframe is a simplified visualization of scan geometry, not the original surface topology. Selected static views only.</small>
       </aside>
     </section>
     <nav class="dc-chapters dc-deck-index mono" aria-label="Deep Capture presentation sections"><a href="#system">01 / System</a><a href="#pipeline">02 / Pipeline</a><a href="#capture">03 / Capture</a><a href="#materials">04 / Materials</a><a href="#ai-ready">05 / AI</a><a href="#vision">06 / Vision</a><a href="#neural-rendering">07 / Rendering</a><a href="#creation">08 / Creation</a></nav>
@@ -93,35 +88,35 @@
     <section class="dc-slide" id="capture" aria-labelledby="capture-title">
       <div class="dc-slide-head mono"><span>03 / Capture depth</span><span>High resolution / Multiple conditions</span></div>
       <div class="dc-slide-body"><div class="dc-slide-copy"><h2 id="capture-title">Thousands<br> of images.<br> A deeper capture.</h2><p>The system captures thousands of high-resolution images across multiple viewpoints and lighting conditions.</p><ul><li>Product form from different angles.</li><li>Surface response under changing light.</li><li>A rich foundation for 3D and AI.</li></ul></div>
-      <div class="dc-slide-visual dc-capture-visual"><span class="dc-visual-note mono">Illustrative product / not a dataset</span><div class="dc-capture-orbit" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div><img src="media/specimen-wire.svg" width="1400" height="820" alt="Original illustrative footwear wireframe surrounded by capture viewpoints, not actual scan data" loading="lazy"><div class="dc-visual-caption mono"><span>Viewpoints</span><b>&#215;</b><span>Lighting</span><b>&#215;</b><span>Detail</span></div></div></div>
+      <div class="dc-slide-visual dc-real-capture"><span class="dc-visual-note mono">Actual scan / simplified mesh visualization</span><img src="media/capture-derived-wire.jpg" width="1920" height="1080" alt="Static wireframe derived from captured footwear geometry; simplified to 4,998 triangles" loading="lazy" decoding="async"></div></div>
       <div class="dc-slide-foot mono"><span>High-resolution product imaging</span><a href="#materials">Next / Materials &#8595;</a></div>
     </section>
 
     <section class="dc-slide" id="materials" aria-labelledby="materials-title">
       <div class="dc-slide-head mono"><span>04 / Material capture</span><span>PBR + Surface information</span></div>
       <div class="dc-slide-body"><div class="dc-slide-copy"><h2 id="materials-title">Capture how<br> the surface<br> behaves.</h2><p>Deep Capture supports standard PBR material information, including roughness and metalness, alongside surface normals, height data and ultraviolet capture.</p><p class="dc-slide-secondary">The capability extends beyond visible color into the properties that shape a digital product.</p></div>
-      <div class="dc-slide-visual dc-material-visual"><span class="dc-visual-note mono">Channel concepts / illustrative swatches</span><div class="dc-material-grid"><div><i class="dc-swatch dc-swatch-color" aria-hidden="true"></i><span class="mono">Color</span></div><div><i class="dc-swatch dc-swatch-rough" aria-hidden="true"></i><span class="mono">Roughness</span></div><div><i class="dc-swatch dc-swatch-metal" aria-hidden="true"></i><span class="mono">Metalness</span></div><div><i class="dc-swatch dc-swatch-normal" aria-hidden="true"></i><span class="mono">Normals</span></div><div><i class="dc-swatch dc-swatch-height" aria-hidden="true"></i><span class="mono">Height</span></div><div><i class="dc-swatch dc-swatch-uv" aria-hidden="true"></i><span class="mono">Ultraviolet</span></div></div></div></div>
+      <div class="dc-slide-visual dc-real-capture"><span class="dc-visual-note mono">Actual photograph / upper surface detail</span><img src="media/capture-surface-detail.jpg" width="720" height="470" alt="Captured leather grain and stitched seam; source photograph, not a material channel map" loading="lazy" decoding="async"></div></div>
       <div class="dc-slide-foot mono"><span>Material response + Fine surface detail</span><a href="#ai-ready">Next / AI-ready capture &#8595;</a></div>
     </section>
 
     <section class="dc-slide dc-slide-wide" id="ai-ready" aria-labelledby="ai-title">
       <div class="dc-slide-head mono"><span>05 / AI-ready capture</span><span>One foundation / Multiple uses</span></div>
       <div class="dc-slide-wide-intro"><h2 id="ai-title">Built for the next<br> generation of tools.</h2><p>High-resolution, multi-view capture provides a foundation for LoRA training, Gaussian-splat reconstruction and AI vision models.</p></div>
-      <div class="dc-ai-panels"><article><div class="dc-ai-art dc-ai-model" aria-hidden="true"><i></i><i></i><i></i><b>LoRA</b></div><span class="mono">Model adaptation</span><h3>LoRA training</h3><p>Product imagery for targeted model training and creative exploration.</p></article><article><div class="dc-ai-art"><img src="media/specimen-points.svg" width="1400" height="820" alt="Illustrative point representation, not an actual Gaussian-splat reconstruction" loading="lazy"></div><span class="mono">Spatial representation</span><h3>Gaussian splats</h3><p>Multi-view imagery for reconstructing the product spatially.</p></article><article><div class="dc-ai-art dc-ai-vision" aria-hidden="true"><i></i><i></i><i></i><b>Vision</b></div><span class="mono">Image understanding</span><h3>AI vision models</h3><p>Capture data for models that identify and interpret product imagery.</p></article></div>
-      <div class="dc-slide-foot mono"><span>Illustrative application overview</span><a href="#vision">Next / Computer vision &#8595;</a></div>
+      <div class="dc-ai-panels"><article><div class="dc-ai-art dc-ai-model" aria-hidden="true"><i></i><i></i><i></i><b>LoRA</b></div><span class="mono">Model adaptation</span><h3>LoRA training</h3><p>Product imagery for targeted model training and creative exploration.</p></article><article><div class="dc-ai-art dc-capability-note"><span class="mono">Multi-view capture<br>Spatial reconstruction</span></div><span class="mono">Spatial representation</span><h3>Gaussian splats</h3><p>Multi-view imagery for reconstructing the product spatially.</p></article><article><div class="dc-ai-art dc-ai-vision" aria-hidden="true"><i></i><i></i><i></i><b>Vision</b></div><span class="mono">Image understanding</span><h3>AI vision models</h3><p>Capture data for models that identify and interpret product imagery.</p></article></div>
+      <div class="dc-slide-foot mono"><span>Application overview / capabilities</span><a href="#vision">Next / Computer vision &#8595;</a></div>
     </section>
 
     <section class="dc-slide" id="vision" aria-labelledby="vision-title">
       <div class="dc-slide-head mono"><span>06 / Computer vision</span><span>Segmentation + Processing</span></div>
       <div class="dc-slide-body"><div class="dc-slide-copy"><h2 id="vision-title">Understand<br> the product.<br> Separate the detail.</h2><p>Advanced computer vision and AI segmentation help isolate the product and its regions for downstream processing and content creation.</p><ul><li>Separate the product from its surroundings.</li><li>Identify regions within the image.</li><li>Connect the result to the next workflow.</li></ul></div>
-      <div class="dc-slide-visual dc-segmentation-visual"><span class="dc-visual-note mono">Segmentation concept / not a model result</span><img src="media/specimen-surface.svg" width="1400" height="820" alt="Illustrative footwear form with conceptual segmentation regions, not an actual AI segmentation output" loading="lazy"><div class="dc-segmentation-box" aria-hidden="true"><span class="mono">Product region</span><i></i><b></b></div><div class="dc-visual-caption mono">Product &#8594; Regions &#8594; Workflow</div></div></div>
+      <div class="dc-slide-visual dc-real-capture dc-capability-note"><span class="mono">Computer vision</span><p>Product isolation.<br>Region understanding.<br>Connected workflows.</p><small>Capability overview. No segmentation result shown.</small></div></div>
       <div class="dc-slide-foot mono"><span>AI-assisted image understanding</span><a href="#neural-rendering">Next / Neural rendering &#8595;</a></div>
     </section>
 
     <section class="dc-slide" id="neural-rendering" aria-labelledby="rendering-title">
       <div class="dc-slide-head mono"><span>07 / Neural rendering</span><span>Capture-backed image creation</span></div>
       <div class="dc-slide-body"><div class="dc-slide-copy"><h2 id="rendering-title">A learned model.<br> Real source<br> detail.</h2><p>A trained AI model works with a 3D representation, camera positions and nearby source photographs to render the chosen product view.</p><p class="dc-slide-secondary">The aim is high-fidelity, high-resolution product imagery grounded in the original capture.</p></div>
-      <div class="dc-slide-visual dc-rendering-visual"><span class="dc-visual-note mono">Illustrative placeholder / not a render result</span><img src="media/specimen-surface.svg" width="1400" height="820" alt="Original illustrative product standing in for a future approved neural-rendering example" loading="lazy"><div class="dc-rendering-inputs mono"><span>Trained model</span><b>+</b><span>Captured source</span></div></div></div>
+      <div class="dc-slide-visual dc-real-capture"><span class="dc-visual-note mono">Source detail / not a neural-rendered result</span><img src="media/capture-surface-detail.jpg" width="720" height="470" alt="Real photographic surface detail as an example of captured source information" loading="lazy" decoding="async"></div></div>
       <div class="dc-slide-foot mono"><span>Selected view / Source-supported rendering</span><a href="#creation">Next / Digital creation &#8595;</a></div>
     </section>
 
