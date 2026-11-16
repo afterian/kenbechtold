@@ -1,4 +1,4 @@
-// Shared, on-demand viewer for reviewed footwear GLBs and their original source edges.
+// Shared, on-demand viewer for reviewed footwear GLBs and their supplied topology.
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
@@ -83,7 +83,9 @@ export async function mountModelViewer(host, config) {
   const rotate = button(actions, 'Rotate', () => setRotation(!rotating));
   button(actions, 'Reset view', reset);
   const hint = document.createElement('p');
-  hint.className = 'footwear__hint'; hint.textContent = 'Drag to rotate / Scroll to zoom';
+  hint.className = 'footwear__hint';
+  const navigationHint = 'Drag to rotate / Scroll to zoom';
+  hint.textContent = config.topologyLabel ? `${navigationHint} / ${config.topologyLabel}` : navigationHint;
   host.append(viewport, toolbar, hint);
 
   function state(value, message = '', canRetry = false) {

@@ -1,0 +1,39 @@
+{
+  "id": "renders-air-max-warp",
+  "title": "Air Max Warp / Flyknit",
+  "tags": [
+    "Fragments",
+    "3D",
+    "SubD",
+    "Modeling",
+    "Footwear",
+    "Nike",
+    "Polygon"
+  ],
+  "appearance": {
+    "name": "Gunmetal",
+    "color": "#5a5e68",
+    "metallic": 1,
+    "roughness": 0.26
+  },
+  "note": "Optimized surface geometry; Edges and Wire show decimated model topology, not original source edges.",
+  "topologyLabel": "Decimated model topology",
+  "assets": [
+    {
+      "file": "model.meshopt.glb.gz",
+      "bytes": 14895865,
+      "sha256": "cdb0a0d5e5c41f966e61d54d57e712120ff7f436cb15857e99e33d035990b6b5",
+      "triangles": 999794,
+      "segments": 0,
+      "url": "https://raw.githubusercontent.com/afterian/kenbechtold/b5729242fe49b385775359a0f21fa51f70a4e880/fragments/renders-air-max-warp/media/model.meshopt.glb.gz"
+    },
+    {
+      "file": "wire.meshopt.glb.gz",
+      "bytes": 6798189,
+      "sha256": "95418b74341b40a7e2785bd48275fd8a080fcf32c4e66c4ad612d6dabed7aeec",
+      "triangles": 0,
+      "segments": 1626800,
+      "url": "https://raw.githubusercontent.com/afterian/kenbechtold/b5729242fe49b385775359a0f21fa51f70a4e880/fragments/renders-air-max-warp/media/wire.meshopt.glb.gz"
+    }
+  ]
+}

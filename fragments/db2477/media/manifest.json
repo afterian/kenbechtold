@@ -1,6 +1,6 @@
 {
   "id": "db2477",
-  "title": "Nike Footwear",
+  "title": "Crater Impact",
   "tags": [
     "Fragments",
     "3D",
@@ -16,23 +16,24 @@
     "metallic": 1,
     "roughness": 0.26
   },
-  "note": "Original source-edge display; no new subdivision. Lossless retained geometry.",
+  "note": "Optimized surface geometry; Edges and Wire show decimated model topology, not original source edges.",
+  "topologyLabel": "Decimated model topology",
   "assets": [
     {
       "file": "model.meshopt.glb.gz",
-      "bytes": 22169489,
-      "sha256": "2331d2386bec605f1bd75f8bdeb056ee1878f4f6dace0290f1f2ed2db2a17ac3",
-      "triangles": 1822009,
+      "bytes": 13126681,
+      "sha256": "5f45ae4e23d32884c08833f4652cd9f1d90fc134ff0fb3495a6f57e9842e1d6c",
+      "triangles": 999985,
       "segments": 0,
-      "url": "https://raw.githubusercontent.com/afterian/kenbechtold/06404d65326ee0b7bd22e1b62df2645096e7c989/fragments/db2477/media/model.meshopt.glb.gz"
+      "url": "https://raw.githubusercontent.com/afterian/kenbechtold/b5729242fe49b385775359a0f21fa51f70a4e880/fragments/db2477/media/model.meshopt.glb.gz"
     },
     {
       "file": "wire.meshopt.glb.gz",
-      "bytes": 12670104,
-      "sha256": "2ad18a735abfbbfaa7fc9174411e3d5129edbd607150d65de5dfbd5b52834680",
+      "bytes": 7843269,
+      "sha256": "0fd3a23f481c548d4620e5362b9cd5885d2201cbf19bceaf0385a60a66c436d3",
       "triangles": 0,
-      "segments": 2755527,
-      "url": "https://raw.githubusercontent.com/afterian/kenbechtold/06404d65326ee0b7bd22e1b62df2645096e7c989/fragments/db2477/media/wire.meshopt.glb.gz"
+      "segments": 1527323,
+      "url": "https://raw.githubusercontent.com/afterian/kenbechtold/b5729242fe49b385775359a0f21fa51f70a4e880/fragments/db2477/media/wire.meshopt.glb.gz"
     }
   ]
 }

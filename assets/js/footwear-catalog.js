@@ -433,7 +433,7 @@ export const FOOTWEAR = [
   },
   {
     "id": "db2477",
-    "title": "Nike Footwear",
+    "title": "Crater Impact",
     "tag": "3D",
     "tags": [
       "Fragments",
@@ -448,14 +448,15 @@ export const FOOTWEAR = [
     "hover": "fragments/db2477/media/topology.webp",
     "href": "fragments/db2477/",
     "model": {
-      "title": "Nike Footwear",
-      "model": "https://raw.githubusercontent.com/afterian/kenbechtold/06404d65326ee0b7bd22e1b62df2645096e7c989/fragments/db2477/media/model.meshopt.glb.gz",
-      "wire": "https://raw.githubusercontent.com/afterian/kenbechtold/06404d65326ee0b7bd22e1b62df2645096e7c989/fragments/db2477/media/wire.meshopt.glb.gz",
+      "title": "Crater Impact",
+      "model": "https://raw.githubusercontent.com/afterian/kenbechtold/b5729242fe49b385775359a0f21fa51f70a4e880/fragments/db2477/media/model.meshopt.glb.gz",
+      "wire": "https://raw.githubusercontent.com/afterian/kenbechtold/b5729242fe49b385775359a0f21fa51f70a4e880/fragments/db2477/media/wire.meshopt.glb.gz",
       "poster": "fragments/db2477/media/poster.webp",
-      "modelBytes": 22169489,
-      "wireBytes": 12670104,
-      "triangles": 1822009,
-      "edgeSegments": 2755527
+      "modelBytes": 13126681,
+      "wireBytes": 7843269,
+      "triangles": 999985,
+      "edgeSegments": 1527323,
+      "topologyLabel": "Decimated model topology"
     }
   },
   {
@@ -2076,6 +2077,34 @@ export const FOOTWEAR = [
       "wireBytes": 1715551,
       "triangles": 257510,
       "edgeSegments": 347786
+    }
+  },
+  {
+    "id": "renders-air-max-warp",
+    "title": "Air Max Warp / Flyknit",
+    "tag": "3D",
+    "tags": [
+      "Fragments",
+      "3D",
+      "SubD",
+      "Modeling",
+      "Footwear",
+      "Nike",
+      "Polygon"
+    ],
+    "img": "fragments/renders-air-max-warp/media/poster.webp",
+    "hover": "fragments/renders-air-max-warp/media/topology.webp",
+    "href": "fragments/renders-air-max-warp/",
+    "model": {
+      "title": "Air Max Warp / Flyknit",
+      "model": "https://raw.githubusercontent.com/afterian/kenbechtold/b5729242fe49b385775359a0f21fa51f70a4e880/fragments/renders-air-max-warp/media/model.meshopt.glb.gz",
+      "wire": "https://raw.githubusercontent.com/afterian/kenbechtold/b5729242fe49b385775359a0f21fa51f70a4e880/fragments/renders-air-max-warp/media/wire.meshopt.glb.gz",
+      "poster": "fragments/renders-air-max-warp/media/poster.webp",
+      "modelBytes": 14895865,
+      "wireBytes": 6798189,
+      "triangles": 999794,
+      "edgeSegments": 1626800,
+      "topologyLabel": "Decimated model topology"
     }
   }
 ];
