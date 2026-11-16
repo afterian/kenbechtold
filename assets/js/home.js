@@ -111,6 +111,8 @@ $('[data-chips]').addEventListener('click', (e) => {
 $('[data-frag]').addEventListener('click', (e) => {
   const t = e.target.closest('.tile');
   if (!t || t.disabled) return;
+  const piece = PIECES[+t.dataset.i];
+  if (piece.href) { location.href = ROOT + piece.href; return; }
   const set = PIECES.filter(matchesTag);
   lb.open(set, set.indexOf(PIECES[+t.dataset.i]));
 });
