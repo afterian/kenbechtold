@@ -10,4 +10,6 @@
 .dc-capability-note { padding:24px; display:flex; flex-direction:column; justify-content:center; gap:20px; }
 .dc-capability-note p { font-size:clamp(22px,3vw,40px); line-height:1.2; }
 .dc-capability-note small { color:var(--mut); }
-
+.dc-scan-demo { margin:30px 0 0; border:1px solid var(--line); background:#000; }
+.dc-scan-demo video { display:block; width:100%; max-width:938px; height:auto; margin:0 auto; }
+.dc-scan-demo figcaption { padding:16px; font-size:9px; line-height:1.6; color:var(--mut); }

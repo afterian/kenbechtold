@@ -1,6 +1,6 @@
 const views = {
   capture: { src: 'media/capture-lateral.jpg', alt: 'Actual captured footwear, clean lateral view with calibration targets', label: 'Captured product', qualifier: 'Actual capture / selected view', width: 1920, height: 1280 },
-  detail: { src: 'media/capture-surface-detail.jpg', alt: 'Actual upper surface photograph showing leather grain and stitching', label: 'Upper surface detail', qualifier: 'Source photograph / detail crop', width: 720, height: 470 },
+  detail: { src: 'media/material-knit-lacing.jpg', alt: 'Actual capture photograph showing engineered mesh, lace loops and orange stitching', label: 'Upper surface detail', qualifier: 'Source photograph / detail crop', width: 1400, height: 933 },
   wire: { src: 'media/capture-derived-wire.jpg', alt: 'Simplified wireframe derived from the actual footwear scan', label: 'Derived mesh / 4,998 triangles', qualifier: 'Actual scan / simplified visualization', width: 1920, height: 1080 }
 };
 const image = document.getElementById('dc-hero-image');
