@@ -14,6 +14,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
   <noscript><link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"></noscript>
   <link rel="stylesheet" href="../../assets/css/site.css">
+  <link rel="stylesheet" href="hero-video.css">
   <script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
   <link rel="modulepreload" href="../../assets/js/case.js">
   <link rel="modulepreload" href="../../assets/js/ui.js">
@@ -51,22 +52,26 @@
     </header>
 
     <section class="dc-hero" aria-labelledby="dc-hero-heading">
-      <div class="dc-stage">
-        <div class="dc-stage-top mono"><span id="dc-hero-heading">From physical product to digital possibility</span><span id="dc-image-qualifier">AI-edited WIP</span></div>
-        <img id="dc-hero-image" src="media/scanner-wip.webp" width="1672" height="941" fetchpriority="high" alt="AI-edited work-in-progress visualization of the Deep Capture scanner in a dark studio. Not an exact record of its hardware configuration.">
-        <div class="dc-stage-bottom mono"><span>Deep Capture / platform study</span><span id="dc-view-label" aria-live="polite">Scanner visualization</span></div>
+      <div class="dc-stage dc-video-stage">
+        <div class="dc-stage-top mono"><span id="dc-hero-heading">From physical product to digital possibility</span><span id="dc-image-qualifier">Animated explainer / WIP</span></div>
+        <video id="dc-hero-video" width="1920" height="1080" controls muted playsinline preload="metadata" poster="media/deep-capture-info-v08.jpg" aria-label="Deep Capture: 60-second silent animated explainer" aria-describedby="dc-video-note">
+          <source src="media/deep-capture-info-v08.mp4" type="video/mp4">
+          <a href="media/deep-capture-info-v08.mp4">Watch the Deep Capture explainer</a>
+        </video>
+        <img id="dc-hero-image" hidden src="media/specimen-surface.svg" width="1400" height="820" alt="Illustrative product view">
+        <div class="dc-stage-bottom mono"><span>Deep Capture / platform study</span><span id="dc-view-label" aria-live="polite">60-second silent film</span></div>
       </div>
       <aside class="dc-hero-aside">
         <span class="mono dc-index">The accomplishment</span>
         <h2>Designed the platform.<br> Built the studio.</h2>
         <p>A connected system for product capture, 3D representation and AI, shaped through research, testing and workflow development.</p>
-        <div class="dc-view-controls" role="group" aria-label="Scanner and illustrative product views">
-          <button type="button" data-view="scanner" aria-pressed="true"><span>01</span> Scanner WIP <b>&#8599;</b></button>
+        <div class="dc-view-controls" role="group" aria-label="Film and illustrative product views">
+          <button type="button" data-view="scanner" aria-pressed="true"><span>01</span> Watch the film <b>&#8599;</b></button>
           <button type="button" data-view="surface" aria-pressed="false"><span>02</span> Surface + structure <b>&#8599;</b></button>
           <button type="button" data-view="wire" aria-pressed="false"><span>03</span> Geometry <b>&#8599;</b></button>
           <button type="button" data-view="points" aria-pressed="false"><span>04</span> Point representation <b>&#8599;</b></button>
         </div>
-        <small>Scanner: AI-edited work in progress, not an exact record of the hardware configuration. Product views: original illustrations, not captured products or scan results.</small>
+        <small id="dc-video-note">Film: a silent, animated explanation using capture data, explanatory graphics and generated imagery, not a recording of the system in operation. Product tabs: original illustrations, not scan results.</small>
       </aside>
     </section>
     <nav class="dc-chapters dc-deck-index mono" aria-label="Deep Capture presentation sections"><a href="#system">01 / System</a><a href="#pipeline">02 / Pipeline</a><a href="#capture">03 / Capture</a><a href="#materials">04 / Materials</a><a href="#ai-ready">05 / AI</a><a href="#vision">06 / Vision</a><a href="#neural-rendering">07 / Rendering</a><a href="#creation">08 / Creation</a></nav>

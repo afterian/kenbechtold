@@ -1,0 +1,5 @@
+.dc-video-stage .dc-stage-top,.dc-video-stage .dc-stage-bottom { position:static; width:auto; max-width:none; margin:0; padding:14px 18px; background:var(--bg-2); flex-wrap:wrap; }
+.dc-video-stage video { display:block; width:100%; height:auto; aspect-ratio:16/9; background:#000; }
+.dc-video-stage [hidden] { display:none !important; }
+.dc-video-stage>img { min-height:0; aspect-ratio:16/9; object-fit:contain; }
+@media(max-width:560px) { .dc-video-stage .dc-stage-top,.dc-video-stage .dc-stage-bottom { font-size:8px; padding:12px; } .dc-video-stage .dc-stage-top span:last-child { max-width:none; } }
