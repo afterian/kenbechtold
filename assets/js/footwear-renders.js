@@ -11,7 +11,8 @@ export const FOOTWEAR_RENDERS = [
       "Nike"
     ],
     "img": "assets/media/footwear-renders/kb-01-thumb.webp",
-    "href": "fragments/air-max-2090-ct7695-whtwhtblkblue/"
+    "href": "fragments/air-max-2090-ct7695-whtwhtblkblue/",
+    "client": "Nike"
   },
   {
     "id": "render-kb-02",
@@ -25,7 +26,8 @@ export const FOOTWEAR_RENDERS = [
       "Nike"
     ],
     "img": "assets/media/footwear-renders/kb-02-thumb.webp",
-    "href": "fragments/air-max-racer-pt/"
+    "href": "fragments/air-max-racer-pt/",
+    "client": "Nike"
   },
   {
     "id": "render-kb-03",
@@ -39,7 +41,8 @@ export const FOOTWEAR_RENDERS = [
       "Nike"
     ],
     "img": "assets/media/footwear-renders/kb-03-thumb.webp",
-    "href": "fragments/air-max-motif/"
+    "href": "fragments/air-max-motif/",
+    "client": "Nike"
   },
   {
     "id": "render-kb-04",
@@ -53,7 +56,8 @@ export const FOOTWEAR_RENDERS = [
       "Nike"
     ],
     "img": "assets/media/footwear-renders/kb-04-thumb.webp",
-    "href": "fragments/renders-air-max-warp/"
+    "href": "fragments/renders-air-max-warp/",
+    "client": "Nike"
   },
   {
     "id": "render-kb-05",
@@ -67,7 +71,8 @@ export const FOOTWEAR_RENDERS = [
       "Nike"
     ],
     "img": "assets/media/footwear-renders/kb-05-thumb.webp",
-    "href": "fragments/renders-air-max-warp/"
+    "href": "fragments/renders-air-max-warp/",
+    "client": "Nike"
   },
   {
     "id": "render-kb-06",
@@ -81,7 +86,8 @@ export const FOOTWEAR_RENDERS = [
       "Nike"
     ],
     "img": "assets/media/footwear-renders/kb-06-thumb.webp",
-    "href": "fragments/renders-air-max-warp/"
+    "href": "fragments/renders-air-max-warp/",
+    "client": "Nike"
   },
   {
     "id": "render-kb-07",
@@ -95,7 +101,8 @@ export const FOOTWEAR_RENDERS = [
       "Nike"
     ],
     "img": "assets/media/footwear-renders/kb-07-thumb.webp",
-    "href": "fragments/renders-air-max-warp/"
+    "href": "fragments/renders-air-max-warp/",
+    "client": "Nike"
   },
   {
     "id": "render-kb-08",
@@ -109,7 +116,8 @@ export const FOOTWEAR_RENDERS = [
       "Nike"
     ],
     "img": "assets/media/footwear-renders/kb-08-thumb.webp",
-    "href": "fragments/renders-air-max-warp/"
+    "href": "fragments/renders-air-max-warp/",
+    "client": "Nike"
   },
   {
     "id": "render-kb-09",
@@ -123,7 +131,8 @@ export const FOOTWEAR_RENDERS = [
       "Nike"
     ],
     "img": "assets/media/footwear-renders/kb-09-thumb.webp",
-    "href": "fragments/cw7356/"
+    "href": "fragments/cw7356/",
+    "client": "Nike"
   },
   {
     "id": "render-kb-10",
@@ -137,7 +146,8 @@ export const FOOTWEAR_RENDERS = [
       "Nike"
     ],
     "img": "assets/media/footwear-renders/kb-10-thumb.webp",
-    "href": "fragments/renders-cz0203/"
+    "href": "fragments/renders-cz0203/",
+    "client": "Nike"
   },
   {
     "id": "render-kb-11",
@@ -151,7 +161,8 @@ export const FOOTWEAR_RENDERS = [
       "Nike"
     ],
     "img": "assets/media/footwear-renders/kb-11-thumb.webp",
-    "href": "fragments/renders-cz0203/"
+    "href": "fragments/renders-cz0203/",
+    "client": "Nike"
   },
   {
     "id": "render-kb-12",
@@ -165,7 +176,8 @@ export const FOOTWEAR_RENDERS = [
       "Nike"
     ],
     "img": "assets/media/footwear-renders/kb-12-thumb.webp",
-    "href": "fragments/renders-da1192/"
+    "href": "fragments/renders-da1192/",
+    "client": "Nike"
   },
   {
     "id": "render-kb-13",
@@ -179,7 +191,8 @@ export const FOOTWEAR_RENDERS = [
       "Nike"
     ],
     "img": "assets/media/footwear-renders/kb-13-thumb.webp",
-    "href": "fragments/renders-da1923/"
+    "href": "fragments/renders-da1923/",
+    "client": "Nike"
   },
   {
     "id": "render-kb-14",
@@ -193,7 +206,8 @@ export const FOOTWEAR_RENDERS = [
       "Nike"
     ],
     "img": "assets/media/footwear-renders/kb-14-thumb.webp",
-    "href": "fragments/renders-da1923/"
+    "href": "fragments/renders-da1923/",
+    "client": "Nike"
   },
   {
     "id": "render-kb-15",
@@ -207,7 +221,8 @@ export const FOOTWEAR_RENDERS = [
       "Nike"
     ],
     "img": "assets/media/footwear-renders/kb-15-thumb.webp",
-    "href": "fragments/renders-da1925/"
+    "href": "fragments/renders-da1925/",
+    "client": "Nike"
   },
   {
     "id": "render-kb-16",
@@ -221,7 +236,8 @@ export const FOOTWEAR_RENDERS = [
       "Nike"
     ],
     "img": "assets/media/footwear-renders/kb-16-thumb.webp",
-    "href": "fragments/db2477/"
+    "href": "fragments/db2477/",
+    "client": "Nike"
   },
   {
     "id": "render-kb-17",
@@ -235,7 +251,8 @@ export const FOOTWEAR_RENDERS = [
       "Nike"
     ],
     "img": "assets/media/footwear-renders/kb-17-thumb.webp",
-    "href": "fragments/db2477/"
+    "href": "fragments/db2477/",
+    "client": "Nike"
   },
   {
     "id": "render-kb-18",
@@ -249,7 +266,8 @@ export const FOOTWEAR_RENDERS = [
       "Nike"
     ],
     "img": "assets/media/footwear-renders/kb-18-thumb.webp",
-    "href": "fragments/renders-dc9339/"
+    "href": "fragments/renders-dc9339/",
+    "client": "Nike"
   },
   {
     "id": "render-kb-19",
@@ -263,7 +281,8 @@ export const FOOTWEAR_RENDERS = [
       "Nike"
     ],
     "img": "assets/media/footwear-renders/kb-19-thumb.webp",
-    "href": "fragments/renders-dc9339/"
+    "href": "fragments/renders-dc9339/",
+    "client": "Nike"
   },
   {
     "id": "render-kb-20",
@@ -277,7 +296,8 @@ export const FOOTWEAR_RENDERS = [
       "Nike"
     ],
     "img": "assets/media/footwear-renders/kb-20-thumb.webp",
-    "href": "fragments/renders-dm0863/"
+    "href": "fragments/renders-dm0863/",
+    "client": "Nike"
   },
   {
     "id": "render-kb-21",
@@ -291,7 +311,8 @@ export const FOOTWEAR_RENDERS = [
       "Nike"
     ],
     "img": "assets/media/footwear-renders/kb-21-thumb.webp",
-    "href": "fragments/renders-dm0863/"
+    "href": "fragments/renders-dm0863/",
+    "client": "Nike"
   },
   {
     "id": "render-kb-22",
@@ -305,7 +326,8 @@ export const FOOTWEAR_RENDERS = [
       "Nike"
     ],
     "img": "assets/media/footwear-renders/kb-22-thumb.webp",
-    "href": "fragments/renders-dr0449/"
+    "href": "fragments/renders-dr0449/",
+    "client": "Nike"
   },
   {
     "id": "render-kb-23",
@@ -319,7 +341,8 @@ export const FOOTWEAR_RENDERS = [
       "Nike"
     ],
     "img": "assets/media/footwear-renders/kb-23-thumb.webp",
-    "href": "fragments/renders-air-max-warp/"
+    "href": "fragments/renders-air-max-warp/",
+    "client": "Nike"
   },
   {
     "id": "render-kb-24",
@@ -333,7 +356,8 @@ export const FOOTWEAR_RENDERS = [
       "Nike"
     ],
     "img": "assets/media/footwear-renders/kb-24-thumb.webp",
-    "href": "fragments/renders-air-max-warp/"
+    "href": "fragments/renders-air-max-warp/",
+    "client": "Nike"
   },
   {
     "id": "render-kb-26",
@@ -347,7 +371,8 @@ export const FOOTWEAR_RENDERS = [
       "Nike"
     ],
     "img": "assets/media/footwear-renders/kb-26-thumb.webp",
-    "href": "fragments/renders-superfly-academy/"
+    "href": "fragments/renders-superfly-academy/",
+    "client": "Nike"
   },
   {
     "id": "render-kb-27",
@@ -361,7 +386,8 @@ export const FOOTWEAR_RENDERS = [
       "Nike"
     ],
     "img": "assets/media/footwear-renders/kb-27-thumb.webp",
-    "href": "fragments/renders-escape-run/"
+    "href": "fragments/renders-escape-run/",
+    "client": "Nike"
   },
   {
     "id": "render-su22-01",
@@ -375,7 +401,8 @@ export const FOOTWEAR_RENDERS = [
       "Nike"
     ],
     "img": "assets/media/footwear-renders/su22-01-thumb.webp",
-    "href": "fragments/renders-dh9388/"
+    "href": "fragments/renders-dh9388/",
+    "client": "Nike"
   },
   {
     "id": "render-su22-02",
@@ -389,7 +416,8 @@ export const FOOTWEAR_RENDERS = [
       "Nike"
     ],
     "img": "assets/media/footwear-renders/su22-02-thumb.webp",
-    "href": "fragments/renders-dh9388/"
+    "href": "fragments/renders-dh9388/",
+    "client": "Nike"
   },
   {
     "id": "render-su22-03",
@@ -403,7 +431,8 @@ export const FOOTWEAR_RENDERS = [
       "Nike"
     ],
     "img": "assets/media/footwear-renders/su22-03-thumb.webp",
-    "href": "fragments/renders-dh9388/"
+    "href": "fragments/renders-dh9388/",
+    "client": "Nike"
   },
   {
     "id": "render-su22-04",
@@ -417,7 +446,8 @@ export const FOOTWEAR_RENDERS = [
       "Nike"
     ],
     "img": "assets/media/footwear-renders/su22-04-thumb.webp",
-    "href": "fragments/renders-dh9388/"
+    "href": "fragments/renders-dh9388/",
+    "client": "Nike"
   },
   {
     "id": "render-su22-05",
@@ -431,7 +461,8 @@ export const FOOTWEAR_RENDERS = [
       "Nike"
     ],
     "img": "assets/media/footwear-renders/su22-05-thumb.webp",
-    "href": "fragments/renders-dh9388/"
+    "href": "fragments/renders-dh9388/",
+    "client": "Nike"
   },
   {
     "id": "render-su22-06",
@@ -445,7 +476,8 @@ export const FOOTWEAR_RENDERS = [
       "Nike"
     ],
     "img": "assets/media/footwear-renders/su22-06-thumb.webp",
-    "href": "fragments/renders-dh9388/"
+    "href": "fragments/renders-dh9388/",
+    "client": "Nike"
   },
   {
     "id": "render-su22-07",
@@ -459,7 +491,8 @@ export const FOOTWEAR_RENDERS = [
       "Nike"
     ],
     "img": "assets/media/footwear-renders/su22-07-thumb.webp",
-    "href": "fragments/renders-dm0863/"
+    "href": "fragments/renders-dm0863/",
+    "client": "Nike"
   },
   {
     "id": "render-su22-08",
@@ -473,7 +506,8 @@ export const FOOTWEAR_RENDERS = [
       "Nike"
     ],
     "img": "assets/media/footwear-renders/su22-08-thumb.webp",
-    "href": "fragments/renders-dm0863/"
+    "href": "fragments/renders-dm0863/",
+    "client": "Nike"
   },
   {
     "id": "render-su22-09",
@@ -487,7 +521,8 @@ export const FOOTWEAR_RENDERS = [
       "Nike"
     ],
     "img": "assets/media/footwear-renders/su22-09-thumb.webp",
-    "href": "fragments/renders-dm0863/"
+    "href": "fragments/renders-dm0863/",
+    "client": "Nike"
   },
   {
     "id": "render-su22-10",
@@ -501,7 +536,8 @@ export const FOOTWEAR_RENDERS = [
       "Nike"
     ],
     "img": "assets/media/footwear-renders/su22-10-thumb.webp",
-    "href": "fragments/renders-dm0863/"
+    "href": "fragments/renders-dm0863/",
+    "client": "Nike"
   },
   {
     "id": "render-su22-11",
@@ -515,7 +551,8 @@ export const FOOTWEAR_RENDERS = [
       "Nike"
     ],
     "img": "assets/media/footwear-renders/su22-11-thumb.webp",
-    "href": "fragments/renders-dm0863/"
+    "href": "fragments/renders-dm0863/",
+    "client": "Nike"
   },
   {
     "id": "render-su22-12",
@@ -529,7 +566,8 @@ export const FOOTWEAR_RENDERS = [
       "Nike"
     ],
     "img": "assets/media/footwear-renders/su22-12-thumb.webp",
-    "href": "fragments/renders-dm0863/"
+    "href": "fragments/renders-dm0863/",
+    "client": "Nike"
   },
   {
     "id": "render-su22-13",
@@ -543,7 +581,8 @@ export const FOOTWEAR_RENDERS = [
       "Nike"
     ],
     "img": "assets/media/footwear-renders/su22-13-thumb.webp",
-    "href": "fragments/renders-dm0863/"
+    "href": "fragments/renders-dm0863/",
+    "client": "Nike"
   },
   {
     "id": "render-su22-14",
@@ -557,7 +596,8 @@ export const FOOTWEAR_RENDERS = [
       "Nike"
     ],
     "img": "assets/media/footwear-renders/su22-14-thumb.webp",
-    "href": "fragments/renders-dm0863/"
+    "href": "fragments/renders-dm0863/",
+    "client": "Nike"
   },
   {
     "id": "render-su22-15",
@@ -571,7 +611,8 @@ export const FOOTWEAR_RENDERS = [
       "Nike"
     ],
     "img": "assets/media/footwear-renders/su22-15-thumb.webp",
-    "href": "fragments/renders-dm0863/"
+    "href": "fragments/renders-dm0863/",
+    "client": "Nike"
   },
   {
     "id": "render-su22-16",
@@ -585,7 +626,8 @@ export const FOOTWEAR_RENDERS = [
       "Nike"
     ],
     "img": "assets/media/footwear-renders/su22-16-thumb.webp",
-    "href": "fragments/renders-dm0863/"
+    "href": "fragments/renders-dm0863/",
+    "client": "Nike"
   },
   {
     "id": "render-su22-17",
@@ -599,7 +641,8 @@ export const FOOTWEAR_RENDERS = [
       "Nike"
     ],
     "img": "assets/media/footwear-renders/su22-17-thumb.webp",
-    "href": "fragments/renders-dm0863/"
+    "href": "fragments/renders-dm0863/",
+    "client": "Nike"
   },
   {
     "id": "render-su22-18",
@@ -613,7 +656,8 @@ export const FOOTWEAR_RENDERS = [
       "Nike"
     ],
     "img": "assets/media/footwear-renders/su22-18-thumb.webp",
-    "href": "fragments/renders-dm0863/"
+    "href": "fragments/renders-dm0863/",
+    "client": "Nike"
   },
   {
     "id": "render-su22-19",
@@ -627,7 +671,8 @@ export const FOOTWEAR_RENDERS = [
       "Nike"
     ],
     "img": "assets/media/footwear-renders/su22-19-thumb.webp",
-    "href": "fragments/renders-dr0449/"
+    "href": "fragments/renders-dr0449/",
+    "client": "Nike"
   },
   {
     "id": "render-su22-20",
@@ -641,7 +686,8 @@ export const FOOTWEAR_RENDERS = [
       "Nike"
     ],
     "img": "assets/media/footwear-renders/su22-20-thumb.webp",
-    "href": "fragments/renders-dr0449/"
+    "href": "fragments/renders-dr0449/",
+    "client": "Nike"
   },
   {
     "id": "render-su22-21",
@@ -655,7 +701,8 @@ export const FOOTWEAR_RENDERS = [
       "Nike"
     ],
     "img": "assets/media/footwear-renders/su22-21-thumb.webp",
-    "href": "fragments/renders-dr0449/"
+    "href": "fragments/renders-dr0449/",
+    "client": "Nike"
   },
   {
     "id": "render-su22-22",
@@ -669,7 +716,8 @@ export const FOOTWEAR_RENDERS = [
       "Nike"
     ],
     "img": "assets/media/footwear-renders/su22-22-thumb.webp",
-    "href": "fragments/renders-dr0449/"
+    "href": "fragments/renders-dr0449/",
+    "client": "Nike"
   },
   {
     "id": "render-su22-23",
@@ -683,7 +731,8 @@ export const FOOTWEAR_RENDERS = [
       "Nike"
     ],
     "img": "assets/media/footwear-renders/su22-23-thumb.webp",
-    "href": "fragments/renders-dr0449/"
+    "href": "fragments/renders-dr0449/",
+    "client": "Nike"
   },
   {
     "id": "render-su22-24",
@@ -697,7 +746,8 @@ export const FOOTWEAR_RENDERS = [
       "Nike"
     ],
     "img": "assets/media/footwear-renders/su22-24-thumb.webp",
-    "href": "fragments/renders-dr0449/"
+    "href": "fragments/renders-dr0449/",
+    "client": "Nike"
   },
   {
     "id": "render-warp-01",
@@ -711,7 +761,8 @@ export const FOOTWEAR_RENDERS = [
       "Nike"
     ],
     "img": "assets/media/footwear-renders/warp-01-thumb.webp",
-    "href": "fragments/renders-air-max-warp/"
+    "href": "fragments/renders-air-max-warp/",
+    "client": "Nike"
   },
   {
     "id": "render-warp-02",
@@ -725,7 +776,8 @@ export const FOOTWEAR_RENDERS = [
       "Nike"
     ],
     "img": "assets/media/footwear-renders/warp-02-thumb.webp",
-    "href": "fragments/renders-air-max-warp/"
+    "href": "fragments/renders-air-max-warp/",
+    "client": "Nike"
   },
   {
     "id": "render-warp-03",
@@ -739,7 +791,8 @@ export const FOOTWEAR_RENDERS = [
       "Nike"
     ],
     "img": "assets/media/footwear-renders/warp-03-thumb.webp",
-    "href": "fragments/renders-air-max-warp/"
+    "href": "fragments/renders-air-max-warp/",
+    "client": "Nike"
   },
   {
     "id": "render-warp-04",
@@ -753,7 +806,8 @@ export const FOOTWEAR_RENDERS = [
       "Nike"
     ],
     "img": "assets/media/footwear-renders/warp-04-thumb.webp",
-    "href": "fragments/renders-air-max-warp/"
+    "href": "fragments/renders-air-max-warp/",
+    "client": "Nike"
   },
   {
     "id": "render-warp-05",
@@ -767,7 +821,8 @@ export const FOOTWEAR_RENDERS = [
       "Nike"
     ],
     "img": "assets/media/footwear-renders/warp-05-thumb.webp",
-    "href": "fragments/renders-air-max-warp/"
+    "href": "fragments/renders-air-max-warp/",
+    "client": "Nike"
   },
   {
     "id": "render-warp-06",
@@ -781,7 +836,8 @@ export const FOOTWEAR_RENDERS = [
       "Nike"
     ],
     "img": "assets/media/footwear-renders/warp-06-thumb.webp",
-    "href": "fragments/renders-air-max-warp/"
+    "href": "fragments/renders-air-max-warp/",
+    "client": "Nike"
   },
   {
     "id": "render-warp-07",
@@ -795,7 +851,8 @@ export const FOOTWEAR_RENDERS = [
       "Nike"
     ],
     "img": "assets/media/footwear-renders/warp-07-thumb.webp",
-    "href": "fragments/renders-air-max-warp/"
+    "href": "fragments/renders-air-max-warp/",
+    "client": "Nike"
   },
   {
     "id": "render-warp-08",
@@ -809,7 +866,8 @@ export const FOOTWEAR_RENDERS = [
       "Nike"
     ],
     "img": "assets/media/footwear-renders/warp-08-thumb.webp",
-    "href": "fragments/renders-air-max-warp/"
+    "href": "fragments/renders-air-max-warp/",
+    "client": "Nike"
   },
   {
     "id": "render-warp-09",
@@ -823,7 +881,8 @@ export const FOOTWEAR_RENDERS = [
       "Nike"
     ],
     "img": "assets/media/footwear-renders/warp-09-thumb.webp",
-    "href": "fragments/renders-air-max-warp/"
+    "href": "fragments/renders-air-max-warp/",
+    "client": "Nike"
   },
   {
     "id": "render-warp-10",
@@ -837,7 +896,8 @@ export const FOOTWEAR_RENDERS = [
       "Nike"
     ],
     "img": "assets/media/footwear-renders/warp-10-thumb.webp",
-    "href": "fragments/renders-air-max-warp/"
+    "href": "fragments/renders-air-max-warp/",
+    "client": "Nike"
   },
   {
     "id": "render-warp-11",
@@ -851,7 +911,8 @@ export const FOOTWEAR_RENDERS = [
       "Nike"
     ],
     "img": "assets/media/footwear-renders/warp-11-thumb.webp",
-    "href": "fragments/renders-air-max-warp/"
+    "href": "fragments/renders-air-max-warp/",
+    "client": "Nike"
   },
   {
     "id": "render-warp-12",
@@ -865,7 +926,8 @@ export const FOOTWEAR_RENDERS = [
       "Nike"
     ],
     "img": "assets/media/footwear-renders/warp-12-thumb.webp",
-    "href": "fragments/renders-air-max-warp/"
+    "href": "fragments/renders-air-max-warp/",
+    "client": "Nike"
   },
   {
     "id": "render-warp-13",
@@ -879,6 +941,7 @@ export const FOOTWEAR_RENDERS = [
       "Nike"
     ],
     "img": "assets/media/footwear-renders/warp-13-thumb.webp",
-    "href": "fragments/renders-air-max-warp/"
+    "href": "fragments/renders-air-max-warp/",
+    "client": "Nike"
   }
 ];

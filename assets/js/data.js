@@ -1,5 +1,5 @@
-import { FOOTWEAR } from './footwear-catalog.js';
-import { FOOTWEAR_RENDERS } from './footwear-renders.js';
+import { FOOTWEAR } from './footwear-catalog.js?v=portfolio-20261117';
+import { FOOTWEAR_RENDERS } from './footwear-renders.js?v=portfolio-20261117';
 
 // Site content. Everything on the home page is rendered from this file.
 // Copy here is still placeholder; titles come from the resume.

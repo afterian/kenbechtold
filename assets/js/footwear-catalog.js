@@ -24,7 +24,8 @@ export const FOOTWEAR = [
       "wireBytes": 7264044,
       "triangles": 1024625,
       "edgeSegments": 1561116
-    }
+    },
+    "client": "Nike"
   },
   {
     "id": "academy-ag",
@@ -51,7 +52,8 @@ export const FOOTWEAR = [
       "wireBytes": 11411684,
       "triangles": 1488158,
       "edgeSegments": 1857117
-    }
+    },
+    "client": "Nike"
   },
   {
     "id": "academy-ic",
@@ -78,7 +80,8 @@ export const FOOTWEAR = [
       "wireBytes": 10888856,
       "triangles": 1355033,
       "edgeSegments": 1767959
-    }
+    },
+    "client": "Nike"
   },
   {
     "id": "air-force-1-07-diamonds",
@@ -105,7 +108,8 @@ export const FOOTWEAR = [
       "wireBytes": 9113757,
       "triangles": 1556874,
       "edgeSegments": 2389508
-    }
+    },
+    "client": "Nike"
   },
   {
     "id": "air-force-1-mid",
@@ -132,7 +136,8 @@ export const FOOTWEAR = [
       "wireBytes": 3496725,
       "triangles": 688900,
       "edgeSegments": 826424
-    }
+    },
+    "client": "Nike"
   },
   {
     "id": "air-jordan-1-mid-554724-160-stitched-swoosh",
@@ -159,7 +164,8 @@ export const FOOTWEAR = [
       "wireBytes": 7765498,
       "triangles": 1374260,
       "edgeSegments": 1432331
-    }
+    },
+    "client": "Nike"
   },
   {
     "id": "air-max-2090-ct7695-whtwhtblkblue",
@@ -186,7 +192,8 @@ export const FOOTWEAR = [
       "wireBytes": 7896344,
       "triangles": 1272474,
       "edgeSegments": 1941977
-    }
+    },
+    "client": "Nike"
   },
   {
     "id": "air-max-90-sp21",
@@ -213,7 +220,8 @@ export const FOOTWEAR = [
       "wireBytes": 8276737,
       "triangles": 1419383,
       "edgeSegments": 1588098
-    }
+    },
+    "client": "Nike"
   },
   {
     "id": "air-max-95-og-diamond",
@@ -240,7 +248,8 @@ export const FOOTWEAR = [
       "wireBytes": 7334604,
       "triangles": 1046168,
       "edgeSegments": 1591017
-    }
+    },
+    "client": "Nike"
   },
   {
     "id": "air-max-love-color2",
@@ -267,7 +276,8 @@ export const FOOTWEAR = [
       "wireBytes": 6355333,
       "triangles": 850594,
       "edgeSegments": 1287873
-    }
+    },
+    "client": "Nike"
   },
   {
     "id": "air-max-motif",
@@ -294,7 +304,8 @@ export const FOOTWEAR = [
       "wireBytes": 7574910,
       "triangles": 1130110,
       "edgeSegments": 1353434
-    }
+    },
+    "client": "Nike"
   },
   {
     "id": "air-max-racer-pt",
@@ -321,7 +332,8 @@ export const FOOTWEAR = [
       "wireBytes": 12007849,
       "triangles": 1580069,
       "edgeSegments": 2385235
-    }
+    },
+    "client": "Nike"
   },
   {
     "id": "air-max-tm",
@@ -348,7 +360,8 @@ export const FOOTWEAR = [
       "wireBytes": 9165545,
       "triangles": 1282521,
       "edgeSegments": 1715936
-    }
+    },
+    "client": "Nike"
   },
   {
     "id": "air-max-verona",
@@ -375,7 +388,8 @@ export const FOOTWEAR = [
       "wireBytes": 6635548,
       "triangles": 893061,
       "edgeSegments": 1353282
-    }
+    },
+    "client": "Nike"
   },
   {
     "id": "airmaxdn8-bg",
@@ -402,7 +416,8 @@ export const FOOTWEAR = [
       "wireBytes": 10937039,
       "triangles": 1558284,
       "edgeSegments": 2331637
-    }
+    },
+    "client": "Nike"
   },
   {
     "id": "dangerous",
@@ -429,7 +444,8 @@ export const FOOTWEAR = [
       "wireBytes": 5179057,
       "triangles": 744775,
       "edgeSegments": 1126061
-    }
+    },
+    "client": "Nike"
   },
   {
     "id": "db2477",
@@ -457,7 +473,8 @@ export const FOOTWEAR = [
       "triangles": 999985,
       "edgeSegments": 1527323,
       "topologyLabel": "Decimated model topology"
-    }
+    },
+    "client": "Nike"
   },
   {
     "id": "dd7021",
@@ -484,7 +501,8 @@ export const FOOTWEAR = [
       "wireBytes": 7422096,
       "triangles": 982218,
       "edgeSegments": 1380297
-    }
+    },
+    "client": "Nike"
   },
   {
     "id": "epic-react-2-147454-cmg",
@@ -511,7 +529,8 @@ export const FOOTWEAR = [
       "wireBytes": 5135438,
       "triangles": 742130,
       "edgeSegments": 991735
-    }
+    },
+    "client": "Nike"
   },
   {
     "id": "jr-superfly-academy-fg",
@@ -538,7 +557,8 @@ export const FOOTWEAR = [
       "wireBytes": 8548598,
       "triangles": 1634506,
       "edgeSegments": 2267002
-    }
+    },
+    "client": "Nike"
   },
   {
     "id": "kyrie-7",
@@ -565,7 +585,8 @@ export const FOOTWEAR = [
       "wireBytes": 537760,
       "triangles": 76491,
       "edgeSegments": 116630
-    }
+    },
+    "client": "Nike"
   },
   {
     "id": "kyrie-low",
@@ -592,7 +613,8 @@ export const FOOTWEAR = [
       "wireBytes": 78205,
       "triangles": 11479,
       "edgeSegments": 12351
-    }
+    },
+    "client": "Nike"
   },
   {
     "id": "nike-md-runner-high",
@@ -619,7 +641,8 @@ export const FOOTWEAR = [
       "wireBytes": 8430878,
       "triangles": 1368148,
       "edgeSegments": 1544022
-    }
+    },
+    "client": "Nike"
   },
   {
     "id": "nike-zoom-winflo-7",
@@ -646,7 +669,8 @@ export const FOOTWEAR = [
       "wireBytes": 7201156,
       "triangles": 967703,
       "edgeSegments": 1458471
-    }
+    },
+    "client": "Nike"
   },
   {
     "id": "pegasus-37",
@@ -673,7 +697,8 @@ export const FOOTWEAR = [
       "wireBytes": 6189391,
       "triangles": 792520,
       "edgeSegments": 1199283
-    }
+    },
+    "client": "Nike"
   },
   {
     "id": "pegasus-38",
@@ -700,7 +725,8 @@ export const FOOTWEAR = [
       "wireBytes": 4752626,
       "triangles": 747498,
       "edgeSegments": 1134803
-    }
+    },
+    "client": "Nike"
   },
   {
     "id": "sm-z80w077",
@@ -727,7 +753,8 @@ export const FOOTWEAR = [
       "wireBytes": 6613349,
       "triangles": 1129462,
       "edgeSegments": 1339406
-    }
+    },
+    "client": "Nike"
   },
   {
     "id": "sp21",
@@ -754,7 +781,8 @@ export const FOOTWEAR = [
       "wireBytes": 7058162,
       "triangles": 1010655,
       "edgeSegments": 1543069
-    }
+    },
+    "client": "Nike"
   },
   {
     "id": "superfly-academy-ag",
@@ -781,7 +809,8 @@ export const FOOTWEAR = [
       "wireBytes": 8541324,
       "triangles": 1147631,
       "edgeSegments": 1741155
-    }
+    },
+    "client": "Nike"
   },
   {
     "id": "vapor-academy-ag",
@@ -808,7 +837,8 @@ export const FOOTWEAR = [
       "wireBytes": 2890700,
       "triangles": 337485,
       "edgeSegments": 476091
-    }
+    },
+    "client": "Nike"
   },
   {
     "id": "wmns-nike-air-max-fusion",
@@ -835,7 +865,8 @@ export const FOOTWEAR = [
       "wireBytes": 7292275,
       "triangles": 969447,
       "edgeSegments": 1468059
-    }
+    },
+    "client": "Nike"
   },
   {
     "id": "dysonsphere",
@@ -862,7 +893,8 @@ export const FOOTWEAR = [
       "wireBytes": 10160582,
       "triangles": 1538324,
       "edgeSegments": 1851885
-    }
+    },
+    "client": "Nike"
   },
   {
     "id": "air-jordan-1-low-ultra-light",
@@ -889,7 +921,8 @@ export const FOOTWEAR = [
       "wireBytes": 3317838,
       "triangles": 697542,
       "edgeSegments": 727744
-    }
+    },
+    "client": "Nike"
   },
   {
     "id": "air-max-270",
@@ -916,7 +949,8 @@ export const FOOTWEAR = [
       "wireBytes": 4416821,
       "triangles": 821552,
       "edgeSegments": 932914
-    }
+    },
+    "client": "Nike"
   },
   {
     "id": "af1-low",
@@ -943,7 +977,8 @@ export const FOOTWEAR = [
       "wireBytes": 2800233,
       "triangles": 570486,
       "edgeSegments": 600565
-    }
+    },
+    "client": "Nike"
   },
   {
     "id": "air-force-1-high",
@@ -970,7 +1005,8 @@ export const FOOTWEAR = [
       "wireBytes": 4436973,
       "triangles": 809123,
       "edgeSegments": 938919
-    }
+    },
+    "client": "Nike"
   },
   {
     "id": "air-force-1-utility",
@@ -997,7 +1033,8 @@ export const FOOTWEAR = [
       "wireBytes": 3171454,
       "triangles": 560242,
       "edgeSegments": 668886
-    }
+    },
+    "client": "Nike"
   },
   {
     "id": "air-huarache-run",
@@ -1024,7 +1061,8 @@ export const FOOTWEAR = [
       "wireBytes": 4281826,
       "triangles": 700563,
       "edgeSegments": 840786
-    }
+    },
+    "client": "Nike"
   },
   {
     "id": "air-huarache-run-ultra",
@@ -1051,7 +1089,8 @@ export const FOOTWEAR = [
       "wireBytes": 2823407,
       "triangles": 488130,
       "edgeSegments": 568629
-    }
+    },
+    "client": "Nike"
   },
   {
     "id": "air-jordan-12-retro",
@@ -1078,7 +1117,8 @@ export const FOOTWEAR = [
       "wireBytes": 3398814,
       "triangles": 702134,
       "edgeSegments": 725543
-    }
+    },
+    "client": "Nike"
   },
   {
     "id": "air-jordan-1-low",
@@ -1105,7 +1145,8 @@ export const FOOTWEAR = [
       "wireBytes": 3069648,
       "triangles": 610518,
       "edgeSegments": 651087
-    }
+    },
+    "client": "Nike"
   },
   {
     "id": "air-jordan-1-mid",
@@ -1132,7 +1173,8 @@ export const FOOTWEAR = [
       "wireBytes": 2772590,
       "triangles": 565139,
       "edgeSegments": 590972
-    }
+    },
+    "client": "Nike"
   },
   {
     "id": "air-jordan-3-retro",
@@ -1159,7 +1201,8 @@ export const FOOTWEAR = [
       "wireBytes": 4892374,
       "triangles": 795515,
       "edgeSegments": 988784
-    }
+    },
+    "client": "Nike"
   },
   {
     "id": "air-jordan-4-retro",
@@ -1186,7 +1229,8 @@ export const FOOTWEAR = [
       "wireBytes": 3717446,
       "triangles": 771668,
       "edgeSegments": 798131
-    }
+    },
+    "client": "Nike"
   },
   {
     "id": "air-jordan-6-retro",
@@ -1213,7 +1257,8 @@ export const FOOTWEAR = [
       "wireBytes": 4266141,
       "triangles": 816746,
       "edgeSegments": 849917
-    }
+    },
+    "client": "Nike"
   },
   {
     "id": "air-max-1-g",
@@ -1240,7 +1285,8 @@ export const FOOTWEAR = [
       "wireBytes": 3146008,
       "triangles": 544472,
       "edgeSegments": 694124
-    }
+    },
+    "client": "Nike"
   },
   {
     "id": "air-max-2090",
@@ -1267,7 +1313,8 @@ export const FOOTWEAR = [
       "wireBytes": 6179421,
       "triangles": 1097882,
       "edgeSegments": 1318453
-    }
+    },
+    "client": "Nike"
   },
   {
     "id": "air-max-270-react-072619",
@@ -1294,7 +1341,8 @@ export const FOOTWEAR = [
       "wireBytes": 3414449,
       "triangles": 580401,
       "edgeSegments": 731726
-    }
+    },
+    "client": "Nike"
   },
   {
     "id": "air-max-720",
@@ -1321,7 +1369,8 @@ export const FOOTWEAR = [
       "wireBytes": 2379826,
       "triangles": 284413,
       "edgeSegments": 365829
-    }
+    },
+    "client": "Nike"
   },
   {
     "id": "air-max-97",
@@ -1348,7 +1397,8 @@ export const FOOTWEAR = [
       "wireBytes": 2543562,
       "triangles": 449294,
       "edgeSegments": 548641
-    }
+    },
+    "client": "Nike"
   },
   {
     "id": "air-max-axis",
@@ -1375,7 +1425,8 @@ export const FOOTWEAR = [
       "wireBytes": 2792648,
       "triangles": 524914,
       "edgeSegments": 588832
-    }
+    },
+    "client": "Nike"
   },
   {
     "id": "air-max-excee",
@@ -1402,7 +1453,8 @@ export const FOOTWEAR = [
       "wireBytes": 4305694,
       "triangles": 743238,
       "edgeSegments": 946305
-    }
+    },
+    "client": "Nike"
   },
   {
     "id": "air-max-plus",
@@ -1429,7 +1481,8 @@ export const FOOTWEAR = [
       "wireBytes": 2448089,
       "triangles": 452578,
       "edgeSegments": 461977
-    }
+    },
+    "client": "Nike"
   },
   {
     "id": "air-presto-ip",
@@ -1456,7 +1509,8 @@ export const FOOTWEAR = [
       "wireBytes": 4618019,
       "triangles": 1135413,
       "edgeSegments": 1259639
-    }
+    },
+    "client": "Nike"
   },
   {
     "id": "air-presto-mid-utility",
@@ -1483,7 +1537,8 @@ export const FOOTWEAR = [
       "wireBytes": 4547008,
       "triangles": 694115,
       "edgeSegments": 882507
-    }
+    },
+    "client": "Nike"
   },
   {
     "id": "air-zoom-pegasus-35",
@@ -1510,7 +1565,8 @@ export const FOOTWEAR = [
       "wireBytes": 1531327,
       "triangles": 234799,
       "edgeSegments": 301839
-    }
+    },
+    "client": "Nike"
   },
   {
     "id": "air-zoom-pegasus-36-aq2203-center-swoosh",
@@ -1537,7 +1593,8 @@ export const FOOTWEAR = [
       "wireBytes": 2056699,
       "triangles": 338335,
       "edgeSegments": 406390
-    }
+    },
+    "client": "Nike"
   },
   {
     "id": "classic-cortez-15",
@@ -1564,7 +1621,8 @@ export const FOOTWEAR = [
       "wireBytes": 2526595,
       "triangles": 449185,
       "edgeSegments": 522202
-    }
+    },
+    "client": "Nike"
   },
   {
     "id": "cortez-ultra",
@@ -1591,7 +1649,8 @@ export const FOOTWEAR = [
       "wireBytes": 1968781,
       "triangles": 341655,
       "edgeSegments": 379287
-    }
+    },
+    "client": "Nike"
   },
   {
     "id": "cw7356",
@@ -1618,7 +1677,8 @@ export const FOOTWEAR = [
       "wireBytes": 4752641,
       "triangles": 747498,
       "edgeSegments": 1134803
-    }
+    },
+    "client": "Nike"
   },
   {
     "id": "jordan-alpha-360",
@@ -1645,7 +1705,8 @@ export const FOOTWEAR = [
       "wireBytes": 2981507,
       "triangles": 581168,
       "edgeSegments": 597831
-    }
+    },
+    "client": "Nike"
   },
   {
     "id": "joyride-run-2pod",
@@ -1672,7 +1733,8 @@ export const FOOTWEAR = [
       "wireBytes": 2950643,
       "triangles": 743734,
       "edgeSegments": 790142
-    }
+    },
+    "client": "Nike"
   },
   {
     "id": "kd-trey-5-viii",
@@ -1699,7 +1761,8 @@ export const FOOTWEAR = [
       "wireBytes": 4478289,
       "triangles": 691939,
       "edgeSegments": 902774
-    }
+    },
+    "client": "Nike"
   },
   {
     "id": "nike-air-max-97-se-new-tab",
@@ -1726,7 +1789,8 @@ export const FOOTWEAR = [
       "wireBytes": 2497847,
       "triangles": 436126,
       "edgeSegments": 530433
-    }
+    },
+    "client": "Nike"
   },
   {
     "id": "nike-air-max-invigor",
@@ -1753,7 +1817,8 @@ export const FOOTWEAR = [
       "wireBytes": 3860279,
       "triangles": 579517,
       "edgeSegments": 711662
-    }
+    },
+    "client": "Nike"
   },
   {
     "id": "nike-air-max-thea",
@@ -1780,7 +1845,8 @@ export const FOOTWEAR = [
       "wireBytes": 3047617,
       "triangles": 565153,
       "edgeSegments": 663949
-    }
+    },
+    "client": "Nike"
   },
   {
     "id": "nike-cortez-basic-16-jewel",
@@ -1807,7 +1873,8 @@ export const FOOTWEAR = [
       "wireBytes": 2654630,
       "triangles": 479135,
       "edgeSegments": 556558
-    }
+    },
+    "client": "Nike"
   },
   {
     "id": "nike-court-borough-low",
@@ -1834,7 +1901,8 @@ export const FOOTWEAR = [
       "wireBytes": 2765941,
       "triangles": 515277,
       "edgeSegments": 626339
-    }
+    },
+    "client": "Nike"
   },
   {
     "id": "nike-court-borough-mid",
@@ -1861,7 +1929,8 @@ export const FOOTWEAR = [
       "wireBytes": 2520538,
       "triangles": 450644,
       "edgeSegments": 538864
-    }
+    },
+    "client": "Nike"
   },
   {
     "id": "nike-internationalist-113994-womens",
@@ -1888,7 +1957,8 @@ export const FOOTWEAR = [
       "wireBytes": 2666100,
       "triangles": 539531,
       "edgeSegments": 606061
-    }
+    },
+    "client": "Nike"
   },
   {
     "id": "nike-sb-blazer-zoom-low",
@@ -1915,7 +1985,8 @@ export const FOOTWEAR = [
       "wireBytes": 1494857,
       "triangles": 287172,
       "edgeSegments": 297564
-    }
+    },
+    "client": "Nike"
   },
   {
     "id": "nike-sb-check-solar-843895-010",
@@ -1942,7 +2013,8 @@ export const FOOTWEAR = [
       "wireBytes": 2430300,
       "triangles": 399674,
       "edgeSegments": 486831
-    }
+    },
+    "client": "Nike"
   },
   {
     "id": "nike-tanjun",
@@ -1969,7 +2041,8 @@ export const FOOTWEAR = [
       "wireBytes": 2118700,
       "triangles": 275890,
       "edgeSegments": 348497
-    }
+    },
+    "client": "Nike"
   },
   {
     "id": "nike-zoom-stefan-janoski",
@@ -1996,7 +2069,8 @@ export const FOOTWEAR = [
       "wireBytes": 3471354,
       "triangles": 553675,
       "edgeSegments": 696159
-    }
+    },
+    "client": "Nike"
   },
   {
     "id": "renew-run",
@@ -2023,7 +2097,8 @@ export const FOOTWEAR = [
       "wireBytes": 3855274,
       "triangles": 487901,
       "edgeSegments": 668296
-    }
+    },
+    "client": "Nike"
   },
   {
     "id": "revolution-5",
@@ -2050,7 +2125,8 @@ export const FOOTWEAR = [
       "wireBytes": 4423256,
       "triangles": 743753,
       "edgeSegments": 1029767
-    }
+    },
+    "client": "Nike"
   },
   {
     "id": "winflo-6",
@@ -2077,7 +2153,8 @@ export const FOOTWEAR = [
       "wireBytes": 1715551,
       "triangles": 257510,
       "edgeSegments": 347786
-    }
+    },
+    "client": "Nike"
   },
   {
     "id": "renders-air-max-warp",
@@ -2105,6 +2182,7 @@ export const FOOTWEAR = [
       "triangles": 999794,
       "edgeSegments": 1626800,
       "topologyLabel": "Decimated model topology"
-    }
+    },
+    "client": "Nike"
   }
 ];

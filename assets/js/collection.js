@@ -1,5 +1,5 @@
 // Client collections reuse the actual case-study HTML. Nothing is duplicated into a second editorial source.
-import { $, $$, ROOT, ordered, projectURL, stills, videos, reveal } from './ui.js?v=navigation-1';
+import { $, $$, ROOT, ordered, projectURL, stills, videos, reveal } from './ui.js?v=portfolio-20261117';
 const covers = {
   'sixfold-war': ['work/sixfold-war/media/cover.webp', 'The Sixfold War: six factions in a hex strategy world'],
   'mesh-research': ['work/mesh-research/assets/img/thumbs/bear_supernormal.png', 'Public benchmark bear reconstructed with photometric stereo'],

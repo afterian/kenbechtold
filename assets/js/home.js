@@ -1,8 +1,8 @@
 // Home page: featured hero, selected work, fragments.
-import { PIECES, CODES } from './data.js?v=navigation-1';
+import { PIECES, CODES } from './data.js?v=portfolio-20261117';
 import { findCode } from './curation.js';
-import { showCollection, hideCollection } from './collection.js?v=navigation-1';
-import { $, $$, pad, escapeHTML, media, stills, videos, loopInView, reveal, bindCode, paintCode, access, ordered, curtain, lightbox, createViewer, projectURL, ROOT } from './ui.js?v=navigation-1';
+import { showCollection, hideCollection } from './collection.js?v=portfolio-20261117';
+import { $, $$, pad, escapeHTML, media, stills, videos, loopInView, reveal, bindCode, paintCode, access, ordered, curtain, lightbox, createViewer, projectURL, ROOT } from './ui.js?v=portfolio-20261117';
 
 const hero = $('[data-hero]'), heroVideo = $('.hero__v', hero), heroImage = $('.hero__i', hero), heroImageNote = $('.hero__image-note', hero);
 const lb = lightbox();
@@ -60,7 +60,7 @@ function render(a) {
   const h = (k) => $(`[data-h="${k}"]`, hero);
   featured = f;
   hero.href = projectURL(f.id);
-  h('label').textContent = a ? `Picked for ${a.name}` : 'Featured';
+  h('label').textContent = (a ? `Picked for ${a.name}` : 'Featured') + (f.client ? ` / Client: ${f.client}` : '');
   h('count').textContent = `01 / ${pad(list.length)}`;
   h('title').setAttribute('aria-label', f.title);
   h('title').innerHTML = f.title.split(' ').map((w, i) => `<span class="ln" aria-hidden="true"><span style="--i:${i}">${w}</span></span>`).join('');
@@ -78,7 +78,7 @@ function render(a) {
       <span class="card__flag">${p.picked ? 'Picked for you' : ''}</span>
       <span class="card__wire">${hoverLabel(p)}</span>
       <span class="card__image-note">${p.imageLabel || ''}</span>
-      <div class="card__meta"><span class="n">${p.n}</span><h3>${p.title}</h3><span class="y">${p.year}</span><span class="k">${p.kind}</span></div>
+      <div class="card__meta"><span class="n">${p.n}</span><h3>${p.title}</h3><span class="y">${p.year}</span><span class="k">${p.kind}${p.client ? ` / Client: ${escapeHTML(p.client)}` : ''}</span></div>
     </a>`).join('');
 
   stills();
@@ -91,7 +91,7 @@ function render(a) {
 $('[data-frag]').innerHTML = PIECES.map((p, i) => `
   <button type="button" class="tile" data-i="${i}" data-tag="${escapeHTML(p.tag)}" data-reveal style="--d:${i % 6}">
     ${media(p, { w: 640, h: 640 })}
-    <span class="tile__tag">${p.video ? '▸ ' : ''}${escapeHTML(p.tag)}</span>
+    <span class="tile__tag">${p.video ? '▸ ' : ''}${escapeHTML(p.tag)}${p.client ? ` / Client: ${escapeHTML(p.client)}` : ''}</span>
     <span class="tile__cap"><span>${pad(i + 1)}</span><span>${escapeHTML(p.title)}</span></span>
   </button>`).join('');
 
