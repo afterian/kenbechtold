@@ -8,6 +8,15 @@
     4 Top bar       8 Fragments      12 Curtain        16 Breakpoints
    ========================================================================== */
 
+/* Native navigation feedback: no overlay, hidden content or layout shift. */
+.navigation-status { position: fixed; z-index: 100; left: 50%; bottom: max(24px, env(safe-area-inset-bottom)); transform: translateX(-50%); width: max-content; max-width: calc(100% - 32px); padding: 12px 18px; border: 1px solid var(--line); border-radius: 4px; background: var(--bg-2); color: var(--fg); font: 12px/1.5 var(--mono); box-shadow: 0 4px 24px #0008; pointer-events: none; }
+.navigation-status[hidden] { display: none; }
+.navigation-status::before { content: ''; display: inline-block; width: 7px; height: 7px; margin-right: 10px; border-radius: 50%; background: var(--acc); animation: navigation-pulse 1s ease-in-out infinite alternate; }
+@keyframes navigation-pulse { to { opacity: .3; } }
+@media (prefers-reduced-motion: reduce) { .navigation-status::before { animation: none; } }
+/* Preview videos are decorations inside their project link; the link owns the tap. */
+a.card video[data-hover], a.hero video[data-hover] { pointer-events: none; }
+
 /* 1 Tokens ---------------------------------------------------------------- */
 :root {
   /* color: black, off-white, one accent */

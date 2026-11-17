@@ -1,6 +1,6 @@
 // Shared behaviour for every page: page transitions, scroll reveal, media placeholders,
 // access codes, the lightbox and the 3D viewer controls.
-import { PROJECTS, CODES } from './data.js';
+import { PROJECTS, CODES } from './projects.js';
 import { normalizeCode, findCode, selectProjects } from './curation.js';
 import { pixels } from './pixels.js';
 import { reveal, observePosters } from './loading.js';

@@ -1,8 +1,8 @@
 // Home page: featured hero, selected work, fragments.
-import { PIECES, CODES } from './data.js';
+import { PIECES, CODES } from './data.js?v=navigation-1';
 import { findCode } from './curation.js';
-import { showCollection, hideCollection } from './collection.js';
-import { $, $$, pad, escapeHTML, media, stills, videos, loopInView, reveal, bindCode, paintCode, access, ordered, curtain, lightbox, createViewer, projectURL, ROOT } from './ui.js';
+import { showCollection, hideCollection } from './collection.js?v=navigation-1';
+import { $, $$, pad, escapeHTML, media, stills, videos, loopInView, reveal, bindCode, paintCode, access, ordered, curtain, lightbox, createViewer, projectURL, ROOT } from './ui.js?v=navigation-1';
 
 const hero = $('[data-hero]'), heroVideo = $('.hero__v', hero), heroImage = $('.hero__i', hero), heroImageNote = $('.hero__image-note', hero);
 const lb = lightbox();

@@ -1,7 +1,7 @@
 // Case-study pages. The page content is plain HTML; this adds the 3D viewers, placeholders,
-// scroll reveal, the access code, and fills the "next project" link from data.js.
+// scroll reveal, the access code, and fills the "next project" link from projects.js.
 // The page says which project it is with <body data-project="deep-capture">.
-import { $, $$, pad, media, stills, videos, reveal, viewerUI, bindCode, paintCode, access, ordered, curtain, projectURL, ROOT } from './ui.js';
+import { $, $$, pad, media, stills, videos, reveal, viewerUI, bindCode, paintCode, access, ordered, curtain, projectURL, ROOT } from './ui.js?v=navigation-1';
 
 const list = ordered(access.get());
 const i = list.findIndex((p) => p.id === document.body.dataset.project);
