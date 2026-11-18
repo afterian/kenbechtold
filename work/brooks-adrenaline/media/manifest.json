@@ -1,0 +1,15 @@
+{
+  "film": "brooks-daily-ground.mp4",
+  "sha256": "36eadfa6d59758480a94681f709968fd5c98ea7ea404dcee18149139f199dce9",
+  "bytes": 10869888,
+  "durationSeconds": 15,
+  "width": 1280,
+  "height": 720,
+  "fps": 24,
+  "videoCodec": "h264",
+  "audioCodec": "aac",
+  "sourceUnchanged": true,
+  "creator": "Dream City Studio",
+  "context": "Independent product concept; not commissioned by or affiliated with Brooks",
+  "images": "Selected film frames and generated visual direction only; no private source records."
+}
