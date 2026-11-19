@@ -736,13 +736,17 @@ body.collection-on main > [data-hero], body.collection-on #work, body.collection
 }
 </style>
   <script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
-  <link rel="modulepreload" href="assets/js/home.js?v=portfolio-20261117">
+  <link rel="modulepreload" href="assets/js/home.js?v=homepage-20261119">
   <link rel="modulepreload" href="assets/js/ui.js?v=portfolio-20261117">
   <link rel="modulepreload" href="assets/js/data.js?v=portfolio-20261117">
   <link rel="modulepreload" href="assets/js/pixels.js">
   <link rel="modulepreload" href="assets/js/loading.js">
   <script defer src="assets/js/navigation.js?v=portfolio-20261117"></script>
-<style>body.leaving{opacity:1}</style></head>
+<style>body.leaving{opacity:1}
+.hero--video .hero__v{opacity:0;animation:none;pointer-events:none}
+.hero--video.hero--playing .hero__v{opacity:1;transition:opacity .3s ease}
+@media (prefers-reduced-motion: reduce), (hover: none), (pointer: coarse){.hero--video .hero__v{display:none!important}}
+</style></head>
 <body id="top">
   <header class="bar">
     <a class="bar__id" href="./"><b>Ken Bechtold</b><span>AI · 3D · Motion</span></a>
@@ -918,6 +922,6 @@ body.collection-on main > [data-hero], body.collection-on #work, body.collection
     </div>
   </footer>
 
-  <script type="module" src="assets/js/home.js?v=portfolio-20261117"></script>
+  <script type="module" src="assets/js/home.js?v=homepage-20261119"></script>
 </body>
 </html>

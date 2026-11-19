@@ -8,30 +8,52 @@ const hero = $('[data-hero]'), heroVideo = $('.hero__v', hero), heroImage = $('.
 const lb = lightbox();
 let viewer = null, viewerAsked = false, featured = null;
 
-// Use project artwork when available; procedural 3D remains the fallback for projects without media.
+// Keep the hero poster visible during video startup and codec/network failures.
+const previewAllowed = matchMedia('(hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference)');
+const rememberPoster = () => hero.classList.remove('hero--playing');
+heroVideo.addEventListener('playing', () => {
+  if (hero.classList.contains('hero--video') && heroVideo.dataset.id === featured?.id) {
+    hero.classList.add('hero--playing');
+  }
+});
+['waiting', 'stalled', 'error', 'emptied', 'pause'].forEach((event) => heroVideo.addEventListener(event, rememberPoster));
+addEventListener('pageshow', () => {
+  if (heroVideo.paused || heroVideo.readyState < 3) rememberPoster();
+});
+
 function paintHero(f) {
-  const video = !!f.video, image = !video && !!f.img;
+  const poster = f.poster || f.img;
+  const video = !!f.video && previewAllowed.matches;
+  const image = !!poster;
   hero.classList.toggle('hero--video', video);
   hero.classList.toggle('hero--image', image);
   heroImage.hidden = !image;
   heroImageNote.hidden = !image || !f.imageLabel;
   heroImageNote.textContent = image ? (f.imageLabel || '') : '';
+  if (image) {
+    const src = ROOT + poster;
+    if (heroImage.src !== src) heroImage.src = src;
+    heroImage.alt = f.imgAlt || `${f.title} project artwork`;
+  }
   if (video) {
     if (heroVideo.dataset.id !== f.id) {
+      rememberPoster();
       heroVideo.dataset.id = f.id;
-      const poster = f.poster || f.img;
       if (poster) heroVideo.poster = ROOT + poster; else heroVideo.removeAttribute('poster');
       heroVideo.src = ROOT + f.video;
       loopInView(heroVideo);
     }
     return;
   }
-  if (heroVideo.dataset.id) { heroVideo.pause(); heroVideo.removeAttribute('src'); heroVideo.load(); delete heroVideo.dataset.id; }
-  if (image) {
-    heroImage.src = ROOT + f.img;
-    heroImage.alt = f.imgAlt || `${f.title} project artwork`;
-    return;
+  rememberPoster();
+  if (heroVideo.dataset.id) {
+    heroVideo.pause();
+    heroVideo.removeAttribute('src');
+    heroVideo.removeAttribute('poster');
+    heroVideo.load();
+    delete heroVideo.dataset.id;
   }
+  if (image) return;
   if (viewer) viewer.setForm(f.form, f.seed, f.look);
   else if (!viewerAsked) {
     viewerAsked = true;
@@ -45,8 +67,13 @@ function paintHero(f) {
   }
 }
 
-// What the card's hover label says, depending on what the hover shows.
-const hoverLabel = (p) => (p.video ? 'Preview' : p.img && !p.hover ? '' : 'Wireframe');
+// On touch and reduced-motion, decorative preview clips should not allocate video decoders.
+const homeMedia = (p, options) => {
+  const poster = p.poster || p.img;
+  if (p.video && !previewAllowed.matches && poster) return media({ ...p, video: null, img: poster }, options);
+  return media(p, options);
+};
+const hoverLabel = (p) => (p.video ? (previewAllowed.matches ? 'Preview' : '') : p.img && !p.hover ? '' : 'Wireframe');
 
 function render(a) {
   if (a?.layout === 'collection') {
@@ -74,7 +101,7 @@ function render(a) {
   $('[data-work-n]').textContent = `(${pad(list.length - 1)})`;
   $('[data-work]').innerHTML = list.slice(1).map((p, i) => `
     <a class="card" href="${projectURL(p.id)}" data-reveal style="--d:${i % 2}">
-      ${media(p, { w: 1200, h: 750, cls: 'media--frame' })}
+      ${homeMedia(p, { w: 1200, h: 750, cls: 'media--frame' })}
       <span class="card__flag">${p.picked ? 'Picked for you' : ''}</span>
       <span class="card__wire">${hoverLabel(p)}</span>
       <span class="card__image-note">${p.imageLabel || ''}</span>
@@ -90,7 +117,7 @@ function render(a) {
 /* fragments */
 $('[data-frag]').innerHTML = PIECES.map((p, i) => `
   <button type="button" class="tile" data-i="${i}" data-tag="${escapeHTML(p.tag)}" data-reveal style="--d:${i % 6}">
-    ${media(p, { w: 640, h: 640 })}
+    ${homeMedia(p, { w: 640, h: 640 })}
     <span class="tile__tag">${p.video ? '▸ ' : ''}${escapeHTML(p.tag)}${p.client ? ` / Client: ${escapeHTML(p.client)}` : ''}</span>
     <span class="tile__cap"><span>${pad(i + 1)}</span><span>${escapeHTML(p.title)}</span></span>
   </button>`).join('');
