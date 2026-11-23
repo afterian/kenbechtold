@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Dream City Studio Visualization Lab</title>
+<meta name="description" content="A visual workspace for moodboarding, image and video workflows, and agent-directed procedural 3D.">
+<link rel="stylesheet" href="case.css">
+<script src="case.js" defer></script>
+</head>
+<body>
+<header class="top wrap"><a class="wordmark" href="../../" aria-label="Back to Ken Bechtold’s portfolio"><b class="mark" aria-hidden="true"><i></i><i></i><i></i><i></i></b> Dream City Studio <span> / Lab</span></a><nav aria-label="Sections"><a href="#workflow">Workflow</a><a href="#motion">Motion</a><a href="#geometry">3D</a></nav></header>
+<main id="top">
+<section class="hero wrap" aria-labelledby="title">
+<p class="eyebrow"><span class="dot"></span> PRODUCT CASE STUDY <span class="divide"></span> BUILT FOR DREAM CITY STUDIO</p>
+<h1 id="title">Dream City Studio<br>Visualization Lab<span>.</span></h1>
+<p class="lede">Direct the work.<br class="mobile-only"> Let the agent wire it.</p>
+<p class="intro">A visual workspace for collecting references, setting direction and reviewing what comes back. The artist makes the creative calls. The agent can assemble the workflow on the same canvas.</p>
+<a class="action" href="#workflow">See how it works <span aria-hidden="true">↘</span></a>
+<figure class="hero-shot"><a href="media/cover-studio-workspace.png"><img src="media/cover-studio-workspace.png" width="1440" height="809" alt="Dream City Studio app showing two Jordan 16 shot lanes, with the toolbar, image generation, Seedance generators and playable output nodes visible"></a><figcaption><span>THE STUDIO WORKSPACE</span><span>Jordan 16 · two working shot lanes</span></figcaption></figure>
+</section>
+
+<section class="section wrap workflow print-page" id="workflow" aria-labelledby="workflow-title">
+<div class="kicker">01 / IMAGE GENERATION</div>
+<div class="section-head"><h2 id="workflow-title">From reference<br>to frame.</h2><p>Group images and a prompt into one brief, or wire references individually. For the Jordan 16 study, Sunburst used a product photo and written direction to create a new, punk-zine frame.</p></div>
+<div class="feature-meta"><b>INPUT</b> Source photograph <span>+</span> original prompt <span>→</span> <b>MODEL</b> GPT Image 2.6 Sunburst <span>→</span> <b>OUTPUT</b> Relit still</div>
+<figure class="closeup"><a href="media/sunburst-live-graph.png"><img src="media/sunburst-live-graph.png" alt="Actual Studio canvas with the Jordan 16 source photo connected to the Sunburst generator, an excerpt of its prompt, and the returned punk-zine still"></a><figcaption>Free The Youth × Air Jordan 16 · real Studio nodes, reframed for review. The excerpt repeats the prompt stored in the generator.</figcaption></figure><div class="split two-actions"><div><p class="kicker">ARTIST</p><h3>Keep the creative calls.</h3><p>Arrange references, write direction and compare takes in context. Keep the prompt next to the images it describes.</p></div><div><p class="kicker">AGENT</p><h3>Skip hand-wiring.</h3><p>Give the agent a goal. It can add and connect the graph, revise it as direction changes, run generation when approved, and put results back on the board. The connections stay visible and editable.</p></div></div>
+</section>
+
+<section class="section wrap print-page" id="motion" aria-labelledby="motion-title">
+<div class="kicker">02 / VIDEO GENERATION</div>
+<div class="section-head"><h2 id="motion-title">Direct the shot.</h2><p>For <em>Acid / Quilt</em>, a first frame and a separate camera-direction note both feed the Seedance 2.5 generator. The take comes back into its own playable output node.</p></div>
+<div class="feature-meta"><b>INPUTS</b> First frame <span>+</span> motion direction <span>→</span> <b>MODEL</b> Seedance 2.5 via OpenRouter</div>
+<figure class="closeup"><a href="media/seedance-live-graph.png"><img src="media/seedance-live-graph.png" alt="Real Liquid Max first frame and a separate text node wired into the Seedance video generator and its output"></a><figcaption>Acid / Quilt · actual connections and cached take; direction shortened for legibility.</figcaption></figure>
+<figure class="player-inline"><video controls playsinline preload="none" poster="media/motion-poster.webp" aria-label="Cached Seedance take"><source src="media/seedance-board-take.mp4" type="video/mp4"></video><figcaption>Play the returned take</figcaption></figure>
+</section>
+<section class="section geometry print-page" id="geometry" aria-labelledby="geometry-title"><div class="wrap">
+<div class="kicker">03 / PROCEDURAL 3D</div>
+<div class="section-head"><h2 id="geometry-title">Build with fields.</h2><p>This tread study combines two editable branches. One turns a reference image into a lug profile; the other generates cells and steers them along a curve. They meet in a blend, then a guide groove shapes the relief.</p></div>
+<figure class="closeup geometry-graph"><a href="media/procedural-3d-live-graph.png"><img src="media/procedural-3d-live-graph.png" width="1440" height="632" alt="Real nine-node Studio graph, with a reference-derived height and lug branch and a procedural cellular branch converging at Field Blend, then passing through Guide Groove to Height Map to Mesh"></a><figcaption>Studio 3D Tools Showcase · nine original nodes and eight real connections, reframed for review.</figcaption></figure>
+<div class="graph-stages"><div><p class="kicker">01 / REFERENCE BRANCH</p><h3>Shape the profile.</h3><p>Image Height and Field Remap feed the Lug Profile node.</p></div><div><p class="kicker">02 / PROCEDURAL BRANCH</p><h3>Guide the pattern.</h3><p>Cellular Field feeds Flow Along Curve for direction and spacing.</p></div><div><p class="kicker">03 / MERGE</p><h3>Resolve the relief.</h3><p>Field Blend combines both branches. Guide Groove feeds Height Map to Mesh.</p></div></div>
+<figure class="closeup graph-detail"><a href="media/procedural-3d-stage-detail.png"><img src="media/procedural-3d-stage-detail.png" alt="Field Blend connected to Guide Groove and then the 3D Relief node"></a><figcaption>Closer view · blend, carve, then convert to geometry.</figcaption></figure>
+</div></section>
+
+<section class="section wrap capabilities print-page agent-workflow" id="agent" aria-labelledby="cap-title">
+<div class="kicker">04 / AGENT WORKFLOW</div>
+<div class="section-head"><h2 id="cap-title">Direct in chat.<br>Create on the board.</h2><p>Give the agent creative direction in chat. It handles the technical setup in Studio: grouping references, wiring nodes and organizing the board so the work is ready to review.</p></div>
+<div class="agent-handoff">
+<div class="agent-chat"><p class="kicker">01 / YOU BRIEF THE AGENT</p><blockquote>“Use this shoe image as the first frame. Start low, then push in fast. Keep the whole shoe readable. Put the take next to the reference.”</blockquote><p class="caption">Example direction in chat</p></div>
+<div class="agent-arrow" aria-hidden="true">→</div>
+<div class="agent-wiring"><p class="kicker">02 / THE AGENT SETS UP STUDIO</p><ol><li>Groups references and directions</li><li>Wires the generators and outputs</li><li>Organizes shots and returned takes</li></ol></div>
+</div>
+<figure class="closeup agent-board"><a href="media/seedance-live-graph.png"><img src="media/seedance-live-graph.png" alt="Actual Studio board with an image and motion note wired into Seedance and a video output"></a><figcaption>03 / YOU REVIEW ON THE BOARD · Actual Liquid Max graph</figcaption></figure>
+<p class="agent-close">Compare takes, pick a direction, and ask for changes. The agent updates the board; you stay focused on the visuals.</p>
+<p class="credit">A tool built for Dream City Studio.</p>
+</section>
+</main><footer class="wrap footer"><span>Dream City Studio Visualization Lab</span><a href="#top">Back to top ↑</a></footer>
+</body></html>
